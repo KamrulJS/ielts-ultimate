@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   Users,
@@ -22,6 +23,7 @@ import {
   Menu,
   X,
   CheckCircle2,
+  LogOut,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -67,7 +69,8 @@ const ADMIN_ICONS = {
 };
 
 export function AdminConsoleView() {
-  const { adminStudents, setAdminStudents, posts, showToast } = useApp();
+  const router = useRouter();
+  const { adminStudents, setAdminStudents, posts, showToast, logout } = useApp();
 
   const [section, setSection] = useState('overview');
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -366,12 +369,27 @@ export function AdminConsoleView() {
             <Badge variant="dark">Admin Demo Console</Badge>
             <span className="text-xs text-muted admin-subtitle">Frontend CRUD demonstration (Local JSON + State)</span>
           </div>
-          <Link href="/dashboard" className="btn btn-secondary btn-sm">
-            Exit to Student View
-          </Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <Link href="/" className="btn btn-ghost btn-sm">
+              Public Site
+            </Link>
+            <Link href="/dashboard" className="btn btn-secondary btn-sm">
+              Exit to Student View
+            </Link>
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={() => {
+                logout();
+                router.replace('/login?role=admin');
+              }}
+            >
+              <LogOut size={14} /> Sign Out
+            </button>
+          </div>
         </header>
 
-        <main className="admin-main-inner" style={{ padding: 'clamp(14px, 2.5vw, 24px) clamp(12px, 3vw, 28px)', maxWidth: 1360, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <main className="admin-main-inner" style={{ padding: 'clamp(14px, 2.5vw, 24px) clamp(12px, 2.5vw, 20px)', maxWidth: 1450, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
           <PageHeader
             title={ADMIN_NAV_ITEMS.find((n) => n.id === section)?.label || 'Admin Overview'}
             description="Manage platform students, educators, exam modules, community moderation, and analytics."

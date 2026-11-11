@@ -397,7 +397,7 @@ export function DashboardClient() {
       </section>
 
       {/* Filko-style Band 7.5 Study Progression Timeline */}
-      <section data-animate="card" className="card">
+      <section id="roadmap" data-animate="card" className="card">
         <div className="section-header">
           <div>
             <span className="text-xs text-muted" style={{ fontWeight: 600 }}>Stage 4 of 5</span>

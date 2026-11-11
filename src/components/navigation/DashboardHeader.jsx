@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Menu,
   Search,
@@ -14,20 +15,49 @@ import {
   Trophy,
   ShieldCheck,
   User,
+  Globe,
+  LogOut,
+  Calendar,
+  PenTool,
+  Video,
+  Swords,
+  MessageSquare,
+  Headphones,
+  Gift,
+  Award,
+  BellOff,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
+import { useIsMounted } from '@/hooks/useIsMounted';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
 import styles from './Sidebar.module.css';
 
+const NOTIF_CATEGORY_ICONS = {
+  Evaluation: PenTool,
+  Session: Video,
+  Streak: Flame,
+  Battle: Swords,
+  Community: MessageSquare,
+  'Test Result': Headphones,
+  'Study Plan': Calendar,
+  Referral: Gift,
+  'Mock Test': Award,
+};
+
 export function DashboardHeader() {
+  const router = useRouter();
+  const mounted = useIsMounted();
   const {
+    auth,
     profile,
+    bookings,
     notifications,
     unreadCount,
     markNotificationRead,
     markAllNotificationsRead,
     setMobileNavOpen,
     setSearchOpen,
+    logout,
   } = useApp();
 
   const [notifOpen, setNotifOpen] = useState(false);
@@ -36,17 +66,51 @@ export function DashboardHeader() {
   const userRef = useRef(null);
 
   useEffect(() => {
-    const closeOnClick = (e) => {
-      if (notifRef.current && !notifRef.current.contains(e.target)) setNotifOpen(false);
-      if (userRef.current && !userRef.current.contains(e.target)) setUserMenuOpen(false);
+    const closeOnClickOutside = (e) => {
+      if (notifRef.current && !notifRef.current.contains(e.target)) {
+        setNotifOpen(false);
+      }
+      if (userRef.current && !userRef.current.contains(e.target)) {
+        setUserMenuOpen(false);
+      }
     };
-    document.addEventListener('mousedown', closeOnClick);
-    return () => document.removeEventListener('mousedown', closeOnClick);
+
+    const closeOnEsc = (e) => {
+      if (e.key === 'Escape') {
+        setNotifOpen(false);
+        setUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', closeOnClickOutside);
+    window.addEventListener('keydown', closeOnEsc);
+    return () => {
+      document.removeEventListener('mousedown', closeOnClickOutside);
+      window.removeEventListener('keydown', closeOnEsc);
+    };
   }, []);
+
+  const isAdminAuthorized = mounted && auth?.role === 'admin';
+  const accountLinks = [
+    { href: '/profile', label: 'My Profile', icon: User },
+    { href: '/settings', label: 'Account Settings', icon: Settings },
+    {
+      href: '/people?tab=sessions',
+      label: 'My Bookings',
+      icon: Calendar,
+      badge: bookings?.length > 0 ? String(bookings.length) : null,
+    },
+    { href: '/bookmarks', label: 'My Bookmarks', icon: Bookmark },
+    { href: '/achievements', label: 'Achievements', icon: Trophy },
+    ...(isAdminAuthorized
+      ? [{ href: '/admin', label: 'Admin Console', icon: ShieldCheck }]
+      : []),
+    { href: '/', label: 'Public Website', icon: Globe },
+  ];
 
   return (
     <header className={styles.topbar}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, minWidth: 0 }}>
+      <div className={styles.topbarLeft}>
         <button
           type="button"
           className={`btn btn-secondary btn-icon ${styles.mobileMenuBtn}`}
@@ -56,10 +120,11 @@ export function DashboardHeader() {
           <Menu size={18} />
         </button>
 
-        {/* Global Search Bar Trigger (Filko topbar style) */}
+        {/* Global Search Bar Trigger */}
         <button
           type="button"
           onClick={() => setSearchOpen(true)}
+          aria-label="Search platform"
           className={styles.topbarSearchBtn}
           style={{
             display: 'flex',
@@ -67,19 +132,22 @@ export function DashboardHeader() {
             gap: 10,
             width: '100%',
             minWidth: 0,
-            maxWidth: 400,
+            maxWidth: 420,
             overflow: 'hidden',
             padding: '8px 14px',
             borderRadius: 'var(--radius-pill)',
             backgroundColor: 'var(--surface)',
             border: '1px solid var(--border)',
             color: 'var(--text-muted)',
-            fontSize: '0.85rem',
+            fontSize: '0.875rem',
             textAlign: 'left',
           }}
         >
           <Search size={15} style={{ flexShrink: 0 }} />
-          <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span
+            className={styles.topbarSearchText}
+            style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+          >
             Search courses, tests, cue cards, vocabulary...
           </span>
           <span
@@ -106,7 +174,7 @@ export function DashboardHeader() {
           style={{
             backgroundColor: 'var(--surface)',
             padding: '6px 12px',
-            fontSize: '0.8rem',
+            fontSize: '0.8125rem',
           }}
           title="Total XP earned"
         >
@@ -120,7 +188,7 @@ export function DashboardHeader() {
           style={{
             backgroundColor: 'var(--surface)',
             padding: '6px 12px',
-            fontSize: '0.8rem',
+            fontSize: '0.8125rem',
           }}
           title="Current study streak"
         >
@@ -129,90 +197,209 @@ export function DashboardHeader() {
         </Link>
 
         {/* Notifications Popover */}
-        <div ref={notifRef} style={{ position: 'relative' }}>
+        <div ref={notifRef} className={styles.popoverAnchor}>
           <button
             type="button"
-            onClick={() => setNotifOpen((v) => !v)}
+            onClick={() => {
+              setUserMenuOpen(false);
+              setNotifOpen((v) => !v);
+            }}
             className="btn btn-secondary btn-icon"
             style={{ position: 'relative' }}
             aria-label="Notifications"
+            aria-expanded={notifOpen}
+            aria-haspopup="dialog"
           >
             <Bell size={17} />
             {unreadCount > 0 && (
               <span
                 style={{
                   position: 'absolute',
-                  top: 6,
-                  right: 7,
-                  width: 8,
-                  height: 8,
-                  borderRadius: '999px',
+                  top: -4,
+                  right: -4,
+                  minWidth: 18,
+                  height: 18,
+                  padding: '0 4px',
+                  borderRadius: 999,
                   backgroundColor: 'var(--accent-purple)',
-                  border: '1.5px solid var(--surface)',
+                  color: '#FFFFFF',
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  lineHeight: '16px',
+                  textAlign: 'center',
+                  border: '2px solid var(--bg-primary)',
                 }}
-              />
+              >
+                {unreadCount > 9 ? '9+' : unreadCount}
+              </span>
             )}
           </button>
 
           {notifOpen && (
             <div
-              className="card"
-              style={{
-                position: 'absolute',
-                right: 0,
-                top: 'calc(100% + 8px)',
-                width: 'min(340px, calc(100vw - 24px))',
-                padding: 16,
-                zIndex: 70,
-                boxShadow: 'var(--shadow-lg)',
-              }}
+              className={styles.popoverNotifications}
+              role="dialog"
+              aria-label="Notifications panel"
             >
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  gap: 8,
                   marginBottom: 12,
+                  paddingBottom: 10,
+                  borderBottom: '1px solid var(--border)',
                 }}
               >
-                <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>
-                  Notifications ({unreadCount} unread)
-                </span>
-                <button
-                  type="button"
-                  className="text-xs"
-                  style={{ color: 'var(--accent-purple)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 4 }}
-                  onClick={markAllNotificationsRead}
-                >
-                  <CheckCheck size={13} /> Mark all read
-                </button>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 300, overflowY: 'auto' }}>
-                {notifications.slice(0, 5).map((n) => (
-                  <Link
-                    key={n.id}
-                    href={n.href}
-                    onClick={() => {
-                      markNotificationRead(n.id);
-                      setNotifOpen(false);
-                    }}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.95rem' }}>
+                    Notifications
+                  </span>
+                  {unreadCount > 0 && (
+                    <span className="badge badge-purple" style={{ padding: '2px 8px', fontSize: '0.72rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                      {unreadCount} new
+                    </span>
+                  )}
+                </div>
+                {unreadCount > 0 && (
+                  <button
+                    type="button"
+                    className="text-xs"
                     style={{
-                      padding: 10,
-                      borderRadius: 'var(--radius-md)',
-                      backgroundColor: n.read ? 'var(--bg-primary)' : 'var(--accent-purple-soft)',
-                      border: '1px solid var(--border)',
+                      color: 'var(--accent-purple)',
+                      fontWeight: 600,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                    }}
+                    onClick={markAllNotificationsRead}
+                  >
+                    <CheckCheck size={13} /> Mark all read
+                  </button>
+                )}
+              </div>
+
+              {notifications.length === 0 ? (
+                <div
+                  style={{
+                    padding: '28px 16px',
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 8,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 999,
+                      backgroundColor: 'var(--bg-secondary)',
+                      color: 'var(--text-secondary)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                     }}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
-                      <span style={{ fontWeight: 600, fontSize: '0.82rem' }}>{n.title}</span>
-                      <span className="text-xs text-muted">{n.time}</span>
-                    </div>
-                    <p className="text-xs text-muted" style={{ marginTop: 3 }}>
-                      {n.message}
-                    </p>
-                  </Link>
-                ))}
-              </div>
+                    <BellOff size={18} />
+                  </span>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>You&apos;re all caught up</div>
+                  <p className="text-xs text-muted">
+                    Feedback alerts, mock test scores, and live session reminders will appear here.
+                  </p>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 320, overflowY: 'auto' }}>
+                  {notifications.slice(0, 6).map((n) => {
+                    const CategoryIcon = NOTIF_CATEGORY_ICONS[n.category] || Bell;
+                    return (
+                      <Link
+                        key={n.id}
+                        href={n.href || '/notifications'}
+                        onClick={() => {
+                          markNotificationRead(n.id);
+                          setNotifOpen(false);
+                        }}
+                        style={{
+                          display: 'flex',
+                          gap: 10,
+                          padding: 10,
+                          borderRadius: 'var(--radius-md)',
+                          backgroundColor: n.read ? 'var(--bg-primary)' : 'var(--accent-purple-soft)',
+                          border: n.read ? '1px solid var(--border)' : '1px solid rgba(136, 103, 184, 0.3)',
+                          transition: 'background-color 0.15s ease',
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: 8,
+                            backgroundColor: n.read ? 'var(--bg-secondary)' : 'var(--surface)',
+                            color: n.read ? 'var(--text-secondary)' : 'var(--accent-purple)',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: 1,
+                          }}
+                        >
+                          <CategoryIcon size={14} />
+                        </span>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                            <span
+                              style={{
+                                fontWeight: n.read ? 600 : 700,
+                                fontSize: '0.84rem',
+                                color: 'var(--text-primary)',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              {n.title}
+                            </span>
+                            {!n.read && (
+                              <span
+                                style={{
+                                  width: 7,
+                                  height: 7,
+                                  borderRadius: 999,
+                                  backgroundColor: 'var(--accent-purple)',
+                                  flexShrink: 0,
+                                }}
+                                aria-label="Unread"
+                              />
+                            )}
+                          </div>
+                          <p
+                            className="text-xs text-muted"
+                            style={{
+                              marginTop: 3,
+                              lineHeight: 1.45,
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden',
+                            }}
+                          >
+                            {n.message}
+                          </p>
+                          <div className="text-xs" style={{ color: 'var(--text-muted)', marginTop: 4, fontSize: '0.73rem' }}>
+                            {n.time}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+
               <Link
                 href="/notifications"
                 onClick={() => setNotifOpen(false)}
@@ -226,62 +413,113 @@ export function DashboardHeader() {
         </div>
 
         {/* User Avatar Dropdown */}
-        <div ref={userRef} style={{ position: 'relative' }}>
+        <div ref={userRef} className={styles.popoverAnchor}>
           <button
             type="button"
-            onClick={() => setUserMenuOpen((v) => !v)}
-            style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+            onClick={() => {
+              setNotifOpen(false);
+              setUserMenuOpen((v) => !v);
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              borderRadius: 12,
+              padding: 2,
+              border: userMenuOpen ? '2px solid var(--dark-section)' : '2px solid transparent',
+              transition: 'border-color 0.16s ease',
+            }}
             aria-label="Account menu"
+            aria-expanded={userMenuOpen}
+            aria-haspopup="menu"
           >
             <SafeAvatar src={profile.avatar} name={profile.name} size={36} radius="10px" />
           </button>
 
           {userMenuOpen && (
-            <div
-              className="card"
-              style={{
-                position: 'absolute',
-                right: 0,
-                top: 'calc(100% + 8px)',
-                width: 'min(230px, calc(100vw - 24px))',
-                padding: 8,
-                zIndex: 70,
-                boxShadow: 'var(--shadow-lg)',
-              }}
-            >
-              <div style={{ padding: '8px 10px 10px', borderBottom: '1px solid var(--border)', marginBottom: 6 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.875rem' }}>{profile.name}</div>
-                <div className="text-xs text-muted">{profile.email}</div>
-              </div>
-              {[
-                { href: '/profile', label: 'My Profile', icon: User },
-                { href: '/settings', label: 'Account Settings', icon: Settings },
-                { href: '/bookmarks', label: 'My Bookmarks', icon: Bookmark },
-                { href: '/achievements', label: 'Achievements', icon: Trophy },
-                { href: '/admin', label: 'Admin Console', icon: ShieldCheck },
-              ].map((link) => {
-                const Icon = link.icon;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setUserMenuOpen(false)}
+            <div className={styles.popoverPanel} role="menu" aria-label="Account navigation">
+              {/* Profile Header */}
+              <div
+                style={{
+                  padding: '12px 14px',
+                  backgroundColor: 'var(--bg-primary)',
+                  borderBottom: '1px solid var(--border)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                }}
+              >
+                <SafeAvatar src={profile.avatar} name={profile.name} size={38} radius="10px" />
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 10,
-                      padding: '8px 10px',
-                      borderRadius: 8,
-                      fontSize: '0.84rem',
-                      fontWeight: 500,
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
                     }}
-                    className="btn-ghost"
                   >
-                    <Icon size={15} />
-                    <span>{link.label}</span>
-                  </Link>
-                );
-              })}
+                    {profile.name}
+                  </div>
+                  <div
+                    className="text-xs text-muted"
+                    style={{
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {profile.email}
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation Links */}
+              <div style={{ padding: 8, display: 'flex', flexDirection: 'column', gap: 2 }}>
+                {accountLinks.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      role="menuitem"
+                      onClick={() => setUserMenuOpen(false)}
+                      className={styles.popoverItem}
+                    >
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+                        <Icon size={15} style={{ color: 'var(--text-secondary)', flexShrink: 0 }} />
+                        <span>{link.label}</span>
+                      </span>
+                      {link.badge && (
+                        <span className="badge badge-yellow" style={{ padding: '2px 7px', fontSize: '0.7rem' }}>
+                          {link.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Sign Out Action */}
+              <div style={{ borderTop: '1px solid var(--border)', padding: 8 }}>
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={() => {
+                    setUserMenuOpen(false);
+                    logout();
+                    router.replace('/login');
+                  }}
+                  className={styles.popoverItem}
+                  style={{ color: 'var(--error)', fontWeight: 600 }}
+                >
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                    <LogOut size={15} />
+                    <span>Sign Out</span>
+                  </span>
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -289,4 +527,3 @@ export function DashboardHeader() {
     </header>
   );
 }
-

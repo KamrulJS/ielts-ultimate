@@ -1,3 +1,5 @@
+import React, { Suspense } from 'react';
+import { AuthGuard } from '@/components/auth/AuthGuard';
 import { AdminConsoleView } from '@/modules/admin/AdminConsoleView';
 
 export const metadata = {
@@ -6,6 +8,12 @@ export const metadata = {
 };
 
 export default function AdminPage() {
-  return <AdminConsoleView />;
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
+      <AuthGuard requiredRole="admin">
+        <AdminConsoleView />
+      </AuthGuard>
+    </Suspense>
+  );
 }
 

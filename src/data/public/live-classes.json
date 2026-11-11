@@ -1,0 +1,147 @@
+{
+  "upcomingClasses": [
+    {
+      "id": "live-01",
+      "category": "Writing",
+      "level": "All Levels (Band 5.5 -> 7.5+)",
+      "title": "Task 2 Coherence Lab: Eliminating Paragraph Jumps & Template Phrases",
+      "description": "Live line-by-line teardown of three real Band 6.0 and Band 7.5 essays showing how clear topic sentences and natural cohesion raise two criteria simultaneously.",
+      "dateLabel": "Thursday, Nov 19, 2026",
+      "timeLabel": "19:00 UTC • 60 min",
+      "platform": "Live Interactive Classroom (Zoom)",
+      "seatsRemaining": 14,
+      "instructor": {
+        "name": "Dr. Claire Bennett",
+        "role": "Former IELTS Examiner & Writing Specialist",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80"
+      },
+      "takeaways": [
+        "How examiners score Coherence & Cohesion separately from vocabulary",
+        "Structuring concession paragraphs without repetitive linking cliches",
+        "Live 10-minute Q&A on your current Writing bottlenecks"
+      ]
+    },
+    {
+      "id": "live-02",
+      "category": "Speaking",
+      "level": "Intermediate (Band 6.0 -> 7.5)",
+      "title": "Speaking Part 2 & Part 3 Clinic: Thinking in Structures Under 60 Seconds",
+      "description": "Practise building a natural narrative spine during Part 2 preparation so you never stall at 75 seconds or fall back on robotic connectors in Part 3.",
+      "dateLabel": "Saturday, Nov 21, 2026",
+      "timeLabel": "14:00 UTC • 60 min",
+      "platform": "Live Interactive Classroom (Zoom)",
+      "seatsRemaining": 9,
+      "instructor": {
+        "name": "Prof. Alistair Reed",
+        "role": "Senior Academic Writing & Speaking Mentor",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=240&q=80"
+      },
+      "takeaways": [
+        "Past-Present-Impact cue card note framework",
+        "Extending abstract Part 3 opinions cleanly with balanced trade-offs",
+        "Volunteer hot-seat mock round with instant rubric commentary"
+      ]
+    },
+    {
+      "id": "live-03",
+      "category": "Reading",
+      "level": "Academic Module",
+      "title": "Reading Speed Clinic: Solving True / False / Not Given & Matching Headings",
+      "description": "Master the boundary between False (direct contradiction) and Not Given (absent evidence) while trimming Passage 3 completion time below 19 minutes.",
+      "dateLabel": "Tuesday, Nov 24, 2026",
+      "timeLabel": "18:00 UTC • 55 min",
+      "platform": "Live Interactive Classroom (Zoom)",
+      "seatsRemaining": 21,
+      "instructor": {
+        "name": "Marcus Vance",
+        "role": "Academic Reading & Task 1 Data Coach",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80"
+      },
+      "takeaways": [
+        "Qualifier trap checklist (all, mainly, solely, only)",
+        "Two-pass paragraph skimming order for dense science articles",
+        "Interactive walkthrough using IELTS Ultimate's split-screen reader"
+      ]
+    },
+    {
+      "id": "live-04",
+      "category": "Listening",
+      "level": "All Levels",
+      "title": "Listening Parts 3 & 4: Catching Academic Distractors & Self-Corrections",
+      "description": "Decode how speakers propose an idea, reject it, and confirm the real answer in university seminars and academic monologues.",
+      "dateLabel": "Sunday, Nov 29, 2026",
+      "timeLabel": "16:30 UTC • 50 min",
+      "platform": "Live Interactive Classroom (Zoom)",
+      "seatsRemaining": 18,
+      "instructor": {
+        "name": "Hannah Al-Mansoor",
+        "role": "Listening & Pronunciation Coach",
+        "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&q=80"
+      },
+      "takeaways": [
+        "Signpost language cues during lecturer transitions",
+        "Pre-reading multiple choice stems before audio begins",
+        "Spelling & plural precision under single-play timing"
+      ]
+    }
+  ],
+  "recordedReplays": [
+    {
+      "id": "rep-01",
+      "category": "Writing Task 1",
+      "title": "Grouping Multi-Line Graphs Without Listing Every Data Point",
+      "duration": "42 min",
+      "views": "1,480 learners",
+      "instructor": "Marcus Vance",
+      "summary": "Covers how to write a crisp two-sentence overview comparing dominant trends and key inflection years in Academic Task 1.",
+      "highlights": [
+        "Spotting macro trends vs unnecessary micro fluctuations",
+        "Clean comparative grammar without repetitive 'increased/decreased'",
+        "Annotated Band 6.5 -> Band 8.0 sample overview rewrite"
+      ]
+    },
+    {
+      "id": "rep-02",
+      "category": "Speaking",
+      "title": "Natural Collocations That Raise Lexical Resource Without Sounding Rehearsed",
+      "duration": "38 min",
+      "views": "1,920 learners",
+      "instructor": "Dr. Claire Bennett",
+      "summary": "Demonstrates why precise two-word verb-noun pairings outperform rare memorized idioms in live interviews.",
+      "highlights": [
+        "20 high-utility everyday collocations for Part 1 and Part 3",
+        "Self-correction tactics when you momentarily forget a word",
+        "Stress & pacing adjustments for clearer pronunciation scores"
+      ]
+    },
+    {
+      "id": "rep-03",
+      "category": "Study Strategy",
+      "title": "Planning a Realistic 30-Day Band +1.0 Sprint Alongside Work or University",
+      "duration": "35 min",
+      "views": "2,110 learners",
+      "instructor": "Prof. Alistair Reed",
+      "summary": "Walks through allocating 45–60 daily minutes between passive exposure and active timed mock checkpoints.",
+      "highlights": [
+        "Diagnostic error-logging worksheet method",
+        "Weekly rotation across Reading, Listening, Writing, and Speaking",
+        "Avoiding burnout in the final 7 days before exam day"
+      ]
+    },
+    {
+      "id": "rep-04",
+      "category": "Listening",
+      "title": "Mastering Part 2 Map Labeling & Spatial Orientation Prepositions",
+      "duration": "31 min",
+      "views": "1,190 learners",
+      "instructor": "Hannah Al-Mansoor",
+      "summary": "Practical drill on compass bearings, clockwise scans, and landmark anchoring on site plans.",
+      "highlights": [
+        "Pre-marking entrances and fixed landmarks in 15 seconds",
+        "Common directional distractor phrases ('used to be / now replaced by')",
+        "Walkthrough of an interactive courtyard floorplan drill"
+      ]
+    }
+  ]
+}
+

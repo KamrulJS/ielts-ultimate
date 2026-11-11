@@ -1,0 +1,414 @@
+{
+  "roadmap": {
+    "slug": "roadmap",
+    "badge": "Preparation System • 5 Milestones",
+    "title": "IELTS Roadmap",
+    "headline": "A structured five-stage preparation roadmap from baseline diagnosis to exam-day mastery.",
+    "subheadline": "Eliminate random preparation. Follow clear stage gates that connect diagnostic checks, core foundation building, skill clinics, timed simulation exams, and target band readiness.",
+    "ctaLabel": "View Dashboard Roadmap",
+    "dashboardHref": "/dashboard#roadmap",
+    "purposeTitle": "What IELTS Roadmap Is Designed to Solve",
+    "purposeBody": "Most candidates spend months hopping between disconnected video clips and isolated mock PDFs without knowing which skill criteria actually hold back their overall band. The IELTS Roadmap organizes your entire timeline into measurable stages tied directly to diagnostic accuracy and official band descriptors.",
+    "highlights": ["Diagnostic Entry Gate", "Stage-by-Stage Progression", "Live Dashboard Sync"],
+    "whyLearnersNeed": [
+      {
+        "title": "Stop Studying Skills Already Above Target",
+        "desc": "Instead of drilling Band 7.5 Reading passages endlessly when Writing Coherence sits at 6.0, stage diagnostics direct study hours where half-band gains happen fastest."
+      },
+      {
+        "title": "Clear Milestone Checkpoints",
+        "desc": "Each milestone pairs specific sub-skill objectives (like Matching Headings accuracy or Task 1 overview precision) with measurable quiz and timing gates."
+      },
+      {
+        "title": "Seamless Path Through Exam Day",
+        "desc": "Every checkpoint flows straight into daily tasks, full timed predictions, and final pre-exam pacing reviews inside your student portal."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Baseline Skill Diagnostic", "desc": "Calibrate initial Listening, Reading, Writing, and Speaking scores against official band descriptors." },
+      { "title": "Milestone Progression Tracking", "desc": "Monitor percentage completion across Foundations, Question Mechanics, Fluency Drills, and Full Timed Mocks." },
+      { "title": "Weakness-First Sequencing", "desc": "Prioritizes bottleneck criteria such as Cohesion, Lexical Precision, or Listening Part 3 distractors first." },
+      { "title": "Module-Specific Paths", "desc": "Adapts automatically for Academic (University Entry) or General Training (Work & Migration) formats." },
+      { "title": "Readiness Confidence Gauge", "desc": "Estimates how close your recent timed scores sit relative to your target score before test registration." },
+      { "title": "Integrated Next Actions", "desc": "Jump with one click from any stage card straight into the matching Study Plan or Practice set." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Set Track & Goal", "desc": "Pick Academic or General Training and lock your target band (e.g. 6.5, 7.0, 7.5, or 8.0)." },
+      { "step": "02", "title": "Complete Baseline Check", "desc": "Record initial sub-scores across Reading, Listening, Writing, and Speaking." },
+      { "step": "03", "title": "Advance Through Stages", "desc": "Complete guided lessons, question-type drills, and daily lexical decks per stage." },
+      { "step": "04", "title": "Validate with Timed Mocks", "desc": "Confirm stability across two full 2h 40m simulations before sitting the official exam." }
+    ],
+    "useCases": [
+      { "persona": "University Applicant (6 weeks left)", "plan": "Moves rapidly past Basic Grammar into Passage Timing, Task 2 Essay Argumentation, and 3 weekly timed simulations." },
+      { "persona": "General Training Candidate", "plan": "Concentrates on workplace texts, formal vs semi-formal letter tone shifts, and Listening spelling accuracy." },
+      { "persona": "First-Time Test Taker (Band 5.5 -> 7.0)", "plan": "Builds solid sentence variety and TFNG verification habits before adding full 60-minute endurance runs." }
+    ],
+    "sampleStages": [
+      { "stage": "Stage 01", "name": "Foundations & Format Literacy", "status": "Completed", "progress": 100, "focus": "Rubric criteria, timing allocations, and core Academic syntax" },
+      { "stage": "Stage 02", "name": "Reading & Listening Question Mechanics", "status": "Completed", "progress": 100, "focus": "TFNG logic, Matching Headings, and Part 3–4 signpost awareness" },
+      { "stage": "Stage 03", "name": "Task 1 & 2 Criterion Control", "status": "Active", "progress": 75, "focus": "Two-sentence overviews, body topic cohesion, and complex clauses" },
+      { "stage": "Stage 04", "name": "Fluency & 60s Cue Card Structuring", "status": "Upcoming", "progress": 20, "focus": "Unscripted 2-minute Part 2 narration & abstract Part 3 framing" },
+      { "stage": "Stage 05", "name": "Full 2h 40m Prediction Readiness", "status": "Upcoming", "progress": 0, "focus": "Back-to-back endurance mocks and final error calibration" }
+    ]
+  },
+  "study-planner": {
+    "slug": "study-planner",
+    "badge": "Adaptive Schedule • Daily Habits",
+    "title": "IELTS Study Planner",
+    "headline": "Build a personalized day-by-day IELTS schedule around your target band, schedule, and weak skills.",
+    "subheadline": "Tell the planner your current score, goal band, and daily study budget (25 to 120 minutes). It generates balanced checklists across all four skills—plus streak tracking so consistency becomes automatic.",
+    "ctaLabel": "Start Study Planner",
+    "dashboardHref": "/study-plan",
+    "purposeTitle": "Why Structured Daily Scheduling Beats Last-Minute Cramming",
+    "purposeBody": "Candidates balancing jobs or degree coursework rarely fail for lack of intelligence—they stall because fixed evening classes clash with life and unguided studying turns into decision fatigue. The Study Planner eliminates daily guesswork by queuing concrete 20–40 minute tasks matched to your weakest criteria.",
+    "highlights": ["Custom Daily Minutes", "Exam Date Countdown", "Streak & Consistency Log"],
+    "whyLearnersNeed": [
+      {
+        "title": "Zero Decision Fatigue Every Study Session",
+        "desc": "Open your planner knowing whether today requires a Reading TFNG passage, 15 collocation cards, or a 35-minute Writing draft."
+      },
+      {
+        "title": "Built Around Work & Study Hours",
+        "desc": "Choose lightweight 30-minute weekday schedules and deeper 90-minute weekend simulation checkpoints."
+      },
+      {
+        "title": "Automatic Focus on Lower-Scoring Skills",
+        "desc": "If Writing sits at 6.0 while Reading hits 7.5, weekly blocks allocate extra Writing cohesion and Task 1 practice."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Target & Deadline Calibration", "desc": "Calculates total study weeks remaining until your official exam date and paces modules evenly." },
+      { "title": "Daily Checklist Sync", "desc": "Check off completed tasks directly from your dashboard sidebar or dedicated Study Plan view." },
+      { "title": "14-Day Streak Calendar", "desc": "Visual daily heat calendar keeps motivation steady with minute targets logged automatically." },
+      { "title": "Add Custom Tasks Anytime", "desc": "Layer teacher feedback revisions or weak grammar drills alongside recommended modules." },
+      { "title": "Periodic Simulation Checkpoints", "desc": "Schedules full timed mock tests at regular intervals to verify real band gains." },
+      { "title": "Instant Plan Regeneration", "desc": "Update your exam date or raise your target band and rebalance future weeks in one click." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Select Module & Target Band", "desc": "Enter current baseline band, Academic/GT mode, and desired exam score." },
+      { "step": "02", "title": "Set Daily Availability", "desc": "Pick 30, 45, 60, or 90 minutes per day plus your target test date." },
+      { "step": "03", "title": "Work Daily Tasks in Order", "desc": "Complete checked items across Reading, Listening, Writing, Speaking, and Vocabulary." },
+      { "step": "04", "title": "Monitor Weekly Completion", "desc": "Track minutes studied, completion %, and mock progression inside the Progress tab." }
+    ],
+    "useCases": [
+      { "persona": "Full-Time Engineer (45 min/day)", "plan": "Mixes morning 15-min vocabulary review on commute with focused evening task drills." },
+      { "persona": "Final-Year Student (8-week sprint)", "plan": "Alternates Skill Workshops on weekdays with full Saturday Reading+Listening double sets." },
+      { "persona": "Repeat Candidate Targeting 7.5", "plan": "Weights 55% of slots to Writing Task 2 argumentation and Speaking Part 3 fluency." }
+    ]
+  },
+  "simulation": {
+    "slug": "simulation",
+    "badge": "Real Test Conditions • 4 Modules",
+    "title": "IELTS Simulation",
+    "headline": "Experience authentic computer-delivered IELTS timing, split-screen passages, and audio controls before exam day.",
+    "subheadline": "Practise full 2h 40m four-module mocks or isolated timed sets with adjustable split panels, passage highlighting, audio speed controls, word counters, and immediate diagnostic breakdowns.",
+    "ctaLabel": "Start Simulation",
+    "dashboardHref": "/mock-test",
+    "purposeTitle": "Familiarity Under Real Time Constraints",
+    "purposeBody": "Reading three dense 900-word academic articles in 60 minutes or maintaining sharp attention across four continuous Listening recordings demands genuine pacing conditioning. IELTS Simulation mirrors computer-based exam ergonomics so test day feels completely routine.",
+    "highlights": ["Full 2h 40m Mock Runner", "Split-Screen Highlighter", "Instant Auto-Scoring"],
+    "whyLearnersNeed": [
+      {
+        "title": "Eliminate Surprises on Exam Morning",
+        "desc": "Navigation palettes, answer status flags, split-ratio toggles, and countdown timers train smooth pacing before you risk real test fees."
+      },
+      {
+        "title": "Expose Hidden Pacing Bottlenecks",
+        "desc": "Separate question-by-question timing insights quickly reveal if Passage 1 overruns cost you easy marks on Passage 3."
+      },
+      {
+        "title": "Safe Browser Autosave Recovery",
+        "desc": "Answers, notes, and text drafts persist safely in LocalStorage so progress never vanishes mid-session."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Academic & General Training Sets", "desc": "Toggle seamlessly between Academic passages/charts and General Training workplace tasks." },
+      { "title": "Split-Screen Reading Viewer", "desc": "Drag or toggle 40/60, 50/50, and 60/40 panel widths alongside A-/A+ text scaling and passage notes." },
+      { "title": "Listening Single-Play & Demo Audio", "desc": "Part 1–4 synchronized transcript & speech audio with map/diagram question layouts." },
+      { "title": "Distraction-Free Writing & Speaking", "desc": "Live word counter, elapsed clock, 60-second Cue Card prep countdown, and browser audio capture." },
+      { "title": "Instant Band Score Calculation", "desc": "Immediate objective raw-to-band conversion across Reading & Listening plus rubric templates." },
+      { "title": "Detailed Answer Explanations", "desc": "Review exact passage evidence locations and why distractors fail." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Select Track & Mock Paper", "desc": "Choose Academic or General Training, then full 4-skill mock or single module set." },
+      { "step": "02", "title": "Read Exam Briefing", "desc": "Review exact section durations (Listening 30m, Reading 60m, Writing 60m, Speaking 14m)." },
+      { "step": "03", "title": "Complete Timed Interface", "desc": "Highlight evidence, navigate flagged questions cleanly, and watch section timers." },
+      { "step": "04", "title": "Review Score Report", "desc": "Inspect overall band, module breakdown, and question-level explanations immediately." }
+    ],
+    "useCases": [
+      { "persona": "Pre-Booking Readiness Check", "plan": "Complete two consecutive full mocks to ensure reading stamina doesn't dip after 90 minutes." },
+      { "persona": "Targeted Module Practice", "plan": "Jump straight into isolated Reading or Listening Cambridge-style sets during weekday evenings." },
+      { "persona": "Confidence Calibration", "plan": "Compare raw scores (e.g. 31/40 Reading -> Band 7.0) against your official goal before booking." }
+    ]
+  },
+  "vocabulary": {
+    "slug": "vocabulary",
+    "badge": "Lexical Resource Studio • Curated Bank",
+    "title": "IELTS Vocabulary",
+    "headline": "Master high-band academic vocabulary with real collocations, phonetics, and active recall practice.",
+    "subheadline": "Lexical Resource accounts for 25% of both Writing and Speaking marks. Build natural precision across Academic Core, Environment, Technology, and Society decks instead of memorizing isolated word lists.",
+    "ctaLabel": "Practise Vocabulary",
+    "dashboardHref": "/vocabulary",
+    "purposeTitle": "Moving Words From Passive Recognition to Natural Essay Usage",
+    "purposeBody": "Examiners look for accurate collocations and topic-specific range—not forced, obscure adjectives dropped randomly into sentences. IELTS Vocabulary pairs IPA pronunciation, clear definitions, synonyms, antonyms, and contextual band 7.5+ examples in a spaced-review deck.",
+    "highlights": ["36+ Curated Lexical Entries", "Interactive Flashcards", "Contextual Quizzes"],
+    "whyLearnersNeed": [
+      {
+        "title": "Replace Band-Capping Generic Adjectives",
+        "desc": "Graduate cleanly from repeated 'good', 'bad', and 'very important' phrasing to nuanced terms like 'pragmatic', 'viable', and 'mitigate'."
+      },
+      {
+        "title": "Learn Collocations Together",
+        "desc": "Contextual sample sentences model natural verb-noun pairings (e.g., 'exacerbate bottlenecks', 'corroborate evidence') so grammar remains natural."
+      },
+      {
+        "title": "Retain Words Through Active Quizzes",
+        "desc": "Flip flashcards, mark mastered cards, and validate usage via synonym & fill-in-context challenges."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Topic-Grouped Academic Decks", "desc": "Browse Environment & Cities, Technology & Science, Society & Education, and Academic Core packs." },
+      { "title": "IPA Phonetics & Part of Speech", "desc": "Verify stress patterns alongside natural Speaking pronunciation practice." },
+      { "title": "Synonyms & Antonyms", "desc": "Recognize Reading/Listening paraphrase traps quickly by studying semantic pairs together." },
+      { "title": "Mastery Progress Counters", "desc": "Track mastered words and bookmark priority items straight to your personal revision queue." },
+      { "title": "Audio Pronunciation Preview", "desc": "Listen directly to accurate word & example cadence inside Vocabulary Studio." },
+      { "title": "Fast Filter & Live Search", "desc": "Look up target band level words before drafting Task 1 & Task 2 essays." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Select a Theme Deck", "desc": "Choose the IELTS topic area aligned with today's Essay or Cue Card." },
+      { "step": "02", "title": "Inspect Context & Collocations", "desc": "Read definitions, phonetic cues, and Band 7.5+ sentence examples before flipping cards." },
+      { "step": "03", "title": "Complete Active Recall Quiz", "desc": "Test exact shade-of-meaning distinctions under timed card recall." },
+      { "step": "04", "title": "Apply in Writing & Speaking", "desc": "Reuse 2–3 mastered verbs cleanly inside your next practice prompt." }
+    ],
+    "useCases": [
+      { "persona": "Essay Writer Stuck at LR 6.0", "plan": "Adopts 10 precise academic verbs ('alleviate', 'incentivise', 'reconcile') for Task 2 policy essays." },
+      { "persona": "Reading Paraphrase Learner", "plan": "Uses synonym/antonym pairs to spot hidden matches inside TFNG passages." },
+      { "persona": "Daily 10-Minute Habit Builder", "plan": "Clears one mini quiz batch daily to keep study streak alive." }
+    ]
+  },
+  "ai-coach": {
+    "slug": "ai-coach",
+    "badge": "24/7 Learning Guidance • Adaptive Drills",
+    "title": "IELTS AI Coach",
+    "headline": "Personal coaching guidance that explains why your band stalled and prescribes your exact next drill.",
+    "subheadline": "When preparing late at night or studying solo, you shouldn't wait days to know what to fix next. IELTS AI Coach reads your weak patterns across practice sets and recommends high-impact micro-drills.",
+    "ctaLabel": "Try AI Coach",
+    "dashboardHref": "/cue-card-coach",
+    "purposeTitle": "Closing the Gap Between Seeing a Score and Knowing Why",
+    "purposeBody": "A mock score tells you where you landed; a coach shows you the pattern behind lost marks. Whether it is jumping between paragraphs without topic signposts in Writing or freezing halfway through Speaking Part 2, AI Coach turns raw attempts into concrete study actions.",
+    "highlights": ["Rubric-Backed Advice", "Targeted Drill Suggestions", "60s Cue Card Prep Trainer"],
+    "whyLearnersNeed": [
+      {
+        "title": "Immediate Clarity Between Human Sessions",
+        "desc": "Ask focused questions on grammar choices, Task 1 grouping, or cue-card extension anytime."
+      },
+      {
+        "title": "Diagnoses Specific Criterion Bottlenecks",
+        "desc": "Pinpoints whether marks slipped from Cohesion jumps, off-topic overviews, or Listening plural errors."
+      },
+      {
+        "title": "Turn Weakness Into a 10-Minute Fix",
+        "desc": "Pairs every observation with an immediate next drill in Reading, Cue Card Coach, or Writing Studio."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Pattern-Aware Q&A Dialogs", "desc": "Guided prompts explain scoring trade-offs across Bands 6.0, 7.0, and 8.0 clearly." },
+      { "title": "Live Cue Card Prep Coach", "desc": "Rehearse 60-second keyword outlining paired with 2-minute timed narration inside your workspace." },
+      { "title": "Weakness-Matched Drills", "desc": "Direct links to TFNG traps, coherence paragraph drills, or abstract Part 3 follow-ups." },
+      { "title": "Rubric-Literate Phrasing", "desc": "Highlights concrete upgrades to sentence transitions rather than vague encouragement." },
+      { "title": "Study Plan Synchronization", "desc": "Logs completed coaching sessions into daily study minutes and progress history." },
+      { "title": "Supports Independent Learners 24/7", "desc": "Always accessible before exams or between scheduled tutor workshops." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Review Recent Band History", "desc": "Surface which sub-skill lags below your overall target band." },
+      { "step": "02", "title": "Inspect Coaching Diagnosis", "desc": "See plain-language explanation of the structural or timing habit costing marks." },
+      { "step": "03", "title": "Run Prescriptive Drill", "desc": "Spend 10–15 minutes practicing the recommended fix directly in the studio." },
+      { "step": "04", "title": "Re-Test to Confirm Lift", "desc": "Measure how the adjustment impacts your next rubric evaluation." }
+    ],
+    "useCases": [
+      { "persona": "Speaking Candidate Freezing in Part 2", "plan": "Practises 60-second Past-Present-Impact keyword scratchpads inside Cue Card Coach." },
+      { "persona": "Solo Essay Writer", "plan": "Identifies missing concession linking sentences and runs focused paragraph-rewrite prompts." },
+      { "persona": "Late-Night Prepper", "plan": "Clarifies Task 1 trend grouping rules immediately without waiting days for email replies." }
+    ],
+    "sampleDialogs": [
+      {
+        "topic": "Writing Cohesion",
+        "studentQuestion": "Why did my Task 2 Coherence stay at 6.0 even when I used linking words?",
+        "coachReply": "Examiners look for logical progression inside the ideas themselves—not mechanical openers like 'Firstly' or 'Moreover' at every line. Your second body paragraph introduces economic cost without connecting back to your thesis on public transit access. Start paragraph 2 with a clear referencing phrase linking back to that idea, then develop one concrete example.",
+        "recommendedDrill": "12-min Topic Sentence & Pronoun Referencing Drill"
+      },
+      {
+        "topic": "Speaking Fluency",
+        "studentQuestion": "I keep running out of things to say at 70 seconds during Part 2 cue cards.",
+        "coachReply": "Instead of stretching bullet 1 for too long, split your 60-second scratchpad cleanly across 4 zones: Setting (15s), Action Steps (40s), Challenge/Feeling (35s), and Future Outcome (30s). Even if a prompt only lists four bullets, adding one concrete reflection guarantees effortless two-minute pacing.",
+        "recommendedDrill": "Timed 60s Scratchpad + Cue Card Round"
+      },
+      {
+        "topic": "Reading Pacing",
+        "studentQuestion": "I always score 11/13 in Passage 1, then rush and miss half of Passage 3.",
+        "coachReply": "Passage 3 carries denser academic inference and multiple-choice traps, yet many candidates spend 24 minutes chasing perfection on Passage 1. Set hard checkpoints: finish Passage 1 at 17:00 elapsed, Passage 2 at 36:00, leaving 24 full minutes for Passage 3.",
+        "recommendedDrill": "Timed 18-Minute Passage Split Drill"
+      }
+    ]
+  },
+  "ai-examiner": {
+    "slug": "ai-examiner",
+    "badge": "4-Criterion Assessment • Writing & Speaking",
+    "title": "IELTS AI Examiner",
+    "headline": "Instant Writing & Speaking band estimates evaluated against every official IELTS criterion.",
+    "subheadline": "Submit Task 1 letters or charts, Task 2 academic essays, or recorded Speaking answers and receive clear per-criterion breakdowns, diagnostic remarks, and concrete rewrite targets.",
+    "ctaLabel": "Try AI Examiner",
+    "dashboardHref": "/writing",
+    "purposeTitle": "Bringing Actionable Examiner Feedback to Every Practice Draft",
+    "purposeBody": "Generic grammar checkers spot missing commas—not whether you satisfied Task Achievement, grouped chart comparisons clearly, or sustained a nuanced thesis. IELTS AI Examiner breaks your response into the exact four pillars examiners assess on test day.",
+    "highlights": ["4 Official Criteria Split", "Writing Task 1 & 2", "Speaking Parts 1–3"],
+    "whyLearnersNeed": [
+      {
+        "title": "Assess Both Productive Skills You Cannot Self-Grade",
+        "desc": "Reading and Listening have fixed answer keys; Writing and Speaking require nuanced evaluation against descriptive band standards."
+      },
+      {
+        "title": "See Which Criterion Pulls Down Your Overall Score",
+        "desc": "Spot an unbalanced profile—like Lexical Resource 7.5 paired with Task Response 6.0—immediately after submitting."
+      },
+      {
+        "title": "Iterate Fast While Thoughts Are Fresh",
+        "desc": "Revise weak topic sentences or Speaking recordings minutes after your first attempt rather than days later."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Task Achievement / Task Response Check", "desc": "Verifies clear overview inclusion (Task 1), complete prompt coverage, and sustained thesis position (Task 2)." },
+      { "title": "Coherence & Cohesion Audit", "desc": "Evaluates paragraph unity, logical sequencing, and organic referencing devices." },
+      { "title": "Lexical Resource & Collocation Feedback", "desc": "Flags repetitive basic terms and suggests authentic academic upgrades." },
+      { "title": "Grammatical Range & Accuracy Breakdown", "desc": "Assesses subordinate clauses, passive accuracy, punctuation, and tense consistency." },
+      { "title": "Speaking Fluency, Lexis & Pronunciation Rubric", "desc": "Guides pacing control, natural discourse markers, and stress clarity across Parts 1–3." },
+      { "title": "Saved Result History & Comparison", "desc": "Track criterion scores across sequential drafts inside Test Results." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Choose Writing or Speaking Prompt", "desc": "Select an Academic/General Task 1/2 prompt or custom essay topic inside your dashboard." },
+      { "step": "02", "title": "Compose Draft or Record Audio", "desc": "Write under timer supervision (20m/40m) or record spoken Part 1–3 answers in browser." },
+      { "step": "03", "title": "Run Rubric Breakdown", "desc": "View estimated overall band alongside individual scores across all four descriptors." },
+      { "step": "04", "title": "Apply Rewrite Pointers", "desc": "Refine highlighted paragraphs or lexical choices and track upward criterion movement." }
+    ],
+    "useCases": [
+      { "persona": "Writing Retaker (Targeting 7.0+)", "plan": "Uses Task 1 overview feedback to jump from Band 6.5 to 7.0 by fixing ungrouped chart summaries." },
+      { "persona": "Speaking Confidence Seeker", "plan": "Practises recorded Cue Cards daily with self-playback and rubric checklists." },
+      { "persona": "Self-Study Learner Without Weekly Tutor", "plan": "Reviews structural balance on three essays per week safely inside Writing Studio." }
+    ],
+    "bandSamples": [
+      {
+        "band": "Band 6.0 Baseline",
+        "overall": 6.0,
+        "criteria": [
+          { "name": "Task Response", "score": 6.0, "note": "Addresses both views briefly; conclusion repeats earlier points rather than synthesizing." },
+          { "name": "Coherence & Cohesion", "score": 6.0, "note": "Clear paragraph breaks, though mechanical openers ('Firstly', 'Besides') appear repeatedly." },
+          { "name": "Lexical Resource", "score": 6.0, "note": "Adequate meaning communicated, with reliance on general words ('good', 'problem', 'people')." },
+          { "name": "Grammatical Range", "score": 6.0, "note": "Mix of simple and compound sentences; occasional article and comma-splice slips." }
+        ],
+        "upgradeTip": "State your explicit stance in the opening introduction and replace broad claims in Body 2 with one grounded causal example."
+      },
+      {
+        "band": "Band 7.0 Proficient",
+        "overall": 7.0,
+        "criteria": [
+          { "name": "Task Response", "score": 7.0, "note": "Presents a clear, well-supported position throughout with balanced main ideas." },
+          { "name": "Coherence & Cohesion", "score": 6.5, "note": "Logical progression overall; one abrupt transition between housing and transit sub-points." },
+          { "name": "Lexical Resource", "score": 7.5, "note": "Natural academic collocations ('mitigate congestion', 'urban sprawl') with rare minor slips." },
+          { "name": "Grammatical Range", "score": 7.0, "note": "Frequent error-free complex structures and accurate conditional clauses." }
+        ],
+        "upgradeTip": "Tighten the opening concession bridge of Paragraph 3 using referencing pronouns to elevate Coherence to 7.5."
+      },
+      {
+        "band": "Band 8.0 Advanced",
+        "overall": 8.0,
+        "criteria": [
+          { "name": "Task Response", "score": 8.0, "note": "Fully developed, nuanced argument addressing subtleties and counter-considerations cleanly." },
+          { "name": "Coherence & Cohesion", "score": 8.0, "note": "Seamless topic sentences and organic lexical chaining make paragraph boundaries effortless." },
+          { "name": "Lexical Resource", "score": 8.0, "note": "Flexible, idiomatic academic register with precise collocation awareness." },
+          { "name": "Grammatical Range", "score": 8.0, "note": "Wide repertoire of inversion, non-finite clauses, and crisp punctuation control." }
+        ],
+        "upgradeTip": "Maintain concise word choice (~290 words) so depth remains sharp without drifting off-focus under time limits."
+      }
+    ]
+  },
+  "self-paced-courses": {
+    "slug": "self-paced-courses",
+    "badge": "Structured Curriculum • 4 Learning Paths",
+    "title": "IELTS Self-Paced Courses",
+    "headline": "Progressive step-by-step IELTS tracks built for Beginner, Intermediate, Advanced, and General Training learners.",
+    "subheadline": "Replace disorganized videos with a real sequential curriculum spanning Listening, Reading, Writing, Speaking, Grammar, and Vocabulary—learn cleanly at your own pace with interactive comprehension checks.",
+    "ctaLabel": "Start Learning",
+    "dashboardHref": "/question-types",
+    "purposeTitle": "Why Sequencing Beats Random Exam Tips",
+    "purposeBody": "Jumping straight into Band 8 essay tricks before mastering paragraph coherence or complex clause boundaries slows long-term progress. Our Self-Paced Courses structure IELTS concepts in progressive order—teach cleanly, test comprehension interactively, and advance once core mechanics stick.",
+    "highlights": ["4 Complete Skill Tracks", "Academic + General Training", "All 6 Core Pillars Covered"],
+    "whyLearnersNeed": [
+      {
+        "title": "A Curated Order Instead of Random Searching",
+        "desc": "Know exactly which grammar, reading logic, and essay structure lessons unlock higher bands at your starting proficiency."
+      },
+      {
+        "title": "Every Essential Skill Under One Curriculum",
+        "desc": "Combines Reading, Listening, Writing, Speaking, Functional Grammar, and Academic Vocabulary seamlessly."
+      },
+      {
+        "title": "Active Lesson Verification",
+        "desc": "Interactive checks ensure you grasp subtle distinctions—such as False vs Not Given—before moving onto full timed passages."
+      }
+    ],
+    "keyFeatures": [
+      { "title": "Level-Calibrated Syllabi", "desc": "Targeted foundations for Band 4.5–5.5 right through precision mastery for Band 7.0–8.5+." },
+      { "title": "Complete 6-Area Coverage", "desc": "Integrated modules for Listening, Reading, Writing, Speaking, Grammar accuracy, and Lexical Resource." },
+      { "title": "Academic vs GT Branching", "desc": "Automatic Task 1 specialization between data visuals (Academic) and formal/personal letters (GT)." },
+      { "title": "Concise Bite-Sized Units", "desc": "Focused 15–25 minute lessons engineered for study alongside university or full-time work." },
+      { "title": "Masterclasses on 14 Question Types", "desc": "Deep tactical playbooks covering TFNG, Headings, Summary Completion, and Listening Maps." },
+      { "title": "Synced with Your Daily Study Plan", "desc": "Recommended course modules drop smoothly onto your daily study checklist." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Pick Your Current Track", "desc": "Select Beginner, Intermediate, Advanced, or General Training based on your diagnostic baseline." },
+      { "step": "02", "title": "Work Sequential Modules", "desc": "Study clear strategy notes, examiner rubrics, and annotated model breakdowns." },
+      { "step": "03", "title": "Pass Quick Knowledge Checks", "desc": "Verify comprehension of tricky distractors or grammar rules mid-lesson." },
+      { "step": "04", "title": "Apply in Full Simulations", "desc": "Transfer newly mastered mechanics straight into timed mock tests." }
+    ],
+    "useCases": [
+      { "persona": "Foundations Builder (Band 5.0)", "plan": "Starts in Beginner Track fixing sentence syntax, paragraph framing, and listening spelling rules." },
+      { "persona": "Plateau Breaker (Band 6.5 -> 7.5+)", "plan": "Moves into Advanced Track tackling nuanced Task 2 concession arguments and Passage 3 inference." },
+      { "persona": "Skilled Migration Applicant", "plan": "Follows General Training Track mastering complaint/request letter tones and practical workplace reading." }
+    ],
+    "tracks": [
+      {
+        "id": "beginner",
+        "level": "Beginner Track",
+        "targetBand": "Target Band 4.5 – 5.5",
+        "moduleCount": "24 Modules",
+        "summary": "Solidifies core IELTS test mechanics, clear paragraph construction, essential grammar control, and foundational Academic vocabulary.",
+        "subjects": ["Listening Foundations", "Reading Skimming & Scanning", "Sentence Clarity & Tense Control", "Task 1 Visual Basics", "Part 1 Everyday Fluency", "Core 300 Academic Words"]
+      },
+      {
+        "id": "intermediate",
+        "level": "Intermediate Track",
+        "targetBand": "Target Band 5.5 – 6.5 / 7.0",
+        "moduleCount": "30 Modules",
+        "summary": "Targets the critical leap past Band 6.5 by sharpening TFNG logic, Task 2 balanced essays, Listening Part 3 distractors, and Cue Card pacing.",
+        "subjects": ["TFNG & YNNG Precision", "Part 3–4 Academic Listening", "Task 2 Thesis & Cohesion", "Task 1 Data Grouping", "Cue Card 60s Structure", "Topic Collocation Packs"]
+      },
+      {
+        "id": "advanced",
+        "level": "Advanced Track",
+        "targetBand": "Target Band 7.0 – 8.5+",
+        "moduleCount": "22 Modules",
+        "summary": "Refines nuanced argumentation, complex subordinate syntax, high-density scientific passage inference, and natural Band 8+ Speaking expression.",
+        "subjects": ["Band 8+ Writing Precision", "Concession & Nuance Control", "Passage 3 Inference Traps", "Abstract Part 3 Debate", "Complex Clause Inversion", "Rare Academic Register"]
+      },
+      {
+        "id": "general",
+        "level": "General Training Pathway",
+        "targetBand": "Migration & Work • Band 6.5 – 8.0+",
+        "moduleCount": "20 Modules",
+        "summary": "Tailored exclusively to IELTS General Training format differences, letter writing register shifts, and everyday workplace/notice reading comprehension.",
+        "subjects": ["Formal & Semi-Formal Letters", "Informal Letter Tone Balance", "GT Everyday Notice Scanning", "Workplace Policy Reading", "Section 1–4 GT Timing", "GT Writing Essay Strategy"]
+      }
+    ]
+  }
+}
+

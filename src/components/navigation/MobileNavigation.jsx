@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { X, Zap, ArrowUpRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { X, Zap, ArrowUpRight, LogOut } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { BrandLogo, SidebarNavContent } from './AppSidebar';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
@@ -11,7 +12,8 @@ import gsap from 'gsap';
 import styles from './Sidebar.module.css';
 
 export function MobileNavigation() {
-  const { mobileNavOpen, setMobileNavOpen, profile } = useApp();
+  const router = useRouter();
+  const { mobileNavOpen, setMobileNavOpen, profile, logout } = useApp();
   const drawerRef = useRef(null);
 
   useEffect(() => {
@@ -115,6 +117,18 @@ export function MobileNavigation() {
               <div className="text-xs text-muted">Target Band {profile.targetBand}</div>
             </div>
           </Link>
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            style={{ width: '100%' }}
+            onClick={() => {
+              setMobileNavOpen(false);
+              logout();
+              router.replace('/login');
+            }}
+          >
+            <LogOut size={14} /> Sign Out
+          </button>
         </div>
       </div>
     </div>

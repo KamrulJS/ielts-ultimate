@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Star,
   Calendar,
@@ -29,6 +29,18 @@ export function PeopleDirectoryView() {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState('');
   const [bookingTopic, setBookingTopic] = useState('Writing Task 2 & Strategy Review');
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      try {
+        const param = new URLSearchParams(window.location.search).get('tab');
+        if (param === 'sessions' || param === 'students' || param === 'teachers') {
+          setTab(param);
+        }
+      } catch {}
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   const filteredTeachers = useMemo(() => {
     const q = search.trim().toLowerCase();

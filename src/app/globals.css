@@ -68,9 +68,63 @@ svg {
 }
 
 /* Typography Hierarchy */
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 3.6vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text-primary);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.subheading {
+  font-family: var(--font-display);
+  font-size: clamp(1.22rem, 1.55vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.card-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.25vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.hero-desc {
+  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.supporting-text {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
 .h1, h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.2;
@@ -79,18 +133,18 @@ svg {
 
 .h2, h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1.28;
   color: var(--text-primary);
 }
 
 .h3, h3 {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: clamp(1.08rem, 1.2vw, 1.2rem);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.012em;
   line-height: 1.35;
   color: var(--text-primary);
 }
@@ -100,11 +154,11 @@ svg {
 }
 
 .text-sm {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
 }
 
 .text-xs {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 /* App Shell Layout */
@@ -131,8 +185,8 @@ svg {
 .app-content-grid {
   display: flex;
   gap: 24px;
-  padding: 20px 28px 40px;
-  max-width: 1520px;
+  padding: 20px 20px 40px;
+  max-width: 1450px;
   width: 100%;
   margin: 0 auto;
   align-items: flex-start;
@@ -200,6 +254,7 @@ svg {
 .card-interactive:hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .card-compact {
@@ -760,7 +815,7 @@ svg {
   }
 
   .app-content-grid {
-    padding: 20px 22px 40px;
+    padding: 20px 20px 40px;
     gap: 20px;
   }
 

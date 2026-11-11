@@ -13,6 +13,13 @@ import defaultGroups from '@/data/community/groups.json';
 import defaultBookings from '@/data/teachers/bookings.json';
 import defaultReferrals from '@/data/referrals/referrals.json';
 import defaultStudents from '@/data/students/students.json';
+import {
+  AUTH_STORAGE_KEY,
+  ACCOUNTS_STORAGE_KEY,
+  DEMO_ADMIN_CREDENTIALS,
+  DEMO_STUDENT_CREDENTIALS,
+  UNAUTHENTICATED_STATE,
+} from '@/lib/auth';
 
 const STORAGE_KEY = 'ielts_ultimate_platform_v1';
 
@@ -27,6 +34,7 @@ const INITIAL_BOOKMARKS = {
 
 export function AppProvider({ children }) {
   const [hydrated, setHydrated] = useState(false);
+  const [auth, setAuth] = useState(UNAUTHENTICATED_STATE);
   const [profile, setProfile] = useState(defaultProfile);
   const [notifications, setNotifications] = useState(defaultNotifications);
   const [testResults, setTestResults] = useState(defaultResults);
@@ -72,6 +80,13 @@ export function AppProvider({ children }) {
           if (parsed.referrals) setReferrals(parsed.referrals);
           if (parsed.adminStudents) setAdminStudents(parsed.adminStudents);
           if (typeof parsed.sidebarCollapsed === 'boolean') setSidebarCollapsed(parsed.sidebarCollapsed);
+        }
+        const rawAuth = window.localStorage.getItem(AUTH_STORAGE_KEY);
+        if (rawAuth) {
+          const parsedAuth = JSON.parse(rawAuth);
+          if (parsedAuth?.isAuthenticated && (parsedAuth.role === 'student' || parsedAuth.role === 'admin')) {
+            setAuth(parsedAuth);
+          }
         }
       } catch {
         // Ignore malformed storage
@@ -370,12 +385,148 @@ export function AppProvider({ children }) {
     showToast('Local demo state reset to defaults', 'info');
   }, [showToast]);
 
+  const loginWithCredentials = useCallback(
+    ({ email = '', password = '', expectedRole = 'student' }) => {
+      const cleanEmail = email.trim().toLowerCase();
+      if (!cleanEmail || !password) {
+        return { ok: false, error: 'Please enter both your email address and password.' };
+      }
+
+      if (expectedRole === 'admin') {
+        if (
+          cleanEmail === DEMO_ADMIN_CREDENTIALS.email &&
+          password === DEMO_ADMIN_CREDENTIALS.password
+        ) {
+          const session = {
+            isAuthenticated: true,
+            role: 'admin',
+            email: DEMO_ADMIN_CREDENTIALS.email,
+            name: DEMO_ADMIN_CREDENTIALS.name,
+          };
+          setAuth(session);
+          try {
+            window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
+          } catch {}
+          showToast('Signed in to Admin Console', 'success');
+          return { ok: true, role: 'admin' };
+        }
+        return { ok: false, error: 'Invalid admin credentials. Please check the demo admin login details below.' };
+      }
+
+      if (
+        cleanEmail === DEMO_STUDENT_CREDENTIALS.email &&
+        password === DEMO_STUDENT_CREDENTIALS.password
+      ) {
+        const session = {
+          isAuthenticated: true,
+          role: 'student',
+          email: DEMO_STUDENT_CREDENTIALS.email,
+          name: profile.name || DEMO_STUDENT_CREDENTIALS.name,
+        };
+        setAuth(session);
+        try {
+          window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
+        } catch {}
+        showToast('Welcome back to IELTS Ultimate!', 'success');
+        return { ok: true, role: 'student' };
+      }
+
+      try {
+        const rawAccs = window.localStorage.getItem(ACCOUNTS_STORAGE_KEY);
+        const accounts = rawAccs ? JSON.parse(rawAccs) : [];
+        const match = accounts.find(
+          (a) => a.email?.toLowerCase() === cleanEmail && a.password === password
+        );
+        if (match) {
+          const session = {
+            isAuthenticated: true,
+            role: 'student',
+            email: match.email,
+            name: match.name,
+          };
+          setAuth(session);
+          setProfile((prev) => ({
+            ...prev,
+            name: match.name,
+            email: match.email,
+            track: match.track || prev.track,
+            targetBand: match.targetBand || prev.targetBand,
+          }));
+          window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
+          showToast(`Welcome back, ${match.name.split(' ')[0]}!`, 'success');
+          return { ok: true, role: 'student' };
+        }
+      } catch {}
+
+      return { ok: false, error: 'Incorrect email or password. Use the demo credentials below or create a free account.' };
+    },
+    [profile.name, showToast]
+  );
+
+  const registerStudent = useCallback(
+    ({ name = '', email = '', password = '', targetBand = 7.5, track = 'Academic' }) => {
+      const cleanName = name.trim();
+      const cleanEmail = email.trim().toLowerCase();
+      if (!cleanName || !cleanEmail || password.length < 6) {
+        return { ok: false, error: 'Please provide your full name, valid email, and a password of at least 6 characters.' };
+      }
+
+      try {
+        const rawAccs = window.localStorage.getItem(ACCOUNTS_STORAGE_KEY);
+        const accounts = rawAccs ? JSON.parse(rawAccs) : [];
+        const filtered = accounts.filter((a) => a.email?.toLowerCase() !== cleanEmail);
+        filtered.push({
+          name: cleanName,
+          email: cleanEmail,
+          password,
+          targetBand: Number(targetBand) || 7.5,
+          track,
+        });
+        window.localStorage.setItem(ACCOUNTS_STORAGE_KEY, JSON.stringify(filtered));
+      } catch {}
+
+      setProfile((prev) => ({
+        ...prev,
+        name: cleanName,
+        email: cleanEmail,
+        targetBand: Number(targetBand) || 7.5,
+        track,
+      }));
+
+      const session = {
+        isAuthenticated: true,
+        role: 'student',
+        email: cleanEmail,
+        name: cleanName,
+      };
+      setAuth(session);
+      try {
+        window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
+      } catch {}
+      showToast(`Account created — welcome, ${cleanName.split(' ')[0]}!`, 'success');
+      return { ok: true, role: 'student' };
+    },
+    [showToast]
+  );
+
+  const logout = useCallback(() => {
+    setAuth({ ...UNAUTHENTICATED_STATE, explicitLogout: true });
+    try {
+      window.localStorage.removeItem(AUTH_STORAGE_KEY);
+    } catch {}
+    showToast('Signed out cleanly', 'info');
+  }, [showToast]);
+
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (
     <AppContext.Provider
       value={{
         hydrated,
+        auth,
+        loginWithCredentials,
+        registerStudent,
+        logout,
         profile,
         updateProfile,
         notifications,

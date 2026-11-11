@@ -1,0 +1,271 @@
+{
+  "prediction-test": {
+    "slug": "prediction-test",
+    "badge": "Pre-Exam Benchmark • High Accuracy",
+    "title": "IELTS Prediction Test",
+    "headline": "Verify your realistic IELTS band score under full exam pressure before booking your official test date.",
+    "subheadline": "Sitting the official IELTS costs real time and money. IELTS Prediction Test pairs full four-skill simulation conditions with calibrated scoring—and optional certified examiner review—so you walk into test day certain of your standing.",
+    "ctaLabel": "Launch Prediction Mock",
+    "dashboardHref": "/mock-test",
+    "secondaryCtaLabel": "Compare Prediction Packages",
+    "secondaryHref": "#prediction-packages",
+    "overviewTitle": "Measure Real Test Readiness With Confidence",
+    "overviewBody": "Taking short untimed quizzes often creates a false sense of security. An IELTS Prediction Test mirrors the full 2-hour-40-minute sequence across Listening, Reading, Writing, and Speaking—capturing fatigue management, timing discipline, and rubric alignment so you know whether you are truly ready for your goal band.",
+    "whoShouldUse": [
+      { "title": "Candidates About to Book Official IELTS", "desc": "Confirm your live performance exceeds required university or visa minimums before paying exam registration fees." },
+      { "title": "Final 2–3 Weeks Exam Sprint Learners", "desc": "Diagnose last-mile pacing risks or recurring criterion weak spots while time remains to fix them." },
+      { "title": "Scholarship & University Applicants", "desc": "Benchmark progress cleanly toward minimum band thresholds like Overall 7.0 with no band below 6.5." },
+      { "title": "Repeat Candidates Retaking for Half-Band Lift", "desc": "Validate that structural improvements in Writing or Speaking hold steady under realistic pressure." }
+    ],
+    "benefits": [
+      { "title": "Full 4-Skill Calibration", "desc": "Evaluates Listening, Reading, Writing Task 1 & 2, and Speaking Parts 1–3 together." },
+      { "title": "Calibrated Readiness Report", "desc": "Breaks down overall band predictions alongside individual module scores and criterion remarks." },
+      { "title": "Examiner Feedback Option", "desc": "Upgrade anytime for line-by-line manual tutor grading and a live Speaking simulation interview." },
+      { "title": "Actionable Recovery Plan", "desc": "Automatically highlights high-leverage practice sets targeting the exact gaps keeping you half a band short." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Choose Academic or General Tier", "desc": "Select free platform prediction or certified examiner-reviewed evaluation." },
+      { "step": "02", "title": "Complete Full Timed Session", "desc": "Work through Listening, Reading, Writing, and Speaking sections back-to-back." },
+      { "step": "03", "title": "Score & Diagnose Responses", "desc": "Receive immediate platform band estimates (or 48-hour manual certified review)." },
+      { "step": "04", "title": "Lock Your Test Date", "desc": "Download your readiness summary and move forward to exam day with hard evidence." }
+    ],
+    "tiers": [
+      {
+        "name": "Standard Platform Prediction",
+        "price": "Free",
+        "badge": "Included Free",
+        "highlight": false,
+        "desc": "Run full 4-skill IELTS simulations inside the dashboard with instant Reading/Listening grading and rubric evaluations.",
+        "items": [
+          "Full 2h 40m Academic or GT Mock Access",
+          "Instant Listening & Reading Band Score",
+          "AI Rubric Summary for Writing & Speaking",
+          "Question-Level Explanations"
+        ],
+        "ctaLabel": "Start Free Prediction",
+        "ctaHref": "/mock-test"
+      },
+      {
+        "name": "Examiner-Reviewed Prediction",
+        "price": "$24 / sitting",
+        "badge": "Most Thorough",
+        "highlight": true,
+        "desc": "Adds manual Writing Task 1 & 2 grading by a certified IELTS specialist plus detailed criterion annotations.",
+        "items": [
+          "Everything in Standard Prediction",
+          "Human Review of Writing Task 1 & Task 2",
+          "15-Min Live Speaking Simulation Call",
+          "Downloadable IELTS Readiness Report"
+        ],
+        "ctaLabel": "Request Examiner Review",
+        "ctaHref": "/contact?topic=IELTS+Prediction+Test"
+      },
+      {
+        "name": "Dual Mock Readiness Bundle",
+        "price": "$42 / 2 sittings",
+        "badge": "Pre-Test Sprint",
+        "highlight": false,
+        "desc": "Sit one baseline prediction test three weeks before your exam and a confirmation check seven days out.",
+        "items": [
+          "2x Full Human-Reviewed Prediction Tests",
+          "Comparative Score Delta Report",
+          "Custom 14-Day Final Study Prescription",
+          "Priority 24h Essay Turnaround"
+        ],
+        "ctaLabel": "Book Dual Bundle",
+        "ctaHref": "/contact?topic=IELTS+Prediction+Test"
+      }
+    ]
+  },
+  "online-classes": {
+    "slug": "online-classes",
+    "badge": "Live Cohorts & 1-on-1 • Certified Trainers",
+    "title": "IELTS Online Classes",
+    "headline": "Interactive live IELTS cohorts and 1-on-1 coaching tailored for measurable half-band and full-band gains.",
+    "subheadline": "Study live with experienced IELTS specialists in intimate 3–6 learner groups or private mentoring sessions. Every cohort combines structured weekly clinics, personal essay grading, and direct Speaking sparring.",
+    "ctaLabel": "Explore Instructors & Slots",
+    "dashboardHref": "/people",
+    "secondaryCtaLabel": "Browse Live Cohorts",
+    "secondaryHref": "#class-catalog",
+    "overviewTitle": "Small-Group Focus Without Crowded Lecture Halls",
+    "overviewBody": "Watching passive 200-student webinars rarely raises Writing or Speaking scores. Our online classes cap group sizes to keep feedback personal—reviewing your actual paragraphs, tightening spoken fluency habits in real time, and pacing every week toward your university or migration exam deadline.",
+    "whoShouldUse": [
+      { "title": "Band 6.5 -> 7.5+ Score Jumpers", "desc": "Need direct expert correction on subtle Coherence gaps or complex grammar control." },
+      { "title": "Beginners Seeking Structure", "desc": "Prefer live guided walkthroughs across all four sections before launching timed mocks." },
+      { "title": "Working Professionals & Busy Students", "desc": "Need crisp evening/weekend small cohorts and clear weekly accountability checkpoints." },
+      { "title": "1-on-1 Targeted Retakers", "desc": "Require dedicated private hours exclusively on one lagging skill such as Speaking or Task 1." }
+    ],
+    "benefits": [
+      { "title": "Small 3–6 Learner Cohorts", "desc": "Every participant reads aloud, debates Part 3 questions, and receives live coach critiques." },
+      { "title": "Line-by-Line Essay Marking", "desc": "Submit weekly Task 1 & 2 scripts for detailed annotated rubric commentary." },
+      { "title": "Video Lesson Recordings Included", "desc": "Replay any workshop or strategy demonstration anytime during your study window." },
+      { "title": "Integrated Platform Assignments", "desc": "Classes assign synchronized practice sets straight inside IELTS Ultimate's dashboard." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Select Format & Level", "desc": "Choose Intensive 4-Week Group, Weekend Clinic, or Private 1-on-1 Coaching." },
+      { "step": "02", "title": "Attend Live Video Sessions", "desc": "Engage in interactive drills, breakout Speaking rounds, and guided reading teardowns." },
+      { "step": "03", "title": "Submit Weekly Tasks", "desc": "Complete assignments inside your dashboard for certified instructor review." },
+      { "step": "04", "title": "Track Final Mock Readiness", "desc": "Graduate cleanly with calibrated predictions across Listening, Reading, Writing, and Speaking." }
+    ],
+    "classes": [
+      {
+        "id": "cls-01",
+        "category": "Full Prep",
+        "title": "4-Week Band 7.0+ Intensive Cohort",
+        "level": "Intermediate (Baseline 5.5–6.5)",
+        "format": "Small Group (Max 6 learners)",
+        "schedule": "Mon, Wed, Fri • 19:00 UTC (90 min/session)",
+        "duration": "12 Live Sessions + 8 Graded Essays",
+        "instructor": "Dr. Claire Bennett",
+        "instructorRole": "Former IELTS Examiner • 11 yrs exp",
+        "instructorAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80",
+        "price": "$149 / cohort",
+        "seats": "3 seats left",
+        "previewVideoTitle": "Watch Class Preview: Fixing Paragraph Progression in 15 Minutes",
+        "previewDuration": "06:40 preview clip",
+        "syllabus": ["Diagnostic calibration & study schedule", "Passage 3 timing & TFNG edge cases", "Task 1 trend grouping & Task 2 cohesion", "Live Part 2–3 mock interviews & feedback"]
+      },
+      {
+        "id": "cls-02",
+        "category": "Writing",
+        "title": "Academic Writing Mastery Lab (Task 1 & Task 2)",
+        "level": "Intermediate to Advanced (Goal 7.0–8.0)",
+        "format": "Small Group (Max 5 learners)",
+        "schedule": "Tue & Thu • 18:30 UTC (75 min/session)",
+        "duration": "8 Live Workshops + 10 Annotated Scripts",
+        "instructor": "Marcus Vance",
+        "instructorRole": "Academic Reading & Data Task Coach",
+        "instructorAvatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80",
+        "price": "$119 / cohort",
+        "seats": "4 seats left",
+        "previewVideoTitle": "Watch Class Preview: Two-Sentence Data Overviews for Complex Charts",
+        "previewDuration": "05:55 preview clip",
+        "syllabus": ["Chart/Process/Map synthesis without repetition", "Opinion & Discussion concession paragraphs", "Sentence variety without forced grammar errors", "Live rewrite clinics using real scripts"]
+      },
+      {
+        "id": "cls-03",
+        "category": "Speaking",
+        "title": "Executive Speaking & Pronunciation Accelerator",
+        "level": "All Levels targeting 7.0+ Fluency",
+        "format": "Mini Trio (Max 3 learners)",
+        "schedule": "Sat & Sun • 15:00 UTC (60 min/session)",
+        "duration": "6 Interactive Clinics + Weekly Recorded Audits",
+        "instructor": "Hannah Al-Mansoor",
+        "instructorRole": "TESOL Certified Speaking & Listening Coach",
+        "instructorAvatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&q=80",
+        "price": "$95 / cohort",
+        "seats": "2 seats left",
+        "previewVideoTitle": "Watch Class Preview: Turning 60s Cue Card Prep Into Natural Speech",
+        "previewDuration": "07:15 preview clip",
+        "syllabus": ["Past-Present-Impact cue card framing", "Natural phrasal idioms & collocations", "Word stress & connected speech rhythm", "Hot-seat Part 3 abstract debate"]
+      },
+      {
+        "id": "cls-04",
+        "category": "1-on-1",
+        "title": "Private 1-on-1 Personalized IELTS Sprint",
+        "level": "Custom Diagnostic Track (Academic / GT)",
+        "format": "Private 1-on-1 Flexible Booking",
+        "schedule": "Flexible daily booking windows",
+        "duration": "5 x 60-Min Private Sessions + Custom Roadmap",
+        "instructor": "Prof. Alistair Reed",
+        "instructorRole": "Senior Mentor • 14 yrs Teaching",
+        "instructorAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=240&q=80",
+        "price": "$175 / 5 sessions",
+        "seats": "Rolling slots open",
+        "previewVideoTitle": "Watch Session Clip: Real-Time One-on-One Speaking Criterion Breakdown",
+        "previewDuration": "04:50 preview clip",
+        "syllabus": ["Custom error diagnosis from latest mock", "Rapid retake sprint focused solely on target skill", "GT formal letter or Academic SOP overlap", "Full simulated exam walkthrough before sitting"]
+      }
+    ]
+  },
+  "proofreading-translation": {
+    "slug": "proofreading-translation",
+    "badge": "Editorial & Sworn Docs • 48h Turnaround",
+    "title": "Proofreading & Translation",
+    "headline": "Submission-ready academic proofreading and certified document translation for universities and scholarships.",
+    "subheadline": "High IELTS bands unlock admissions requirements, while sharp Personal Statements, Scholarship Essays, CVs, and certified academic translations win selection committees.",
+    "ctaLabel": "Request Document Review",
+    "dashboardHref": "/contact?topic=Proofreading+%26+Translation",
+    "secondaryCtaLabel": "Compare Document Services",
+    "secondaryHref": "#document-rates",
+    "overviewTitle": "Clear Academic English Without Altering Your Authentic Voice",
+    "overviewBody": "Generic automated paraphrasers strip personality out of scholarship narratives and occasionally introduce unnatural academic phrasing. Our experienced university writing editors refine grammar, narrative arc, paragraph flow, and register while preserving your exact achievements—alongside accurate certified academic translation.",
+    "whoShouldUse": [
+      { "title": "Chevening, Fulbright & Commonwealth Applicants", "desc": "Need crisp, persuasive scholarship essays respecting tight 500-word limits." },
+      { "title": "Master's & PhD University Applicants", "desc": "Require academic CVs, Statements of Purpose, and Recommendation drafts polished to native standards." },
+      { "title": "Skilled Migration & Visa Candidates", "desc": "Need transcripts, employment references, and civil certificates accurately translated and formatted." },
+      { "title": "Graduates Seeking Global Roles", "desc": "Want concise academic resumes tailored cleanly to international selection panels." }
+    ],
+    "benefits": [
+      { "title": "Track-Changes Line Edits", "desc": "Every grammatical, lexical, and structural adjustment appears transparently with margin comments." },
+      { "title": "Included 1-on-1 Clarification Call", "desc": "Discuss narrative flow and essay angles with your editor across major admissions drafts." },
+      { "title": "Up to 2 Revision Rounds", "desc": "Refine edits cleanly as you finalize university or scholarship submission portals." },
+      { "title": "Reliable 48-Hour Initial Delivery", "desc": "Predictable turnaround windows built cleanly around strict application deadlines." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Submit Document Brief", "desc": "Specify document type (SOP, CV, Essay, Translation), target word count, and submission deadline." },
+      { "step": "02", "title": "Specialist Editorial Matching", "desc": "Assigned to a mentor experienced in your field (STEM, Humanities, Public Policy, Business)." },
+      { "step": "03", "title": "Annotated Draft + Comments", "desc": "Receive clean tracked edits on coherence, academic register, and argument punch." },
+      { "step": "04", "title": "Follow-Up Revision Pass", "desc": "Send updated answers back for final sign-off before portal upload." }
+    ],
+    "documentsTable": [
+      { "id": "doc-1", "service": "Academic CV / Resume Polish", "scope": "Layout clarity, concise action verbs, achievement framing (up to 2 pages)", "turnaround": "48 hours", "rate": "$25 / document" },
+      { "id": "doc-2", "service": "Motivation Letter / Personal Statement", "scope": "Narrative coherence, academic fit, grammar & lexical polish (up to 1,000 words)", "turnaround": "48 hours", "rate": "$39 / document" },
+      { "id": "doc-3", "service": "Scholarship Essay Review", "scope": "Leadership/impact structure, prompt alignment & 2x revisions (LPDP, Chevening, AAS)", "turnaround": "48 hours", "rate": "$49 / essay" },
+      { "id": "doc-4", "service": "Recommendation Letter Editing", "scope": "Credible institutional tone, specific evidence alignment (1 page)", "turnaround": "36 hours", "rate": "$29 / letter" },
+      { "id": "doc-5", "service": "Certified & Academic Translation", "scope": "Diplomas, academic transcripts, employment letters (certified formatting)", "turnaround": "2–3 business days", "rate": "$18 / page" }
+    ]
+  },
+  "study-abroad-preparation": {
+    "slug": "study-abroad-preparation",
+    "badge": "Admissions & Scholarships • 1-on-1 Mentoring",
+    "title": "Study Abroad Preparation",
+    "headline": "End-to-end scholarship, university admission, and interview mentoring guided by international alumni mentors.",
+    "subheadline": "Achieving your IELTS band score is half the milestone. Pair your language score with strategic program shortlisting, competitive SOP crafting, and realistic panel interview rehearsals.",
+    "ctaLabel": "Book Admissions Guidance",
+    "dashboardHref": "/contact?topic=Study+Abroad+Preparation",
+    "secondaryCtaLabel": "Explore Mentoring Tracks",
+    "secondaryHref": "#mentoring-pillars",
+    "overviewTitle": "Turn Your IELTS Score Into University Offers & Funded Scholarships",
+    "overviewBody": "Strong IELTS scores get your application past initial language screening—yet admissions and scholarship panels reject unfocused essays and under-prepared interviews every cycle. Study Abroad Preparation pairs you with successful scholarship recipients and admissions coaches who help align your academic story cleanly.",
+    "whoShouldUse": [
+      { "title": "Scholarship Applicants", "desc": "Targeting competitive funded awards across the UK, Australia, Europe, or North America." },
+      { "title": "Undergraduate & Master's Candidates", "desc": "Need structured help shortlisting programs aligned cleanly with prerequisite IELTS bands." },
+      { "title": "Applicants Preparing for Final Panel Interviews", "desc": "Want crisp mock panel Q&A practice targeting academic rationale and career impact." },
+      { "title": "First-Time International Applicants", "desc": "Seeking timeline clarity across university deadlines, IELTS sittings, and reference collection." }
+    ],
+    "benefits": [
+      { "title": "Mentors Who Passed Selection Panels", "desc": "Work directly with alumni scholars and university instructors familiar with committee expectations." },
+      { "title": "Unified IELTS + Application Timeline", "desc": "Align your IELTS test sitting cleanly with university conditional and unconditional deadlines." },
+      { "title": "Personal Statement & CV Mapping", "desc": "Structure past academic achievements cleanly into a cohesive postgraduate research narrative." },
+      { "title": "Simulated Panel Interviews", "desc": "Rehearse tough committee follow-up questions with direct rubric and delivery notes." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Profile & Target Audit", "desc": "Map GPA, work background, target countries, and scholarship eligibility cleanly." },
+      { "step": "02", "title": "IELTS Score + Shortlist Plan", "desc": "Pair target band scores with realistic university options and priority application milestones." },
+      { "step": "03", "title": "Document Drafting & Review", "desc": "Build authentic CVs, SOPs, study plans, and reference briefs over iterative workshops." },
+      { "step": "04", "title": "Mock Interview Conditioning", "desc": "Complete timed 30-minute panel simulations before your official scholarship interview." }
+    ],
+    "outcomesComparison": [
+      {
+        "stage": "Before Mentoring",
+        "points": [
+          "Unsure which universities match GPA and target IELTS requirements",
+          "Generic statement drafts listing modules rather than personal impact",
+          "Nervous or unstructured answers in scholarship panel questions",
+          "Disconnected IELTS deadlines risking late conditional submissions"
+        ]
+      },
+      {
+        "stage": "After Study Abroad Preparation",
+        "points": [
+          "Focused shortlist of 4–6 aligned programs with clear band thresholds",
+          "Cohesive, reviewer-ready essays anchored in measurable academic fit",
+          "Calm, concise mock-tested responses for panel follow-up probing",
+          "Synchronized timeline covering IELTS target sitting through visa file check"
+        ]
+      }
+    ]
+  }
+}
+

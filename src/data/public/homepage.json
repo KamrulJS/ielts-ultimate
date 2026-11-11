@@ -1,0 +1,234 @@
+{
+  "hero": {
+    "eyebrow": "Complete IELTS Preparation Ecosystem",
+    "headline": "Diagnose your baseline, train every skill, and walk into IELTS ready for your target band.",
+    "description": "Combine realistic full-length simulation exams, AI-calibrated Writing and Speaking rubric scoring, structured self-paced lessons, and a personalized daily study plan in one focused learning workspace.",
+    "primaryCta": { "label": "Start Learning Free", "href": "/study-plan" },
+    "secondaryCta": { "label": "Explore How It Works", "href": "#platform-preview" },
+    "trustNote": "Rated 4.9/5 by learners • Academic & General Training • Free account to start",
+    "stats": [
+      { "value": "1,200+", "label": "Active Learners" },
+      { "value": "4,800+", "label": "Timed Mock Sessions" },
+      { "value": "96+", "label": "Structured Modules" },
+      { "value": "4.9 ★", "label": "Average Rating" }
+    ],
+    "previewCards": [
+      {
+        "num": "01",
+        "title": "Academic Reading Mastery",
+        "subtitle": "Timed split-screen passages & TFNG logic",
+        "theme": "light",
+        "href": "/resources/simulation"
+      },
+      {
+        "num": "02",
+        "title": "AI Writing Examiner",
+        "subtitle": "4-criterion band breakdown in seconds",
+        "theme": "yellow",
+        "href": "/resources/ai-examiner"
+      },
+      {
+        "num": "03",
+        "title": "Speaking Cue Card Studio",
+        "subtitle": "60s prep + live rubric fluency coaching",
+        "theme": "purple",
+        "href": "/resources/ai-coach"
+      }
+    ]
+  },
+  "roadmapStages": [
+    {
+      "step": "Stage 01",
+      "title": "Pinpoint Your Starting Band",
+      "desc": "Run a diagnostic check across Listening, Reading, Writing, and Speaking so you never waste weeks studying topics you already know."
+    },
+    {
+      "step": "Stage 02",
+      "title": "Follow Your Personal Study Plan",
+      "desc": "Generate a daily queue of focused lessons, vocabulary decks, and skill drills matched to your exam date and daily study budget."
+    },
+    {
+      "step": "Stage 03",
+      "title": "Sit Full Prediction & Mock Tests",
+      "desc": "Build stamina across realistic 2h 40m exams with official screen controls, pacing timers, and instant criterion analytics."
+    },
+    {
+      "step": "Stage 04",
+      "title": "Earn Your Target Band on Test Day",
+      "desc": "Enter your official sitting familiar with every task instruction, question trap, and examiner expectations."
+    },
+    {
+      "step": "Stage 05",
+      "title": "Prepare Applications & Move Forward",
+      "desc": "Carry your score into scholarship essays, university admissions, and migration paperwork with expert review services."
+    }
+  ],
+  "gettingStartedSteps": [
+    {
+      "num": "01",
+      "title": "Create a Free Student Account",
+      "desc": "Sign up in moments and choose Academic or General Training along with your target overall band."
+    },
+    {
+      "num": "02",
+      "title": "Run a Baseline Check",
+      "desc": "Complete a diagnostic module set so your dashboard profiles your exact strengths and bottleneck criteria."
+    },
+    {
+      "num": "03",
+      "title": "Train Daily with Smart Guidance",
+      "desc": "Work through guided self-paced courses, curated lexical cards, and targeted drills tailored to your weak areas."
+    },
+    {
+      "num": "04",
+      "title": "Review Scores & Iterate Rapidly",
+      "desc": "Inspect criterion-by-criterion feedback after every essay, speaking attempt, and full simulation until you consistently exceed your goal."
+    }
+  ],
+  "showcaseTabs": [
+    {
+      "id": "simulation",
+      "label": "Simulation Test",
+      "badge": "Academic Mock Set 03 • Reading",
+      "timer": "47:12 remaining",
+      "promptTitle": "Question 14 of 40 — True / False / Not Given",
+      "promptBody": "Urban canopy expansion lowered night-time street surface temperatures across all three monitored commercial districts.",
+      "options": ["True", "False", "Not Given"],
+      "selectedOption": "True",
+      "metrics": [
+        { "label": "Listening", "value": "7.5" },
+        { "label": "Reading", "value": "7.5" },
+        { "label": "Writing", "value": "6.5" },
+        { "label": "Speaking", "value": "7.0" }
+      ],
+      "ctaLabel": "Explore Simulation Mode",
+      "href": "/resources/simulation",
+      "dashboardHref": "/mock-test"
+    },
+    {
+      "id": "examiner",
+      "label": "AI Examiner",
+      "badge": "Task 2 Evaluation • Rubric Calibrated",
+      "timer": "Overall Band 7.0",
+      "promptTitle": "Automated 4-Criterion Diagnostic",
+      "promptBody": "Clear thesis sustained across both body paragraphs with natural complex clause control. Add tighter transition signposts before conceding the counter-argument to reach 7.5.",
+      "options": ["TR 7.0", "CC 6.5", "LR 7.5"],
+      "selectedOption": "LR 7.5",
+      "metrics": [
+        { "label": "Task Response", "value": "7.0" },
+        { "label": "Coherence", "value": "6.5" },
+        { "label": "Lexical Resource", "value": "7.5" },
+        { "label": "Grammar Range", "value": "7.0" }
+      ],
+      "ctaLabel": "See AI Examiner",
+      "href": "/resources/ai-examiner",
+      "dashboardHref": "/writing"
+    },
+    {
+      "id": "planner",
+      "label": "Study Planner",
+      "badge": "Intermediate -> Band 7.5",
+      "timer": "12-day Streak",
+      "promptTitle": "Today's Scheduled Sequence (55 min)",
+      "promptBody": "Complete Reading Matching Headings clinic -> 15 Academic Urbanism collocation flashcards -> Timed Task 2 paragraph coherence rewrite.",
+      "options": ["Reading ✓", "Vocab Active", "Writing Next"],
+      "selectedOption": "Vocab Active",
+      "metrics": [
+        { "label": "Completed Items", "value": "14 / 28" },
+        { "label": "Daily Target", "value": "60 min" },
+        { "label": "Readiness", "value": "82%" },
+        { "label": "Est. Weeks", "value": "3 wks" }
+      ],
+      "ctaLabel": "See Study Planner",
+      "href": "/resources/study-planner",
+      "dashboardHref": "/study-plan"
+    },
+    {
+      "id": "vocabulary",
+      "label": "Vocabulary Studio",
+      "badge": "Academic Core • Band 7.5+",
+      "timer": "Word of the Day",
+      "promptTitle": "mitigate (/ˈmɪt.ɪ.ɡeɪt/) • verb",
+      "promptBody": "To make something harmful, inconvenient, or severe less intense. Common collocations: mitigate the impact, mitigate climate risk, mitigate congestion.",
+      "options": ["alleviate", "attenuate", "lessen"],
+      "selectedOption": "alleviate",
+      "metrics": [
+        { "label": "Words Mastered", "value": "248" },
+        { "label": "Deck Retention", "value": "86%" },
+        { "label": "Quiz Streak", "value": "12d" },
+        { "label": "Topic Packs", "value": "8" }
+      ],
+      "ctaLabel": "Explore Vocabulary",
+      "href": "/resources/vocabulary",
+      "dashboardHref": "/vocabulary"
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Built Around Official Rubrics",
+      "desc": "Every prompt, drill, and criterion score traces back to official Writing, Speaking, Reading, and Listening band descriptors.",
+      "tag": "Precision Grading"
+    },
+    {
+      "title": "One Cohesive Study Rhythm",
+      "desc": "No juggling spreadsheets or disconnected video channels—diagnostics feed directly into your planner and daily tasks.",
+      "tag": "Zero Fragmentation"
+    },
+    {
+      "title": "Academic & General Training",
+      "desc": "Switch smoothly between university-entry charts/academic texts and workplace/migration letter & practical reading tasks.",
+      "tag": "Dual Module"
+    },
+    {
+      "title": "Interactive Exam Conditioning",
+      "desc": "Split-screen text highlighting, audio playback controls, countdown timers, and word counters train real test composure.",
+      "tag": "Exam Ready"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Nadia Rahman",
+      "role": "MSc Urban Design Applicant • Dhaka",
+      "score": "7.5 Overall",
+      "gain": "6.0 -> 7.5 in 6 weeks",
+      "quote": "Split-screen reading drills with highlighter notes finally stopped me from running out of time in Passage 3, and criterion breakdowns transformed my Task 2 structure."
+    },
+    {
+      "name": "Daniel Kim",
+      "role": "Software Engineer (Skilled Migration) • Seoul",
+      "score": "8.0 Overall",
+      "gain": "7.0 -> 8.0 in 4 weeks",
+      "quote": "The Cue Card Coach timer forced me to structure 2-minute responses cleanly without memorizing scripts. Listening distractors stopped catching me off guard."
+    },
+    {
+      "name": "Sofia Alvarez",
+      "role": "Postgraduate Scholarship Candidate • Madrid",
+      "score": "7.5 Overall",
+      "gain": "6.5 -> 7.5 in 5 weeks",
+      "quote": "Having the study planner adjust daily drills around weak question types kept me consistent even while working full time."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I start using IELTS Ultimate for free before choosing a paid tier?",
+      "a": "Yes. Public guides and sample tools are open to everyone, and creating a free student account unlocks baseline practice sets across Reading, Listening, Writing, Speaking, Vocabulary flashcards, and initial Study Plan tracking."
+    },
+    {
+      "q": "How does IELTS Ultimate evaluate Writing and Speaking scores?",
+      "a": "Evaluations score separately across all four official criteria—Task Achievement/Response, Coherence & Cohesion, Lexical Resource, and Grammatical Range (plus Fluency & Pronunciation in Speaking)—paired with actionable rewrite pointers."
+    },
+    {
+      "q": "Does the platform support both IELTS Academic and General Training?",
+      "a": "Yes. Both Mock Simulations and Writing/Reading tracks include dedicated Academic modules (charts, academic essays, scholarly passages) and General Training pathways (formal/informal letters and everyday workplace texts)."
+    },
+    {
+      "q": "Where do online classes and live mentoring fit alongside self-study?",
+      "a": "You can practise daily at your own pace with self-paced tracks and AI drills, then join free live clinics or small-group cohorts when you want real-time mentor interaction, essay review, or scholarship interview coaching."
+    },
+    {
+      "q": "Do I need an account to browse Resources, Services, or Free Live Classes?",
+      "a": "No. Visitors can freely read all product guides, explore sample class schedules, register interest for live sessions, and review platform information. Signing in is only required when entering the personalized student dashboard or admin workspace."
+    }
+  ]
+}
+

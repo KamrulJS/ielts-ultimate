@@ -1,0 +1,121 @@
+{
+  "about": {
+    "eyebrow": "About IELTS Ultimate",
+    "headline": "Built by classroom educators and test specialists to turn IELTS preparation into a clear, measurable process.",
+    "intro": "IELTS Ultimate combines authentic examination practice, rubric-anchored AI diagnostics, structured self-paced study plans, and certified live mentorship—giving candidates worldwide an organized alternative to fragmented PDFs and guesswork.",
+    "metrics": [
+      { "value": "1,200+", "label": "Learners Supported" },
+      { "value": "4,800+", "label": "Simulations Scored" },
+      { "value": "96+", "label": "Self-Paced Lessons" },
+      { "value": "4.9 / 5", "label": "Student Satisfaction" }
+    ],
+    "mission": "Make official-caliber IELTS diagnostics, honest rubric feedback, and structured daily guidance accessible to every learner—whether you study independently at midnight or join live cohorts.",
+    "vision": "An assessment ecosystem where every university applicant, scholarship hunter, and skilled migrant understands exactly what their target band requires and reaches it without wasted months.",
+    "philosophy": [
+      {
+        "title": "Assessment Literacy First",
+        "desc": "Instead of teaching memorized essay scripts, we show learners exactly how examiners weigh Coherence, Task Response, Lexis, and Grammar."
+      },
+      {
+        "title": "Conditioning Matches Test Day",
+        "desc": "Split-screen passages, live timers, audio-once discipline, and word tracking make official examination screens feel second nature."
+      },
+      {
+        "title": "Diagnostics Drive Practice",
+        "desc": "Every mock result feeds directly into targeted drills and flashcards so study hours concentrate on the criteria moving your overall score."
+      },
+      {
+        "title": "Human Depth Meets Instant Tools",
+        "desc": "Automated tools deliver immediate clarity after every draft, backed by experienced tutors for live cohorts, essay clinics, and admissions mentoring."
+      }
+    ],
+    "reasons": [
+      {
+        "title": "Designed Around Real Learner Constraints",
+        "desc": "Flexible 25–60 minute daily study blocks work around university classes, full-time shifts, and exam countdown dates."
+      },
+      {
+        "title": "Academic & General Training Coverage",
+        "desc": "Dedicated task formats, rubrics, and reading collections for both degree applicants and migration candidates."
+      },
+      {
+        "title": "Transparent Progress Evidence",
+        "desc": "Track criterion scores, reading/listening accuracy per question type, and word-bank mastery over time before paying exam fees."
+      }
+    ],
+    "team": [
+      {
+        "id": "team-01",
+        "name": "Dr. Claire Bennett",
+        "role": "Academic Director & Writing Lead",
+        "credentials": "Former IELTS Examiner • 11 yrs Teaching",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80",
+        "bio": "Guided over 900 postgraduate candidates toward Band 7.5–8.5 across UK and Canadian universities. Architects our Writing evaluation rubrics."
+      },
+      {
+        "id": "team-02",
+        "name": "Marcus Vance",
+        "role": "Head of Reading & Data Task Curriculum",
+        "credentials": "Applied Linguistics • Academic Reading Specialist",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80",
+        "bio": "Specialises in time-pressured comprehension strategy, Task 1 visual data grouping, and diagnostic question-type sequencing."
+      },
+      {
+        "id": "team-03",
+        "name": "Hannah Al-Mansoor",
+        "role": "Listening & Spoken Fluency Coach",
+        "credentials": "TESOL Certified • Speech & Distractor Trainer",
+        "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&q=80",
+        "bio": "Leads live Speaking workshops, distractor awareness modules, and pronunciation pacing clinics for intermediate and advanced cohorts."
+      },
+      {
+        "id": "team-04",
+        "name": "Prof. Alistair Reed",
+        "role": "Senior Mentor & Admissions Advisor",
+        "credentials": "Scholarship Committee Reviewer • 14 yrs Mentoring",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=240&q=80",
+        "bio": "Advises scholarship applicants on academic statement proofreading, interview readiness, and high-band lexical precision."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact & Support",
+    "headline": "Questions about study plans, live classes, or admissions mentoring? Reach our team directly.",
+    "intro": "Whether you need advice selecting the right Academic or General Training cohort, document proofreading timelines, or technical help with your workspace, we reply within one business day.",
+    "channels": [
+      { "label": "Student & Academic Support", "value": "support@ieltsultimate.edu", "note": "Mon–Sat, replies within 24 hours" },
+      { "label": "Admissions & Mentoring Desk", "value": "admissions@ieltsultimate.edu", "note": "SOP review & scholarship prep" },
+      { "label": "Live Class & Partner Inquiries", "value": "hello@ieltsultimate.edu", "note": "Institutional cohorts & workshops" }
+    ],
+    "officeHours": "Monday – Saturday • 08:00 – 20:00 UTC",
+    "socials": [
+      { "name": "YouTube Workshops", "handle": "@IELTSUltimate", "href": "/live-classes" },
+      { "name": "Instagram Daily Tips", "handle": "@ieltsultimate.prep", "href": "/resources/vocabulary" },
+      { "name": "Student Community", "handle": "IELTS Ultimate Forums", "href": "/community" }
+    ],
+    "subjects": [
+      "General Platform Question",
+      "IELTS Study Planner & Roadmap",
+      "Online Classes & Live Cohorts",
+      "IELTS Prediction Test",
+      "Proofreading & Translation",
+      "Study Abroad Preparation",
+      "Account or Technical Help"
+    ],
+    "faqs": [
+      {
+        "q": "How quickly will someone respond after I submit the contact form?",
+        "a": "All inquiries receive a ticket reference immediately and an advisor replies within 24 business hours via your listed email."
+      },
+      {
+        "q": "Can I book a custom proofreading turnaround for an upcoming scholarship deadline?",
+        "a": "Yes—select Proofreading & Translation as the subject and mention your submission date so our editorial coordinator can confirm priority availability."
+      },
+      {
+        "q": "I already created a demo student account—how do I access the mock tests and study plan?",
+        "a": "Use the Log In button in the top navigation bar (or try the demo credentials on the login page) to open your full dashboard."
+      }
+    ]
+  }
+}
+
