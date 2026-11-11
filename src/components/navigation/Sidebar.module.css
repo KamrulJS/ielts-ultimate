@@ -244,8 +244,22 @@
   z-index: 40;
 }
 
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 .mobileMenuBtn {
   display: none;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1380px) {
+  .topbar {
+    padding: 0 22px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -259,6 +273,38 @@
 
   .topbar {
     padding: 0 16px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .topbarRight {
+    gap: 6px;
+  }
+
+  .topbarKbd {
+    display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .topbarSearchBtn {
+    padding: 7px 10px !important;
+    gap: 6px !important;
+  }
+
+  .topbarPill {
+    padding: 5px 8px !important;
+    font-size: 0.74rem !important;
+  }
+
+  .topbarUnitLabel {
+    display: none;
   }
 }
 

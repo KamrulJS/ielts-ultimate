@@ -49,7 +49,7 @@ export function PageHeader({ title, description, breadcrumbs = [], actions = nul
         marginBottom: 4,
       }}
     >
-      <div>
+      <div style={{ minWidth: 0, maxWidth: '100%' }}>
         {breadcrumbs.length > 0 && (
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             {breadcrumbs.map((crumb, idx) => (
@@ -74,7 +74,7 @@ export function PageHeader({ title, description, breadcrumbs = [], actions = nul
           </p>
         )}
       </div>
-      {actions && <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>{actions}</div>}
+      {actions && <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', maxWidth: '100%' }}>{actions}</div>}
     </div>
   );
 }

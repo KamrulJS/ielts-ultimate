@@ -10,12 +10,17 @@ export function Modal({ open, onClose, title, subtitle, children, large = false,
 
   useEffect(() => {
     if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     animateModalIn(backdropRef.current, panelRef.current);
     const handleEsc = (e) => {
       if (e.key === 'Escape') onClose?.();
     };
     window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', handleEsc);
+    };
   }, [open, onClose]);
 
   if (!open) return null;

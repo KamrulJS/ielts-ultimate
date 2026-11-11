@@ -60,12 +60,15 @@ export function DashboardHeader() {
         <button
           type="button"
           onClick={() => setSearchOpen(true)}
+          className={styles.topbarSearchBtn}
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 10,
             width: '100%',
+            minWidth: 0,
             maxWidth: 400,
+            overflow: 'hidden',
             padding: '8px 14px',
             borderRadius: 'var(--radius-pill)',
             backgroundColor: 'var(--surface)',
@@ -76,17 +79,18 @@ export function DashboardHeader() {
           }}
         >
           <Search size={15} style={{ flexShrink: 0 }} />
-          <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             Search courses, tests, cue cards, vocabulary...
           </span>
           <span
-            className="text-xs"
+            className={`text-xs ${styles.topbarKbd}`}
             style={{
               padding: '2px 7px',
               borderRadius: 6,
               backgroundColor: 'var(--bg-secondary)',
               color: 'var(--text-secondary)',
               fontWeight: 600,
+              flexShrink: 0,
             }}
           >
             ⌘K
@@ -95,10 +99,10 @@ export function DashboardHeader() {
       </div>
 
       {/* Right Status Pills + Notifications + Avatar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div className={styles.topbarRight}>
         <Link
           href="/achievements"
-          className="badge badge-neutral"
+          className={`badge badge-neutral ${styles.topbarPill}`}
           style={{
             backgroundColor: 'var(--surface)',
             padding: '6px 12px',
@@ -107,12 +111,12 @@ export function DashboardHeader() {
           title="Total XP earned"
         >
           <Zap size={14} style={{ color: 'var(--error)' }} />
-          <span>{profile.xp.toLocaleString()} XP</span>
+          <span>{profile.xp.toLocaleString()}<span className={styles.topbarUnitLabel}> XP</span></span>
         </Link>
 
         <Link
           href="/study-plan"
-          className="badge badge-neutral"
+          className={`badge badge-neutral ${styles.topbarPill}`}
           style={{
             backgroundColor: 'var(--surface)',
             padding: '6px 12px',
@@ -121,7 +125,7 @@ export function DashboardHeader() {
           title="Current study streak"
         >
           <Flame size={14} style={{ color: 'var(--accent-yellow)' }} />
-          <span>{profile.streakDays} days</span>
+          <span>{profile.streakDays}<span className={styles.topbarUnitLabel}> days</span></span>
         </Link>
 
         {/* Notifications Popover */}
@@ -157,8 +161,7 @@ export function DashboardHeader() {
                 position: 'absolute',
                 right: 0,
                 top: 'calc(100% + 8px)',
-                width: 340,
-                maxWidth: '90vw',
+                width: 'min(340px, calc(100vw - 24px))',
                 padding: 16,
                 zIndex: 70,
                 boxShadow: 'var(--shadow-lg)',
@@ -240,7 +243,7 @@ export function DashboardHeader() {
                 position: 'absolute',
                 right: 0,
                 top: 'calc(100% + 8px)',
-                width: 230,
+                width: 'min(230px, calc(100vw - 24px))',
                 padding: 8,
                 zIndex: 70,
                 boxShadow: 'var(--shadow-lg)',

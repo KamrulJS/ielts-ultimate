@@ -339,19 +339,22 @@ export function AdminConsoleView() {
       <div className="admin-main" style={{ flex: 1, marginLeft: 252, minWidth: 0 }}>
         <header
           style={{
-            height: 68,
-            padding: '0 24px',
+            minHeight: 68,
+            height: 'auto',
+            padding: '10px clamp(12px, 2.5vw, 24px)',
             borderBottom: '1px solid var(--border)',
             display: 'flex',
+            flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: 10,
             backgroundColor: 'var(--bg-primary)',
             position: 'sticky',
             top: 0,
             zIndex: 40,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', minWidth: 0 }}>
             <button
               type="button"
               className="btn btn-secondary btn-icon admin-mobile-open"
@@ -361,19 +364,19 @@ export function AdminConsoleView() {
               <Menu size={17} />
             </button>
             <Badge variant="dark">Admin Demo Console</Badge>
-            <span className="text-xs text-muted">Frontend CRUD demonstration (Local JSON + State)</span>
+            <span className="text-xs text-muted admin-subtitle">Frontend CRUD demonstration (Local JSON + State)</span>
           </div>
           <Link href="/dashboard" className="btn btn-secondary btn-sm">
             Exit to Student View
           </Link>
         </header>
 
-        <main style={{ padding: '24px 28px', maxWidth: 1360, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <main className="admin-main-inner" style={{ padding: 'clamp(14px, 2.5vw, 24px) clamp(12px, 3vw, 28px)', maxWidth: 1360, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
           <PageHeader
             title={ADMIN_NAV_ITEMS.find((n) => n.id === section)?.label || 'Admin Overview'}
             description="Manage platform students, educators, exam modules, community moderation, and analytics."
             actions={
-              <div style={{ display: 'flex', gap: 10 }}>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', maxWidth: '100%' }}>
                 {canCreate && (
                   <>
                     <SearchBar value={search} onChange={setSearch} placeholder="Filter records..." style={{ width: 200 }} />
@@ -798,6 +801,10 @@ export function AdminConsoleView() {
       </Modal>
 
       <style jsx>{`
+        .admin-main-inner > * {
+          min-width: 0;
+          max-width: 100%;
+        }
         .admin-mobile-open,
         .admin-mobile-close {
           display: none;
@@ -812,6 +819,11 @@ export function AdminConsoleView() {
           .admin-mobile-open,
           .admin-mobile-close {
             display: inline-flex;
+          }
+        }
+        @media (max-width: 540px) {
+          .admin-subtitle {
+            display: none;
           }
         }
       `}</style>

@@ -5,7 +5,7 @@ import { Search, X } from 'lucide-react';
 
 export function SearchBar({ value, onChange, placeholder = 'Search...', style = {} }) {
   return (
-    <div style={{ position: 'relative', width: '100%', ...style }}>
+    <div className="search-bar-wrap" style={{ position: 'relative', width: '100%', ...style }}>
       <Search
         size={16}
         style={{
@@ -48,7 +48,7 @@ export function SearchBar({ value, onChange, placeholder = 'Search...', style = 
 
 export function FilterDropdown({ label, value, onChange, options = [], style = {} }) {
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, ...style }}>
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, maxWidth: '100%', flexWrap: 'wrap', ...style }}>
       {label && (
         <span className="text-xs text-muted" style={{ fontWeight: 600, whiteSpace: 'nowrap' }}>
           {label}
@@ -58,7 +58,7 @@ export function FilterDropdown({ label, value, onChange, options = [], style = {
         className="select"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        style={{ width: 'auto', minWidth: 150, paddingTop: 8, paddingBottom: 8 }}
+        style={{ width: 'auto', minWidth: 0, maxWidth: '100%', paddingTop: 8, paddingBottom: 8 }}
       >
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>

@@ -217,7 +217,7 @@ export function StudyPlanView() {
       {viewMode === 'monthly' && (
         <div className="card">
           <h2 className="h2" style={{ marginBottom: 14 }}>Study Consistency Calendar (November 2026)</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: 10 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(125px, 1fr))', gap: 10 }}>
             {profile.streakCalendar.map((day) => (
               <div
                 key={day.date}

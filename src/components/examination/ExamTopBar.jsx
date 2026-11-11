@@ -51,20 +51,22 @@ function ExamTopBarInner({
     <>
       <header
         style={{
-          height: 64,
+          minHeight: 64,
+          height: 'auto',
           backgroundColor: 'var(--surface)',
           borderBottom: '1px solid var(--border)',
-          padding: '0 20px',
+          padding: '8px clamp(12px, 2vw, 20px)',
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: 12,
+          gap: '8px 12px',
           position: 'sticky',
           top: 0,
           zIndex: 60,
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, flex: '1 1 200px' }}>
           <button
             type="button"
             className="btn btn-secondary btn-sm"

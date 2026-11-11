@@ -184,9 +184,9 @@ export function ListeningExamInterface({ testId, initialPart = 1 }) {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 10,
-                padding: 14,
+                gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))',
+                gap: 8,
+                padding: 12,
                 borderRadius: 12,
                 backgroundColor: 'var(--bg-primary)',
                 border: '1px dashed var(--border-strong)',

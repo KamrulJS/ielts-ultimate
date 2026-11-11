@@ -44,7 +44,7 @@ export function SpeakingResultView({ resultId }) {
         <p className="text-xs" style={{ color: '#5D4400' }}>{evaluationsData.demoDisclaimer}</p>
       </div>
 
-      <div className="grid-3">
+      <div className="result-summary-split">
         <div className="card-dark" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <Badge variant="yellow"><Mic size={12} /> Overall Speaking</Badge>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 800, color: '#FFFFFF', margin: '10px 0' }}>
@@ -53,7 +53,7 @@ export function SpeakingResultView({ resultId }) {
           <div className="text-xs" style={{ color: '#B7B5AD' }}>Simulated Rubric Evaluation</div>
         </div>
 
-        <div className="card" style={{ gridColumn: 'span 2' }}>
+        <div className="card">
           <h2 className="h3" style={{ marginBottom: 12 }}>Official Speaking Criteria Breakdown</h2>
           <div className="grid-2" style={{ gap: 12 }}>
             {evalProfile.criteria.map((c) => (

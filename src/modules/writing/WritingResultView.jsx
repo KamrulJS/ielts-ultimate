@@ -56,7 +56,7 @@ export function WritingResultView({ submissionId }) {
       </div>
 
       {/* Overall Score & Criteria */}
-      <div className="grid-3">
+      <div className="result-summary-split">
         <div className="card-dark" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <Badge variant="yellow">Estimated Band</Badge>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 800, color: '#FFFFFF', margin: '8px 0' }}>
@@ -66,7 +66,7 @@ export function WritingResultView({ submissionId }) {
             Word count: {sub?.wordCount || 250} words
           </div>
         </div>
-        <div className="card" style={{ gridColumn: 'span 2' }}>
+        <div className="card">
           <h2 className="h3" style={{ marginBottom: 12 }}>4-Criterion Breakdown</h2>
           <div className="grid-2" style={{ gap: 12 }}>
             {template.criteria.map((c) => (

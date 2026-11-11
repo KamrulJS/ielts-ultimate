@@ -33,7 +33,7 @@ export function InviteFriendsView() {
   };
 
   return (
-    <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+    <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22, minWidth: 0, width: '100%', maxWidth: '100%' }}>
       <PageHeader
         title="Invite Friends & Earn Plus Days"
         description="Every friend who completes their first practice test unlocks 7 free days of IELTSWIST Plus for both of you."
@@ -59,7 +59,7 @@ export function InviteFriendsView() {
             readOnly
             className="input"
             value={referrals.referralLink}
-            style={{ flex: 1, minWidth: 240, fontFamily: 'var(--font-mono)', fontSize: '0.85rem' }}
+            style={{ flex: '1 1 200px', minWidth: 0, fontFamily: 'var(--font-mono)', fontSize: '0.85rem' }}
           />
           <button type="button" className="btn btn-primary" onClick={handleCopy}>
             <Copy size={15} /> Copy Link
@@ -71,7 +71,7 @@ export function InviteFriendsView() {
       </div>
 
       {/* Referral History */}
-      <div>
+      <div style={{ minWidth: 0, width: '100%' }}>
         <h2 className="h2" style={{ marginBottom: 12 }}>Invitation & Reward History</h2>
         <DataTable
           data={referrals.invitedFriends}

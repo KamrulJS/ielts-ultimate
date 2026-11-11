@@ -1,22 +1,40 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { X, Zap, ArrowUpRight } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { BrandLogo, SidebarNavContent } from './AppSidebar';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
+import { prefersReducedMotion } from '@/lib/animations';
+import gsap from 'gsap';
 import styles from './Sidebar.module.css';
 
 export function MobileNavigation() {
   const { mobileNavOpen, setMobileNavOpen, profile } = useApp();
+  const drawerRef = useRef(null);
 
   useEffect(() => {
+    if (!mobileNavOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    if (drawerRef.current && !prefersReducedMotion()) {
+      gsap.fromTo(
+        drawerRef.current,
+        { x: -28, opacity: 0.9 },
+        { x: 0, opacity: 1, duration: 0.24, ease: 'power3.out', clearProps: 'transform,opacity' }
+      );
+    }
+
     const handleEsc = (e) => {
       if (e.key === 'Escape') setMobileNavOpen(false);
     };
-    if (mobileNavOpen) window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', handleEsc);
+    };
   }, [mobileNavOpen, setMobileNavOpen]);
 
   if (!mobileNavOpen) return null;
@@ -44,6 +62,7 @@ export function MobileNavigation() {
       />
 
       <div
+        ref={drawerRef}
         style={{
           position: 'relative',
           width: 280,

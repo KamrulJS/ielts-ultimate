@@ -137,7 +137,7 @@ export function CueCardCoachView() {
         </div>
 
         {/* Right: Recording + Sample Answer */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, minWidth: 0 }}>
           <RecordingControls
             maxSeconds={120}
             onRecordingComplete={(rec) =>
@@ -169,9 +169,9 @@ export function CueCardCoachView() {
             )}
           </div>
 
-          <div className="card card-compact">
+          <div className="card card-compact" style={{ minWidth: 0 }}>
             <h3 className="h3" style={{ fontSize: '0.94rem', marginBottom: 8 }}>Recent Cue Card Practice</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
               {history.slice(0, 4).map((h, i) => (
                 <div
                   key={`${h.id}-${i}`}
@@ -179,17 +179,21 @@ export function CueCardCoachView() {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
+                    gap: 8,
                     padding: '8px 10px',
                     borderRadius: 8,
                     backgroundColor: 'var(--bg-primary)',
                     border: '1px solid var(--border)',
                     fontSize: '0.81rem',
+                    minWidth: 0,
                   }}
                 >
-                  <span style={{ fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>
+                  <span style={{ flex: 1, minWidth: 0, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {h.topic}
                   </span>
-                  <Badge variant="success"><CheckCircle2 size={11} /> {h.durationSec}s</Badge>
+                  <span style={{ flexShrink: 0 }}>
+                    <Badge variant="success"><CheckCircle2 size={11} /> {h.durationSec}s</Badge>
+                  </span>
                 </div>
               ))}
             </div>
@@ -235,7 +239,7 @@ export function CueCardCoachView() {
                   backgroundColor: isSelected ? 'var(--accent-yellow-soft)' : 'var(--surface)',
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
                   <Badge variant="purple">{card.category}</Badge>
                   {card.isRecent && <Badge variant="yellow">Recent</Badge>}
                 </div>

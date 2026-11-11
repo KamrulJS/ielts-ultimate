@@ -227,7 +227,7 @@ export function WritingWorkspace({ taskId }) {
             }}
           />
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
             <span className="text-xs text-muted">
               Note: Evaluation uses local JSON demo templates (no live AI API connected).
             </span>

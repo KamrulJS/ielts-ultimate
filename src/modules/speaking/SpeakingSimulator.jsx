@@ -125,10 +125,11 @@ export function SpeakingSimulator({ topicId }) {
         style={{
           backgroundColor: 'var(--bg-secondary)',
           borderBottom: '1px solid var(--border)',
-          padding: '10px 20px',
+          padding: '10px clamp(12px, 2vw, 20px)',
           display: 'flex',
+          flexWrap: 'wrap',
           gap: 8,
-          overflowX: 'auto',
+          maxWidth: '100%',
         }}
       >
         {STEPS.map((st, idx) => (
@@ -143,7 +144,7 @@ export function SpeakingSimulator({ topicId }) {
         ))}
       </div>
 
-      <main style={{ flex: 1, maxWidth: 820, width: '100%', margin: '0 auto', padding: 24, display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <main style={{ flex: 1, maxWidth: 820, width: '100%', minWidth: 0, margin: '0 auto', padding: 'clamp(12px, 3vw, 24px)', display: 'flex', flexDirection: 'column', gap: 18 }}>
         {currentStep.id === 'mic' && (
           <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <Badge variant="purple">Audio Setup</Badge>

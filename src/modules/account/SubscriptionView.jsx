@@ -17,7 +17,7 @@ export function SubscriptionView() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 22, minWidth: 0, width: '100%', maxWidth: '100%' }}>
       <PageHeader
         title="Subscription & Plans"
         description="Compare IELTSWIST study tiers and manage your membership (frontend billing demonstration)."
@@ -75,7 +75,7 @@ export function SubscriptionView() {
         })}
       </div>
 
-      <div>
+      <div style={{ minWidth: 0, width: '100%' }}>
         <h2 className="h2" style={{ marginBottom: 12 }}>Billing History</h2>
         <DataTable
           data={plansData.billingHistory}

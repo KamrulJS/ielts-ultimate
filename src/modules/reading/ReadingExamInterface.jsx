@@ -322,6 +322,7 @@ export function ReadingExamInterface({ passageId }) {
           style={{
             padding: '24px 28px',
             overflowY: 'auto',
+            minWidth: 0,
             borderRight: '1px solid var(--border)',
             backgroundColor: 'var(--surface)',
           }}
@@ -393,6 +394,7 @@ export function ReadingExamInterface({ passageId }) {
           style={{
             padding: '20px 24px',
             overflowY: 'auto',
+            minWidth: 0,
             backgroundColor: 'var(--bg-primary)',
             display: 'flex',
             flexDirection: 'column',
@@ -488,13 +490,14 @@ export function ReadingExamInterface({ passageId }) {
             display: block;
           }
           .reading-split-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: minmax(0, 1fr) !important;
             height: auto !important;
             overflow: visible !important;
           }
           .reading-pane {
             border-right: none !important;
             overflow: visible !important;
+            padding: 16px !important;
           }
           .mobile-hidden {
             display: none !important;

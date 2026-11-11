@@ -93,7 +93,9 @@ export function MockTestLibraryView() {
                 type="button"
                 onClick={() => setTrack(opt.id)}
                 style={{
-                  minWidth: 190,
+                  flex: '1 1 150px',
+                  maxWidth: 260,
+                  minWidth: 0,
                   padding: '12px 18px',
                   borderRadius: 12,
                   border: active ? '2px solid var(--accent-yellow)' : '1px solid var(--border)',
@@ -226,9 +228,9 @@ export function MockTestLibraryView() {
                   Completed {res.date} • Duration {res.durationUsed}
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                 {res.moduleScores && (
-                  <div style={{ display: 'flex', gap: 6 }}>
+                  <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                     {[
                       { k: 'L', v: res.moduleScores.listening, icon: Headphones },
                       { k: 'R', v: res.moduleScores.reading, icon: BookOpen },

@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { useGsapEntrance } from '@/hooks/useGsapEntrance';
+import { useIsMounted } from '@/hooks/useIsMounted';
 import { getGreeting } from '@/lib/utils';
 import { Badge, ProgressBar } from '@/components/common/UiPrimitives';
 import { BandProgressionChart } from '@/components/charts/BandProgressionChart';
@@ -79,6 +80,7 @@ function HeroArtwork({ theme }) {
 export function DashboardClient() {
   const { profile, testResults, showToast } = useApp();
   const rootRef = useGsapEntrance('dashboard');
+  const mounted = useIsMounted();
 
   const [chartMetric, setChartMetric] = useState('overall');
   const [skillTab, setSkillTab] = useState('Writing');
@@ -86,12 +88,15 @@ export function DashboardClient() {
   const [pollChoice, setPollChoice] = useState('');
   const [analyticsModalOpen, setAnalyticsModalOpen] = useState(false);
 
-  const todayFormatted = new Date().toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
+  const greetingText = mounted ? getGreeting() : 'Welcome back';
+  const todayFormatted = mounted
+    ? new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : 'Today’s Study Overview';
 
   const moduleCards = [
     {
@@ -162,9 +167,9 @@ export function DashboardClient() {
           gap: 12,
         }}
       >
-        <div>
+        <div style={{ minWidth: 0 }}>
           <h1 className="h1">
-            {getGreeting()}, {profile.name.split(' ')[0]}
+            {greetingText}, {profile.name.split(' ')[0]}
           </h1>
           <p className="text-sm text-muted" style={{ marginTop: 2 }}>
             {todayFormatted} • Estimated Overall Band:{' '}
@@ -187,7 +192,6 @@ export function DashboardClient() {
         data-animate="card"
         className="card-warm hero-banner-grid"
         style={{
-          padding: 24,
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -239,6 +243,7 @@ export function DashboardClient() {
               <Link
                 key={hc.id}
                 href={hc.href}
+                className="hero-milestone-card"
                 style={{
                   backgroundColor: bg,
                   color: fg,
@@ -248,7 +253,6 @@ export function DashboardClient() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  minHeight: 184,
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 }}
               >
@@ -275,22 +279,15 @@ export function DashboardClient() {
       {/* Dark Full Mock Test Banner */}
       <section
         data-animate="card"
-        className="card-dark"
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 18,
-          padding: '22px 24px',
-        }}
+        className="card-dark dashboard-mock-banner"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', minWidth: 0 }}>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(2, 34px)',
               gap: 6,
+              flexShrink: 0,
             }}
           >
             {[BookOpen, Headphones, PenTool, Mic].map((Icon, i) => (
@@ -312,8 +309,8 @@ export function DashboardClient() {
               </span>
             ))}
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+          <div style={{ minWidth: 0, flex: '1 1 200px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
               <h2 className="h2" style={{ color: '#FFFFFF' }}>Full IELTS Mock Test</h2>
               <Badge variant="yellow">2h 40m</Badge>
             </div>
@@ -412,19 +409,10 @@ export function DashboardClient() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative' }}>
-          {studyRoadmapSteps.map((step, idx) => (
+          {studyRoadmapSteps.map((step) => (
             <div
               key={step.title}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '36px 1fr auto',
-                alignItems: 'center',
-                gap: 14,
-                padding: '10px 12px',
-                borderRadius: 'var(--radius-md)',
-                backgroundColor: step.active ? 'var(--bg-secondary)' : 'transparent',
-                border: step.active ? '1px solid var(--border)' : '1px solid transparent',
-              }}
+              className={`dashboard-roadmap-row ${step.active ? 'active' : ''}`}
             >
               <div
                 style={{
@@ -441,11 +429,11 @@ export function DashboardClient() {
               >
                 {step.done ? <CheckCircle2 size={16} /> : <Clock size={15} />}
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{step.title}</div>
                 <div className="text-xs text-muted">{step.desc}</div>
               </div>
-              <span className={`badge ${step.done ? 'badge-success' : step.active ? 'badge-yellow' : 'badge-neutral'}`}>
+              <span className={`badge dashboard-roadmap-badge ${step.done ? 'badge-success' : step.active ? 'badge-yellow' : 'badge-neutral'}`}>
                 {step.done ? 'Done' : step.active ? 'In Progress' : 'Upcoming'}
               </span>
             </div>

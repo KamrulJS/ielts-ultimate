@@ -15,6 +15,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
+import { useIsMounted } from '@/hooks/useIsMounted';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
 import { formatReadableDate, getDaysRemaining } from '@/lib/utils';
 import overviewData from '@/data/dashboard/overview.json';
@@ -41,8 +42,9 @@ export function RightUtilityPanel() {
   const [targetOpen, setTargetOpen] = useState(false);
   const [examOpen, setExamOpen] = useState(false);
   const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const mounted = useIsMounted();
 
-  const daysLeft = getDaysRemaining(profile.examDate);
+  const daysLeft = mounted ? getDaysRemaining(profile.examDate) : null;
   const todayTasks = studyTasks.filter((t) => t.day === 'Today');
   const calendarDays =
     calMode === 'week'
@@ -78,7 +80,7 @@ export function RightUtilityPanel() {
             <Edit3 size={12} /> Edit
           </button>
         </div>
-        <div style={{ padding: '0 16px 16px', marginTop: -24 }}>
+        <div style={{ padding: '0 16px 16px', marginTop: -24, position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 10 }}>
             <SafeAvatar
               src={profile.avatar}
@@ -161,11 +163,11 @@ export function RightUtilityPanel() {
               <div className="text-xs text-muted">Keep the momentum going</div>
             </div>
           </div>
-          <div className="tabs-list" style={{ padding: 2 }}>
+          <div className="tabs-list" style={{ padding: 2, flexWrap: 'nowrap', flexShrink: 0 }}>
             <button
               type="button"
               className={`tab-trigger ${calMode === 'week' ? 'active' : ''}`}
-              style={{ padding: '4px 8px', fontSize: '0.72rem' }}
+              style={{ padding: '4px 8px', fontSize: '0.72rem', whiteSpace: 'nowrap' }}
               onClick={() => setCalMode('week')}
             >
               Week
@@ -173,7 +175,7 @@ export function RightUtilityPanel() {
             <button
               type="button"
               className={`tab-trigger ${calMode === 'month' ? 'active' : ''}`}
-              style={{ padding: '4px 8px', fontSize: '0.72rem' }}
+              style={{ padding: '4px 8px', fontSize: '0.72rem', whiteSpace: 'nowrap' }}
               onClick={() => setCalMode('month')}
             >
               14d
@@ -368,7 +370,7 @@ export function RightUtilityPanel() {
             View all
           </Link>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0 }}>
           {testResults.slice(0, 3).map((res) => (
             <Link
               key={res.id}
@@ -382,15 +384,17 @@ export function RightUtilityPanel() {
                 borderRadius: 10,
                 border: '1px solid var(--border)',
                 backgroundColor: 'var(--bg-primary)',
+                minWidth: 0,
+                maxWidth: '100%',
               }}
             >
-              <div style={{ minWidth: 0 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontWeight: 600, fontSize: '0.81rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {res.title}
                 </div>
                 <div className="text-xs text-muted">{res.type.toUpperCase()} • {res.date}</div>
               </div>
-              <span className="badge badge-dark">{res.bandScore.toFixed(1)}</span>
+              <span className="badge badge-dark" style={{ flexShrink: 0 }}>{res.bandScore.toFixed(1)}</span>
             </Link>
           ))}
         </div>
