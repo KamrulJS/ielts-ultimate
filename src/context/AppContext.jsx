@@ -14,7 +14,7 @@ import defaultBookings from '@/data/teachers/bookings.json';
 import defaultReferrals from '@/data/referrals/referrals.json';
 import defaultStudents from '@/data/students/students.json';
 
-const STORAGE_KEY = 'ieltswist_platform_v1';
+const STORAGE_KEY = 'ielts_ultimate_platform_v1';
 
 const AppContext = createContext(null);
 

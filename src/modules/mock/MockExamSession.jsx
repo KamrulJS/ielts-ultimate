@@ -54,7 +54,7 @@ export function MockExamSession({ mockId }) {
     [readPassage.id]
   );
 
-  const storageKey = `ieltswist_mock_draft_${mockId}`;
+  const storageKey = `ielts_ultimate_mock_draft_${mockId}`;
 
   const [activeSection, setActiveSection] = useState('listening');
   const [listenAnswers, setListenAnswers] = useState({});

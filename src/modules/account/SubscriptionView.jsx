@@ -20,7 +20,7 @@ export function SubscriptionView() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 22, minWidth: 0, width: '100%', maxWidth: '100%' }}>
       <PageHeader
         title="Subscription & Plans"
-        description="Compare IELTSWIST study tiers and manage your membership (frontend billing demonstration)."
+        description="Compare IELTS Ultimate study tiers and manage your membership (frontend billing demonstration)."
         breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Subscription' }]}
         actions={
           <div className="tabs-list">

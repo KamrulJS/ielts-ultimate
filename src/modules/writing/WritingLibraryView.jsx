@@ -53,7 +53,7 @@ export function WritingLibraryView() {
     if (!customPrompt.trim()) return;
     try {
       window.localStorage.setItem(
-        'ieltswist_custom_writing_prompt',
+        'ielts_ultimate_custom_writing_prompt',
         JSON.stringify({
           id: 'custom',
           taskNumber: Number(customTaskNum),

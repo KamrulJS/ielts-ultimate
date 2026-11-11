@@ -33,7 +33,7 @@ export function HelpCenterView() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
       <PageHeader
-        title="IELTSWIST Help Center"
+        title="IELTS Ultimate Help Center"
         description="Answers on band score conversion, split-screen exam tools, speaking permissions, and account management."
         breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Help Center' }]}
       />
@@ -83,7 +83,7 @@ export function HelpCenterView() {
 
       {/* Contact Support Form */}
       <form onSubmit={handleSupportSubmit} className="card" style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-        <h2 className="h3">Contact IELTSWIST Support (Demo)</h2>
+        <h2 className="h3">Contact IELTS Ultimate Support (Demo)</h2>
         <div className="field-group">
           <label className="field-label" htmlFor="sup-sub">Topic / Subject</label>
           <input id="sup-sub" className="input" required value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="e.g. Question about Speaking Mic fallback" />

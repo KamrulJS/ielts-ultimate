@@ -150,7 +150,7 @@ export function SpeakingSimulator({ topicId }) {
             <Badge variant="purple">Audio Setup</Badge>
             <h1 className="h2">Microphone & Recording Check</h1>
             <p className="text-sm text-muted">
-              Click below to test browser microphone access for MediaRecorder playback. If a microphone isn&apos;t connected or permitted, IELTSWIST seamlessly activates a Demo Timer mode so you can still complete the simulation.
+              Click below to test browser microphone access for MediaRecorder playback. If a microphone isn&apos;t connected or permitted, IELTS Ultimate seamlessly activates a Demo Timer mode so you can still complete the simulation.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
               <button type="button" className="btn btn-primary" onClick={testMicrophone}>

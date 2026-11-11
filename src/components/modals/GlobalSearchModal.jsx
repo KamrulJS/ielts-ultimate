@@ -111,7 +111,7 @@ export function GlobalSearchModal() {
     <Modal
       open={searchOpen}
       onClose={() => setSearchOpen(false)}
-      title="Search IELTSWIST"
+      title="Search IELTS Ultimate"
       subtitle="Jump directly to passages, audio tests, writing tasks, cue cards, or vocabulary."
       large
     >

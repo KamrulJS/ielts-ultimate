@@ -17,7 +17,7 @@ export function WritingWorkspace({ taskId }) {
   const { addWritingSubmission, addTestResult } = useApp();
 
   const [task, setTask] = useState(() => writingTasks.find((t) => t.id === taskId) || writingTasks[0]);
-  const draftKey = `ieltswist_writing_draft_${taskId}`;
+  const draftKey = `ielts_ultimate_writing_draft_${taskId}`;
 
   const [text, setText] = useState('');
   const [confirmSubmit, setConfirmSubmit] = useState(false);
@@ -27,7 +27,7 @@ export function WritingWorkspace({ taskId }) {
     const frame = requestAnimationFrame(() => {
       if (taskId === 'custom') {
         try {
-          const raw = window.localStorage.getItem('ieltswist_custom_writing_prompt');
+          const raw = window.localStorage.getItem('ielts_ultimate_custom_writing_prompt');
           if (raw) setTask(JSON.parse(raw));
         } catch {
           // ignore

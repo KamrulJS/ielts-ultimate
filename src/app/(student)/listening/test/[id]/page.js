@@ -1,7 +1,7 @@
 import { ListeningExamInterface } from '@/modules/listening/ListeningExamInterface';
 
 export const metadata = {
-  title: 'Listening Exam — IELTSWIST',
+  title: 'Listening Exam — IELTS Ultimate',
   description: 'Distraction-free IELTS Listening audio practice session.',
 };
 

@@ -403,7 +403,7 @@ export function RightUtilityPanel() {
       {/* 6. Invite Friends Dark Card */}
       <div className="card-dark">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>IELTSWIST</span>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>IELTS Ultimate</span>
           <span className="badge badge-yellow">New</span>
         </div>
         <h3 className="h3" style={{ color: '#FFFFFF', marginBottom: 4 }}>Invite friends</h3>

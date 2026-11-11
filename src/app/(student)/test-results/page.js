@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { TestResultsView } from '@/modules/results/TestResultsView';
 
 export const metadata = {
-  title: 'Test Results — IELTSWIST',
+  title: 'Test Results — IELTS Ultimate',
   description: 'Review your full IELTS mock tests and individual Reading, Listening, Writing, and Speaking scores.',
 };
 

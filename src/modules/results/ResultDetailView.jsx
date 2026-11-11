@@ -38,7 +38,7 @@ export function ResultDetailView({ resultId, expectedType }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${result.id}-ieltswist-report.json`;
+    a.download = `${result.id}-ielts-ultimate-report.json`;
     a.click();
     URL.revokeObjectURL(url);
     showToast('Score report downloaded', 'success');

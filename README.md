@@ -1,4 +1,4 @@
-# IELTSWIST — Complete IELTS Learning Platform
+# IELTS Ultimate — Complete IELTS Learning Platform
 
 A modern, responsive IELTS preparation SaaS application built with **Next.js (App Router)**, **React**, **Custom CSS**, **GSAP**, **Recharts**, and **Lucide Icons**.
 

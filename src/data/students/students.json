@@ -2,7 +2,7 @@
   {
     "id": "stu-emily-01",
     "name": "Emily Johnson",
-    "email": "emily.johnson@ieltswist.edu",
+    "email": "emily.johnson@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
     "country": "Canada",
     "track": "Academic",
@@ -19,7 +19,7 @@
   {
     "id": "stu-arjun-02",
     "name": "Arjun Mehta",
-    "email": "arjun.mehta@ieltswist.edu",
+    "email": "arjun.mehta@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80",
     "country": "India",
     "track": "Academic",
@@ -36,7 +36,7 @@
   {
     "id": "stu-sofia-03",
     "name": "Sofia Alvarez",
-    "email": "sofia.alvarez@ieltswist.edu",
+    "email": "sofia.alvarez@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=240&q=80",
     "country": "Spain",
     "track": "General Training",
@@ -53,7 +53,7 @@
   {
     "id": "stu-minho-04",
     "name": "Min-ho Park",
-    "email": "minho.park@ieltswist.edu",
+    "email": "minho.park@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80",
     "country": "South Korea",
     "track": "Academic",
@@ -70,7 +70,7 @@
   {
     "id": "stu-nadia-05",
     "name": "Nadia Rahman",
-    "email": "nadia.rahman@ieltswist.edu",
+    "email": "nadia.rahman@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
     "country": "Bangladesh",
     "track": "Academic",
@@ -87,7 +87,7 @@
   {
     "id": "stu-liam-06",
     "name": "Liam O'Connor",
-    "email": "liam.oconnor@ieltswist.edu",
+    "email": "liam.oconnor@ieltsultimate.edu",
     "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=240&q=80",
     "country": "Ireland",
     "track": "General Training",

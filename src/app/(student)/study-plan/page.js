@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { StudyPlanView } from '@/modules/study-plan/StudyPlanView';
 
 export const metadata = {
-  title: 'Study Plan — IELTSWIST',
+  title: 'Study Plan — IELTS Ultimate',
   description: 'Build and track your personalized IELTS preparation calendar and daily task checklist.',
 };
 

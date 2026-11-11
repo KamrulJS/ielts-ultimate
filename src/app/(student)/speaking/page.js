@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { SpeakingLibraryView } from '@/modules/speaking/SpeakingLibraryView';
 
 export const metadata = {
-  title: 'Speaking Studio — IELTSWIST',
+  title: 'Speaking Studio — IELTS Ultimate',
   description: 'Practice IELTS Speaking Parts 1, 2, and 3 with microphone recording and cue card timers.',
 };
 

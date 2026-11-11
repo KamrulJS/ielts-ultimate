@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { CommunityView } from '@/modules/community/CommunityView';
 
 export const metadata = {
-  title: 'Community — IELTSWIST',
+  title: 'Community — IELTS Ultimate',
   description: 'Discuss IELTS strategies, swap essay reviews, and join study groups.',
 };
 

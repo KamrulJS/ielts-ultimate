@@ -64,7 +64,7 @@ export function BrandLogo({ collapsed = false }) {
       <span className={styles.brandMark} aria-hidden="true">
         <Sparkles size={16} strokeWidth={2.4} />
       </span>
-      {!collapsed && <span>IELTSWIST</span>}
+      {!collapsed && <span>IELTS Ultimate</span>}
     </Link>
   );
 }

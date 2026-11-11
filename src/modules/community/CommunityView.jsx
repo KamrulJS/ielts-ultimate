@@ -79,7 +79,7 @@ export function CommunityView() {
   return (
     <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
       <PageHeader
-        title="IELTSWIST Learning Community"
+        title="IELTS Ultimate Learning Community"
         description="Share essay feedback, swap speaking partner schedules, discuss reading tactics, and join cohort study groups."
         breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Community' }]}
         actions={

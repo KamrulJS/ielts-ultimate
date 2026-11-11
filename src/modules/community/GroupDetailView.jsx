@@ -64,7 +64,7 @@ export function GroupDetailView({ groupId }) {
             <Badge variant="purple"><Users size={13} /> {group.members} Members</Badge>
             <Badge variant="yellow"><Calendar size={13} /> {group.schedule}</Badge>
           </div>
-          <span className="text-xs text-muted">Active IELTSWIST Cohort</span>
+          <span className="text-xs text-muted">Active IELTS Ultimate Cohort</span>
         </div>
       </div>
 

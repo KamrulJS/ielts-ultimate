@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { ReadingLibraryView } from '@/modules/reading/ReadingLibraryView';
 
 export const metadata = {
-  title: 'Reading Library — IELTSWIST',
+  title: 'Reading Library — IELTS Ultimate',
   description: 'Academic and General Training IELTS Reading passages, collections, and split-screen practice exams.',
 };
 

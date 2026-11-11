@@ -19,7 +19,7 @@ export function AchievementsView() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
       <PageHeader
         title="Achievements & Milestones"
-        description="Track unlocked IELTSWIST badges, daily streak rewards, and skill proficiency milestones."
+        description="Track unlocked IELTS Ultimate badges, daily streak rewards, and skill proficiency milestones."
         breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Achievements' }]}
       />
 

@@ -32,7 +32,7 @@ export function ReadingExamInterface({ passageId }) {
     return matched.length ? matched : allQuestions.slice(0, 6);
   }, [passage.id]);
 
-  const draftKey = `ieltswist_reading_draft_${passage.id}`;
+  const draftKey = `ielts_ultimate_reading_draft_${passage.id}`;
 
   const [answers, setAnswers] = useState({});
   const [notes, setNotes] = useState('');

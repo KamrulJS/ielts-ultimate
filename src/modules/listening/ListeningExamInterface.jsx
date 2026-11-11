@@ -32,7 +32,7 @@ export function ListeningExamInterface({ testId, initialPart = 1 }) {
     }));
   }, [test.id]);
 
-  const draftKey = `ieltswist_listening_draft_${test.id}`;
+  const draftKey = `ielts_ultimate_listening_draft_${test.id}`;
   const [activePart, setActivePart] = useState(Number(initialPart) || 1);
   const [answers, setAnswers] = useState({});
   const [reviewOpen, setReviewOpen] = useState(false);

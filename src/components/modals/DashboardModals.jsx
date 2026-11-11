@@ -61,7 +61,7 @@ function EditProfileForm({ profile, updateProfile, onClose }) {
 export function EditProfileModal({ open, onClose }) {
   const { profile, updateProfile } = useApp();
   return (
-    <Modal open={open} onClose={onClose} title="Edit Student Profile" subtitle="Keep your IELTSWIST learning profile current.">
+    <Modal open={open} onClose={onClose} title="Edit Student Profile" subtitle="Keep your IELTS Ultimate learning profile current.">
       {open && <EditProfileForm profile={profile} updateProfile={updateProfile} onClose={onClose} />}
     </Modal>
   );

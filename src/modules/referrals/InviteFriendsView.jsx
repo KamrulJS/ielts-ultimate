@@ -36,7 +36,7 @@ export function InviteFriendsView() {
     <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22, minWidth: 0, width: '100%', maxWidth: '100%' }}>
       <PageHeader
         title="Invite Friends & Earn Plus Days"
-        description="Every friend who completes their first practice test unlocks 7 free days of IELTSWIST Plus for both of you."
+        description="Every friend who completes their first practice test unlocks 7 free days of IELTS Ultimate Plus for both of you."
         breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Invite Friends' }]}
         actions={
           <button type="button" className="btn btn-accent" onClick={() => setShareOpen(true)}>

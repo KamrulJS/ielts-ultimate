@@ -135,7 +135,7 @@ export function ReadingLibraryView() {
       >
         <Info size={16} style={{ color: 'var(--accent-purple)', flexShrink: 0 }} />
         <p className="text-xs text-muted">
-          <strong>Practice Guidance:</strong> All passages use original IELTSWIST academic texts (no copyrighted exam reproductions). Use text highlighting and personal notes inside the split-screen exam viewer.
+          <strong>Practice Guidance:</strong> All passages use original IELTS Ultimate academic texts (no copyrighted exam reproductions). Use text highlighting and personal notes inside the split-screen exam viewer.
         </p>
       </div>
 

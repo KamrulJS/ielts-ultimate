@@ -1,7 +1,7 @@
 import { StudentShell } from '@/layouts/StudentShell';
 import { AccountSettingsView } from '@/modules/account/AccountSettingsView';
 
-export const metadata = { title: 'Account Settings — IELTSWIST' };
+export const metadata = { title: 'Account Settings — IELTS Ultimate' };
 
 export default function SettingsPage() {
   return (

@@ -88,7 +88,7 @@ export function AdminConsoleView() {
   const [formTitle, setFormTitle] = useState('');
   const [formSub, setFormSub] = useState('');
   const [platformSettings, setPlatformSettings] = useState({
-    siteTitle: 'IELTSWIST Learning Platform',
+    siteTitle: 'IELTS Ultimate Learning Platform',
     defaultMockMinutes: 160,
     demoBannerEnabled: true,
   });
@@ -106,7 +106,7 @@ export function AdminConsoleView() {
         {
           id: `stu-${Date.now()}`,
           name: title,
-          email: `${title.toLowerCase().replace(/\s+/g, '.')}@ieltswist.edu`,
+          email: `${title.toLowerCase().replace(/\s+/g, '.')}@ieltsultimate.edu`,
           country: sub,
           track: 'Academic',
           currentBand: 6.5,
@@ -237,10 +237,10 @@ export function AdminConsoleView() {
               fontSize: '0.85rem',
             }}
           >
-            IW
+            IU
           </span>
           <div>
-            <div style={{ fontWeight: 800, fontSize: '0.96rem' }}>IELTSWIST</div>
+            <div style={{ fontWeight: 800, fontSize: '0.96rem' }}>IELTS Ultimate</div>
             <div className="text-xs text-muted">Admin Console</div>
           </div>
         </div>

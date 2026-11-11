@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { VocabularyView } from '@/modules/vocabulary/VocabularyView';
 
 export const metadata = {
-  title: 'Vocabulary — IELTSWIST',
+  title: 'Vocabulary — IELTS Ultimate',
   description: 'Academic IELTS vocabulary flashcards, definitions, audio pronunciation, and interactive quizzes.',
 };
 

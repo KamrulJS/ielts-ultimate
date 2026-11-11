@@ -2,7 +2,7 @@ import { StudentShell } from '@/layouts/StudentShell';
 import { ToolsHubView } from '@/modules/tools/ToolsHubView';
 
 export const metadata = {
-  title: 'More Tools — IELTSWIST',
+  title: 'More Tools — IELTS Ultimate',
   description: 'Band score calculator, writing templates, typing drill, reading speed tracker, and study timer.',
 };
 
