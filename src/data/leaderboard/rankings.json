@@ -1,0 +1,37 @@
+{
+  "rankings": [
+    { "id": "lb-01", "name": "Arjun Mehta", "country": "India", "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=180&q=80", "band": 7.5, "xp": 3420, "wins": 19, "losses": 3, "streak": 28, "scope": "global", "isFriend": true },
+    { "id": "lb-02", "name": "Nadia Rahman", "country": "Bangladesh", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=180&q=80", "band": 7.5, "xp": 3180, "wins": 17, "losses": 4, "streak": 16, "scope": "global", "isFriend": true },
+    { "id": "lb-03", "name": "Sofia Alvarez", "country": "Spain", "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=180&q=80", "band": 7.0, "xp": 2840, "wins": 15, "losses": 5, "streak": 19, "scope": "global", "isFriend": false },
+    { "id": "lb-04", "name": "Daniel Kim", "country": "Canada", "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=180&q=80", "band": 7.0, "xp": 2590, "wins": 13, "losses": 5, "streak": 14, "scope": "global", "isFriend": true },
+    { "id": "lb-05", "name": "Chloe Patel", "country": "UK", "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=180&q=80", "band": 7.0, "xp": 2210, "wins": 11, "losses": 6, "streak": 10, "scope": "weekly", "isFriend": true },
+    { "id": "lb-06", "name": "Emily Johnson", "country": "Canada", "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=180&q=80", "band": 6.5, "xp": 1230, "wins": 8, "losses": 4, "streak": 12, "scope": "weekly", "isFriend": true, "isCurrentUser": true },
+    { "id": "lb-07", "name": "Min-ho Park", "country": "South Korea", "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=180&q=80", "band": 6.5, "xp": 1140, "wins": 7, "losses": 6, "streak": 7, "scope": "weekly", "isFriend": false },
+    { "id": "lb-08", "name": "Elena Petrova", "country": "Poland", "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=180&q=80", "band": 6.5, "xp": 1090, "wins": 6, "losses": 5, "streak": 9, "scope": "weekly", "isFriend": false },
+    { "id": "lb-09", "name": "Yusuf Demir", "country": "Turkey", "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=180&q=80", "band": 6.5, "xp": 980, "wins": 5, "losses": 4, "streak": 6, "scope": "global", "isFriend": false },
+    { "id": "lb-10", "name": "Hana Takahashi", "country": "Japan", "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=180&q=80", "band": 7.0, "xp": 2050, "wins": 10, "losses": 4, "streak": 11, "scope": "global", "isFriend": false },
+    { "id": "lb-11", "name": "Mateo Silva", "country": "Brazil", "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=180&q=80", "band": 6.0, "xp": 840, "wins": 4, "losses": 5, "streak": 4, "scope": "weekly", "isFriend": false },
+    { "id": "lb-12", "name": "Amina Hassan", "country": "Egypt", "avatar": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=180&q=80", "band": 7.0, "xp": 1920, "wins": 9, "losses": 3, "streak": 15, "scope": "global", "isFriend": false }
+  ],
+  "battleHistory": [
+    { "id": "bh-1", "opponent": "Chloe Patel", "topic": "Academic Vocabulary Sprint", "myScore": 5, "oppScore": 4, "result": "Won", "xpEarned": "+60 XP", "date": "2026-11-10" },
+    { "id": "bh-2", "opponent": "Min-ho Park", "topic": "TFNG Rapid Verification", "myScore": 4, "oppScore": 3, "result": "Won", "xpEarned": "+50 XP", "date": "2026-11-08" },
+    { "id": "bh-3", "opponent": "Arjun Mehta", "topic": "Academic Collocations", "myScore": 3, "oppScore": 5, "result": "Lost", "xpEarned": "+15 XP", "date": "2026-11-05" }
+  ],
+  "battleQuestions": [
+    { "id": "bq-1", "prompt": "Which verb means 'to make a bad situation worse'?", "options": ["Alleviate", "Exacerbate", "Mitigate", "Corroborate"], "answer": "Exacerbate" },
+    { "id": "bq-2", "prompt": "In IELTS Reading, if a passage never mentions a claim's timeframe, the answer is:", "options": ["FALSE", "NOT GIVEN", "NO", "TRUE"], "answer": "NOT GIVEN" },
+    { "id": "bq-3", "prompt": "Which Academic Task 1 section summarises main trends without raw numbers?", "options": ["Introduction", "Overview", "Conclusion", "Appendix"], "answer": "Overview" },
+    { "id": "bq-4", "prompt": "Choose the accurate collocation for urban economics:", "options": ["Revitalise local high streets", "Revive tall money", "Fix city selling", "Grow shop speed"], "answer": "Revitalise local high streets" },
+    { "id": "bq-5", "prompt": "How long do candidates prepare notes in Speaking Part 2?", "options": ["30 seconds", "1 minute", "2 minutes", "3 minutes"], "answer": "1 minute" }
+  ],
+  "badges": [
+    { "id": "bdg-1", "title": "12-Day Streak", "description": "Studied 12 consecutive days", "category": "Consistency", "progress": 100, "unlocked": true },
+    { "id": "bdg-2", "title": "Reading Precision 7.0", "description": "Achieved Band 7.0+ in Academic Reading", "category": "Skills", "progress": 100, "unlocked": true },
+    { "id": "bdg-3", "title": "Battle Tactician", "description": "Won 5+ Band Battles", "category": "Competition", "progress": 100, "unlocked": true },
+    { "id": "bdg-4", "title": "Lexicon Collector", "description": "Save or master 25 academic words", "category": "Vocabulary", "progress": 72, "unlocked": false },
+    { "id": "bdg-5", "title": "Essay Marathon", "description": "Submit 10 Task 2 essays", "category": "Writing", "progress": 40, "unlocked": false },
+    { "id": "bdg-6", "title": "Full Mock Finisher", "description": "Complete 3 full 2h 40m mock exams", "category": "Mock Exams", "progress": 66, "unlocked": false }
+  ]
+}
+

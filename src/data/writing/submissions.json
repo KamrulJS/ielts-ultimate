@@ -1,0 +1,23 @@
+[
+  {
+    "id": "sub-wr-01",
+    "taskId": "wr-task-02",
+    "title": "Remote Work & Urban Core Vitality",
+    "taskNumber": 2,
+    "submittedAt": "2026-11-10",
+    "wordCount": 284,
+    "bandScore": 6.5,
+    "content": "The rapid normalisation of hybrid and remote employment has sparked debate regarding the economic vitality of urban cores versus regional towns. Proponents argue that decoupling salaries from expensive downtown offices allows families to settle in smaller communities, rejuvenating local high streets and easing metropolitan housing bottlenecks. Conversely, critics emphasise that reduced commuter footfall jeopardises independent cafés, cultural venues, and municipal transit revenues that rely on daily office workers.\n\nFrom a regional development perspective, dispersed knowledge workers introduce steady disposable income into once-declining towns. Small bakeries, co-working hubs, and regional schools often experience renewed demand when professionals relocate permanently. Furthermore, lower housing costs enable young workers to build savings rather than devoting half their income to cramped inner-city flats.\n\nNevertheless, hollowing out central business districts presents tangible fiscal hazards. When commuter trains operate below capacity and corporate towers sit partially vacant, city councils face shrinking tax bases precisely when ageing infrastructure requires maintenance. Hospitality workers in downtown districts also bear disproportionate job losses.\n\nIn my view, remote flexibility represents a net societal benefit provided municipalities adapt proactively. Converting surplus downtown offices into mixed-income apartments and green civic plazas can stabilise urban neighbourhoods while preserving the regional revitalisation unlocked by flexible work."
+  },
+  {
+    "id": "sub-wr-02",
+    "taskId": "wr-task-01",
+    "title": "Renewable Electricity Capacity Across Four Regions",
+    "taskNumber": 1,
+    "submittedAt": "2026-10-18",
+    "wordCount": 176,
+    "bandScore": 6.0,
+    "content": "The bar chart compares installed solar and wind generation capacity in gigawatts across four regions from 2015 to 2025.\n\nOverall, every region expanded its clean electricity capacity significantly over the decade, with East Asia recording both the highest baseline and the sharpest surge, while South America remained the smallest contributor despite rapid percentage growth.\n\nIn 2015, East Asia led marginally at 58 GW, followed closely by North America (49 GW) and Northern Europe (42 GW). By 2020, East Asia more than doubled to 135 GW, widening its lead over North America (92 GW) and Northern Europe (78 GW).\n\nBy 2025, East Asia reached 240 GW—more than quadruple its 2015 level and substantially ahead of North America (156 GW). Northern Europe climbed steadily to 118 GW, whereas South America grew more than fourfold from 18 GW in 2015 to 82 GW in 2025."
+  }
+]
+

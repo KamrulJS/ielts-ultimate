@@ -1,0 +1,257 @@
+[
+  {
+    "id": "rd-test-01",
+    "title": "The Quest for Mechanical Longitude at Sea",
+    "category": "History of Science",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 1",
+    "track": "Academic",
+    "wordCount": 680,
+    "subtitle": "How precision horology solved eighteenth-century oceanic navigation.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "For centuries after mariners mastered latitude by measuring the noon elevation of the Sun or Polaris above the horizon, determining longitude remained dangerously imprecise. Estimating east-west displacement relied on dead reckoning—calculating vessel speed via towed log lines and compass headings—which accumulated severe errors whenever crosswinds or unmapped ocean currents pushed ships off course."
+      },
+      {
+        "label": "B",
+        "text": "Following catastrophic naval losses off the Isles of Scilly in 1707, the British Parliament enacted the Longitude Act of 1714, offering a prize of twenty thousand pounds to anyone capable of devising a method accurate within half a degree after a six-week voyage to the West Indies. Leading astronomers initially favoured celestial tables of lunar distances, arguing that no mechanical clock could withstand salt humidity, violent pitching decks, and extreme tropical temperature shifts."
+      },
+      {
+        "label": "C",
+        "text": "John Harrison, a self-taught carpenter and clockmaker from Lincolnshire, rejected the assumption that springs and gears were inherently unreliable at sea. Having noticed how brass and steel rods expanded at unequal rates in pendulum clocks, he developed bimetallic temperature compensation strips and virtually frictionless lignum vitae wooden bearings that required no lubrication."
+      },
+      {
+        "label": "D",
+        "text": "After three massive sea clocks failed to satisfy the Board of Longitude's strict criteria, Harrison experienced a conceptual breakthrough: a compact pocket-sized marine watch, designated H4, featuring a high-frequency balance wheel and diamond pallets. On its 1761 transatlantic trial aboard HMS Deptford, H4 lost merely five seconds over eighty-one days, corresponding to an error of barely one nautical mile."
+      },
+      {
+        "label": "E",
+        "text": "Although institutional rivalry delayed Harrison's full financial reward for over a decade, watchmakers such as Larcum Kendall and John Arnold quickly simplified H4's intricate mechanism for mass naval production. By 1800, affordable marine chronometers had transformed transoceanic commerce, turning treacherous open-water crossings into predictable scientific schedules."
+      }
+    ],
+    "diagramData": {
+      "title": "H4 Marine Chronometer Mechanics",
+      "labels": ["A: Bimetallic Strip", "B: Balance Wheel", "C: Remontoir Spring", "D: Diamond Pallets"]
+    }
+  },
+  {
+    "id": "rd-test-02",
+    "title": "Urban Microclimates and Vegetated Roof Infrastructure",
+    "category": "Urban Ecology",
+    "difficulty": "Challenging",
+    "durationMinutes": 20,
+    "partLabel": "Part 2",
+    "track": "Academic",
+    "wordCount": 710,
+    "subtitle": "Evaluating evapotranspiration, structural engineering, and civic cooling policy.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Dark asphalt membranes and dense concrete facades absorb substantial solar radiation throughout daylight hours, releasing stored thermal energy slowly after sunset and elevating nocturnal city temperatures by up to 4°C above surrounding rural pastures. Urban climatologists term this phenomenon the Urban Heat Island (UHI) effect, which intensifies peak summer electricity demand for indoor air conditioning."
+      },
+      {
+        "label": "B",
+        "text": "Vegetated roofs—commonly divided into lightweight 'extensive' mats of drought-tolerant sedum and deeper 'intensive' rooftop gardens—mitigate surface warming through two complementary mechanisms: higher solar reflectance (albedo) and continuous moisture evapotranspiration. Thermal imaging trials conducted across central Zurich showed midday roof surface temperatures dropping from 62°C on conventional bitumen to 28°C beneath thriving herbaceous cover."
+      },
+      {
+        "label": "C",
+        "text": "Beyond thermal comfort, engineered growing substrates act as temporary hydrological sponges during intense cloudbursts. When Toronto enacted its mandatory Green Roof Bylaw in 2009 for large new developments, municipal hydrologists recorded up to 70 percent retention of moderate summer rainfall events, alleviating pressure on nineteenth-century combined storm sewers."
+      },
+      {
+        "label": "D",
+        "text": "Nevertheless, widespread retrofitting of historic buildings faces formidable structural and financial barriers. Saturated growing media weigh between 90 and 350 kilograms per square metre, meaning older timber-truss warehouses frequently lack the requisite load-bearing capacity without costly steel reinforcement. Consequently, planners must weigh rooftop greening against pale reflective 'cool roof' coatings that cost a fraction per square metre."
+      },
+      {
+        "label": "E",
+        "text": "Recent hybrid installations integrate bifacial photovoltaic solar panels above low-growing native meadow species. Because foliage cools the micro-air layer directly beneath the panels, solar cell conversion efficiency improves by roughly 4 percent compared with arrays mounted over bare gravel—illustrating how ecological infrastructure and clean energy can reinforce one another."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-03",
+    "title": "Working Memory, Note-Taking, and Cognitive Load",
+    "category": "Cognitive Psychology",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 3",
+    "track": "Academic",
+    "wordCount": 640,
+    "subtitle": "Why synthesis outperforms verbatim transcription during academic lectures.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Human working memory functions as a narrow mental workbench capable of manipulating only three to five novel chunks of information simultaneously. When university students attend fast-paced lectures, their cognitive bandwidth is strained by decoding spoken terminology while integrating new arguments into existing mental schemas."
+      },
+      {
+        "label": "B",
+        "text": "In a landmark comparative study, psychologists Pam Mueller and Daniel Oppenheimer observed that laptop typists recorded nearly twice as many words per minute as peers writing by hand. Yet when tested a week later on conceptual synthesis questions, longhand note-takers significantly outperformed keyboard users."
+      },
+      {
+        "label": "C",
+        "text": "Follow-up transcript analysis revealed the underlying cause: because handwriting is slower, students are forced to summarise, rephrase, and prioritise core claims in real time—a generative processing step that encodes durable retrieval cues. Conversely, rapid typing encourages mindless verbatim capture, bypassing deep semantic evaluation."
+      },
+      {
+        "label": "D",
+        "text": "Importantly, medium alone does not determine learning outcomes. Follow-up trials where tablet stylus users were trained to pause and draw concept maps produced equal conceptual gains regardless of whether ink touched paper or glass, demonstrating that cognitive strategy rather than hardware drives retention."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-04",
+    "title": "Chemosynthesis at Deep-Ocean Hydrothermal Vents",
+    "category": "Marine Biology",
+    "difficulty": "Advanced",
+    "durationMinutes": 20,
+    "partLabel": "Part 3",
+    "track": "Academic",
+    "wordCount": 620,
+    "subtitle": "Life thriving without sunlight along tectonic spreading ridges.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Until 1977, marine biologists assumed every complex food web on Earth ultimately depended on solar photosynthesis. That consensus shattered when the submersible Alvin photographed dense colonies of crimson giant tube worms clustered around superheated mineral chimneys 2,500 metres beneath the Pacific surface."
+      },
+      {
+        "label": "B",
+        "text": "Rather than ingesting organic plankton, Riftia pachyptila lacks both mouth and digestive tract. Instead, its specialised trophosome tissue houses billions of symbiotic sulphur-oxidising bacteria that convert toxic hydrogen sulphide dissolved in vent plumes into energy-rich carbohydrates—a process termed chemosynthesis."
+      },
+      {
+        "label": "C",
+        "text": "Because hydrothermal vents erupt intermittently and cool within decades as tectonic plates drift, vent larvae face severe dispersal challenges across frigid abyssal plains. Genetic sequencing confirms that mobile currents carry microscopic larvae hundreds of kilometres between active ridges, seeding newly formed chimneys."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-05",
+    "title": "Mycelium Bio-Composites in Sustainable Packaging",
+    "category": "Materials Science",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 1",
+    "track": "Academic",
+    "wordCount": 590,
+    "subtitle": "Growing biodegradable thermal insulation from agricultural husks and fungal roots.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Expanded polystyrene foam cushions fragile electronics effectively, yet persists in landfills for centuries and resists economical recycling. Seeking circular alternatives, materials engineers are cultivating mycelium—the branching underground root network of fungi—inside custom moulds filled with rice hulls or hemp hurds."
+      },
+      {
+        "label": "B",
+        "text": "Over five days in dark humidity chambers, fungal hyphae secrete enzymes that bind loose agricultural fibres into a rigid, lightweight matrix. Gentle oven baking then neutralises biological growth, yielding a shock-absorbent block that composts cleanly in garden soil within six weeks."
+      },
+      {
+        "label": "C",
+        "text": "While furniture and wine shippers have adopted mycelium corners commercially, scaling production for moisture-exposed cold-chain freight requires thin hydrophobic plant-wax coatings so condensation does not soften the composite during humid sea transit."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-06",
+    "title": "Acoustic Geometry of Ancient Amphitheatres",
+    "category": "Architecture",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 2",
+    "track": "Academic",
+    "wordCount": 570,
+    "subtitle": "Why whispers at Epidaurus travel clearly to fourteen thousand spectators.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Designed in the fourth century BCE, the stone amphitheatre of Epidaurus allows an unamplified actor's sigh to be heard distinctly sixty metres away in the topmost tier. Popular myths attributed this clarity to prevailing hillside breezes or hidden bronze resonators."
+      },
+      {
+        "label": "B",
+        "text": "In 2007, acoustic physicists measured sound reflection off the steep limestone seating rows and discovered that the corrugated step spacing acts as a natural high-pass acoustic filter. Low-frequency background murmur from wind and rustling garments below 500 hertz is scattered away, while higher vocal consonants propagate cleanly upward."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-07",
+    "title": "Polynesian Non-Instrument Wayfinding",
+    "category": "Anthropology",
+    "difficulty": "Challenging",
+    "durationMinutes": 20,
+    "partLabel": "Part 2",
+    "track": "Academic",
+    "wordCount": 580,
+    "subtitle": "Reading star compasses, ocean swells, and seabird flight arcs across the Pacific.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Long before European vessels ventured out of sight of land, Polynesian navigators sailed double-hulled voyaging canoes across thousands of kilometres of open Pacific without sextants or magnetic compasses. Mastery rested on memorising a mental star compass mapping rising and setting azimuths of over two hundred stars."
+      },
+      {
+        "label": "B",
+        "text": "When cloud decks obscured night skies, wayfinders crouched inside the hull to feel subtle pitch and roll patterns caused by primary ocean swells refracting around distant invisible atolls. Modern GPS reconstructions aboard the replica canoe Hokule'a verified that traditional swell-reading sustained dead-on headings within two degrees."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-08",
+    "title": "Automated Warehousing and Last-Mile Logistics",
+    "category": "Economics",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 1",
+    "track": "Academic",
+    "wordCount": 560,
+    "subtitle": "How goods-to-person robotics reshape urban distribution hubs.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Traditional fulfilment centres required human pickers to walk up to eighteen kilometres per shift pushing carts through static aisles. Contemporary goods-to-person facilities reverse that workflow: autonomous mobile robots slide beneath portable shelving pods and deliver inventory directly to ergonomic packing stations."
+      },
+      {
+        "label": "B",
+        "text": "Although robotics slash per-parcel picking errors below 0.2 percent, urban planners caution that micro-fulfilment vans still generate kerbside congestion unless consolidation lockers and electric cargo bikes handle final neighbourhood blocks."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-09",
+    "title": "Antarctic Ice Cores as Atmospheric Time Capsules",
+    "category": "Climate Science",
+    "difficulty": "Challenging",
+    "durationMinutes": 20,
+    "partLabel": "Part 3",
+    "track": "Academic",
+    "wordCount": 600,
+    "subtitle": "Reconstructing 800,000 years of greenhouse gas cycles from polar firn bubbles.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "As annual snowfall compacts under its own weight across the East Antarctic Plateau, porous firn gradually seals off microscopic pockets of ancient air at depths of eighty metres. Drilling continuous three-kilometre ice cylinders allows paleoclimatologists to sample pristine pre-industrial atmospheres."
+      },
+      {
+        "label": "B",
+        "text": "By pairing oxygen isotope ratios in frozen water molecules with carbon dioxide concentrations extracted by crushing ice under vacuum, researchers confirmed tight coupling between glacial cycles and greenhouse forcing over eight consecutive ice ages."
+      }
+    ]
+  },
+  {
+    "id": "rd-test-10",
+    "title": "Designing Legible Civic Wayfinding Typography",
+    "category": "Design Studies",
+    "difficulty": "Standard",
+    "durationMinutes": 20,
+    "partLabel": "Part 1",
+    "track": "Academic",
+    "wordCount": 540,
+    "subtitle": "Why open apertures and generous x-height improve transit signage speed.",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "When commuters hurry through crowded underground rail interchanges, signage legibility depends on split-second character recognition from oblique angles. Type designers therefore avoid tightly closed letterforms like 'c', 'e', and 'a', preferring wide apertures that resist optical blurring under dim tunnel lighting."
+      },
+      {
+        "label": "B",
+        "text": "Following Margaret Calvert and Jock Kinneir's 1960s British highway typeface overhaul, empirical eye-tracking trials confirmed that mixed-case lettering outperforms all-capitals because distinctive word silhouettes speed reading recognition by nearly 15 percent."
+      }
+    ]
+  }
+]
+

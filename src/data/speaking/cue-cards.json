@@ -1,0 +1,103 @@
+[
+  {
+    "id": "cc-01",
+    "category": "Places & Architecture",
+    "isRecent": true,
+    "topic": "Describe an impressive modern building or civic landmark you visited.",
+    "bullets": [
+      "Where it is located and its distinctive design",
+      "When and why you visited",
+      "How visitors interact with the space",
+      "Explain why it left a lasting impression"
+    ],
+    "vocabularySuggestions": ["cantilevered canopy", "abundant natural daylight", "spatial generosity", "civic anchor", "acoustic warmth"],
+    "sampleAnswer": "One building that genuinely captivated me is the Central Public Library in downtown Calgary, which I visited during an architecture field study two autumns ago. From the outside, its gentle crystalline timber and glass facade actually arches directly over an active light-rail transit track, turning infrastructure into a welcoming public gateway. Inside, an interconnected wooden atrium spirals upward across four sunlit floors, creating an effortless visual dialogue between quiet study nooks and lively community workshops. What impressed me most wasn't mere monumentality, but how thoughtfully the acoustic zoning balanced openness with calm focus—families, students, and retirees all shared the space comfortably."
+  },
+  {
+    "id": "cc-02",
+    "category": "Skills & Learning",
+    "isRecent": true,
+    "topic": "Describe a practical skill you taught yourself through self-study.",
+    "bullets": [
+      "What the skill was and why you picked it",
+      "What tools or routines helped you improve",
+      "A challenge you overcame",
+      "Explain how it benefits you today"
+    ],
+    "vocabularySuggestions": ["deliberate practice", "steep learning curve", "iterative feedback", "muscle memory", "self-directed"],
+    "sampleAnswer": "Last winter I taught myself architectural sketching using ink fineliners and perspective grids. At first my proportions looked lopsided because I rushed straight into details without blocking out vanishing points. Breaking each 20-minute session into five-minute proportion thumbnails completely changed my accuracy within three weeks."
+  },
+  {
+    "id": "cc-03",
+    "category": "People & Mentors",
+    "isRecent": false,
+    "topic": "Describe a teacher or mentor who encouraged you during a challenging phase.",
+    "bullets": ["Who they were", "What subject or project they guided", "Specific advice they shared", "Why their support mattered"],
+    "vocabularySuggestions": ["constructive critique", "unwavering patience", "demystified", "instilled confidence", "turning point"],
+    "sampleAnswer": "During my second year at university, my studio critic Professor Patel turned my sharpest critique into a turning point. Instead of simply dismissing a cluttered model, she sat down and helped me strip away three redundant wings so the central courtyard idea could breathe."
+  },
+  {
+    "id": "cc-04",
+    "category": "Events & Culture",
+    "isRecent": true,
+    "topic": "Describe a lively street market or local festival you enjoyed.",
+    "bullets": ["Where and when it took place", "Who you went with", "Sights, sounds, and food", "Why it stood out"],
+    "vocabularySuggestions": ["bustling stalls", "aromatic spices", "artisanal crafts", "vibrant camaraderie", "sensory experience"],
+    "sampleAnswer": "Every Saturday morning in summer, St. Lawrence Market comes alive with regional orchard growers, bakers, and artisan cheesemakers. Walking past rows of heirloom tomatoes while acoustic street musicians played near the courtyard felt vibrant yet wonderfully grounded in neighbourhood life."
+  },
+  {
+    "id": "cc-05",
+    "category": "Objects & Technology",
+    "isRecent": false,
+    "topic": "Describe a piece of technology you find indispensable for studying.",
+    "bullets": ["What the tool or device is", "How long you have used it", "How it helps your workflow", "Explain whether it has any drawbacks"],
+    "vocabularySuggestions": ["distraction-free", "ergonomic workflow", "seamless synchronisation", "cognitive clarity", "indispensable"],
+    "sampleAnswer": "My e-ink note-taking tablet has transformed how I annotate dense academic PDFs without eye strain. Because it deliberately omits social notifications, I stay absorbed in passages much longer than on a traditional laptop."
+  },
+  {
+    "id": "cc-06",
+    "category": "Nature & Environment",
+    "isRecent": true,
+    "topic": "Describe an urban park or waterfront trail where you go to unwind.",
+    "bullets": ["Where it is located", "What features it includes", "When you go there", "Explain why you enjoy it"],
+    "vocabularySuggestions": ["restorative greenery", "winding boardwalk", "canopy shade", "visual respite", "tranquil"],
+    "sampleAnswer": "Whenever essay deadlines pile up, I walk along the Humber Bay shoreline boardwalk just before sunset. Watching cyclists glide past tall meadow grasses against the distant skyline delivers immediate mental clarity."
+  },
+  {
+    "id": "cc-07",
+    "category": "Experiences & Travel",
+    "isRecent": false,
+    "topic": "Describe a memorable journey by train or ferry.",
+    "bullets": ["Where the route ran", "Why you chose that transport", "What happened along the way", "Explain why it was memorable"],
+    "vocabularySuggestions": ["panoramic vista", "unhurried pace", "scenic corridor", "rhythmic motion", "memorable"],
+    "sampleAnswer": "Taking the coastal passenger rail along the Scottish Highlands felt like stepping inside a moving landscape painting. Watching mist lift off granite lochs while sipping hot tea made the five-hour ride fly by."
+  },
+  {
+    "id": "cc-08",
+    "category": "Media & Books",
+    "isRecent": false,
+    "topic": "Describe a documentary or non-fiction book that changed your perspective.",
+    "bullets": ["What it was about", "When you encountered it", "One surprising idea in it", "How it shaped your thinking"],
+    "vocabularySuggestions": ["eye-opening premise", "compelling evidence", "shifted my assumptions", "nuanced perspective", "thought-provoking"],
+    "sampleAnswer": "Reading 'The Death and Life of Great American Cities' reshaped how I observe ordinary street sidewalks. Jane Jacobs showed how small corner shops and mixed-age buildings naturally create safer, warmer neighbourhoods."
+  },
+  {
+    "id": "cc-09",
+    "category": "Decisions & Growth",
+    "isRecent": true,
+    "topic": "Describe a difficult decision you made that worked out well.",
+    "bullets": ["What choice you faced", "Who you consulted", "How you reached your choice", "Explain the positive outcome"],
+    "vocabularySuggestions": ["weighed the trade-offs", "calculated leap", "long-term payoff", "resilience", "rewarding"],
+    "sampleAnswer": "Choosing to defer an internship by one semester to strengthen my IELTS score and portfolio felt nerve-wracking initially, yet that dedicated preparation unlocked my top postgraduate university shortlist."
+  },
+  {
+    "id": "cc-10",
+    "category": "Traditions & Heritage",
+    "isRecent": false,
+    "topic": "Describe a handmade craft or traditional item from your region.",
+    "bullets": ["What the craft is", "Materials and technique", "Cultural meaning", "Explain why it deserves preservation"],
+    "vocabularySuggestions": ["intricate craftsmanship", "passed down across generations", "cultural continuity", "tactile heritage", "irreplaceable"],
+    "sampleAnswer": "Hand-turned cedar bentwood boxes combine functional joinery with bold carved storytelling motifs. Because steam-bending a single plank requires patient feel for grain tension, sustaining apprenticeships is essential so those skills never vanish."
+  }
+]
+

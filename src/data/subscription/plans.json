@@ -1,0 +1,55 @@
+{
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free Starter",
+      "priceMonthly": 0,
+      "priceAnnual": 0,
+      "badge": "Current",
+      "description": "Essential IELTS drills and progress tracking to build your daily study habit.",
+      "features": [
+        "4 Academic Reading & Listening sets",
+        "Daily study streak & planner",
+        "36-word Academic Vocabulary deck",
+        "Community forum & study groups",
+        "Band Score Calculator & Typing tool"
+      ]
+    },
+    {
+      "id": "plus",
+      "name": "IELTSWIST Plus",
+      "priceMonthly": 19,
+      "priceAnnual": 14,
+      "badge": "Most Popular",
+      "highlight": true,
+      "description": "Complete mock exam access, full question libraries, and unlimited writing drills.",
+      "features": [
+        "All 10+ Full 2h 40m Mock Exams",
+        "Full Reading & Listening collections",
+        "Unlimited Writing Task 1 & 2 practice",
+        "Full Cue Card Coach & audio recording",
+        "Detailed error explanations & PDF reports"
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro Intensive",
+      "priceMonthly": 39,
+      "priceAnnual": 29,
+      "badge": "With Coaching",
+      "description": "Everything in Plus combined with live mentor reviews and priority feedback.",
+      "features": [
+        "Everything in IELTSWIST Plus",
+        "2 live 1-on-1 teacher sessions / month",
+        "Priority human Writing evaluation",
+        "Customised 6-week score guarantee roadmap",
+        "Unlimited Band Battle challenges"
+      ]
+    }
+  ],
+  "billingHistory": [
+    { "id": "inv-101", "date": "2026-10-15", "plan": "Free Starter", "amount": "$0.00", "status": "Active" },
+    { "id": "inv-100", "date": "2026-09-15", "plan": "7-Day Plus Trial", "amount": "$0.00", "status": "Completed" }
+  ]
+}
+

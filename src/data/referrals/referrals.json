@@ -1,0 +1,16 @@
+{
+  "referralLink": "https://ieltswist.app/join/EMILY-TWIST26",
+  "rewardSummary": {
+    "perInviteReward": "7 Days of Plus",
+    "totalEarnedDays": 21,
+    "invitedCount": 4,
+    "convertedCount": 3
+  },
+  "invitedFriends": [
+    { "id": "ref-1", "name": "Chloe Patel", "email": "chloe.p***@mail.com", "date": "2026-11-06", "status": "Reward Credited", "reward": "+7 Days Plus" },
+    { "id": "ref-2", "name": "Daniel Kim", "email": "daniel.k***@mail.com", "date": "2026-10-28", "status": "Reward Credited", "reward": "+7 Days Plus" },
+    { "id": "ref-3", "name": "Maya Lin", "email": "maya.l***@mail.com", "date": "2026-10-19", "status": "Reward Credited", "reward": "+7 Days Plus" },
+    { "id": "ref-4", "name": "Noah Brooks", "email": "noah.b***@mail.com", "date": "2026-11-09", "status": "Pending First Test", "reward": "Pending" }
+  ]
+}
+

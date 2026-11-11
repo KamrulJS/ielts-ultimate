@@ -1,0 +1,85 @@
+{
+  "writingTemplates": [
+    {
+      "id": "tpl-1",
+      "title": "Task 2 — Discussion & Opinion (4-Paragraph Blueprint)",
+      "targetBand": "7.5+",
+      "sections": [
+        "Introduction: Paraphrase both viewpoints + state balanced thesis.",
+        "Body 1 (View A): Topic sentence -> Explanation -> Concrete urban/social example.",
+        "Body 2 (View B + Stance): Contrast marker -> Stronger evidence -> Why your stance holds.",
+        "Conclusion: Synthesise both arguments and restate recommendation."
+      ]
+    },
+    {
+      "id": "tpl-2",
+      "title": "Task 1 — Dynamic Trend Chart (Line / Bar)",
+      "targetBand": "7.5+",
+      "sections": [
+        "Introduction: Paraphrase chart subject, units, and timeframe.",
+        "Overview: 2 headline trends (highest/lowest, sharpest rise or crossover) with NO raw numbers.",
+        "Body 1: High-growth or dominant group with anchor start/end numbers.",
+        "Body 2: Declining, stable, or smaller categories with ratio comparisons."
+      ]
+    },
+    {
+      "id": "tpl-3",
+      "title": "Task 1 — Process Diagram (Manufacturing / Natural Cycle)",
+      "targetBand": "7.0+",
+      "sections": [
+        "Introduction: State what the diagram illustrates and total number of stages.",
+        "Overview: Identify initial raw material, final output, and whether it is linear or cyclical.",
+        "Body 1: Early preparation stages using passive voice + time sequencers.",
+        "Body 2: Processing, thermal/chemical stage, and final packaging."
+      ]
+    }
+  ],
+  "paraphraseExamples": [
+    {
+      "input": "Many people think governments should spend more money on public transport to stop traffic jams.",
+      "academic": "A widespread view holds that municipal authorities ought to allocate greater fiscal investment toward mass transit networks in order to alleviate urban congestion.",
+      "notes": "Upgrades 'think' -> 'holds', 'spend more money' -> 'allocate fiscal investment', 'stop traffic jams' -> 'alleviate urban congestion'."
+    },
+    {
+      "input": "Online learning is very useful because students can watch lessons anytime.",
+      "academic": "Digital instruction offers notable flexibility, enabling learners to access recorded lectures asynchronously according to their individual schedules.",
+      "notes": "Eliminates vague 'very useful' in favour of 'notable flexibility' and 'asynchronously'."
+    }
+  ],
+  "grammarRules": [
+    {
+      "pattern": "Although ... , but ...",
+      "correction": "Use EITHER 'Although...' OR '... , but ...' — never both in the same sentence.",
+      "example": "Although rooftop soil retains rainfall, older timber warehouses lack structural load capacity."
+    },
+    {
+      "pattern": "Subject-verb agreement with 'The number of'",
+      "correction": "'The number of + plural noun' takes a SINGULAR verb; 'A number of' takes a PLURAL verb.",
+      "example": "The number of remote professionals has risen sharply since 2020."
+    }
+  ],
+  "typingPassages": [
+    {
+      "id": "typ-1",
+      "title": "Task 2 Academic Paragraph Drill",
+      "text": "Municipal investment in dedicated cycling corridors delivers measurable dividends for both commuter health and inner-city air quality. When protected lanes physically separate bicycles from heavy commercial traffic, ridership consistently expands among cautious commuters."
+    },
+    {
+      "id": "typ-2",
+      "title": "Task 1 Data Description Drill",
+      "text": "Overall, East Asia experienced the steepest expansion in installed renewable capacity over the decade, climbing more than fourfold from 58 gigawatts in 2015 to 240 gigawatts by 2025, whereas South America recorded the lowest absolute totals throughout."
+    }
+  ],
+  "readingSpeedPassages": [
+    {
+      "id": "spd-1",
+      "title": "Urban Sponge Parks & Flood Resilience",
+      "wordCount": 148,
+      "text": "Concrete pavements funnel cloudburst runoff rapidly into overwhelmed municipal drains, triggering flash flooding across low-lying districts. Seeking adaptive protection, landscape architects have redesigned waterfront squares into sunken 'sponge parks' planted with flood-tolerant sedges and permeable gravel walkways. During dry summer weeks, residents use the terraced amphitheatres for open-air concerts and evening strolls. Yet when monsoon storms strike, recessed retention basins temporarily hold thousands of cubic metres of stormwater before releasing it gradually through bio-filtration reeds into local rivers. By combining recreational civic life with hydrological engineering, sponge infrastructure replaces single-purpose grey concrete walls with living flood buffers that cool neighbourhoods simultaneously.",
+      "question": "What dual role do sunken sponge parks serve?",
+      "options": ["Dry-weather public squares and storm retention basins", "Underground metro stations and retail malls", "Solar farms and wind corridors"],
+      "answer": "Dry-weather public squares and storm retention basins"
+    }
+  ]
+}
+

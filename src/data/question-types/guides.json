@@ -1,0 +1,222 @@
+[
+  {
+    "id": "qt-reading-tfng",
+    "module": "Reading",
+    "title": "True / False / Not Given",
+    "difficulty": "High Priority",
+    "frequency": "Appears in 85% of tests",
+    "overview": "Determine whether statements agree with factual claims in the passage (TRUE), directly contradict them (FALSE), or lack enough evidence to confirm or deny (NOT GIVEN).",
+    "strategies": [
+      "Underline qualifiers such as 'all', 'exclusively', 'primarily', or 'before 2005'—these are frequent FALSE traps.",
+      "Never import outside knowledge; judge strictly against the exact passage sentence.",
+      "Answers almost always appear in sequential order through the text."
+    ],
+    "example": {
+      "excerpt": "When Toronto enacted its mandatory Green Roof Bylaw in 2009, hydrologists recorded up to 70 percent retention of summer rainfall.",
+      "statement": "Toronto introduced voluntary green roof guidelines before 2000.",
+      "correctAnswer": "NOT GIVEN",
+      "why": "The text confirms mandatory bylaws began in 2009, but gives no information on whether voluntary guidelines existed before 2000."
+    },
+    "practice": [
+      {
+        "q": "Passage: 'Harrison's H4 lost merely five seconds over eighty-one days.' Statement: H4 gained five seconds on its transatlantic voyage.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "explanation": "'Lost' contradicts 'gained'."
+      },
+      {
+        "q": "Passage: 'Watchmakers such as Larcum Kendall simplified H4 for mass naval production.' Statement: Larcum Kendall had previously studied astronomy in Greenwich.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "NOT GIVEN",
+        "explanation": "No biographical details about Kendall's prior study appear."
+      }
+    ]
+  },
+  {
+    "id": "qt-reading-headings",
+    "module": "Reading",
+    "title": "Matching Headings",
+    "difficulty": "Challenging",
+    "frequency": "Appears in 60% of tests",
+    "overview": "Select the heading that best captures the central idea of an entire paragraph rather than a single supporting detail.",
+    "strategies": [
+      "Read the first two sentences and final concluding sentence of the paragraph before checking the heading list.",
+      "Eliminate headings that merely echo a single example inside the middle of the paragraph.",
+      "Cross out used headings carefully since there are always extra distractors."
+    ],
+    "example": {
+      "excerpt": "Paragraph D explains how saturated substrates weigh up to 350 kg/m2, forcing older warehouses into expensive steel upgrades or cheaper reflective paint.",
+      "statement": "Choose the central heading.",
+      "correctAnswer": "Engineering and cost obstacles to retrofitting",
+      "why": "Both weight limits and financial trade-offs reflect retrofit barriers."
+    },
+    "practice": [
+      {
+        "q": "Which sentence position most reliably reveals a paragraph's main purpose for Matching Headings?",
+        "options": ["Topic & concluding sentences", "Footnotes only", "Proper nouns only", "Numerical dates"],
+        "answer": "Topic & concluding sentences",
+        "explanation": "Academic paragraphs frame their thesis at the opening and wrap up implications at the end."
+      }
+    ]
+  },
+  {
+    "id": "qt-listening-mcq",
+    "module": "Listening",
+    "title": "Multiple Choice & Distractor Traps",
+    "difficulty": "Challenging",
+    "frequency": "Parts 2 & 3 Core",
+    "overview": "Identify correct choices when speakers mention all three options before modifying, rejecting, or correcting one.",
+    "strategies": [
+      "Listen for pivot words like 'however', 'actually', 'originally we planned', or 'that turned out to be full'.",
+      "Read question stems before audio starts; leave options light until the speaker narrows them.",
+      "Match synonyms rather than waiting for exact option wording."
+    ],
+    "example": {
+      "excerpt": "Speaker: 'We budgeted £35 initially, though summer demand pushed the refundable deposit to £45.'",
+      "statement": "What is the current deposit?",
+      "correctAnswer": "£45",
+      "why": "£35 is a classic chronological distractor corrected by 'pushed... to £45'."
+    },
+    "practice": [
+      {
+        "q": "Audio: 'The herbarium wasn't moved to the North Gate after all; you'll find it inside the West Pavilion.' Where is the herbarium?",
+        "options": ["North Gate", "West Pavilion", "Main Courtyard"],
+        "answer": "West Pavilion",
+        "explanation": "'Wasn't moved... after all' rejects North Gate."
+      }
+    ]
+  },
+  {
+    "id": "qt-listening-maps",
+    "module": "Listening",
+    "title": "Plan & Map Labelling",
+    "difficulty": "Moderate",
+    "frequency": "Part 2 Classic",
+    "overview": "Follow spatial instructions, compass bearings, and relative prepositions ('adjacent to', 'diagonally across') on a visual floorplan.",
+    "strategies": [
+      "Locate the 'You Are Here' starting arrow and check N/S/E/W compass orientation first.",
+      "Trace your pencil along the described path in real time so you stay synchronised."
+    ],
+    "example": {
+      "excerpt": "'Proceed past the fountain; the cafe sits to your immediate left before the pond.'",
+      "statement": "Preposition cue",
+      "correctAnswer": "Immediate left before the pond",
+      "why": "Sequence markers ('past', 'before') anchor exact box labels."
+    },
+    "practice": [
+      {
+        "q": "If a guide faces North and says 'turn right toward the east wing', which compass edge are you moving toward?",
+        "options": ["West", "East", "South"],
+        "answer": "East",
+        "explanation": "Facing North puts East directly to your right."
+      }
+    ]
+  },
+  {
+    "id": "qt-writing-task1",
+    "module": "Writing",
+    "title": "Academic Task 1: Data Overview & Grouping",
+    "difficulty": "High Priority",
+    "frequency": "100% of Academic Exams",
+    "overview": "Synthesise charts, tables, maps, or process diagrams in 150+ words with an explicit high-level overview and selective numerical comparisons.",
+    "strategies": [
+      "Always write a distinct Overview paragraph summarising 2–3 headline patterns without listing raw minutiae.",
+      "Never invent reasons or outside speculation explaining why numbers changed.",
+      "Group body paragraphs logically by magnitude, trend direction, or time split."
+    ],
+    "example": {
+      "excerpt": "East Asia rose from 58 GW to 240 GW while South America climbed from 18 GW to 82 GW.",
+      "statement": "Band 7+ Overview sentence",
+      "correctAnswer": "Overall, every region expanded capacity substantially, with East Asia maintaining the largest scale throughout.",
+      "why": "Captures general direction and clear leader without listing every figure."
+    },
+    "practice": [
+      {
+        "q": "What is the single most common reason Academic Task 1 reports cap at Band 5.5?",
+        "options": ["Missing a clear Overview summary", "Using passive voice", "Writing 180 words"],
+        "answer": "Missing a clear Overview summary",
+        "explanation": "Official IELTS descriptors require a clear overview for Band 6+ and 7+ Task Achievement."
+      }
+    ]
+  },
+  {
+    "id": "qt-writing-task2",
+    "module": "Writing",
+    "title": "Task 2: Essay Structures (Opinion / Discussion)",
+    "difficulty": "High Priority",
+    "frequency": "Worth 66% of Writing Score",
+    "overview": "Develop a clear thesis supported by well-extended topic sentences, causal explanations, and concrete examples in 250+ words.",
+    "strategies": [
+      "Spend 4 minutes outlining two clear central claims before typing a single word.",
+      "Ensure every body paragraph follows: Topic Sentence -> Explanation -> Illustration -> Mini-link.",
+      "Respond to ALL parts of two-part or 'discuss both views + opinion' prompts."
+    ],
+    "example": {
+      "excerpt": "Prompt: Discuss both views and give your opinion.",
+      "statement": "Recommended structure",
+      "correctAnswer": "Intro (both views + thesis) -> Body 1 (View A) -> Body 2 (View B + preference) -> Conclusion",
+      "why": "Demonstrates clear progression and balanced coverage."
+    },
+    "practice": [
+      {
+        "q": "In a 'Discuss both views and give your own opinion' essay, where should your personal opinion appear?",
+        "options": ["Only in the last line", "Thesis statement and conclusion (plus evaluation in body)", "Omitted to stay neutral"],
+        "answer": "Thesis statement and conclusion (plus evaluation in body)",
+        "explanation": "A clear position throughout the response is essential for Band 7+ Task Response."
+      }
+    ]
+  },
+  {
+    "id": "qt-speaking-part2",
+    "module": "Speaking",
+    "title": "Speaking Part 2: 2-Minute Cue Card Storytelling",
+    "difficulty": "Standard",
+    "frequency": "100% of Speaking Exams",
+    "overview": "Use 60 seconds of preparation notes to deliver a cohesive 1.5–2 minute narrative covering Past context, Present detail, and Personal reflection.",
+    "strategies": [
+      "Write 4–6 keyword triggers during the 1-minute prep, never full sentences.",
+      "Use Past -> Detail -> Emotion -> Reflection timing so you comfortably reach the 2-minute mark."
+    ],
+    "example": {
+      "excerpt": "Cue card: Describe an impressive building.",
+      "statement": "Opening frame",
+      "correctAnswer": "'One architectural space that genuinely stood out to me is...'",
+      "why": "Signals fluent natural lexical control immediately."
+    },
+    "practice": [
+      {
+        "q": "How long do examiners give you to make notes before Speaking Part 2?",
+        "options": ["30 seconds", "1 minute", "2 minutes"],
+        "answer": "1 minute",
+        "explanation": "IELTS allocates exactly 60 seconds of preparation time with pencil and paper."
+      }
+    ]
+  },
+  {
+    "id": "qt-speaking-part3",
+    "module": "Speaking",
+    "title": "Speaking Part 3: Abstract Discussion & Speculation",
+    "difficulty": "Challenging",
+    "frequency": "100% of Speaking Exams",
+    "overview": "Answer analytical, societal, and future-oriented questions beyond personal anecdotes using hedging and balanced comparison.",
+    "strategies": [
+      "Shift from 'I think' to societal perspectives ('From a municipal standpoint...', 'On a broader scale...').",
+      "Give 3–5 sentence structured answers: Direct answer -> Why -> Example/Contrast."
+    ],
+    "example": {
+      "excerpt": "How might urban architecture evolve by 2050?",
+      "statement": "Band 7.5+ hedging stem",
+      "correctAnswer": "'It seems increasingly likely that cities will prioritise adaptive reuse and passive thermal facades...'",
+      "why": "Uses natural speculation and topic-specific lexis."
+    },
+    "practice": [
+      {
+        "q": "Which answer style works best in Speaking Part 3?",
+        "options": ["One-word yes/no answers", "Personal childhood stories only", "Structured societal analysis with examples"],
+        "answer": "Structured societal analysis with examples",
+        "explanation": "Part 3 evaluates abstract reasoning and extended discourse."
+      }
+    ]
+  }
+]
+

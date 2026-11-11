@@ -1,0 +1,193 @@
+[
+  {
+    "id": "ls-test-01",
+    "collection": "Recent Real Sets - 1",
+    "category": "Recent Real Tests",
+    "isNew": true,
+    "title": "Listening Practice 01 — Community Sports Centre",
+    "difficulty": "Standard",
+    "durationMinutes": 30,
+    "accent": "British & Australian",
+    "completedScore": "27/40",
+    "parts": [
+      {
+        "partNumber": 1,
+        "title": "Part 1: Sports Centre Membership Enquiry",
+        "context": "A telephone dialogue between a receptionist and a new resident joining Riverside Athletics Hub.",
+        "durationSec": 180,
+        "transcript": [
+          "Receptionist: Good morning, Riverside Athletics Hub, Clara speaking. How can I help?",
+          "Caller: Hi Clara, I recently moved to Oakwood Street and I'd like to inquire about off-peak swimming and squash passes.",
+          "Receptionist: Certainly. Our off-peak pass covers weekdays between 6:30 AM and 4:00 PM for £38 per month, plus a one-off induction fee of £15."
+        ]
+      },
+      {
+        "partNumber": 2,
+        "title": "Part 2: Botanical Garden Orientation Map",
+        "context": "A tour guide explaining landmarks across the newly renovated glasshouse grounds.",
+        "durationSec": 195,
+        "transcript": [
+          "Guide: Welcome everyone to the Westgate Botanical Reserve. From the Main Courtyard where we stand, the Tropical Palm House sits immediately to the north-east, beside the Lotus Pond.",
+          "Guide: If you head past the Heritage Clocktower toward the western boundary, you will find our quiet Alpine Rockery and Café Terrace."
+        ]
+      },
+      {
+        "partNumber": 3,
+        "title": "Part 3: Undergraduate Urban Soil Project",
+        "context": "Two environmental science students, Maya and Toby, discuss soil sampling errors with Dr. Lin.",
+        "durationSec": 210,
+        "transcript": [
+          "Toby: Dr. Lin, our heavy-metal readings near the canal varied wildly between Monday and Thursday.",
+          "Dr. Lin: Did you log the rainfall on Tuesday evening? Surface runoff alters topsoil moisture and skews spectrometer calibration unless samples are oven-dried first."
+        ]
+      },
+      {
+        "partNumber": 4,
+        "title": "Part 4: Lecture on Biomimetic Architecture",
+        "context": "A university lecture exploring how termite mounds inspire passive building ventilation.",
+        "durationSec": 240,
+        "transcript": [
+          "Lecturer: Today we examine how passive cooling in Eastgate Centre, Harare, draws directly from Macrotermes michaelseni mounds. Rather than relying on mechanical chillers, porous masonry stacks draw cool night air through floor voids."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ls-test-02",
+    "collection": "Official-Style Volume 21",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 02 — Coastal Heritage Museum",
+    "difficulty": "Standard",
+    "durationMinutes": 30,
+    "accent": "British (RP)",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Volunteer Application Call", "context": "Registering for weekend archive cataloguing.", "durationSec": 180, "transcript": ["Coordinator: Volunteers work four-hour Saturday shifts starting at 9:30 AM in the Maritime Wing."] },
+      { "partNumber": 2, "title": "Part 2: Harbour Audio Guide", "context": "Walking route along restored shipyards.", "durationSec": 190, "transcript": ["Guide: Notice the dry dock timber cranes erected in 1884."] },
+      { "partNumber": 3, "title": "Part 3: Dissertation Topic Review", "context": "Evaluating archive sources.", "durationSec": 200, "transcript": ["Student: Primary harbour ledgers proved far more reliable than newspaper clippings."] },
+      { "partNumber": 4, "title": "Part 4: Ancient Salt Production Lecture", "context": "Archaeological evidence of coastal evaporation pans.", "durationSec": 220, "transcript": ["Lecturer: Clay briquetage vessels show standardised salt cake weights."] }
+    ]
+  },
+  {
+    "id": "ls-test-03",
+    "collection": "Official-Style Volume 21",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 03 — Campus Housing & Labs",
+    "difficulty": "Challenging",
+    "durationMinutes": 30,
+    "accent": "Canadian & British",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Postgraduate Studio Lease", "context": "Utilities and deposit inquiry.", "durationSec": 180, "transcript": ["Agent: Heating and high-speed fibre are bundled in the £680 monthly rent."] },
+      { "partNumber": 2, "title": "Part 2: Science Library Tour", "context": "Floor-by-floor services overview.", "durationSec": 190, "transcript": ["Librarian: Silent pods occupy Level 3 while 3D printers are downstairs."] },
+      { "partNumber": 3, "title": "Part 3: Battery Recycling Research", "context": "Two engineering students comparing cathodes.", "durationSec": 210, "transcript": ["Student A: Hydrometallurgical leaching recovered 94% of cobalt."] },
+      { "partNumber": 4, "title": "Part 4: Nocturnal Bird Migration", "context": "Radar ornithology methods.", "durationSec": 230, "transcript": ["Lecturer: Weather radar detects high-altitude songbird flocks at midnight."] }
+    ]
+  },
+  {
+    "id": "ls-test-04",
+    "collection": "Recent Real Sets - 1",
+    "category": "Recent Real Tests",
+    "isNew": true,
+    "title": "Listening Practice 04 — University Field Trip",
+    "difficulty": "Standard",
+    "durationMinutes": 30,
+    "accent": "British & New Zealand",
+    "completedScore": "30/40",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Hostel Booking Revision", "context": "Confirming student group beds and deposit.", "durationSec": 180, "transcript": ["Clerk: The refundable deposit is £45 per student rather than £35 for summer peak dates."] },
+      { "partNumber": 2, "title": "Part 2: Botanical Trail Map", "context": "Campus reserve orientation.", "durationSec": 190, "transcript": ["Ranger: The Herbarium Wing stands just past the fountain in the West Pavilion."] },
+      { "partNumber": 3, "title": "Part 3: Research Ethics Seminar", "context": "Survey consent protocols.", "durationSec": 205, "transcript": ["Tutor: Anonymise participant postcodes before exporting CSV tables."] },
+      { "partNumber": 4, "title": "Part 4: Marine Biotic Lecture", "context": "Kelp forest carbon sequestration.", "durationSec": 230, "transcript": ["Lecturer: Giant kelp grows up to fifty centimetres daily in cold upwelling currents."] }
+    ]
+  },
+  {
+    "id": "ls-test-05",
+    "collection": "Official-Style Volume 20",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 05 — Regional Rail Heritage",
+    "difficulty": "Standard",
+    "durationMinutes": 30,
+    "accent": "British (RP)",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Festival Stall Booking", "context": "Booking crafts booth.", "durationSec": 175, "transcript": ["Organiser: Corner stalls with power access cost £95 for the weekend."] },
+      { "partNumber": 2, "title": "Part 2: Locomotive Shed Layout", "context": "Visitor safety briefing.", "durationSec": 185, "transcript": ["Guide: Please stay behind the yellow rail barrier near the turntable."] },
+      { "partNumber": 3, "title": "Part 3: Transport Survey Design", "context": "Pilot questionnaire changes.", "durationSec": 200, "transcript": ["Student: Commuters found the five-point satisfaction scale far clearer."] },
+      { "partNumber": 4, "title": "Part 4: Timber Viaduct Engineering", "context": "Nineteenth-century bridge restoration.", "durationSec": 225, "transcript": ["Lecturer: Douglas fir trusses withstood heavy freight loads for ninety years."] }
+    ]
+  },
+  {
+    "id": "ls-test-06",
+    "collection": "Official-Style Volume 20",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 06 — Urban Bee Sanctuary",
+    "difficulty": "Moderate",
+    "durationMinutes": 30,
+    "accent": "Australian",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Workshop Registration", "context": "Introductory beekeeping class.", "durationSec": 175, "transcript": ["Host: Protective veils and gloves are supplied; wear sturdy leather boots."] },
+      { "partNumber": 2, "title": "Part 2: Rooftop Apiary Zones", "context": "Safety and nectar meadow tour.", "durationSec": 185, "transcript": ["Host: Lavender beds border the southern parapet away from HVAC vents."] },
+      { "partNumber": 3, "title": "Part 3: Pollination Yield Study", "context": "Analysing urban allotment harvests.", "durationSec": 195, "transcript": ["Researcher: Solitary mason bees boosted apple pollination by 28%."] },
+      { "partNumber": 4, "title": "Part 4: Dance Language of Honeybees", "context": "Karl von Frisch's waggle dance experiments.", "durationSec": 220, "transcript": ["Lecturer: Dance duration encodes distance to rich floral patches."] }
+    ]
+  },
+  {
+    "id": "ls-test-07",
+    "collection": "Road to IELTS",
+    "category": "Road to IELTS",
+    "title": "Listening Practice 07 — Theatre Acoustics",
+    "difficulty": "Challenging",
+    "durationMinutes": 30,
+    "accent": "British & Irish",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Backstage Tour Booking", "context": "Group ticket concessions.", "durationSec": 175, "transcript": ["Box office: Student groups of twelve receive a 20% discount on matinees."] },
+      { "partNumber": 2, "title": "Part 2: Concert Hall Seating Map", "context": "Acoustic sweet spots.", "durationSec": 190, "transcript": ["Manager: Side balconies offer clear sightlines to percussion ensembles."] },
+      { "partNumber": 3, "title": "Part 3: Stage Lighting Project", "context": "Comparing LED thermal output.", "durationSec": 200, "transcript": ["Student: Colour-tunable LEDs lowered backstage heat by 11 degrees."] },
+      { "partNumber": 4, "title": "Part 4: Reverberation Time Physics", "context": "Sabine's architectural formula.", "durationSec": 230, "transcript": ["Lecturer: Upholstered seating absorbs sound almost identically to seated audiences."] }
+    ]
+  },
+  {
+    "id": "ls-test-08",
+    "collection": "Road to IELTS",
+    "category": "Road to IELTS",
+    "title": "Listening Practice 08 — Arctic Seed Vault",
+    "difficulty": "Advanced",
+    "durationMinutes": 30,
+    "accent": "North American & Scandinavian",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Seed Library Membership", "context": "Community heirloom seed loan.", "durationSec": 175, "transcript": ["Librarian: Borrow up to five heritage packets per season free of charge."] },
+      { "partNumber": 2, "title": "Part 2: Greenhouse Floorplan", "context": "Propagation zones.", "durationSec": 185, "transcript": ["Curator: Cold frames line the shaded eastern glass wall."] },
+      { "partNumber": 3, "title": "Part 3: Drought Barley Trials", "context": "Germination rate review.", "durationSec": 205, "transcript": ["Student: Silica desiccant kept seed moisture consistently at 6%."] },
+      { "partNumber": 4, "title": "Part 4: Permafrost Cryopreservation", "context": "Long-term agrobiodiversity backup.", "durationSec": 235, "transcript": ["Lecturer: Deep mountain sandstone maintains minus eighteen degrees Celsius."] }
+    ]
+  },
+  {
+    "id": "ls-test-09",
+    "collection": "Official-Style Volume 19",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 09 — Digital Journalism Lab",
+    "difficulty": "Standard",
+    "durationMinutes": 30,
+    "accent": "British & Canadian",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Podcast Studio Rental", "context": "Equipment booking.", "durationSec": 175, "transcript": ["Engineer: Dynamic microphones and acoustic booths rent at £22 per hour."] },
+      { "partNumber": 2, "title": "Part 2: Media Centre Orientation", "context": "Editing suite access.", "durationSec": 185, "transcript": ["Host: Colour-grading terminals require card swipe clearance."] },
+      { "partNumber": 3, "title": "Part 3: Fact-Checking Workflow", "context": "Verifying archival satellite photos.", "durationSec": 200, "transcript": ["Editor: Shadow angles confirm exact capture timestamps."] },
+      { "partNumber": 4, "title": "Part 4: Printing Press History", "context": "Steam cylinder presses of the 1820s.", "durationSec": 220, "transcript": ["Lecturer: Mechanised presses cut broadsheet printing time by eighty percent."] }
+    ]
+  },
+  {
+    "id": "ls-test-10",
+    "collection": "Official-Style Volume 19",
+    "category": "Official-Style Library",
+    "title": "Listening Practice 10 — Hydroponic Vertical Farms",
+    "difficulty": "Challenging",
+    "durationMinutes": 30,
+    "accent": "Australian & British",
+    "parts": [
+      { "partNumber": 1, "title": "Part 1: Urban Farm Internship", "context": "Schedule and stipend enquiry.", "durationSec": 180, "transcript": ["Manager: Nutrient monitoring checks occur Tuesday and Friday mornings."] },
+      { "partNumber": 2, "title": "Part 2: Warehouse Farm Map", "context": "Germination vs harvest racks.", "durationSec": 190, "transcript": ["Guide: Cold-storage packing sits directly beside the loading bay."] },
+      { "partNumber": 3, "title": "Part 3: LED Spectrum Experiment", "context": "Leafy green nitrate trials.", "durationSec": 205, "transcript": ["Student: Far-red pulse lighting increased basil leaf surface area."] },
+      { "partNumber": 4, "title": "Part 4: Water Recirculation Economics", "context": "Closed-loop agriculture efficiency.", "durationSec": 230, "transcript": ["Lecturer: Closed hydroponics use ninety-five percent less water than field irrigation."] }
+    ]
+  }
+]
+

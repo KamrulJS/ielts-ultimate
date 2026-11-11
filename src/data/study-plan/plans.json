@@ -1,0 +1,21 @@
+{
+  "activePlanId": "plan-emily-6wk",
+  "title": "6-Week Band 7.5 Sprint",
+  "targetBand": 7.5,
+  "currentLevel": "6.5 (Upper-Intermediate B2+)",
+  "examDate": "2026-12-18",
+  "dailyHours": 1.5,
+  "weakestModule": "Writing",
+  "weeklyGoalMinutes": 630,
+  "completedMinutesThisWeek": 475,
+  "weeklyDistribution": [
+    { "day": "Mon", "focus": "Writing Task 2", "minutes": 90 },
+    { "day": "Tue", "focus": "Reading Timed Passages", "minutes": 90 },
+    { "day": "Wed", "focus": "Listening Sections 3 & 4", "minutes": 75 },
+    { "day": "Thu", "focus": "Speaking Cue Cards + Lexis", "minutes": 90 },
+    { "day": "Fri", "focus": "Writing Task 1 + Grammar", "minutes": 90 },
+    { "day": "Sat", "focus": "Full Mock Simulation", "minutes": 160 },
+    { "day": "Sun", "focus": "Mistake Review & Flashcards", "minutes": 60 }
+  ]
+}
+

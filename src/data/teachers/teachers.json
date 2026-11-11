@@ -1,0 +1,127 @@
+[
+  {
+    "id": "tch-01",
+    "name": "Dr. Claire Bennett",
+    "title": "Former IELTS Speaking Examiner & Academic Writing Specialist",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80",
+    "country": "United Kingdom",
+    "rating": 4.9,
+    "reviewsCount": 148,
+    "experienceYears": 11,
+    "specialties": ["Speaking Band 7.5+", "Writing Task 2", "Pronunciation"],
+    "hourlyRate": "$36 / session",
+    "bio": "Guided over 900 postgraduate candidates to Band 7.5–8.5 across UK and Canadian universities. Specialises in eliminating unnatural essay templates.",
+    "availability": ["Thu 18:00", "Fri 10:30", "Sat 14:00", "Mon 19:00"],
+    "reviews": [
+      { "student": "Arjun M.", "text": "Pinpointed exactly why my Writing capped at 6.5 in 20 minutes!", "rating": 5 }
+    ]
+  },
+  {
+    "id": "tch-02",
+    "name": "Marcus Vance",
+    "title": "Academic Reading & Task 1 Data Coach",
+    "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80",
+    "country": "Australia",
+    "rating": 4.8,
+    "reviewsCount": 112,
+    "experienceYears": 8,
+    "specialties": ["Reading Speed", "Writing Task 1", "Grammar Accuracy"],
+    "hourlyRate": "$30 / session",
+    "bio": "Helps STEM and architecture applicants turn technical English precision into crisp Task 1 overviews and rapid TFNG accuracy.",
+    "availability": ["Thu 19:00", "Sat 09:00", "Sun 16:00"],
+    "reviews": [
+      { "student": "Emily J.", "text": "Super practical chart grouping advice.", "rating": 5 }
+    ]
+  },
+  {
+    "id": "tch-03",
+    "name": "Hannah Al-Mansoor",
+    "title": "Listening & Pronunciation Coach",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&q=80",
+    "country": "Canada",
+    "rating": 4.9,
+    "reviewsCount": 94,
+    "experienceYears": 7,
+    "specialties": ["Listening Part 3/4", "Speaking Fluency", "Accent Clarity"],
+    "hourlyRate": "$28 / session",
+    "bio": "Focuses on distractor awareness, connected speech comprehension, and calm pacing under examination stress.",
+    "availability": ["Fri 17:00", "Sat 11:30", "Tue 20:00"],
+    "reviews": []
+  },
+  {
+    "id": "tch-04",
+    "name": "Prof. Alistair Reed",
+    "title": "Senior Academic Writing & Lexis Mentor",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=240&q=80",
+    "country": "United Kingdom",
+    "rating": 4.9,
+    "reviewsCount": 203,
+    "experienceYears": 14,
+    "specialties": ["Band 8+ Essays", "Lexical Resource", "Mock Interviews"],
+    "hourlyRate": "$42 / session",
+    "bio": "University EAP lecturer offering deep diagnostic line-by-line essay markups and realistic 15-minute mock speaking exams.",
+    "availability": ["Fri 15:00", "Sun 13:00"],
+    "reviews": []
+  },
+  {
+    "id": "tch-05",
+    "name": "Priya Nair",
+    "title": "General Training & Express Entry Specialist",
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=240&q=80",
+    "country": "India",
+    "rating": 4.8,
+    "reviewsCount": 87,
+    "experienceYears": 6,
+    "specialties": ["CLB 9 Prep", "GT Letters", "Speaking Confidence"],
+    "hourlyRate": "$24 / session",
+    "bio": "Tailored study sprints for working professionals targeting CLB 9 / Band 8 Listening and Band 7+ across Writing and Speaking.",
+    "availability": ["Thu 20:30", "Sat 16:30", "Mon 18:00"],
+    "reviews": []
+  },
+  {
+    "id": "tch-06",
+    "name": "Oliver Grant",
+    "title": "Reading Comprehension & Logic Strategist",
+    "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=240&q=80",
+    "country": "New Zealand",
+    "rating": 4.7,
+    "reviewsCount": 63,
+    "experienceYears": 5,
+    "specialties": ["Matching Headings", "YNNG", "Time Pacing"],
+    "hourlyRate": "$25 / session",
+    "bio": "Turns tricky Passage 3 philosophical texts into predictable paragraph-mapping routines.",
+    "availability": ["Sat 12:00", "Sun 10:00"],
+    "reviews": []
+  },
+  {
+    "id": "tch-07",
+    "name": "Camille Laurent",
+    "title": "Bilingual Academic Speaking Coach",
+    "avatar": "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=240&q=80",
+    "country": "France",
+    "rating": 4.8,
+    "reviewsCount": 76,
+    "experienceYears": 6,
+    "specialties": ["Part 2 Storytelling", "Intonation", "Coherence"],
+    "hourlyRate": "$27 / session",
+    "bio": "Helps learners eliminate hesitation fillers and build natural Part 3 analytical answers.",
+    "availability": ["Fri 19:30", "Sun 18:00"],
+    "reviews": []
+  },
+  {
+    "id": "tch-08",
+    "name": "Samuel Adeyemi",
+    "title": "Intensive 4-Week Mock Exam Mentor",
+    "avatar": "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=240&q=80",
+    "country": "UK",
+    "rating": 4.9,
+    "reviewsCount": 119,
+    "experienceYears": 9,
+    "specialties": ["Full Mock Reviews", "Study Plans", "Task 2 Logic"],
+    "hourlyRate": "$32 / session",
+    "bio": "Designs high-efficiency 30-day final stretch timetables balancing mock endurance with targeted mistake logs.",
+    "availability": ["Thu 17:30", "Sat 15:00", "Wed 19:00"],
+    "reviews": []
+  }
+]
+

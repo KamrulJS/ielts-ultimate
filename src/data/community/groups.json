@@ -1,0 +1,39 @@
+[
+  {
+    "id": "grp-01",
+    "name": "December Band 7.5+ Cohort",
+    "members": 184,
+    "focus": "Full Mocks & Task 2 Reviews",
+    "schedule": "Daily check-ins • Weekly Saturday Mock",
+    "cover": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
+    "joined": true
+  },
+  {
+    "id": "grp-02",
+    "name": "Speaking Part 2 Cue Card Club",
+    "members": 265,
+    "focus": "Daily 2-minute recordings & peer tips",
+    "schedule": "Live audio rooms Tue & Thu 7 PM EST",
+    "cover": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+    "joined": false
+  },
+  {
+    "id": "grp-03",
+    "name": "Academic Writing 7.5 Workshop",
+    "members": 142,
+    "focus": "Task 1 charts & Task 2 cohesion",
+    "schedule": "Essay swaps every Wednesday",
+    "cover": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+    "joined": false
+  },
+  {
+    "id": "grp-04",
+    "name": "General Training Express Entry",
+    "members": 98,
+    "focus": "Letters, CLB 9 targets & Reading speed",
+    "schedule": "Weekend practice sessions",
+    "cover": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+    "joined": false
+  }
+]
+

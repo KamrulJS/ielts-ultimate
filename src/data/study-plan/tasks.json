@@ -1,0 +1,83 @@
+[
+  {
+    "id": "task-01",
+    "day": "Today",
+    "weekday": "Wed",
+    "module": "Reading",
+    "title": "Complete Passage 2: Thermal Albedo & TFNG drill",
+    "duration": "25 min",
+    "completed": true,
+    "href": "/reading"
+  },
+  {
+    "id": "task-02",
+    "day": "Today",
+    "weekday": "Wed",
+    "module": "Writing",
+    "title": "Draft Task 2 body paragraphs (250+ words)",
+    "duration": "35 min",
+    "completed": false,
+    "href": "/writing"
+  },
+  {
+    "id": "task-03",
+    "day": "Today",
+    "weekday": "Wed",
+    "module": "Vocabulary",
+    "title": "Review 15 Academic Urbanism flashcards",
+    "duration": "15 min",
+    "completed": true,
+    "href": "/vocabulary"
+  },
+  {
+    "id": "task-04",
+    "day": "Today",
+    "weekday": "Wed",
+    "module": "Speaking",
+    "title": "Record 1 Cue Card on Public Spaces",
+    "duration": "15 min",
+    "completed": false,
+    "href": "/cue-card-coach"
+  },
+  {
+    "id": "task-05",
+    "day": "Thu",
+    "weekday": "Thu",
+    "module": "Listening",
+    "title": "Section 3 & 4 Note Completion Drill",
+    "duration": "30 min",
+    "completed": false,
+    "href": "/listening"
+  },
+  {
+    "id": "task-06",
+    "day": "Thu",
+    "weekday": "Thu",
+    "module": "Question Types",
+    "title": "Master Matching Headings strategy guide",
+    "duration": "20 min",
+    "completed": false,
+    "href": "/question-types"
+  },
+  {
+    "id": "task-07",
+    "day": "Fri",
+    "weekday": "Fri",
+    "module": "Writing",
+    "title": "Task 1 Process Diagram sequencing phrases",
+    "duration": "30 min",
+    "completed": false,
+    "href": "/writing"
+  },
+  {
+    "id": "task-08",
+    "day": "Sat",
+    "weekday": "Sat",
+    "module": "Mock Test",
+    "title": "Take Academic Full Mock Exam #02",
+    "duration": "160 min",
+    "completed": false,
+    "href": "/mock-test"
+  }
+]
+

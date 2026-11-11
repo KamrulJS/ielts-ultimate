@@ -1,0 +1,46 @@
+{
+  "bandProgression": [
+    { "label": "Oct 05", "overall": 5.5, "reading": 6.0, "listening": 6.0, "writing": 5.0, "speaking": 5.5 },
+    { "label": "Oct 14", "overall": 6.0, "reading": 6.5, "listening": 6.0, "writing": 5.5, "speaking": 6.0 },
+    { "label": "Oct 24", "overall": 6.0, "reading": 6.5, "listening": 6.5, "writing": 5.5, "speaking": 6.0 },
+    { "label": "Nov 01", "overall": 6.5, "reading": 7.0, "listening": 6.5, "writing": 6.0, "speaking": 6.5 },
+    { "label": "Nov 05", "overall": 6.5, "reading": 7.0, "listening": 7.0, "writing": 6.0, "speaking": 6.5 },
+    { "label": "Nov 10", "overall": 6.5, "reading": 7.0, "listening": 7.0, "writing": 6.5, "speaking": 6.5 }
+  ],
+  "skillBreakdown": {
+    "Writing": [
+      { "criterion": "Task Achievement", "score": 6.5, "status": "Fair", "note": "Clear position; develop body paragraph 2 examples further." },
+      { "criterion": "Coherence & Cohesion", "score": 6.5, "status": "Fair", "note": "Good paragraphing; vary linking phrases beyond 'Furthermore'." },
+      { "criterion": "Lexical Resource", "score": 6.0, "status": "Fair", "note": "Accurate topic vocabulary; add stronger academic collocations." },
+      { "criterion": "Grammatical Range", "score": 5.5, "status": "Focus", "note": "Watch comma splices and use more complex relative clauses." }
+    ],
+    "Reading": [
+      { "criterion": "True / False / Not Given", "score": 7.5, "status": "Strong", "note": "88% accuracy across recent academic passages." },
+      { "criterion": "Matching Headings", "score": 6.5, "status": "Fair", "note": "Distinguish main thesis from supporting details." },
+      { "criterion": "Summary Completion", "score": 7.5, "status": "Strong", "note": "Consistent grammar fit and scanning speed." },
+      { "criterion": "Multiple Choice", "score": 6.5, "status": "Fair", "note": "Eliminate plausible distractors before confirming." }
+    ],
+    "Listening": [
+      { "criterion": "Part 1 Everyday Form", "score": 8.0, "status": "Strong", "note": "Excellent spelling and number accuracy." },
+      { "criterion": "Part 2 Map Labelling", "score": 7.0, "status": "Strong", "note": "Follow compass and spatial markers smoothly." },
+      { "criterion": "Part 3 Academic Discussion", "score": 6.5, "status": "Fair", "note": "Track speaker agreement shifts carefully." },
+      { "criterion": "Part 4 Lecture Notes", "score": 6.5, "status": "Fair", "note": "Predict part of speech before audio starts." }
+    ],
+    "Speaking": [
+      { "criterion": "Fluency & Coherence", "score": 6.5, "status": "Fair", "note": "Natural pace; minimize self-correction pauses." },
+      { "criterion": "Lexical Resource", "score": 6.5, "status": "Fair", "note": "Good descriptive adjectives in Part 2 cue cards." },
+      { "criterion": "Grammatical Range", "score": 6.0, "status": "Fair", "note": "Mix past perfect and conditionals in Part 3." },
+      { "criterion": "Pronunciation", "score": 7.0, "status": "Strong", "note": "Clear word stress and sentence intonation." }
+    ]
+  },
+  "weeklyStudyHours": [
+    { "day": "Mon", "hours": 1.2 },
+    { "day": "Tue", "hours": 1.5 },
+    { "day": "Wed", "hours": 0.9 },
+    { "day": "Thu", "hours": 1.8 },
+    { "day": "Fri", "hours": 1.4 },
+    { "day": "Sat", "hours": 2.2 },
+    { "day": "Sun", "hours": 1.6 }
+  ]
+}
+

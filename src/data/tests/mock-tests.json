@@ -1,0 +1,175 @@
+[
+  {
+    "id": "mock-01",
+    "title": "Academic Full Mock Exam #01 — Environmental Futures",
+    "track": "Academic",
+    "difficulty": "Standard (Band 6.5 - 7.5)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-01",
+      "listeningId": "ls-test-01",
+      "writingId": "wr-task-01",
+      "speakingId": "sp-topic-01"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 1420,
+    "status": "Completed",
+    "lastScore": 6.5
+  },
+  {
+    "id": "mock-02",
+    "title": "Academic Full Mock Exam #02 — Urban Architecture & Design",
+    "track": "Academic",
+    "difficulty": "Challenging (Band 7.0 - 8.5)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-02",
+      "listeningId": "ls-test-02",
+      "writingId": "wr-task-02",
+      "speakingId": "sp-topic-02"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 980,
+    "status": "Available"
+  },
+  {
+    "id": "mock-03",
+    "title": "Academic Full Mock Exam #03 — Cognitive Science & Education",
+    "track": "Academic",
+    "difficulty": "Standard (Band 6.5 - 7.5)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-03",
+      "listeningId": "ls-test-03",
+      "writingId": "wr-task-03",
+      "speakingId": "sp-topic-03"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 1150,
+    "status": "Completed",
+    "lastScore": 6.5
+  },
+  {
+    "id": "mock-04",
+    "title": "Academic Full Mock Exam #04 — Maritime Trade & History",
+    "track": "Academic",
+    "difficulty": "Moderate (Band 6.0 - 7.0)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-04",
+      "listeningId": "ls-test-04",
+      "writingId": "wr-task-04",
+      "speakingId": "sp-topic-04"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 740,
+    "status": "Available"
+  },
+  {
+    "id": "mock-05",
+    "title": "General Training Mock #05 — Workplace & Relocation",
+    "track": "General",
+    "difficulty": "Standard (Band 6.5 - 7.5)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-05",
+      "listeningId": "ls-test-05",
+      "writingId": "wr-task-05",
+      "speakingId": "sp-topic-05"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 610,
+    "status": "Available"
+  },
+  {
+    "id": "mock-06",
+    "title": "Academic Full Mock Exam #06 — Bio-Inspired Engineering",
+    "track": "Academic",
+    "difficulty": "Advanced (Band 7.5 - 9.0)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-06",
+      "listeningId": "ls-test-06",
+      "writingId": "wr-task-06",
+      "speakingId": "sp-topic-06"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 530,
+    "status": "Available"
+  },
+  {
+    "id": "mock-07",
+    "title": "Academic Full Mock Exam #07 — Global Energy Transition",
+    "track": "Academic",
+    "difficulty": "Standard (Band 6.5 - 7.5)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-07",
+      "listeningId": "ls-test-07",
+      "writingId": "wr-task-07",
+      "speakingId": "sp-topic-07"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 489,
+    "status": "Available"
+  },
+  {
+    "id": "mock-08",
+    "title": "General Training Mock #08 — Community & Digital Life",
+    "track": "General",
+    "difficulty": "Moderate (Band 6.0 - 7.0)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-08",
+      "listeningId": "ls-test-08",
+      "writingId": "wr-task-08",
+      "speakingId": "sp-topic-08"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 412,
+    "status": "Available"
+  },
+  {
+    "id": "mock-09",
+    "title": "Academic Full Mock Exam #09 — Linguistics & Culture",
+    "track": "Academic",
+    "difficulty": "Challenging (Band 7.0 - 8.0)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-09",
+      "listeningId": "ls-test-09",
+      "writingId": "wr-task-09",
+      "speakingId": "sp-topic-09"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 365,
+    "status": "Available"
+  },
+  {
+    "id": "mock-10",
+    "title": "Academic Full Mock Exam #10 — Space Debris & Orbit Law",
+    "track": "Academic",
+    "difficulty": "Advanced (Band 7.5 - 9.0)",
+    "durationMinutes": 160,
+    "durationLabel": "2h 40m",
+    "modules": {
+      "readingId": "rd-test-10",
+      "listeningId": "ls-test-10",
+      "writingId": "wr-task-10",
+      "speakingId": "sp-topic-10"
+    },
+    "sectionsSummary": "Listening (30m) • Reading (60m) • Writing (60m) • Speaking (14m)",
+    "attempts": 294,
+    "status": "Available"
+  }
+]
+

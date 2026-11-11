@@ -1,0 +1,24 @@
+{
+  "summaryMetrics": {
+    "activeStudents": 14820,
+    "verifiedTeachers": 64,
+    "mockTestsCompleted": 38940,
+    "monthlyRecurringRevenue": "$42,680",
+    "averageStudentGain": "+0.8 Band"
+  },
+  "monthlyGrowth": [
+    { "month": "Jun", "students": 8200, "tests": 4100, "revenue": 24500 },
+    { "month": "Jul", "students": 9450, "tests": 4980, "revenue": 28400 },
+    { "month": "Aug", "students": 10900, "tests": 5640, "revenue": 32100 },
+    { "month": "Sep", "students": 12400, "tests": 6720, "revenue": 36900 },
+    { "month": "Oct", "students": 13750, "tests": 7490, "revenue": 39800 },
+    { "month": "Nov", "students": 14820, "tests": 8120, "revenue": 42680 }
+  ],
+  "modulePopularity": [
+    { "module": "Reading", "sessions": 12400 },
+    { "module": "Listening", "sessions": 10800 },
+    { "module": "Writing", "sessions": 9200 },
+    { "module": "Speaking", "sessions": 6540 }
+  ]
+}
+

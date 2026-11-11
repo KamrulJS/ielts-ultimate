@@ -1,0 +1,203 @@
+[
+  {
+    "id": "wr-task-01",
+    "taskNumber": 1,
+    "category": "Bar Chart",
+    "track": "Academic",
+    "title": "Renewable Electricity Capacity Across Four Regions (2015–2025)",
+    "difficulty": "Standard",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The bar chart compares installed solar and wind generation capacity (in gigawatts) across four geographic regions between 2015 and 2025. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    "chartType": "bar",
+    "chartData": [
+      { "name": "Northern Europe", "y2015": 42, "y2020": 78, "y2025": 118 },
+      { "name": "East Asia", "y2015": 58, "y2020": 135, "y2025": 240 },
+      { "name": "North America", "y2015": 49, "y2020": 92, "y2025": 156 },
+      { "name": "South America", "y2015": 18, "y2020": 44, "y2025": 82 }
+    ],
+    "keyTips": ["Group the fastest-growing region (East Asia) separately in Body 1.", "Compare initial 2015 figures against 2025 totals in your overview."]
+  },
+  {
+    "id": "wr-task-02",
+    "taskNumber": 2,
+    "category": "Discussion Essay",
+    "track": "Academic",
+    "title": "Remote Work & Urban Core Vitality",
+    "difficulty": "Standard",
+    "recommendedMinutes": 40,
+    "minWords": 250,
+    "prompt": "Some people believe widespread remote work will revitalise regional towns and lower housing pressure, while others argue it severely damages city-centre economies. Discuss both these views and give your own opinion.",
+    "keyTips": ["Devote equal analytical depth to both regional revitalisation and downtown retail/transit impacts.", "State your clear thesis in the introduction and reiterate it in the conclusion."]
+  },
+  {
+    "id": "wr-task-03",
+    "taskNumber": 1,
+    "category": "Line Graph",
+    "track": "Academic",
+    "title": "Urban Commuter Mode Share (2000–2025)",
+    "difficulty": "Standard",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The line graph illustrates shifts in daily commuter transport share (%) across Metro Rail, Private Car, Cycling, and Bus networks in a mid-sized European city from 2000 to 2025. Summarise the key trends and make relevant comparisons.",
+    "chartType": "line",
+    "chartData": [
+      { "name": "2000", "Metro": 24, "Car": 54, "Cycling": 8, "Bus": 14 },
+      { "name": "2008", "Metro": 29, "Car": 47, "Cycling": 11, "Bus": 13 },
+      { "name": "2016", "Metro": 36, "Car": 37, "Cycling": 16, "Bus": 11 },
+      { "name": "2025", "Metro": 43, "Car": 26, "Cycling": 22, "Bus": 9 }
+    ],
+    "keyTips": ["Highlight the crossover point where Metro Rail overtook Private Car usage.", "Note Cycling's steady tripling from 8% to 22%."]
+  },
+  {
+    "id": "wr-task-04",
+    "taskNumber": 1,
+    "category": "Pie Chart",
+    "track": "Academic",
+    "title": "University Library Budget Allocation (2010 vs 2025)",
+    "difficulty": "Moderate",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The pie charts show how a metropolitan university allocated its annual library expenditure across five categories in 2010 and 2025. Summarise the primary shifts.",
+    "chartType": "pie",
+    "chartData": [
+      { "name": "Digital Journals", "value": 46 },
+      { "name": "Printed Books", "value": 16 },
+      { "name": "Staffing", "value": 24 },
+      { "name": "Study Spaces", "value": 10 },
+      { "name": "Archival Preservation", "value": 4 }
+    ],
+    "keyTips": ["Contrast the surge in digital journal licensing against shrinking print acquisition."]
+  },
+  {
+    "id": "wr-task-05",
+    "taskNumber": 2,
+    "category": "Opinion Essay",
+    "track": "Academic",
+    "title": "Free Public Transit vs Congestion Pricing",
+    "difficulty": "Challenging",
+    "recommendedMinutes": 40,
+    "minWords": 250,
+    "prompt": "Making all urban public transport completely free is the most effective way to reduce inner-city traffic congestion. To what extent do you agree or disagree?",
+    "keyTips": ["Evaluate whether fare elimination alone motivates motorists if service frequency lags.", "Consider complementary measures like dedicated bus lanes."]
+  },
+  {
+    "id": "wr-task-06",
+    "taskNumber": 1,
+    "category": "Table",
+    "track": "Academic",
+    "title": "Household Water Consumption & Tariff Rates (Six Cities)",
+    "difficulty": "Challenging",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The table compares average daily per-capita residential water consumption (litres), leakage rate (%), and municipal tariff per cubic metre across six coastal cities.",
+    "chartType": "table",
+    "tableData": {
+      "headers": ["City", "Daily Usage (L)", "Network Leakage (%)", "Tariff ($/m3)"],
+      "rows": [
+        ["Singapore", "141", "5.2%", "2.74"],
+        ["Melbourne", "158", "9.8%", "2.15"],
+        ["Lisbon", "174", "17.4%", "1.62"],
+        ["Vancouver", "245", "14.1%", "1.08"],
+        ["Dubai", "310", "7.5%", "3.10"],
+        ["Tokyo", "212", "3.1%", "1.95"]
+      ]
+    },
+    "keyTips": ["Group low-leakage outliers (Tokyo, Singapore) and high-consumption contrasts (Dubai vs Singapore)."]
+  },
+  {
+    "id": "wr-task-07",
+    "taskNumber": 1,
+    "category": "Process Diagram",
+    "track": "Academic",
+    "title": "Closed-Loop Glass Bottle Recycling & Remanufacture",
+    "difficulty": "Standard",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The diagram details the seven-stage industrial process by which post-consumer glass containers are sorted, crushed into cullet, melted, and moulded into new bottles.",
+    "chartType": "process",
+    "processSteps": [
+      "1. Kerbside collection",
+      "2. Colour-optical sorting (clear / green / amber)",
+      "3. High-pressure washing & label removal",
+      "4. Hammer-mill crushing into fine cullet",
+      "5. Blending with silica sand & limestone",
+      "6. Furnace melting at 1,500°C",
+      "7. Parison blowing & annealing oven cooling"
+    ],
+    "keyTips": ["Use passive voice consistently ('glass is sorted', 'cullet is blended').", "Divide the narrative clearly between preparation stages and thermal forming stages."]
+  },
+  {
+    "id": "wr-task-08",
+    "taskNumber": 1,
+    "category": "Map Comparison",
+    "track": "Academic",
+    "title": "Harbourfront Industrial Wharf Redevelopment (1995 vs Today)",
+    "difficulty": "Standard",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The two maps show transformations along the North Pier Harbourfront between 1995 and the present day, highlighting changes in transport access, public green space, and commercial land use.",
+    "chartType": "map",
+    "mapHighlights": {
+      "before": ["Cargo Rail Siding (North)", "Coal Storage Warehouses (West)", "Timber Boatyard (South)", "2-Lane Service Road"],
+      "after": ["Tram Loop & Promenade (North)", "Maritime Museum & Plaza (West)", "Public Boardwalk Park (South)", "Pedestrianised Waterfront"]
+    },
+    "keyTips": ["Orient every spatial shift using compass points (north-west, southern edge).", "Highlight the complete removal of heavy freight infrastructure."]
+  },
+  {
+    "id": "wr-task-09",
+    "taskNumber": 1,
+    "category": "Mixed Charts",
+    "track": "Academic",
+    "title": "Global Coffee Production & Roast Preferences",
+    "difficulty": "Challenging",
+    "recommendedMinutes": 20,
+    "minWords": 150,
+    "prompt": "The combined chart displays annual green bean output (million bags) across top exporting nations alongside consumer brew-method preferences in importing markets.",
+    "chartType": "bar",
+    "chartData": [
+      { "name": "Brazil", "y2015": 51, "y2020": 63, "y2025": 68 },
+      { "name": "Vietnam", "y2015": 27, "y2020": 29, "y2025": 31 },
+      { "name": "Colombia", "y2015": 14, "y2020": 14, "y2025": 13 },
+      { "name": "Ethiopia", "y2015": 7, "y2020": 8, "y2025": 9 }
+    ],
+    "keyTips": ["Synthesise both datasets in your overview without blending units inaccurately."]
+  },
+  {
+    "id": "wr-task-10",
+    "taskNumber": 2,
+    "category": "Advantages and Disadvantages",
+    "track": "Academic",
+    "title": "Modular Prefabricated Housing in Growing Cities",
+    "difficulty": "Standard",
+    "recommendedMinutes": 40,
+    "minWords": 250,
+    "prompt": "Factory-built modular apartments are increasingly replacing traditional on-site masonry construction in rapidly urbanising regions. Discuss the advantages and disadvantages of this shift.",
+    "keyTips": ["Mention faster assembly, reduced site waste, and acoustic uniformity vs transport constraints and architectural monotony."]
+  },
+  {
+    "id": "wr-task-11",
+    "taskNumber": 2,
+    "category": "Problem and Solution",
+    "track": "Academic",
+    "title": "Plastic Microfibre Pollution from Domestic Laundry",
+    "difficulty": "Challenging",
+    "recommendedMinutes": 40,
+    "minWords": 250,
+    "prompt": "Synthetic textiles shed millions of microscopic plastic fibres during household washing, entering freshwater ecosystems. What are the main causes of this problem, and what realistic solutions can governments and manufacturers implement?",
+    "keyTips": ["Link fast-fashion polyester demand to wastewater filtration gaps.", "Propose washing-machine micro-filters and natural-fibre incentives."]
+  },
+  {
+    "id": "wr-task-12",
+    "taskNumber": 2,
+    "category": "Two-part Questions",
+    "track": "Academic",
+    "title": "Lifelong Career Switching in Modern Economies",
+    "difficulty": "Standard",
+    "recommendedMinutes": 40,
+    "minWords": 250,
+    "prompt": "Today, adults frequently change professions three or four times during their working lives rather than staying in a single lifelong occupation. Why is this happening, and is this a positive or negative development for society?",
+    "keyTips": ["Address automation/skill obsolescence in Body 1 and evaluate social/economic adaptability vs pension insecurity in Body 2."]
+  }
+]
+

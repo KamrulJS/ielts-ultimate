@@ -1,0 +1,153 @@
+[
+  {
+    "id": "post-01",
+    "category": "Reading Strategy",
+    "title": "How I jumped from Band 6.0 to 7.5 in Reading in 3 weeks",
+    "content": "My biggest bottleneck was spending 26 minutes on Passage 1 trying to understand every scientific noun. Switching to a strict 17-20-23 minute split and underlining contrast markers ('nevertheless', 'conversely') before reading options lifted my score from 25/40 to 34/40!",
+    "author": {
+      "name": "Nadia Rahman",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80",
+      "band": "7.5",
+      "country": "Bangladesh"
+    },
+    "createdAt": "3 hours ago",
+    "likes": 42,
+    "tags": ["Reading", "Time Management", "Success Story"]
+  },
+  {
+    "id": "post-02",
+    "category": "Writing Feedback",
+    "title": "Task 2 Thesis Check: Remote Work & City Centres — too broad?",
+    "content": "Does this thesis clearly satisfy Band 7 Task Response for 'Discuss both views and give your opinion'? 'While remote work invigorates small regional towns, unadapted downtown districts face fiscal decline; nevertheless, converting vacant offices into housing makes flexible work a net gain.' Feedback welcome!",
+    "author": {
+      "name": "Emily Johnson",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
+      "band": "6.5",
+      "country": "Canada"
+    },
+    "createdAt": "Yesterday",
+    "likes": 28,
+    "tags": ["Writing Task 2", "Peer Review"]
+  },
+  {
+    "id": "post-03",
+    "category": "Speaking Partners",
+    "title": "Looking for daily 20-min Part 2 & 3 speaking drills (Target 7.5)",
+    "content": "I am taking IELTS Academic on December 18 and would love to swap daily cue card timing + constructive feedback over voice calls around 7 PM EST.",
+    "author": {
+      "name": "Min-ho Park",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80",
+      "band": "6.0",
+      "country": "South Korea"
+    },
+    "createdAt": "2 days ago",
+    "likes": 19,
+    "tags": ["Speaking", "Study Partner"]
+  },
+  {
+    "id": "post-04",
+    "category": "Success Stories",
+    "title": "Achieved Overall 8.0 (L:8.5 R:8.0 W:7.5 S:7.5) — Full breakdown!",
+    "content": "Sharing what actually moved my Writing from 6.5 to 7.5: cutting memorised clichés and planning 2 crystal-clear topic sentences before typing. Happy to answer questions on Mock Test pacing.",
+    "author": {
+      "name": "Arjun Mehta",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80",
+      "band": "8.0",
+      "country": "India"
+    },
+    "createdAt": "3 days ago",
+    "likes": 89,
+    "tags": ["Band 8", "Success Story", "Writing"]
+  },
+  {
+    "id": "post-05",
+    "category": "Listening Q&A",
+    "title": "Trick for catching plural 's' in Part 4 Lecture Completion",
+    "content": "Whenever the prompt has no article ('a/an') before a blank and fits a countable noun, quickly check surrounding verbs ('require ___' vs 'a single ___') during the 30-second preview!",
+    "author": {
+      "name": "Sofia Alvarez",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80",
+      "band": "7.0",
+      "country": "Spain"
+    },
+    "createdAt": "4 days ago",
+    "likes": 34,
+    "tags": ["Listening", "Part 4"]
+  },
+  {
+    "id": "post-06",
+    "category": "Vocabulary",
+    "title": "10 high-value verbs to replace 'increase' in Task 1 graphs",
+    "content": "Instead of repeating 'increased' five times, rotate: climbed steadily, surged markedly, edged upward, rebounded sharply, and plateaued after 2020.",
+    "author": {
+      "name": "Dr. Claire Bennett",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80",
+      "band": "9.0 Teacher",
+      "country": "UK"
+    },
+    "createdAt": "5 days ago",
+    "likes": 64,
+    "tags": ["Writing Task 1", "Vocabulary"]
+  },
+  {
+    "id": "post-07",
+    "category": "Writing Feedback",
+    "title": "Do I need a conclusion paragraph in Academic Writing Task 1?",
+    "content": "No! Keep your clear Overview paragraph right after the introduction. Spending words on a separate summary conclusion often repeats data unnecessarily.",
+    "author": {
+      "name": "Marcus Vance",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80",
+      "band": "8.5 Teacher",
+      "country": "Australia"
+    },
+    "createdAt": "6 days ago",
+    "likes": 51,
+    "tags": ["Task 1", "Q&A"]
+  },
+  {
+    "id": "post-08",
+    "category": "Speaking Partners",
+    "title": "Cue Card Tip: Stop aiming for complex stories, aim for vivid detail",
+    "content": "Examiners don't grade creativity—describing a simple walk along a local canal with crisp adjectives ('windswept', 'restorative') beats inventing an awkward fake adventure.",
+    "author": {
+      "name": "Chloe Patel",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&q=80",
+      "band": "7.0",
+      "country": "UK"
+    },
+    "createdAt": "1 week ago",
+    "likes": 37,
+    "tags": ["Cue Card", "Speaking Part 2"]
+  },
+  {
+    "id": "post-09",
+    "category": "Reading Strategy",
+    "title": "Why Matching Headings should be solved paragraph-by-paragraph",
+    "content": "Read Paragraph A first, summarise its central theme in 4 words in your scratchpad, and only THEN scan the Roman numeral heading options. It prevents distractors from planting bias.",
+    "author": {
+      "name": "Hana Takahashi",
+      "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=160&q=80",
+      "band": "7.0",
+      "country": "Japan"
+    },
+    "createdAt": "1 week ago",
+    "likes": 29,
+    "tags": ["Reading", "Matching Headings"]
+  },
+  {
+    "id": "post-10",
+    "category": "Success Stories",
+    "title": "Completed 3 Full 2h 40m Mock Exams — Stamina truly matters!",
+    "content": "Before practising full back-to-back mocks, my brain felt exhausted halfway through Writing Task 2. Building test-day stamina made the actual exam feel routine.",
+    "author": {
+      "name": "Liam O'Connor",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80",
+      "band": "7.0",
+      "country": "Ireland"
+    },
+    "createdAt": "2 weeks ago",
+    "likes": 45,
+    "tags": ["Mock Test", "Stamina"]
+  }
+]
+

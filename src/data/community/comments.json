@@ -1,0 +1,28 @@
+[
+  {
+    "id": "cmt-01",
+    "postId": "post-01",
+    "author": "Emily Johnson",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+    "text": "17-20-23 timing saved me on Passage 3 yesterday! Do you preview questions before skimming the first paragraph?",
+    "createdAt": "2 hours ago",
+    "replies": [
+      {
+        "id": "rep-01",
+        "author": "Nadia Rahman",
+        "text": "Yes! I spend 45 seconds reading the title + first 3 questions (especially TFNG keywords) before scanning Paragraph A.",
+        "createdAt": "1 hour ago"
+      }
+    ]
+  },
+  {
+    "id": "cmt-02",
+    "postId": "post-02",
+    "author": "Marcus Vance",
+    "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80",
+    "text": "Very crisp thesis! It signals both views and establishes your conditional stance clearly—solid Band 7.5 trajectory.",
+    "createdAt": "18 hours ago",
+    "replies": []
+  }
+]
+

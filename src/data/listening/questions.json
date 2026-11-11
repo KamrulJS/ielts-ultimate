@@ -1,0 +1,187 @@
+[
+  {
+    "id": "lq-01",
+    "testId": "ls-test-01",
+    "partNumber": 1,
+    "number": 1,
+    "type": "FORM_COMPLETION",
+    "typeLabel": "Form Completion",
+    "prompt": "Applicant street address: _______ Street",
+    "answer": "Oakwood",
+    "explanation": "Caller states: 'I recently moved to Oakwood Street'."
+  },
+  {
+    "id": "lq-02",
+    "testId": "ls-test-01",
+    "partNumber": 1,
+    "number": 2,
+    "type": "FORM_COMPLETION",
+    "typeLabel": "Form Completion",
+    "prompt": "Off-peak monthly pass fee: £_______",
+    "answer": "38",
+    "explanation": "Receptionist quotes £38 per month for weekday off-peak hours."
+  },
+  {
+    "id": "lq-03",
+    "testId": "ls-test-01",
+    "partNumber": 1,
+    "number": 3,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "How much is the one-off induction fee (in pounds)?",
+    "answer": "15",
+    "explanation": "Receptionist adds: 'plus a one-off induction fee of £15'."
+  },
+  {
+    "id": "lq-04",
+    "testId": "ls-test-01",
+    "partNumber": 2,
+    "number": 4,
+    "type": "MAP_LABELLING",
+    "typeLabel": "Plan / Map Labelling",
+    "prompt": "On the Botanical Map, which compass direction from the Main Courtyard is the Tropical Palm House?",
+    "options": ["A. North-West", "B. North-East", "C. South-East", "D. South-West"],
+    "answer": "B",
+    "explanation": "The guide specifies the Tropical Palm House sits immediately to the north-east."
+  },
+  {
+    "id": "lq-05",
+    "testId": "ls-test-01",
+    "partNumber": 2,
+    "number": 5,
+    "type": "MATCHING",
+    "typeLabel": "Matching",
+    "prompt": "Which attraction sits near the western boundary past the Heritage Clocktower?",
+    "options": ["A. Lotus Pond", "B. Alpine Rockery", "C. Visitor Ticket Desk", "D. Orchid Conservatory"],
+    "answer": "B",
+    "explanation": "Guide says past the Heritage Clocktower toward the western boundary is the Alpine Rockery."
+  },
+  {
+    "id": "lq-06",
+    "testId": "ls-test-01",
+    "partNumber": 3,
+    "number": 6,
+    "type": "MCQ",
+    "typeLabel": "Multiple Choice",
+    "prompt": "Why did Maya and Toby's canal soil readings fluctuate between Monday and Thursday?",
+    "options": [
+      "A. The spectrometer battery failed mid-week",
+      "B. Tuesday rainfall increased moisture and skewed calibration",
+      "C. Sampling jars were mislabelled in the lab",
+      "D. Local construction disturbed the canal banks"
+    ],
+    "answer": "B",
+    "explanation": "Dr. Lin explains Tuesday evening rainfall alters topsoil moisture and skews calibration unless oven-dried."
+  },
+  {
+    "id": "lq-07",
+    "testId": "ls-test-01",
+    "partNumber": 3,
+    "number": 7,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE WORD ONLY: Samples must be _______-dried before spectrometer testing.",
+    "answer": "oven",
+    "explanation": "Dr. Lin advises: 'unless samples are oven-dried first'."
+  },
+  {
+    "id": "lq-08",
+    "testId": "ls-test-01",
+    "partNumber": 4,
+    "number": 8,
+    "type": "NOTE_COMPLETION",
+    "typeLabel": "Note Completion",
+    "prompt": "Lecture Notes (ONE WORD): Eastgate Centre in Harare cools air naturally using porous _______ stacks.",
+    "answer": "masonry",
+    "explanation": "Lecturer says 'porous masonry stacks draw cool night air through floor voids'."
+  },
+  {
+    "id": "lq-09",
+    "testId": "ls-test-01",
+    "partNumber": 4,
+    "number": 9,
+    "type": "TABLE_COMPLETION",
+    "typeLabel": "Table Completion",
+    "prompt": "Biomimicry Comparison (ONE WORD): Biological inspiration for Eastgate Centre ventilation = _______ mounds.",
+    "answer": "termite",
+    "explanation": "Lecture opens by stating passive cooling draws directly from Macrotermes termite mounds."
+  },
+  {
+    "id": "lq-10",
+    "testId": "ls-test-01",
+    "partNumber": 4,
+    "number": 10,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "Write TWO WORDS: Through which building spaces does cool night air enter?",
+    "answer": "floor voids",
+    "explanation": "Lecturer concludes: 'draw cool night air through floor voids'."
+  },
+  {
+    "id": "lq-11",
+    "testId": "ls-test-04",
+    "partNumber": 1,
+    "number": 1,
+    "type": "FORM_COMPLETION",
+    "typeLabel": "Form Completion",
+    "prompt": "Summer peak refundable deposit per student: £_______",
+    "answer": "45",
+    "explanation": "Clerk clarifies £45 per student rather than £35."
+  },
+  {
+    "id": "lq-12",
+    "testId": "ls-test-04",
+    "partNumber": 2,
+    "number": 2,
+    "type": "MAP_LABELLING",
+    "typeLabel": "Plan / Map Labelling",
+    "prompt": "Write TWO WORDS: Location of Herbarium Wing past the fountain: _______ _______.",
+    "answer": "West Pavilion",
+    "explanation": "Ranger states it stands just past the fountain in the West Pavilion."
+  },
+  {
+    "id": "lq-13",
+    "testId": "ls-test-04",
+    "partNumber": 3,
+    "number": 3,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE WORD ONLY: Researchers must anonymise participant _______ before exporting CSV tables.",
+    "answer": "postcodes",
+    "explanation": "Tutor states: 'Anonymise participant postcodes before exporting CSV tables'."
+  },
+  {
+    "id": "lq-14",
+    "testId": "ls-test-04",
+    "partNumber": 4,
+    "number": 4,
+    "type": "NOTE_COMPLETION",
+    "typeLabel": "Note Completion",
+    "prompt": "Write ONE WORD ONLY: Giant kelp grows up to fifty _______ daily in upwelling currents.",
+    "answer": "centimetres",
+    "explanation": "Lecturer notes kelp grows up to fifty centimetres daily."
+  },
+  {
+    "id": "lq-15",
+    "testId": "ls-test-02",
+    "partNumber": 1,
+    "number": 1,
+    "type": "FORM_COMPLETION",
+    "typeLabel": "Form Completion",
+    "prompt": "Museum volunteer Saturday shift starts at: _______ AM",
+    "answer": "9:30",
+    "explanation": "Coordinator confirms Saturday shifts start at 9:30 AM."
+  },
+  {
+    "id": "lq-16",
+    "testId": "ls-test-02",
+    "partNumber": 4,
+    "number": 2,
+    "type": "NOTE_COMPLETION",
+    "typeLabel": "Note Completion",
+    "prompt": "Write ONE WORD ONLY: Ancient coastal salt cakes were shaped in _______ briquetage vessels.",
+    "answer": "clay",
+    "explanation": "Lecturer states: 'Clay briquetage vessels show standardised salt cake weights'."
+  }
+]
+

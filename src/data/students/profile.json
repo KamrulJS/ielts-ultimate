@@ -1,0 +1,50 @@
+{
+  "id": "stu-emily-01",
+  "name": "Emily Johnson",
+  "email": "emily.johnson@ieltswist.edu",
+  "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
+  "coverImage": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80",
+  "country": "Canada",
+  "city": "Toronto",
+  "track": "Academic",
+  "currentBand": 6.5,
+  "targetBand": 7.5,
+  "examDate": "2026-12-18",
+  "streakDays": 12,
+  "xp": 1230,
+  "completedTests": 24,
+  "studyHoursTotal": 64.5,
+  "plan": "Free Plan",
+  "bio": "Preparing for IELTS Academic to apply for Master of Architecture in London. Focusing on Academic Writing Task 2 coherence and Reading speed.",
+  "preferences": {
+    "dailyGoalMinutes": 90,
+    "preferredAccent": "British (RP)",
+    "remindersEnabled": true,
+    "autosaveIntervalSec": 10,
+    "reducedMotion": false
+  },
+  "moduleBands": {
+    "reading": 7.0,
+    "listening": 7.0,
+    "writing": 6.0,
+    "speaking": 6.5
+  },
+  "streakCalendar": [
+    { "date": "2026-11-01", "minutes": 45, "completed": true },
+    { "date": "2026-11-02", "minutes": 65, "completed": true },
+    { "date": "2026-11-03", "minutes": 80, "completed": true },
+    { "date": "2026-11-04", "minutes": 50, "completed": true },
+    { "date": "2026-11-05", "minutes": 95, "completed": true },
+    { "date": "2026-11-06", "minutes": 40, "completed": true },
+    { "date": "2026-11-07", "minutes": 70, "completed": true },
+    { "date": "2026-11-08", "minutes": 60, "completed": true },
+    { "date": "2026-11-09", "minutes": 110, "completed": true },
+    { "date": "2026-11-10", "minutes": 85, "completed": true },
+    { "date": "2026-11-11", "minutes": 55, "completed": true },
+    { "date": "2026-11-12", "minutes": 0, "completed": false },
+    { "date": "2026-11-13", "minutes": 0, "completed": false },
+    { "date": "2026-11-14", "minutes": 0, "completed": false }
+  ],
+  "referralCode": "EMILY-TWIST26"
+}
+

@@ -1,0 +1,232 @@
+[
+  {
+    "id": "sp-topic-01",
+    "title": "Modern Urban Landmarks & Civic Design",
+    "category": "Recent Speaking",
+    "isNew": true,
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": [
+      "What kind of buildings are most common in your hometown?",
+      "Do you prefer historic architecture or contemporary glass structures?",
+      "Is there a public square or park in your neighbourhood where people gather?"
+    ],
+    "part2": {
+      "cueTitle": "Describe an impressive modern building or landmark you have visited.",
+      "bullets": [
+        "Where it is located and what it looks like",
+        "When and why you visited it",
+        "What people do inside or around this place",
+        "And explain why you find its architecture memorable"
+      ]
+    },
+    "part3": [
+      "How do iconic buildings influence a city's international identity?",
+      "Should municipal governments prioritise heritage restoration over new skyscrapers?",
+      "In what ways might climate change reshape urban building materials over the next 30 years?"
+    ]
+  },
+  {
+    "id": "sp-topic-02",
+    "title": "Digital Learning & Focus Habits",
+    "category": "Recent Speaking",
+    "isNew": true,
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": [
+      "Do you usually study better in the morning or late at night?",
+      "How do you minimise phone distractions while studying?",
+      "Do you prefer reading printed textbooks or digital PDFs?"
+    ],
+    "part2": {
+      "cueTitle": "Describe a skill you taught yourself using online resources.",
+      "bullets": [
+        "What the skill was",
+        "Which resources or routines you followed",
+        "What obstacles you encountered",
+        "And explain how mastering this skill helped you"
+      ]
+    },
+    "part3": [
+      "Are university lectures likely to be replaced by interactive self-paced platforms?",
+      "Why do some learners struggle with unstructured online courses?"
+    ]
+  },
+  {
+    "id": "sp-topic-03",
+    "title": "Local Markets & Culinary Culture",
+    "category": "Academic Speaking",
+    "difficulty": "Moderate",
+    "durationLabel": "11-14 min",
+    "part1": [
+      "Do you enjoy cooking meals from scratch?",
+      "How often do you visit local farmers' markets?"
+    ],
+    "part2": {
+      "cueTitle": "Describe a lively street market or food fair you visited.",
+      "bullets": ["Where it took place", "Who accompanied you", "What items or dishes stood out", "Why the atmosphere left an impression"]
+    },
+    "part3": [
+      "How have supermarket chains changed regional agricultural traditions?",
+      "Why are younger consumers increasingly interested in locally sourced food?"
+    ]
+  },
+  {
+    "id": "sp-topic-04",
+    "title": "Public Libraries & Quiet Spaces",
+    "category": "Academic Speaking",
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": ["Did you visit libraries often as a child?", "What makes a study space comfortable for you?"],
+    "part2": {
+      "cueTitle": "Describe a quiet place where you enjoy reading or thinking.",
+      "bullets": ["Where it is", "How often you go there", "What makes it peaceful", "How you feel after spending time there"]
+    },
+    "part3": ["What role should public libraries serve in an era of smartphones?", "Should cities fund more free indoor community spaces?"]
+  },
+  {
+    "id": "sp-topic-05",
+    "title": "Public Transport & Sustainable Commutes",
+    "category": "General Topics",
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": ["How do you usually travel across your city?", "Has traffic changed in your area recently?"],
+    "part2": {
+      "cueTitle": "Describe a memorable train or bus journey you took.",
+      "bullets": ["Where you travelled", "What scenery you saw", "Who you sat near or talked with", "Why the trip stays in your memory"]
+    },
+    "part3": ["How can cities encourage drivers to switch to rail or cycling?", "Is high-speed rail worth heavy public investment?"]
+  },
+  {
+    "id": "sp-topic-06",
+    "title": "Environmental Volunteering & Parks",
+    "category": "Academic Speaking",
+    "difficulty": "Challenging",
+    "durationLabel": "11-14 min",
+    "part1": ["Are there plenty of trees in your neighbourhood?", "Do people in your town recycle consistently?"],
+    "part2": {
+      "cueTitle": "Describe an environmental initiative or clean-up event you heard about or joined.",
+      "bullets": ["What the initiative aimed to solve", "Who organised it", "What actions took place", "Why it matters for the community"]
+    },
+    "part3": ["Should individuals or corporations carry primary responsibility for waste reduction?", "How effective are single-use plastic bans?"]
+  },
+  {
+    "id": "sp-topic-07",
+    "title": "Memorable Photographs & Visual Media",
+    "category": "General Topics",
+    "difficulty": "Moderate",
+    "durationLabel": "11-14 min",
+    "part1": ["Do you take photos mainly with your phone?", "Do you ever print photographs?"],
+    "part2": {
+      "cueTitle": "Describe a meaningful photograph that captures a special memory.",
+      "bullets": ["When it was taken", "Who or what is in it", "Where you keep it", "Why it means so much to you"]
+    },
+    "part3": ["Has abundant smartphone photography changed how people experience travel?", "What distinguishes photojournalism from casual social media images?"]
+  },
+  {
+    "id": "sp-topic-08",
+    "title": "Teamwork, Mentors & Career Advice",
+    "category": "Academic Speaking",
+    "difficulty": "Challenging",
+    "durationLabel": "11-14 min",
+    "part1": ["Do you prefer working independently or in small teams?", "Who gives you practical advice?"],
+    "part2": {
+      "cueTitle": "Describe a teacher or mentor who shaped your confidence.",
+      "bullets": ["Who the person was", "What they taught you", "A specific moment they encouraged you", "How their guidance still affects you"]
+    },
+    "part3": ["What qualities separate an inspiring mentor from an ordinary instructor?", "How can workplaces foster cross-generational mentoring?"]
+  },
+  {
+    "id": "sp-topic-09",
+    "title": "Live Concerts & Performing Arts",
+    "category": "General Topics",
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": ["What genres of music help you concentrate?", "Have you ever learned to play an instrument?"],
+    "part2": {
+      "cueTitle": "Describe a live musical or theatrical performance you enjoyed.",
+      "bullets": ["What kind of event it was", "Where it happened", "What made the performers impressive", "How the audience reacted"]
+    },
+    "part3": ["Why do people still pay for live performances despite crisp studio recordings?", "Should arts funding come from public taxes or private sponsorship?"]
+  },
+  {
+    "id": "sp-topic-10",
+    "title": "Science Museums & Curiosity",
+    "category": "Academic Speaking",
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": ["Did you enjoy science experiments at school?", "Do you read popular science articles?"],
+    "part2": {
+      "cueTitle": "Describe a scientific discovery or invention you find fascinating.",
+      "bullets": ["What it is", "How you learned about it", "How it improves daily life", "Why you find it remarkable"]
+    },
+    "part3": ["Should governments invest more in basic research with uncertain short-term returns?", "How can scientists communicate complex findings clearly to the public?"]
+  },
+  {
+    "id": "sp-topic-11",
+    "title": "Time Management & Daily Routines",
+    "category": "General Topics",
+    "difficulty": "Moderate",
+    "durationLabel": "11-14 min",
+    "part1": ["Are you usually punctual for appointments?", "Do you write daily to-do lists?"],
+    "part2": {
+      "cueTitle": "Describe a period when you successfully managed a very busy schedule.",
+      "bullets": ["Why that period was demanding", "How you organised your tasks", "What sacrifices you made", "How you felt afterward"]
+    },
+    "part3": ["Why do modern professionals often feel rushed despite time-saving technology?", "Does strict scheduling stifle creativity?"]
+  },
+  {
+    "id": "sp-topic-12",
+    "title": "Traditional Crafts & Heritage",
+    "category": "Academic Speaking",
+    "difficulty": "Challenging",
+    "durationLabel": "11-14 min",
+    "part1": ["Are handmade items popular in your country?", "Have you ever tried pottery or woodworking?"],
+    "part2": {
+      "cueTitle": "Describe a traditional craft or handmade object from your culture.",
+      "bullets": ["What it is made from", "How artisans create it", "When people typically use or gift it", "Why preserving this craft is important"]
+    },
+    "part3": ["Can traditional handicrafts survive globalised factory competition?", "How does tourism both help and threaten authentic local crafts?"]
+  },
+  {
+    "id": "sp-topic-13",
+    "title": "Parks, Walking & Physical Wellbeing",
+    "category": "General Topics",
+    "difficulty": "Moderate",
+    "durationLabel": "11-14 min",
+    "part1": ["Do you enjoy walking in your city?", "How often do you exercise outdoors?"],
+    "part2": {
+      "cueTitle": "Describe a favourite walking route or outdoor trail near your home.",
+      "bullets": ["Where the route starts and ends", "What you notice along the way", "When you usually walk it", "Why it helps you unwind"]
+    },
+    "part3": ["How does walkable urban planning influence public health?", "Should car-free Sundays be introduced in city centres?"]
+  },
+  {
+    "id": "sp-topic-14",
+    "title": "Decision Making & Risk",
+    "category": "Academic Speaking",
+    "difficulty": "Advanced",
+    "durationLabel": "11-14 min",
+    "part1": ["Do you make small daily choices quickly?", "Do you ask friends before major purchases?"],
+    "part2": {
+      "cueTitle": "Describe a difficult decision you made that turned out well.",
+      "bullets": ["What choices you faced", "Why it felt risky", "How you weighed the pros and cons", "What the outcome taught you"]
+    },
+    "part3": ["Why do too many consumer choices sometimes cause decision fatigue?", "Should teenagers be given greater autonomy over academic subjects?"]
+  },
+  {
+    "id": "sp-topic-15",
+    "title": "Cross-Cultural Friendships & Languages",
+    "category": "Recent Speaking",
+    "isNew": true,
+    "difficulty": "Standard",
+    "durationLabel": "11-14 min",
+    "part1": ["How many languages do people speak in your city?", "What do you enjoy most about learning English?"],
+    "part2": {
+      "cueTitle": "Describe an interesting conversation you had with someone from another country.",
+      "bullets": ["Where you met", "What topics you discussed", "What surprised you about their perspective", "Why the exchange was memorable"]
+    },
+    "part3": ["Does learning a foreign language change how someone thinks?", "Will real-time translation apps reduce people's motivation to study languages?"]
+  }
+]
+

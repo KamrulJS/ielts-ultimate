@@ -1,0 +1,40 @@
+{
+  "demoDisclaimer": "Demo Rubric Feedback — generated from curated local IELTS evaluation templates for frontend demonstration. Not connected to a live AI grading API.",
+  "templatesByBand": {
+    "task2Strong": {
+      "overall": 7.0,
+      "criteria": [
+        { "name": "Task Response", "band": 7.0, "feedback": "Well-developed position with balanced evaluation of both perspectives and relevant real-world support." },
+        { "name": "Coherence & Cohesion", "band": 7.0, "feedback": "Clear paragraph progression and logical cohesive ties; avoid overusing sentence-initial adverbs." },
+        { "name": "Lexical Resource", "band": 7.0, "feedback": "Precise academic collocations and effective paraphrasing of key prompt nouns." },
+        { "name": "Grammatical Range & Accuracy", "band": 6.5, "feedback": "Good mix of complex subordinate clauses and passive voice; double-check article consistency." }
+      ],
+      "grammarSuggestions": [
+        { "original": "It help cities grow faster", "improved": "It enables cities to diversify land use more rapidly", "rule": "Subject-verb agreement & formal verb choice" },
+        { "original": "Because many workers stay home, cafes suffer.", "improved": "As a growing proportion of employees work remotely, street-level hospitality faces reduced footfall.", "rule": "Academic register & complex clause subordination" }
+      ],
+      "vocabularyUpgrades": [
+        { "basic": "big problem", "academic": "acute fiscal challenge" },
+        { "basic": "good for small towns", "academic": "catalyses regional economic revitalisation" },
+        { "basic": "empty offices", "academic": "underutilised commercial floorplate" }
+      ]
+    },
+    "task1Standard": {
+      "overall": 6.5,
+      "criteria": [
+        { "name": "Task Achievement", "band": 6.5, "feedback": "Key figures and overall trend are clearly reported. Ensure every category's start and end values are anchored." },
+        { "name": "Coherence & Cohesion", "band": 6.5, "feedback": "Effective grouping by trend magnitude rather than mechanical year-by-year listing." },
+        { "name": "Lexical Resource", "band": 6.5, "feedback": "Natural comparison vocabulary ('more than quadrupled', 'widened its lead')." },
+        { "name": "Grammatical Range & Accuracy", "band": 6.0, "feedback": "Accurate past tense and participle phrasing; vary passive vs active verb forms." }
+      ],
+      "grammarSuggestions": [
+        { "original": "increased a lot from 2015", "improved": "expanded substantially over the ten-year period", "rule": "Avoid informal quantifiers ('a lot') in Task 1" }
+      ],
+      "vocabularyUpgrades": [
+        { "basic": "went up quickly", "academic": "registered a pronounced surge" },
+        { "basic": "stayed low", "academic": "remained comparatively modest" }
+      ]
+    }
+  }
+}
+

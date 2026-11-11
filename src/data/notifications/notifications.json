@@ -1,0 +1,93 @@
+[
+  {
+    "id": "notif-01",
+    "category": "Evaluation",
+    "title": "Writing Task 2 Feedback Ready",
+    "message": "Your essay on Remote Work & Urban Density has a new demo rubric breakdown (Band 6.5).",
+    "time": "25 mins ago",
+    "read": false,
+    "href": "/test-results/writing/res-writing-01"
+  },
+  {
+    "id": "notif-02",
+    "category": "Session",
+    "title": "Speaking Club starts in 25 minutes",
+    "message": "Dr. Claire Bennett opened the room for Part 3 Abstract Discussions.",
+    "time": "1 hour ago",
+    "read": false,
+    "href": "/people"
+  },
+  {
+    "id": "notif-03",
+    "category": "Streak",
+    "title": "12-Day Study Streak Reached!",
+    "message": "You hit your 90-minute goal 12 days in a row. +150 XP awarded.",
+    "time": "4 hours ago",
+    "read": false,
+    "href": "/achievements"
+  },
+  {
+    "id": "notif-04",
+    "category": "Battle",
+    "title": "Arjun Mehta challenged you to a Band Battle",
+    "message": "5-question Academic Vocabulary sprint. Accept before tomorrow.",
+    "time": "Yesterday",
+    "read": true,
+    "href": "/band-battle"
+  },
+  {
+    "id": "notif-05",
+    "category": "Community",
+    "title": "New reply on your Reading strategy post",
+    "message": "Nadia Rahman shared a scanning checklist for Matching Headings.",
+    "time": "Yesterday",
+    "read": true,
+    "href": "/community/post/post-01"
+  },
+  {
+    "id": "notif-06",
+    "category": "Test Result",
+    "title": "Listening Practice Set 04 graded",
+    "message": "You scored 30/40 (Band 7.0). Review 10 missed questions.",
+    "time": "2 days ago",
+    "read": true,
+    "href": "/test-results/listening/res-listening-01"
+  },
+  {
+    "id": "notif-07",
+    "category": "Study Plan",
+    "title": "Weekly Plan Progress: 75% Complete",
+    "message": "Complete 2 remaining vocabulary & writing tasks to hit 100%.",
+    "time": "3 days ago",
+    "read": true,
+    "href": "/study-plan"
+  },
+  {
+    "id": "notif-08",
+    "category": "System",
+    "title": "New Academic Reading Volume Added",
+    "message": "Practice Set 05 — Marine Bioacoustics & Polar Glaciology is live.",
+    "time": "4 days ago",
+    "read": true,
+    "href": "/reading"
+  },
+  {
+    "id": "notif-09",
+    "category": "Referral",
+    "title": "Friend Invitation Accepted",
+    "message": "Chloe Patel joined IELTSWIST using your invite code.",
+    "time": "5 days ago",
+    "read": true,
+    "href": "/invite-friends"
+  },
+  {
+    "id": "notif-10",
+    "category": "Mock Test",
+    "title": "Full Academic Mock Test #03 Summary",
+    "message": "Your estimated overall band improved from 6.0 to 6.5.",
+    "time": "6 days ago",
+    "read": true,
+    "href": "/test-results/mock/res-mock-01"
+  }
+]
+

@@ -1,0 +1,8 @@
+[
+  { "id": "all", "name": "All Collections", "count": 36 },
+  { "id": "Academic Core", "name": "Academic Core (AWL)", "count": 12 },
+  { "id": "Environment & Cities", "name": "Environment & Cities", "count": 8 },
+  { "id": "Technology & Science", "name": "Technology & Science", "count": 8 },
+  { "id": "Society & Education", "name": "Society & Education", "count": 8 }
+]
+

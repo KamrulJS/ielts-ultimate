@@ -1,0 +1,141 @@
+{
+  "weeklyCompletedModules": 5,
+  "heroCards": [
+    {
+      "id": "hc-01",
+      "num": "01",
+      "title": "Academic Reading Mastery",
+      "subtitle": "3 full passages completed",
+      "href": "/reading",
+      "theme": "light"
+    },
+    {
+      "id": "hc-02",
+      "num": "02",
+      "title": "Task 2 Argument Lab",
+      "subtitle": "Band 6.5 essay reviewed",
+      "href": "/writing",
+      "theme": "yellow"
+    },
+    {
+      "id": "hc-03",
+      "num": "03",
+      "title": "London Cue Card Sprint",
+      "subtitle": "Fluency +0.5 gain",
+      "href": "/cue-card-coach",
+      "theme": "purple"
+    }
+  ],
+  "upcomingSessions": [
+    {
+      "id": "sess-01",
+      "dayLabel": "Today",
+      "title": "Speaking Club: Part 3 Opinions",
+      "time": "Starts in 25 min",
+      "tag": "Group",
+      "teacher": "Dr. Claire Bennett",
+      "avatars": [
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80"
+      ]
+    },
+    {
+      "id": "sess-02",
+      "dayLabel": "Tomorrow",
+      "title": "1-on-1 Writing Task 2 Review",
+      "time": "7:00 - 7:40 PM",
+      "tag": "Personal",
+      "teacher": "Marcus Vance"
+    },
+    {
+      "id": "sess-03",
+      "dayLabel": "Tomorrow",
+      "title": "Live Timed Reading Workshop",
+      "time": "8:30 - 9:15 PM",
+      "tag": "Event",
+      "teacher": "Hannah Al-Mansoor"
+    }
+  ],
+  "quickTools": [
+    {
+      "id": "qt-1",
+      "title": "Cue Card Coach",
+      "description": "Guided 1-min prep & 2-min fluency drill",
+      "href": "/cue-card-coach",
+      "badge": "Popular",
+      "icon": "Mic"
+    },
+    {
+      "id": "qt-2",
+      "title": "Academic Paraphraser",
+      "description": "Upgrade Task 2 sentences with C1 lexis",
+      "href": "/tools?tool=paraphraser",
+      "badge": "Demo",
+      "icon": "Sparkles"
+    },
+    {
+      "id": "qt-3",
+      "title": "Band Score Calculator",
+      "description": "Convert raw Reading & Listening scores",
+      "href": "/tools?tool=band-calculator",
+      "icon": "Calculator"
+    },
+    {
+      "id": "qt-4",
+      "title": "Study Plan Builder",
+      "description": "Personalised daily & weekly roadmap",
+      "href": "/study-plan",
+      "icon": "Calendar"
+    },
+    {
+      "id": "qt-5",
+      "title": "Vocabulary Flashcards",
+      "description": "36+ curated Band 7.5+ academic terms",
+      "href": "/vocabulary",
+      "icon": "BookOpen"
+    },
+    {
+      "id": "qt-6",
+      "title": "Writing Templates",
+      "description": "Structured frameworks for Task 1 & 2",
+      "href": "/tools?tool=templates",
+      "icon": "FileText"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "res-01",
+      "category": "LISTENING",
+      "title": "How to Catch Distractors in Section 3",
+      "readTime": "5 min read",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+      "href": "/question-types/qt-listening-mcq"
+    },
+    {
+      "id": "res-02",
+      "category": "READING",
+      "title": "True, False vs Not Given: Decision Rules",
+      "readTime": "6 min read",
+      "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
+      "href": "/question-types/qt-reading-tfng"
+    },
+    {
+      "id": "res-03",
+      "category": "WRITING",
+      "title": "Building High-Scoring Task 1 Overviews",
+      "readTime": "7 min read",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      "href": "/question-types/qt-writing-task1"
+    },
+    {
+      "id": "res-04",
+      "category": "SPEAKING",
+      "title": "Natural Discourse Markers for Band 7.5+",
+      "readTime": "4 min read",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+      "href": "/question-types/qt-speaking-part3"
+    }
+  ]
+}
+

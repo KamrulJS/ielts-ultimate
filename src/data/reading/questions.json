@@ -1,0 +1,365 @@
+[
+  {
+    "id": "rq-01",
+    "passageId": "rd-test-01",
+    "number": 1,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "Dead reckoning was sufficient for accurate east-west ocean positioning even in strong crosswinds.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "FALSE",
+    "explanation": "Paragraph A states dead reckoning accumulated severe errors whenever crosswinds or ocean currents pushed ships off course."
+  },
+  {
+    "id": "rq-02",
+    "passageId": "rd-test-01",
+    "number": 2,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "The 1714 Longitude Act prize was partly motivated by naval shipwrecks off the Isles of Scilly.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "TRUE",
+    "explanation": "Paragraph B confirms Parliament enacted the Longitude Act following catastrophic naval losses off the Isles of Scilly in 1707."
+  },
+  {
+    "id": "rq-03",
+    "passageId": "rd-test-01",
+    "number": 3,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "John Harrison previously served as an apprentice watchmaker in Paris before moving to Lincolnshire.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "NOT GIVEN",
+    "explanation": "Paragraph C describes Harrison as a self-taught carpenter and clockmaker from Lincolnshire, with no mention of Paris."
+  },
+  {
+    "id": "rq-04",
+    "passageId": "rd-test-01",
+    "number": 4,
+    "type": "MCQ",
+    "typeLabel": "Multiple Choice",
+    "prompt": "Why did leading astronomers doubt mechanical clocks at sea?",
+    "options": [
+      "A. Clockmakers refused to share designs with the navy",
+      "B. Humidity, ship motion, and heat shifts could disrupt timing",
+      "C. Brass gears were too expensive for commercial vessels",
+      "D. Lunar tables had already solved longitudinal errors"
+    ],
+    "answer": "B",
+    "explanation": "Paragraph B explains astronomers believed salt humidity, pitching decks, and tropical temperature shifts would ruin mechanical accuracy."
+  },
+  {
+    "id": "rq-05",
+    "passageId": "rd-test-01",
+    "number": 5,
+    "type": "MATCHING_HEADINGS",
+    "typeLabel": "Matching Headings",
+    "prompt": "Choose the most suitable heading for Paragraph D.",
+    "options": [
+      "i. A compact watch succeeds on ocean trials",
+      "ii. Parliamentary disputes over prize funds",
+      "iii. Wooden gears eliminate oil friction",
+      "iv. Why celestial charts failed in fog"
+    ],
+    "answer": "i",
+    "explanation": "Paragraph D details Harrison's pocket-sized H4 marine watch losing only five seconds on HMS Deptford."
+  },
+  {
+    "id": "rq-06",
+    "passageId": "rd-test-01",
+    "number": 6,
+    "type": "MATCHING_INFO",
+    "typeLabel": "Matching Information",
+    "prompt": "Which paragraph mentions two later craftsmen who simplified H4 for broader production?",
+    "options": ["A", "B", "C", "D", "E"],
+    "answer": "E",
+    "explanation": "Paragraph E names Larcum Kendall and John Arnold simplifying H4 for mass naval production."
+  },
+  {
+    "id": "rq-07",
+    "passageId": "rd-test-01",
+    "number": 7,
+    "type": "MATCHING_FEATURES",
+    "typeLabel": "Matching Features",
+    "prompt": "Match the innovation: 'Used dissimilar expanding metals to counter temperature changes'.",
+    "options": ["A. Dead reckoning", "B. Bimetallic strips", "C. Lunar tables", "D. Diamond pallets"],
+    "answer": "B",
+    "explanation": "Paragraph C notes Harrison noticed brass and steel expanded unequally and created bimetallic temperature compensation strips."
+  },
+  {
+    "id": "rq-08",
+    "passageId": "rd-test-01",
+    "number": 8,
+    "type": "MATCHING_ENDINGS",
+    "typeLabel": "Matching Sentence Endings",
+    "prompt": "Complete the sentence: Harrison's lignum vitae bearings were advantageous because they...",
+    "options": [
+      "A. functioned smoothly without needing oil",
+      "B. resisted sea water better than diamond pallets",
+      "C. doubled the weight of pendulum clocks",
+      "D. could be repaired solely in tropical ports"
+    ],
+    "answer": "A",
+    "explanation": "Paragraph C notes lignum vitae wooden bearings were virtually frictionless and required no lubrication."
+  },
+  {
+    "id": "rq-09",
+    "passageId": "rd-test-01",
+    "number": 9,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE WORD ONLY: On its 1761 transatlantic voyage, H4 lost only five seconds over eighty-one _______.",
+    "answer": "days",
+    "explanation": "Paragraph D: 'H4 lost merely five seconds over eighty-one days'."
+  },
+  {
+    "id": "rq-10",
+    "passageId": "rd-test-01",
+    "number": 10,
+    "type": "SUMMARY_COMPLETION",
+    "typeLabel": "Summary Completion",
+    "prompt": "Write ONE WORD ONLY: The Longitude Act offered a £20,000 reward for accuracy within half a _______ after a six-week voyage.",
+    "answer": "degree",
+    "explanation": "Paragraph B: 'accurate within half a degree after a six-week voyage to the West Indies'."
+  },
+  {
+    "id": "rq-11",
+    "passageId": "rd-test-01",
+    "number": 11,
+    "type": "NOTE_COMPLETION",
+    "typeLabel": "Note Completion",
+    "prompt": "Write NO MORE THAN TWO WORDS: Name of vessel carrying H4 on its 1761 trial: HMS _______.",
+    "answer": "Deptford",
+    "explanation": "Paragraph D specifies the trial took place aboard HMS Deptford."
+  },
+  {
+    "id": "rq-12",
+    "passageId": "rd-test-01",
+    "number": 12,
+    "type": "TABLE_COMPLETION",
+    "typeLabel": "Table Completion",
+    "prompt": "Complete table entry (ONE WORD): By _______, affordable marine chronometers were standard across oceanic trade.",
+    "answer": "1800",
+    "explanation": "Paragraph E notes: 'By 1800, affordable marine chronometers had transformed transoceanic commerce'."
+  },
+  {
+    "id": "rq-13",
+    "passageId": "rd-test-01",
+    "number": 13,
+    "type": "FLOWCHART_COMPLETION",
+    "typeLabel": "Flow-chart Completion",
+    "prompt": "Flow step (ONE WORD): 1707 Naval disaster → 1714 Longitude Act → Three sea clocks rejected → Compact _______ watch (H4) passes.",
+    "answer": "marine",
+    "explanation": "Paragraph D calls H4 a 'compact pocket-sized marine watch'."
+  },
+  {
+    "id": "rq-14",
+    "passageId": "rd-test-01",
+    "number": 14,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "Write NO MORE THAN TWO WORDS: What hard material was used for H4's pallets?",
+    "answer": "diamond",
+    "explanation": "Paragraph D mentions H4 featured 'diamond pallets'."
+  },
+  {
+    "id": "rq-15",
+    "passageId": "rd-test-02",
+    "number": 1,
+    "type": "YNNG",
+    "typeLabel": "Yes / No / Not Given",
+    "prompt": "Do the claims match the writer's account? Pale cool-roof coatings cost roughly the same per square metre as intensive rooftop gardens.",
+    "options": ["YES", "NO", "NOT GIVEN"],
+    "answer": "NO",
+    "explanation": "Paragraph D states cool roof coatings 'cost a fraction per square metre' compared with green roofs."
+  },
+  {
+    "id": "rq-16",
+    "passageId": "rd-test-02",
+    "number": 2,
+    "type": "YNNG",
+    "typeLabel": "Yes / No / Not Given",
+    "prompt": "Combining solar panels with meadow vegetation can boost photovoltaic electricity output.",
+    "options": ["YES", "NO", "NOT GIVEN"],
+    "answer": "YES",
+    "explanation": "Paragraph E explains foliage cools the micro-air layer, raising solar conversion efficiency by roughly 4%."
+  },
+  {
+    "id": "rq-17",
+    "passageId": "rd-test-02",
+    "number": 3,
+    "type": "YNNG",
+    "typeLabel": "Yes / No / Not Given",
+    "prompt": "Zurich plans to ban all dark bitumen roofing materials by 2030.",
+    "options": ["YES", "NO", "NOT GIVEN"],
+    "answer": "NOT GIVEN",
+    "explanation": "Paragraph B discusses thermal trials in Zurich, without mentioning any 2030 ban."
+  },
+  {
+    "id": "rq-18",
+    "passageId": "rd-test-02",
+    "number": 4,
+    "type": "DIAGRAM_LABELLING",
+    "typeLabel": "Diagram Labelling",
+    "prompt": "Diagram Label (ONE WORD): Plant species typically selected for lightweight 'extensive' roof mats: _______.",
+    "answer": "sedum",
+    "explanation": "Paragraph B names 'drought-tolerant sedum' for extensive mats."
+  },
+  {
+    "id": "rq-19",
+    "passageId": "rd-test-02",
+    "number": 5,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE NUMBER ONLY: Saturated rooftop growing substrates can weigh up to _______ kilograms per square metre.",
+    "answer": "350",
+    "explanation": "Paragraph D gives a range between 90 and 350 kilograms per square metre."
+  },
+  {
+    "id": "rq-20",
+    "passageId": "rd-test-02",
+    "number": 6,
+    "type": "MCQ",
+    "typeLabel": "Multiple Choice",
+    "prompt": "What benefit did Toronto's 2009 Green Roof Bylaw demonstrate?",
+    "options": [
+      "A. Lowered winter heating expenses by 50%",
+      "B. Retained up to 70% of moderate summer storm rainfall",
+      "C. Replaced steel reinforcement in heritage warehouses",
+      "D. Eliminated all nocturnal urban heat islands"
+    ],
+    "answer": "B",
+    "explanation": "Paragraph C notes hydrologists recorded up to 70 percent retention of moderate summer rainfall."
+  },
+  {
+    "id": "rq-21",
+    "passageId": "rd-test-03",
+    "number": 1,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "Human working memory can effortlessly juggle ten unrelated new concepts simultaneously.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "FALSE",
+    "explanation": "Paragraph A states working memory handles only three to five novel chunks simultaneously."
+  },
+  {
+    "id": "rq-22",
+    "passageId": "rd-test-03",
+    "number": 2,
+    "type": "MCQ",
+    "typeLabel": "Multiple Choice",
+    "prompt": "According to Mueller and Oppenheimer, why did handwritten notes aid conceptual recall?",
+    "options": [
+      "A. Longhand writers recorded more total words",
+      "B. Slower speed required active summarising and rephrasing",
+      "C. Digital screens caused visual fatigue",
+      "D. Handwriting prevented spelling errors"
+    ],
+    "answer": "B",
+    "explanation": "Paragraph C explains slower handwriting forces real-time summarisation and deep encoding."
+  },
+  {
+    "id": "rq-23",
+    "passageId": "rd-test-03",
+    "number": 3,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "Write NO MORE THAN TWO WORDS: What visual note technique helped tablet users achieve strong conceptual gains?",
+    "answer": "concept maps",
+    "explanation": "Paragraph D mentions training tablet users to draw 'concept maps'."
+  },
+  {
+    "id": "rq-24",
+    "passageId": "rd-test-04",
+    "number": 1,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "Riftia pachyptila depends on a complex internal digestive tract to consume algae.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "FALSE",
+    "explanation": "Paragraph B states Riftia pachyptila lacks both mouth and digestive tract."
+  },
+  {
+    "id": "rq-25",
+    "passageId": "rd-test-04",
+    "number": 2,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE WORD ONLY: Symbiotic bacteria inside trophosome tissue oxidise hydrogen _______ into carbohydrates.",
+    "answer": "sulphide",
+    "explanation": "Paragraph B specifies 'toxic hydrogen sulphide dissolved in vent plumes'."
+  },
+  {
+    "id": "rq-26",
+    "passageId": "rd-test-05",
+    "number": 1,
+    "type": "SUMMARY_COMPLETION",
+    "typeLabel": "Summary Completion",
+    "prompt": "Write ONE NUMBER ONLY: Moulded mycelium blocks decompose in soil within _______ weeks.",
+    "answer": "six",
+    "explanation": "Paragraph B: 'composts cleanly in garden soil within six weeks'."
+  },
+  {
+    "id": "rq-27",
+    "passageId": "rd-test-05",
+    "number": 2,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "Write TWO WORDS: What natural finish protects mycelium composites from humidity during sea transit?",
+    "answer": "plant-wax coatings",
+    "explanation": "Paragraph C mentions 'thin hydrophobic plant-wax coatings'."
+  },
+  {
+    "id": "rq-28",
+    "passageId": "rd-test-06",
+    "number": 1,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "Epidaurus achieves clear speech transmission mainly by filtering out frequencies below 500 hertz.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "TRUE",
+    "explanation": "Paragraph B explains corrugated stone seats scatter low-frequency murmur below 500 Hz while passing vocal consonants."
+  },
+  {
+    "id": "rq-29",
+    "passageId": "rd-test-07",
+    "number": 1,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write TWO WORDS: Under cloudy skies, Polynesian navigators read refracted ocean _______ from inside the canoe hull.",
+    "answer": "swell patterns",
+    "explanation": "Paragraph B describes feeling subtle pitch and roll caused by primary ocean swells (swell patterns)."
+  },
+  {
+    "id": "rq-30",
+    "passageId": "rd-test-08",
+    "number": 1,
+    "type": "SHORT_ANSWER",
+    "typeLabel": "Short-answer Questions",
+    "prompt": "Write NO MORE THAN TWO WORDS: Below what percentage do robotic picking systems reduce per-parcel errors?",
+    "answer": "0.2 percent",
+    "explanation": "Paragraph B notes robotics slash picking errors 'below 0.2 percent'."
+  },
+  {
+    "id": "rq-31",
+    "passageId": "rd-test-09",
+    "number": 1,
+    "type": "SENTENCE_COMPLETION",
+    "typeLabel": "Sentence Completion",
+    "prompt": "Write ONE WORD ONLY: Compressing Antarctic snow seals off air bubbles at depths of eighty _______.",
+    "answer": "metres",
+    "explanation": "Paragraph A states porous firn seals off ancient air pockets 'at depths of eighty metres'."
+  },
+  {
+    "id": "rq-32",
+    "passageId": "rd-test-10",
+    "number": 1,
+    "type": "TFNG",
+    "typeLabel": "True / False / Not Given",
+    "prompt": "Eye-tracking studies found all-uppercase highway signs are recognised faster than mixed-case wording.",
+    "options": ["TRUE", "FALSE", "NOT GIVEN"],
+    "answer": "FALSE",
+    "explanation": "Paragraph B reports mixed-case lettering outperforms all-capitals by nearly 15 percent."
+  }
+]
+

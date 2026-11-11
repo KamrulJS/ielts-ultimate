@@ -1,0 +1,38 @@
+[
+  {
+    "id": "vq-01",
+    "question": "Which word means 'to make a severe problem less intense'?",
+    "options": ["exacerbate", "mitigate", "proliferate", "stagnate"],
+    "answer": "mitigate",
+    "explanation": "Mitigate means to lessen the severity of something, such as mitigating heat island effects."
+  },
+  {
+    "id": "vq-02",
+    "question": "Choose the closest synonym for 'substantiate' or 'verify':",
+    "options": ["corroborate", "obsolescence", "alleviate", "allocate"],
+    "answer": "corroborate",
+    "explanation": "Corroborate means to confirm or give empirical support to a claim."
+  },
+  {
+    "id": "vq-03",
+    "question": "Which adjective describes data gathered via observation and testing rather than theory alone?",
+    "options": ["ephemeral", "empirical", "marginal", "pragmatic"],
+    "answer": "empirical",
+    "explanation": "Empirical evidence relies on observation or scientific measurement."
+  },
+  {
+    "id": "vq-04",
+    "question": "Identify the ANTONYM of 'aggravate':",
+    "options": ["catalyse", "exacerbate", "alleviate", "disparity"],
+    "answer": "alleviate",
+    "explanation": "Alleviate eases pressure or pain, the opposite of aggravating it."
+  },
+  {
+    "id": "vq-05",
+    "question": "In Academic Task 1, which noun best describes 'a very slight difference'?",
+    "options": ["marginal", "unprecedented", "ubiquitous", "cumulative"],
+    "answer": "marginal",
+    "explanation": "Marginal means slight or minor (e.g., 'a marginal increase of 1%')."
+  }
+]
+
