@@ -33,9 +33,9 @@ const PUBLIC_ICONS = {
   GraduationCap,
 };
 
-export function PublicIcon({ name, size = 16, style }) {
+export function PublicIcon({ name, size = 16, strokeWidth = 1.85, style }) {
   const Icon = PUBLIC_ICONS[name] || Sparkles;
-  return <Icon size={size} style={style} />;
+  return <Icon size={size} strokeWidth={strokeWidth} style={style} />;
 }
 
 export function PublicSectionHeader({ eyebrow, title, subtitle, align = 'left' }) {

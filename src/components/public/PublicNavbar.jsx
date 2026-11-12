@@ -151,11 +151,8 @@ export function PublicNavbar() {
                         <PublicIcon name={item.icon} size={15} />
                       </span>
                       <div style={{ minWidth: 0 }}>
-                        <div style={{ fontWeight: 700, fontSize: '0.84rem', color: 'var(--text-primary)' }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
                           {item.title}
-                        </div>
-                        <div className="text-xs text-muted" style={{ lineHeight: 1.35, marginTop: 2 }}>
-                          {item.shortDesc}
                         </div>
                       </div>
                     </Link>
@@ -200,11 +197,8 @@ export function PublicNavbar() {
                         <PublicIcon name={item.icon} size={15} />
                       </span>
                       <div style={{ minWidth: 0 }}>
-                        <div style={{ fontWeight: 700, fontSize: '0.84rem', color: 'var(--text-primary)' }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
                           {item.title}
-                        </div>
-                        <div className="text-xs text-muted" style={{ lineHeight: 1.35, marginTop: 2 }}>
-                          {item.shortDesc}
                         </div>
                       </div>
                     </Link>

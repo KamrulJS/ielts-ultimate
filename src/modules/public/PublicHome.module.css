@@ -1,0 +1,348 @@
+/* Scoped styles strictly for Homepage UX Enhancements (IELTS Ultimate) */
+
+/* Strict stationary hover border rule (border-color only, zero shadow or movement) */
+.hoverBorderCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-xs);
+  transition: border-color 250ms ease;
+}
+
+.hoverBorderCard:hover,
+.hoverBorderCard:focus-visible {
+  border-color: #f6bd28;
+  box-shadow: var(--shadow-xs);
+  transform: none;
+}
+
+.hoverSubBox {
+  border: 1px solid var(--border);
+  transition: border-color 250ms ease;
+}
+
+.hoverSubBox:hover,
+.hoverSubBox:focus-visible {
+  border-color: #f6bd28;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Section 01: Platform Statistics Horizontal Two-Zone Cards */
+.statHorizontal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statIconWrapDark {
+  background-color: rgba(246, 189, 40, 0.14);
+  border: 1px solid rgba(246, 189, 40, 0.28);
+  color: var(--accent-yellow);
+}
+
+.statIconWrapLight {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.statTextCol {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+/* Section 02: Everything Under One Roof Enlarged Icon Boxes */
+.resourceIconBox {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Section 04: Inside the Platform Right-Side Metric Cards */
+.platformMetricCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+.platformMetricIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.platformMetricIconDark {
+  background-color: rgba(246, 189, 40, 0.14);
+  border: 1px solid rgba(246, 189, 40, 0.26);
+  color: var(--accent-yellow);
+}
+
+.platformMetricIconWarm {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.platformMetricBody {
+  min-width: 0;
+  flex: 1;
+}
+
+.platformMetricLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.platformMetricValue {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: 5px;
+}
+
+/* Section 06: Expert Services Enlarged Top Icon Box */
+.serviceIconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Section 07: Upcoming Live Free Classes Warm Brand Yellow Surface */
+.liveClassesYellowCard {
+  background-color: var(--accent-yellow-soft);
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.liveClassInnerCard {
+  background-color: var(--surface);
+  border: 1px solid rgba(32, 32, 32, 0.1);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+/* Section 09: Testimonials Responsive Carousel */
+.carouselShell {
+  --carousel-cols: 3;
+  --carousel-gap: 18px;
+  position: relative;
+}
+
+.carouselHeaderRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.carouselHeadingWrap {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.carouselHeadingWrap > div {
+  margin-bottom: 0 !important;
+}
+
+.carouselControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carouselNavBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.carouselNavBtn:hover:not(:disabled) {
+  border-color: #f6bd28;
+  background-color: var(--accent-yellow-soft);
+}
+
+.carouselNavBtn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.carouselViewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: var(--carousel-gap);
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.carouselSlide {
+  flex: 0 0 calc((100% - (var(--carousel-cols) - 1) * var(--carousel-gap)) / var(--carousel-cols));
+  min-width: 0;
+  display: flex;
+}
+
+.testimonialCard {
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  transition: border-color 250ms ease;
+}
+
+.testimonialCard:hover {
+  border-color: #f6bd28;
+  box-shadow: none;
+  transform: none;
+}
+
+.carouselFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.carouselDots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carouselDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-secondary);
+  padding: 0;
+  cursor: pointer;
+  transition: width 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.carouselDotActive {
+  width: 26px;
+  background-color: var(--accent-yellow);
+  border-color: var(--accent-yellow-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .carouselShell {
+    --carousel-cols: 2;
+    --carousel-gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carouselShell {
+    --carousel-cols: 1;
+    --carousel-gap: 12px;
+  }
+
+  .statHorizontal {
+    gap: 14px;
+  }
+
+  .statIconWrap {
+    width: 50px;
+    height: 50px;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .resourceIconBox,
+  .serviceIconBox {
+    width: 48px;
+    height: 48px;
+  }
+
+  .platformMetricCard {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .platformMetricIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .platformMetricValue {
+    font-size: 1.5rem;
+  }
+
+  .liveClassesYellowCard {
+    padding: 18px 16px;
+  }
+
+  .testimonialCard {
+    padding: 20px;
+  }
+}

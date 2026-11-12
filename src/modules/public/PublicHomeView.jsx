@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {
   ArrowRight,
   ArrowUpRight,
-  CheckCircle2,
   Star,
   Clock,
   Sparkles,
@@ -26,10 +25,13 @@ import {
   PublicCtaBanner,
   HeroArtworkGraphic,
 } from '@/components/public/PublicPrimitives';
+import { StatSvgIcon, MetricSvgIcon, ServiceSvgIcon } from '@/components/public/HomeIcons';
+import { HomeTestimonialsCarousel } from '@/components/public/HomeTestimonialsCarousel';
 import homepageData from '@/data/public/homepage.json';
 import liveClassesData from '@/data/public/live-classes.json';
 import resourcesData from '@/data/public/resources-pages.json';
 import styles from '@/components/public/PublicLayout.module.css';
+import homeStyles from './PublicHome.module.css';
 
 export function PublicHomeView() {
   const rootRef = useGsapEntrance('public-home');
@@ -125,21 +127,28 @@ export function PublicHomeView() {
               <div
                 key={st.label}
                 data-animate="card"
-                className={idx === 0 ? 'card-dark card-compact' : 'card card-compact'}
-                style={{ display: 'flex', flexDirection: 'column', gap: 4 }}
+                className={`${idx === 0 ? 'card-dark card-compact' : 'card card-compact'} ${homeStyles.statHorizontal}`}
               >
                 <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 800,
-                    fontSize: '1.5rem',
-                    color: idx === 0 ? 'var(--accent-yellow)' : 'var(--text-primary)',
-                  }}
+                  className={`${homeStyles.statIconWrap} ${
+                    idx === 0 ? homeStyles.statIconWrapDark : homeStyles.statIconWrapLight
+                  }`}
                 >
-                  {st.value}
+                  <StatSvgIcon label={st.label} size={30} />
                 </div>
-                <div className="text-xs" style={{ color: idx === 0 ? '#B7B5AD' : 'var(--text-secondary)' }}>
-                  {st.label}
+                <div className={homeStyles.statTextCol}>
+                  <div
+                    className={homeStyles.statValue}
+                    style={{ color: idx === 0 ? 'var(--accent-yellow)' : 'var(--text-primary)' }}
+                  >
+                    {st.value}
+                  </div>
+                  <div
+                    className={homeStyles.statLabel}
+                    style={{ color: idx === 0 ? '#C7C5BD' : 'var(--text-secondary)' }}
+                  >
+                    {st.label}
+                  </div>
                 </div>
               </div>
             ))}
@@ -162,25 +171,20 @@ export function PublicHomeView() {
                 key={item.slug}
                 href={item.href}
                 data-animate="reveal"
-                className="card card-interactive"
-                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 14 }}
+                className={`card ${homeStyles.hoverBorderCard}`}
+                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 16 }}
               >
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
                     <span
+                      className={homeStyles.resourceIconBox}
                       style={{
-                        width: 38,
-                        height: 38,
-                        borderRadius: 10,
                         backgroundColor: 'var(--bg-secondary)',
                         border: '1px solid var(--border)',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
                         color: 'var(--text-primary)',
                       }}
                     >
-                      <PublicIcon name={item.icon} size={18} />
+                      <PublicIcon name={item.icon} size={27} strokeWidth={1.65} />
                     </span>
                     <Badge variant="neutral">{item.badge}</Badge>
                   </div>
@@ -214,13 +218,13 @@ export function PublicHomeView() {
                 {homepageData.roadmapStages.map((st, idx) => (
                   <div
                     key={st.step}
+                    className={homeStyles.hoverSubBox}
                     style={{
                       display: 'flex',
-                      gap: 12,
-                      padding: '12px 14px',
+                      gap: 14,
+                      padding: '14px 16px',
                       borderRadius: 'var(--radius-md)',
                       backgroundColor: idx === 0 ? 'var(--accent-yellow-soft)' : 'var(--bg-primary)',
-                      border: '1px solid var(--border)',
                       alignItems: 'flex-start',
                     }}
                   >
@@ -228,8 +232,8 @@ export function PublicHomeView() {
                       {st.step}
                     </span>
                     <div style={{ minWidth: 0 }}>
-                      <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{st.title}</div>
-                      <p className="text-xs text-muted" style={{ marginTop: 3, lineHeight: 1.5 }}>{st.desc}</p>
+                      <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--text-primary)' }}>{st.title}</div>
+                      <p style={{ marginTop: 4, fontSize: '0.9375rem', lineHeight: 1.55, color: 'var(--text-secondary)' }}>{st.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -240,17 +244,21 @@ export function PublicHomeView() {
               <div>
                 <Badge variant="purple">How It Works</Badge>
                 <h2 className="h2" style={{ marginTop: 8 }}>From sign-up to test readiness in four steps</h2>
-                <p className="text-sm text-muted" style={{ marginTop: 4 }}>
+                <p style={{ marginTop: 6, fontSize: '0.98rem', lineHeight: 1.58, color: 'var(--text-secondary)' }}>
                   Zero setup friction—begin with your baseline diagnostic and receive a balanced daily study plan immediately.
                 </p>
               </div>
 
               <div className="grid-2" style={{ gap: 12 }}>
                 {homepageData.gettingStartedSteps.map((s) => (
-                  <div key={s.num} className="card-warm card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  <div
+                    key={s.num}
+                    className={`card-warm card-compact ${homeStyles.hoverSubBox}`}
+                    style={{ display: 'flex', flexDirection: 'column', gap: 8 }}
+                  >
                     <span className="badge badge-dark" style={{ alignSelf: 'flex-start' }}>Step {s.num}</span>
-                    <div style={{ fontWeight: 700, fontSize: '0.9rem', marginTop: 2 }}>{s.title}</div>
-                    <p className="text-xs text-muted" style={{ lineHeight: 1.5 }}>{s.desc}</p>
+                    <div style={{ fontWeight: 700, fontSize: '0.96rem', marginTop: 2, color: 'var(--text-primary)' }}>{s.title}</div>
+                    <p style={{ fontSize: '0.92rem', lineHeight: 1.52, color: 'var(--text-secondary)' }}>{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -326,25 +334,32 @@ export function PublicHomeView() {
                 </div>
               </div>
 
-              <div className="grid-2" style={{ gap: 12 }}>
+              <div className="grid-2" style={{ gap: 14 }}>
                 {activeShowcase.metrics.map((m, idx) => (
                   <div
                     key={m.label}
-                    className={idx === 0 ? 'card-dark card-compact' : 'card-warm card-compact'}
+                    className={`${idx === 0 ? 'card-dark' : 'card-warm'} ${homeStyles.platformMetricCard}`}
                   >
-                    <div className="text-xs" style={{ color: idx === 0 ? '#B7B5AD' : 'var(--text-secondary)' }}>
-                      {m.label}
-                    </div>
                     <div
-                      style={{
-                        fontFamily: 'var(--font-display)',
-                        fontWeight: 800,
-                        fontSize: '1.6rem',
-                        marginTop: 6,
-                        color: idx === 0 ? 'var(--accent-yellow)' : 'var(--text-primary)',
-                      }}
+                      className={`${homeStyles.platformMetricIcon} ${
+                        idx === 0 ? homeStyles.platformMetricIconDark : homeStyles.platformMetricIconWarm
+                      }`}
                     >
-                      {m.value}
+                      <MetricSvgIcon label={m.label} size={26} />
+                    </div>
+                    <div className={homeStyles.platformMetricBody}>
+                      <div
+                        className={homeStyles.platformMetricLabel}
+                        style={{ color: idx === 0 ? '#C7C5BD' : 'var(--text-secondary)' }}
+                      >
+                        {m.label}
+                      </div>
+                      <div
+                        className={homeStyles.platformMetricValue}
+                        style={{ color: idx === 0 ? 'var(--accent-yellow)' : 'var(--text-primary)' }}
+                      >
+                        {m.value}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -372,12 +387,12 @@ export function PublicHomeView() {
               </div>
               <div>
                 <h3 className="card-heading" style={{ marginBottom: 8 }}>Daily study blocks tailored to your exam deadline</h3>
-                <p className="body-text">
+                <p style={{ fontSize: '0.98rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
                   Set Academic or General Training, choose 30 to 120 minutes per day, and follow sequenced lessons mixing Reading, Listening, Writing, Speaking, and lexical recall.
                 </p>
               </div>
-              <div className="card-warm card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', fontWeight: 600 }}>
+              <div className="card-warm card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: '14px 16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                   <span>Overall Weekly Target</span>
                   <span>14 / 20 tasks (70%)</span>
                 </div>
@@ -397,20 +412,20 @@ export function PublicHomeView() {
               </div>
               <div>
                 <h3 className="card-heading" style={{ marginBottom: 8 }}>Criterion-level Writing &amp; Speaking breakdowns anytime</h3>
-                <p className="body-text">
+                <p style={{ fontSize: '0.98rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
                   Inspect separate scores for Task Achievement, Coherence, Lexical Resource, Grammar, and Fluency—paired with targeted 10-minute coaching drills.
                 </p>
               </div>
-              <div className="grid-2" style={{ gap: 8 }}>
+              <div className="grid-2" style={{ gap: 10 }}>
                 {[
                   { label: 'Task Response', score: '7.0' },
                   { label: 'Coherence', score: '6.5' },
                   { label: 'Lexical Resource', score: '7.5' },
                   { label: 'Grammar Range', score: '7.0' },
                 ].map((c) => (
-                  <div key={c.label} className="card-warm card-compact" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px' }}>
-                    <span className="text-xs" style={{ fontWeight: 600 }}>{c.label}</span>
-                    <Badge variant="dark">{c.score}</Badge>
+                  <div key={c.label} className="card-warm card-compact" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, padding: '11px 14px' }}>
+                    <span style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-primary)' }}>{c.label}</span>
+                    <Badge variant="dark" style={{ fontSize: '0.84rem', padding: '4px 10px' }}>{c.score}</Badge>
                   </div>
                 ))}
               </div>
@@ -480,12 +495,24 @@ export function PublicHomeView() {
                 key={srv.slug}
                 href={srv.href}
                 data-animate="reveal"
-                className="card card-interactive"
-                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 12 }}
+                className={`card ${homeStyles.hoverBorderCard}`}
+                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 14 }}
               >
                 <div>
-                  <Badge variant="yellow">{srv.badge}</Badge>
-                  <h3 className="card-heading" style={{ marginTop: 12, marginBottom: 8 }}>{srv.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 14 }}>
+                    <span
+                      className={homeStyles.serviceIconBox}
+                      style={{
+                        backgroundColor: 'var(--bg-secondary)',
+                        border: '1px solid var(--border)',
+                        color: 'var(--text-primary)',
+                      }}
+                    >
+                      <ServiceSvgIcon slug={srv.slug} size={30} />
+                    </span>
+                    <Badge variant="yellow">{srv.badge}</Badge>
+                  </div>
+                  <h3 className="card-heading" style={{ marginBottom: 8 }}>{srv.title}</h3>
                   <p className="supporting-text">{srv.shortDesc}</p>
                 </div>
                 <span className="text-xs" style={{ fontWeight: 700, color: 'var(--accent-purple)', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
@@ -495,7 +522,7 @@ export function PublicHomeView() {
             ))}
           </div>
 
-          <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className={homeStyles.liveClassesYellowCard} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
             <div className="section-header" style={{ marginBottom: 0 }}>
               <div>
                 <Badge variant="success">Open Enrollment</Badge>
@@ -507,17 +534,17 @@ export function PublicHomeView() {
             </div>
             <div className="grid-2" style={{ gap: 14 }}>
               {liveClassesData.upcomingClasses.slice(0, 2).map((cls) => (
-                <div key={cls.id} className="card-warm card-compact" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 10 }}>
+                <div key={cls.id} className={homeStyles.liveClassInnerCard} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 12 }}>
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap', marginBottom: 6 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
                       <Badge variant="purple">{cls.category}</Badge>
                       <span className="text-xs text-muted">{cls.dateLabel}</span>
                     </div>
-                    <div style={{ fontWeight: 700, fontSize: '0.94rem' }}>{cls.title}</div>
-                    <p className="text-xs text-muted" style={{ marginTop: 4, lineHeight: 1.5 }}>{cls.description}</p>
+                    <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--text-primary)' }}>{cls.title}</div>
+                    <p style={{ marginTop: 6, fontSize: '0.9rem', lineHeight: 1.55, color: 'var(--text-secondary)' }}>{cls.description}</p>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-                    <span className="text-xs" style={{ fontWeight: 600 }}>{cls.instructor.name} • {cls.timeLabel}</span>
+                    <span className="text-xs" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{cls.instructor.name} • {cls.timeLabel}</span>
                     <Link href="/live-classes" className="btn btn-secondary btn-sm">Reserve Free Seat →</Link>
                   </div>
                 </div>
@@ -527,40 +554,10 @@ export function PublicHomeView() {
         </div>
       </section>
 
-      {/* 7. Platform Benefits + Learner Reviews */}
+      {/* 7. Learner Reviews Carousel */}
       <section className={styles.sectionSpace}>
         <div className={styles.container}>
-          <div className="grid-4" style={{ marginBottom: 42 }}>
-            {homepageData.benefits.map((b) => (
-              <div key={b.title} className="card card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--success)' }} />
-                <div style={{ fontWeight: 700, fontSize: '0.94rem' }}>{b.title}</div>
-                <p className="text-xs text-muted" style={{ lineHeight: 1.55 }}>{b.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <PublicSectionHeader
-            eyebrow="Learner Stories"
-            title="Trusted by ambitious students targeting Band 7.0 to 8.5"
-            subtitle="Consistent practice across simulations, lexis decks, and structured rubric drills."
-          />
-
-          <div className="grid-3">
-            {homepageData.testimonials.map((t) => (
-              <div key={t.name} data-animate="reveal" className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 14 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                  <Badge variant="dark">{t.score}</Badge>
-                  <Badge variant="success">{t.gain}</Badge>
-                </div>
-                <p className="text-sm" style={{ lineHeight: 1.65 }}>&ldquo;{t.quote}&rdquo;</p>
-                <div style={{ borderTop: '1px solid var(--border)', paddingTop: 10 }}>
-                  <div style={{ fontWeight: 700, fontSize: '0.88rem' }}>{t.name}</div>
-                  <div className="text-xs text-muted">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <HomeTestimonialsCarousel testimonials={homepageData.testimonials} />
         </div>
       </section>
 

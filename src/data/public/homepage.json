@@ -188,24 +188,51 @@
   "testimonials": [
     {
       "name": "Nadia Rahman",
-      "role": "MSc Urban Design Applicant • Dhaka",
-      "score": "7.5 Overall",
-      "gain": "6.0 -> 7.5 in 6 weeks",
+      "designation": "MSc Urban Design Applicant • Dhaka",
+      "score": "Band 7.5",
+      "gain": "+1.5 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
       "quote": "Split-screen reading drills with highlighter notes finally stopped me from running out of time in Passage 3, and criterion breakdowns transformed my Task 2 structure."
     },
     {
       "name": "Daniel Kim",
-      "role": "Software Engineer (Skilled Migration) • Seoul",
-      "score": "8.0 Overall",
-      "gain": "7.0 -> 8.0 in 4 weeks",
-      "quote": "The Cue Card Coach timer forced me to structure 2-minute responses cleanly without memorizing scripts. Listening distractors stopped catching me off guard."
+      "designation": "Software Engineer (Skilled Migration) • Seoul",
+      "score": "Band 8.0",
+      "gain": "+1.0 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80",
+      "quote": "The Cue Card timer trained me to build clean 2-minute spoken responses without scripted templates. Timed Listening distractors stopped catching me off guard."
     },
     {
       "name": "Sofia Alvarez",
-      "role": "Postgraduate Scholarship Candidate • Madrid",
-      "score": "7.5 Overall",
-      "gain": "6.5 -> 7.5 in 5 weeks",
-      "quote": "Having the study planner adjust daily drills around weak question types kept me consistent even while working full time."
+      "designation": "Postgraduate Scholarship Candidate • Madrid",
+      "score": "Band 7.5",
+      "gain": "+1.0 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=240&q=80",
+      "quote": "Having the study planner adjust daily drills around my weakest question types kept me consistent every evening even while working full time."
+    },
+    {
+      "name": "Arjun Mehta",
+      "designation": "Clinical Fellowship Applicant • Mumbai",
+      "score": "Band 8.0",
+      "gain": "+1.5 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80",
+      "quote": "Criterion-level AI Examiner reports highlighted exact coherence gaps in my Writing Task 2 paragraphs, lifting my Writing score from 6.5 to 7.5."
+    },
+    {
+      "name": "Min-ho Park",
+      "designation": "Finance & Analytics Graduate • Busan",
+      "score": "Band 7.5",
+      "gain": "+1.0 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=240&q=80",
+      "quote": "Vocabulary Studio collocations with IPA audio reviews made academic paraphrasing feel natural across both Reading True/False/Not Given sets and Writing."
+    },
+    {
+      "name": "Elena Petrova",
+      "designation": "Registered Nurse (AHPRA Pathway) • Warsaw",
+      "score": "Band 8.5",
+      "gain": "+1.5 Band Gain",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "quote": "Full-length timed mock exams combined with instructor review sessions removed test-day anxiety completely and helped me clear every band requirement on my first sitting."
     }
   ],
   "faqs": [
