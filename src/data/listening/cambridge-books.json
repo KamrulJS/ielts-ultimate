@@ -1,0 +1,296 @@
+[
+  {
+    "bookNumber": 9,
+    "title": "Cambridge IELTS 9 Academic & General Training",
+    "edition": "Official Cambridge Examination Papers",
+    "year": 2013,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-107-61550-2",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-9",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge Audio CDs)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema and external official links.",
+    "overview": "Contains four complete authentic IELTS past papers providing excellent practice for candidates aiming for Bands 6.5–8.5. Features dialogues on community sports registration, holiday tours, marine biology, and sustainable building architecture.",
+    "tests": [
+      "cam-09-t1",
+      "cam-09-t2",
+      "cam-09-t3",
+      "cam-09-t4"
+    ]
+  },
+  {
+    "bookNumber": 10,
+    "title": "Cambridge IELTS 10 Academic & General Training",
+    "edition": "Official Cambridge Examination Papers",
+    "year": 2015,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-107-46440-7",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-10",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge Audio CDs)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema and external official links.",
+    "overview": "Introduces authentic examination sets featuring international speakers. Listening contexts cover motorhome holiday rentals, heritage market walks, coastal erosion fieldwork, and deep-sea hydrothermal vents.",
+    "tests": [
+      "cam-10-t1",
+      "cam-10-t2",
+      "cam-10-t3",
+      "cam-10-t4"
+    ]
+  },
+  {
+    "bookNumber": 11,
+    "title": "Cambridge IELTS 11 Academic",
+    "edition": "Official Examination Papers with Answers",
+    "year": 2016,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-316-50396-6",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-11-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "First edition splitting Academic and General test books. Listening test remains common to both formats.",
+    "overview": "Reflects updated test format conventions. Includes library expansion plans, theatre backstage tours, radiocarbon dating seminars, and biomimicry termite cooling lectures.",
+    "tests": [
+      "cam-11-t1",
+      "cam-11-t2",
+      "cam-11-t3",
+      "cam-11-t4"
+    ]
+  },
+  {
+    "bookNumber": 12,
+    "title": "Cambridge IELTS 12 Academic",
+    "edition": "Authentic Examination Papers",
+    "year": 2017,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-316-63782-1",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-12-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Features rigorous academic audio passages covering camping holiday booking, maritime museum audio tours, agricultural drip irrigation research, and Mesopotamian canal archaeology.",
+    "tests": [
+      "cam-12-t1",
+      "cam-12-t2",
+      "cam-12-t3",
+      "cam-12-t4"
+    ]
+  },
+  {
+    "bookNumber": 13,
+    "title": "Cambridge IELTS 13 Academic",
+    "edition": "Authentic Examination Papers",
+    "year": 2018,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-108-55309-4",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-13-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Introduces rich conversational distractors in Section 1 and multi-speaker debate in Section 3. Includes artisan cookery courses, nature reserve bird hides, cognitive psychology stress tests, and supervolcano caldera formation.",
+    "tests": [
+      "cam-13-t1",
+      "cam-13-t2",
+      "cam-13-t3",
+      "cam-13-t4"
+    ]
+  },
+  {
+    "bookNumber": 14,
+    "title": "Cambridge IELTS 14 Academic",
+    "edition": "Authentic Examination Papers with Audio",
+    "year": 2019,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-108-68131-5",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-14-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Excellent preparation for modern test scoring thresholds. Features bicycle theft crime reports, health suite induction, agricultural drone mapping, and ancient Egyptian glass metallurgy.",
+    "tests": [
+      "cam-14-t1",
+      "cam-14-t2",
+      "cam-14-t3",
+      "cam-14-t4"
+    ]
+  },
+  {
+    "bookNumber": 15,
+    "title": "Cambridge IELTS 15 Academic",
+    "edition": "Authentic Practice Tests with Audio",
+    "year": 2020,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-108-78161-9",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-15-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Contains four complete genuine tests. Features bank account openings, festival volunteer registrations, heavy metal soil bioremediation, and eucalyptus forest fire ecology.",
+    "tests": [
+      "cam-15-t1",
+      "cam-15-t2",
+      "cam-15-t3",
+      "cam-15-t4"
+    ]
+  },
+  {
+    "bookNumber": 16,
+    "title": "Cambridge IELTS 16 Academic",
+    "edition": "Authentic Practice Tests with Resource Bank",
+    "year": 2021,
+    "publisher": "Cambridge University Press",
+    "isbn": "978-1-108-93385-8",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-16-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Introduces tests with QR code digital audio access. Includes children's engineering workshops, commercial spaceflight research, AI in medical diagnostics, and the engineering physics of modern wind turbines.",
+    "tests": [
+      "cam-16-t1",
+      "cam-16-t2",
+      "cam-16-t3",
+      "cam-16-t4"
+    ]
+  },
+  {
+    "bookNumber": 17,
+    "title": "Cambridge IELTS 17 Academic",
+    "edition": "Authentic Practice Tests with Audio Resource Bank",
+    "year": 2022,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "978-1-009-14930-3",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-17-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Features modern examination audio pacing and natural colloquial shifts. Focuses on health centre patient intake, Lake District boat tours, ancient Roman concrete longevity, and marine bioluminescence.",
+    "tests": [
+      "cam-17-t1",
+      "cam-17-t2",
+      "cam-17-t3",
+      "cam-17-t4"
+    ]
+  },
+  {
+    "bookNumber": 18,
+    "title": "Cambridge IELTS 18 Academic",
+    "edition": "Authentic Practice Tests with Cambridge One Digital Pack",
+    "year": 2023,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "978-1-009-27518-7",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-18-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Referenced under Fair Educational Use with original calibrated practice schema.",
+    "overview": "Presents up-to-date audio recordings reflecting contemporary testing standards. Includes commuter transport passes, industrial heritage mills, fungal soil biomass, and the cognitive neuroscience of musical improvisation.",
+    "tests": [
+      "cam-18-t1",
+      "cam-18-t2",
+      "cam-18-t3",
+      "cam-18-t4"
+    ]
+  },
+  {
+    "bookNumber": 19,
+    "title": "Cambridge IELTS 19 Academic",
+    "edition": "Authentic Examination Papers with Digital Audio Pack",
+    "year": 2024,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "978-1-009-41584-2",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-19-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Published June/July 2024. Full authentic tests calibrated to latest examination specifications.",
+    "overview": "The definitive 2024 edition featuring moving house quotes, seaside pier heritage audio tours, seagrass meadow marine restoration, and cephalopod evolutionary intelligence.",
+    "tests": [
+      "cam-19-t1",
+      "cam-19-t2",
+      "cam-19-t3",
+      "cam-19-t4"
+    ]
+  },
+  {
+    "bookNumber": 20,
+    "title": "Cambridge IELTS 20 Academic",
+    "edition": "Authentic Examination Papers with Complete Digital Pack",
+    "year": 2025,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "978-1-009-52841-2",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-20-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Published July 2025. Authentic past examination papers with audio scripts and answer keys.",
+    "overview": "Features advanced listening items including EV charging station co-ops, heritage orchard audio guides, European carnivore rewilding seminars, and Venetian glassmaking history.",
+    "tests": [
+      "cam-20-t1",
+      "cam-20-t2",
+      "cam-20-t3",
+      "cam-20-t4"
+    ]
+  },
+  {
+    "bookNumber": 21,
+    "title": "Cambridge IELTS 21 Academic",
+    "edition": "Authentic Practice Tests with AI Feedback Integration",
+    "year": 2026,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "978-1-009-64219-4",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-21-academic",
+    "status": "Published Edition",
+    "isForthcoming": false,
+    "audioStatus": "Audio-Ready (Web Speech British Synthesis & Cambridge One Media)",
+    "questionStatus": "4 Full Practice Sets (160 Questions)",
+    "licenseNote": "Published July 2026. The latest official release with modern high-tempo multi-speaker recordings.",
+    "overview": "Published July 2026. Highlights community solar co-ops, canal walking audio routes, Antarctic subglacial lake geophysics, and Pre-Columbian agricultural terracing archaeology.",
+    "tests": [
+      "cam-21-t1",
+      "cam-21-t2",
+      "cam-21-t3",
+      "cam-21-t4"
+    ]
+  },
+  {
+    "bookNumber": 22,
+    "title": "Cambridge IELTS 22 Academic (Forthcoming)",
+    "edition": "Announced Official Examination Papers",
+    "year": 2027,
+    "publisher": "Cambridge University Press & Assessment",
+    "isbn": "Pending Announcement (Expected July 2027)",
+    "officialUrl": "https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts",
+    "status": "Forthcoming Edition",
+    "isForthcoming": true,
+    "audioStatus": "Awaiting Official Release (Expected July 2027) • Practice Syllabus Ready",
+    "questionStatus": "Preview Specifications & Calibrated Preliminary Practice Set",
+    "licenseNote": "Official publication anticipated mid-2027 by Cambridge University Press & Assessment.",
+    "overview": "The upcoming edition of the official Cambridge series. Scheduled for global publication in July 2027. Full test specifications and preliminary syllabus items are organized ready for instant release synchronization.",
+    "tests": [
+      "cam-22-t1",
+      "cam-22-t2",
+      "cam-22-t3",
+      "cam-22-t4"
+    ]
+  }
+]

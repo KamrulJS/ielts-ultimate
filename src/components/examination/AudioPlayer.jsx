@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Volume2, Radio } from 'lucide-react';
 import { formatDurationSeconds } from '@/lib/utils';
 import { Badge } from '@/components/common/UiPrimitives';
@@ -11,22 +11,49 @@ function AudioPlayerInner({
   durationSec = 180,
   transcript = [],
   onCompletePart,
+  audioUrl,
 }) {
   const [playing, setPlaying] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [rate, setRate] = useState(1);
   const [showTranscript, setShowTranscript] = useState(false);
+  const audioRef = useRef(null);
+  const [audioSourceType, setAudioSourceType] = useState('synth'); // 'file' | 'synth'
 
+  // Initialize or clean up audio
   useEffect(() => {
+    if (audioUrl) {
+      try {
+        const audio = new Audio(audioUrl);
+        audio.addEventListener('canplaythrough', () => setAudioSourceType('file'));
+        audio.addEventListener('error', () => setAudioSourceType('synth'));
+        audio.addEventListener('timeupdate', () => {
+          setElapsed(Math.round(audio.currentTime));
+        });
+        audio.addEventListener('ended', () => {
+          setPlaying(false);
+          onCompletePart?.();
+        });
+        audioRef.current = audio;
+      } catch {
+        // Fallback default is already synth
+      }
+    }
+
     return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     };
-  }, []);
+  }, [audioUrl, onCompletePart]);
 
+  // Timer loop for synthesized playback
   useEffect(() => {
-    if (!playing) return undefined;
+    if (!playing || audioSourceType === 'file') return undefined;
     const interval = setInterval(() => {
       setElapsed((prev) => {
         if (prev + rate >= durationSec) {
@@ -38,12 +65,26 @@ function AudioPlayerInner({
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [playing, rate, durationSec, onCompletePart]);
+  }, [playing, rate, durationSec, onCompletePart, audioSourceType]);
 
   const togglePlayback = () => {
     const next = !playing;
     setPlaying(next);
 
+    if (audioSourceType === 'file' && audioRef.current) {
+      if (next) {
+        audioRef.current.playbackRate = rate;
+        audioRef.current.play().catch(() => {
+          // If playback blocked or file missing, fallback to synth
+          setAudioSourceType('synth');
+        });
+      } else {
+        audioRef.current.pause();
+      }
+      return;
+    }
+
+    // Web Speech synthesis fallback with British RP
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
       if (next && transcript.length > 0) {
@@ -58,8 +99,19 @@ function AudioPlayerInner({
   const handleRestart = () => {
     setElapsed(0);
     setPlaying(false);
+    if (audioSourceType === 'file' && audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+    }
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
+    }
+  };
+
+  const handleRateChange = (speed) => {
+    setRate(speed);
+    if (audioSourceType === 'file' && audioRef.current) {
+      audioRef.current.playbackRate = speed;
     }
   };
 
@@ -98,7 +150,7 @@ function AudioPlayerInner({
           </div>
         </div>
         <Badge variant="yellow">
-          <Radio size={12} /> Demo Web Speech Audio
+          <Radio size={12} /> {audioSourceType === 'file' ? 'Direct Audio Stream' : 'British Speech Audio'}
         </Badge>
       </div>
 
@@ -129,7 +181,13 @@ function AudioPlayerInner({
             min={0}
             max={durationSec}
             value={elapsed}
-            onChange={(e) => setElapsed(Number(e.target.value))}
+            onChange={(e) => {
+              const val = Number(e.target.value);
+              setElapsed(val);
+              if (audioSourceType === 'file' && audioRef.current) {
+                audioRef.current.currentTime = val;
+              }
+            }}
             aria-label="Audio progress"
             style={{ width: '100%', accentColor: '#F6BD28', cursor: 'pointer' }}
           />
@@ -147,7 +205,7 @@ function AudioPlayerInner({
             <button
               key={speed}
               type="button"
-              onClick={() => setRate(speed)}
+              onClick={() => handleRateChange(speed)}
               className="btn btn-sm"
               style={{
                 padding: '5px 9px',
@@ -167,7 +225,7 @@ function AudioPlayerInner({
           className="btn btn-sm"
           style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: '#FFFFFF' }}
         >
-          {showTranscript ? 'Hide Script' : 'Demo Script'}
+          {showTranscript ? 'Hide Script' : 'Section Script'}
         </button>
       </div>
 

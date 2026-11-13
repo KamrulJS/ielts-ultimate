@@ -172,6 +172,7 @@ export function ListeningExamInterface({ testId, initialPart = 1 }) {
           context={currentPartMeta.context}
           durationSec={currentPartMeta.durationSec}
           transcript={currentPartMeta.transcript}
+          audioUrl={currentPartMeta.audioUrl}
         />
 
         {activePart === 2 && (
