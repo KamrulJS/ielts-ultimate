@@ -1,0 +1,1529 @@
+{
+  "mockTests": [
+    {
+      "testNumber": 1,
+      "padNumber": "01",
+      "id": "ls-test-01",
+      "title": "Mock Test 01 — Community Sports Centre Membership Enquiry",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Dialogue between club receptionist and new resident registering for badminton & gym facilities.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Accessible",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-01"
+    },
+    {
+      "testNumber": 2,
+      "padNumber": "02",
+      "id": "ls-test-02",
+      "title": "Mock Test 02 — Holiday Apartment Booking & Airport Shuttle",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Enquiry dialogue about family self-catering chalet amenities, check-in rules, and transfers.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Standard",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-02"
+    },
+    {
+      "testNumber": 3,
+      "padNumber": "03",
+      "id": "ls-test-03",
+      "title": "Mock Test 03 — Vehicle Rental & Insurance Options Enquiry",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Telephone consultation on SUV hire terms, excess waivers, and child seat rentals.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Challenging",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-03"
+    },
+    {
+      "testNumber": 4,
+      "padNumber": "04",
+      "id": "ls-test-04",
+      "title": "Mock Test 04 — City Public Library Membership & Heritage Archives",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Front-desk registration discussing digital loans, inter-library courier, and study cubicles.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Standard",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-04"
+    },
+    {
+      "testNumber": 5,
+      "padNumber": "05",
+      "id": "ls-test-05",
+      "title": "Mock Test 05 — Cookery Masterclass Registration & Dietary Notes",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Booking conversation regarding weekend artisan baking course, kitchen equipment, and allergens.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Accessible",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-05"
+    },
+    {
+      "testNumber": 6,
+      "padNumber": "06",
+      "id": "ls-test-06",
+      "title": "Mock Test 06 — Dental Clinic New Patient Registration",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Reception phone call logging medical history, NHS registration codes, and appointment slots.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Challenging",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-06"
+    },
+    {
+      "testNumber": 7,
+      "padNumber": "07",
+      "id": "ls-test-07",
+      "title": "Mock Test 07 — University Campus Accommodation Application",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Exchange student calling housing officer regarding en-suite dorms, meal plans, and deposit.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Accessible",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-07"
+    },
+    {
+      "testNumber": 8,
+      "padNumber": "08",
+      "id": "ls-test-08",
+      "title": "Mock Test 08 — Community Volunteering & River Cleanup Sign-Up",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Interview with volunteer coordinator outlining safety gear, weekend shifts, and meeting points.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Standard",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-08"
+    },
+    {
+      "testNumber": 9,
+      "padNumber": "09",
+      "id": "ls-test-09",
+      "title": "Mock Test 09 — Art Gallery Evening Workshop & Materials Kit",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Customer service dialogue about pottery masterclass fees, kiln firing, and transit advice.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Challenging",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-09"
+    },
+    {
+      "testNumber": 10,
+      "padNumber": "10",
+      "id": "ls-test-10",
+      "title": "Mock Test 10 — Lost Property Claim at Central Train Terminal",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Passenger reporting mislaid briefcase, describing contents, train carriage, and contact numbers.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Standard",
+      "status": "Available in Student Hub",
+      "badge": "Verified Real Set",
+      "dashboardPath": "/listening/test/ls-test-10"
+    },
+    {
+      "testNumber": 11,
+      "padNumber": "11",
+      "id": "ls-test-placeholder-11",
+      "title": "Mock Test 11 — Music Academy Piano Lessons Enrollment",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Parent discussing trial lesson times, graded exam syllabuses, and rehearsal room hire.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 12,
+      "padNumber": "12",
+      "id": "ls-test-placeholder-12",
+      "title": "Mock Test 12 — Eco-Friendly House Renovation Consultation",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Homeowner calling heat pump contractor to discuss government subsidies and roof dimensions.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 13,
+      "padNumber": "13",
+      "id": "ls-test-placeholder-13",
+      "title": "Mock Test 13 — Local Job Agency Part-Time Catering Role",
+      "section": 1,
+      "sectionName": "Section 1",
+      "sectionType": "Everyday Dialogue",
+      "speakers": "2 Speakers",
+      "context": "Applicant registering for event hospitality shifts, uniform requirements, and payroll details.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 14,
+      "padNumber": "14",
+      "id": "ls-test-placeholder-14",
+      "title": "Mock Test 14 — Botanical Garden Orientation & Renovated Glasshouse Map",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Head gardener welcoming tourists and detailing pathway detours, medicinal plant groves, and café.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 15,
+      "padNumber": "15",
+      "id": "ls-test-placeholder-15",
+      "title": "Mock Test 15 — Maritime Museum Audio Tour & Historical Vessel Layout",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Curator guiding visitors through 18th-century frigate deck plans, gunroom, and observation deck.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 16,
+      "padNumber": "16",
+      "id": "ls-test-placeholder-16",
+      "title": "Mock Test 16 — Regional Nature Reserve Trail Guide & Birdwatching Hides",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Park ranger explaining color-coded walking routes, seasonal wetland rules, and lookout towers.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 17,
+      "padNumber": "17",
+      "id": "ls-test-placeholder-17",
+      "title": "Mock Test 17 — Annual Town Food & Craft Festival Schedule",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Event coordinator broadcasting opening ceremonies, artisan market zones, and park-and-ride shuttles.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 18,
+      "padNumber": "18",
+      "id": "ls-test-placeholder-18",
+      "title": "Mock Test 18 — Civic Leisure Complex Expansion & Accessibility Features",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Facility manager presenting new Olympic pool, sensory quiet rooms, and multi-storey parking.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 19,
+      "padNumber": "19",
+      "id": "ls-test-placeholder-19",
+      "title": "Mock Test 19 — Heritage Castle Grounds Audio Walk & Tower Access",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Visitor guide narrating medieval gatehouse history, moat walk, and courtyard exhibition schedule.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 20,
+      "padNumber": "20",
+      "id": "ls-test-placeholder-20",
+      "title": "Mock Test 20 — Urban Cycling Scheme & Safety Helmet Stations",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Municipal transport officer detailing docking station locations, hourly tariffs, and lane maps.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 21,
+      "padNumber": "21",
+      "id": "ls-test-placeholder-21",
+      "title": "Mock Test 21 — Community Theatre Volunteer Briefing & Usher Duties",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Front-of-house supervisor explaining emergency exits, patron ticketing, and backstage protocols.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 22,
+      "padNumber": "22",
+      "id": "ls-test-placeholder-22",
+      "title": "Mock Test 22 — Windsor Safari Park Tram Tour & Feeding Timetable",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Zoological educator briefing passengers on carnivore enclosures, conservation zones, and tram stops.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 23,
+      "padNumber": "23",
+      "id": "ls-test-placeholder-23",
+      "title": "Mock Test 23 — Green Valley Solar Farm Community Open Day",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Project engineer describing photovoltaic array layouts, inverter stations, and battery storage units.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 24,
+      "padNumber": "24",
+      "id": "ls-test-placeholder-24",
+      "title": "Mock Test 24 — Riverside Sculpture Trail Map & Audio Commentary",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Public art coordinator guiding walkers along 5-kilometer riverside path and bronze installation spots.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 25,
+      "padNumber": "25",
+      "id": "ls-test-placeholder-25",
+      "title": "Mock Test 25 — Historic Railway Preservation Society Steam Gala",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Station master outlining vintage locomotive timetables, signal box tours, and platform tea rooms.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 26,
+      "padNumber": "26",
+      "id": "ls-test-placeholder-26",
+      "title": "Mock Test 26 — Coastal Cliff Path Safety & Tidal Warning Broadcast",
+      "section": 2,
+      "sectionName": "Section 2",
+      "sectionType": "Social Monologue",
+      "speakers": "1 Speaker",
+      "context": "Coastguard officer advising ramblers on erosion detours, tide times, and emergency telephone posts.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 27,
+      "padNumber": "27",
+      "id": "ls-test-placeholder-27",
+      "title": "Mock Test 27 — Undergraduate Urban Soil Contamination Project",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Two environmental science students consult their faculty supervisor regarding heavy metal sampling.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 28,
+      "padNumber": "28",
+      "id": "ls-test-placeholder-28",
+      "title": "Mock Test 28 — Comparative Analysis of Renewable Microgrids",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Electrical engineering postgraduates review simulation findings and battery degradation variables.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 29,
+      "padNumber": "29",
+      "id": "ls-test-placeholder-29",
+      "title": "Mock Test 29 — Marine Ecosystems & Microplastic Accumulation Study",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Biology students debate data collection methodology from Atlantic water column samples.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 30,
+      "padNumber": "30",
+      "id": "ls-test-placeholder-30",
+      "title": "Mock Test 30 — Psycholinguistics Thesis: Bilingual Child Acquisition",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Master's candidate discusses phoneme perception experiment design with research director.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 31,
+      "padNumber": "31",
+      "id": "ls-test-placeholder-31",
+      "title": "Mock Test 31 — Sustainable Tourism in Alpine Fragile Habitats",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Geography seminar debate evaluating ski resort ecological footprints and carbon offset programs.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 32,
+      "padNumber": "32",
+      "id": "ls-test-placeholder-32",
+      "title": "Mock Test 32 — Ancient Pottery Analysis via Spectrometry",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Archaeology group critique ceramic kiln residue data and trading route implications.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 33,
+      "padNumber": "33",
+      "id": "ls-test-placeholder-33",
+      "title": "Mock Test 33 — Autonomous Public Transit Implementation Study",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Urban planning team evaluate trial results, pedestrian interaction metrics, and municipal costs.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 34,
+      "padNumber": "34",
+      "id": "ls-test-placeholder-34",
+      "title": "Mock Test 34 — Corporate Supply Chain Resilience & Nearshoring",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Business management students present case study on freight bottlenecks and inventory buffers.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 35,
+      "padNumber": "35",
+      "id": "ls-test-placeholder-35",
+      "title": "Mock Test 35 — Agricultural Robotics & Weed Drone Efficiency",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Agronomy researchers analyze computer vision targeting algorithms in organic sugar beet fields.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 36,
+      "padNumber": "36",
+      "id": "ls-test-placeholder-36",
+      "title": "Mock Test 36 — Architecture Studio: Adaptive Reuse of Industrial Silos",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Design students review peer critiques on ventilation, structural retrofitting, and lighting.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 37,
+      "padNumber": "37",
+      "id": "ls-test-placeholder-37",
+      "title": "Mock Test 37 — Cognitive Psychology: Sleep Deprivation & Working Memory",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Lab partners analyze response time variance and statistical errors from student volunteer trials.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 38,
+      "padNumber": "38",
+      "id": "ls-test-placeholder-38",
+      "title": "Mock Test 38 — Linguistic Shift & Endangered Indigenous Dialects",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Anthropology seminar discussing digital archival methodologies and elder speech recordings.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 39,
+      "padNumber": "39",
+      "id": "ls-test-placeholder-39",
+      "title": "Mock Test 39 — Renewable Hydropower & Salmon Migration Byways",
+      "section": 3,
+      "sectionName": "Section 3",
+      "sectionType": "Academic Discussion",
+      "speakers": "2–4 Speakers",
+      "context": "Freshwater ecology students compare fish ladder designs and acoustic telemetry data.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 40,
+      "padNumber": "40",
+      "id": "ls-test-placeholder-40",
+      "title": "Mock Test 40 — Biomimetic Architecture & Passive Termite Ventilation",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "University lecture analyzing Eastgate Centre design, thermal chimney dynamics, and cooling costs.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 41,
+      "padNumber": "41",
+      "id": "ls-test-placeholder-41",
+      "title": "Mock Test 41 — Deep-Sea Hydrothermal Vents & Chemosynthesis",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Oceanography address examining mineral chimneys, extremophile bacteria, and origins of life.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 42,
+      "padNumber": "42",
+      "id": "ls-test-placeholder-42",
+      "title": "Mock Test 42 — History of Cetacean Echolocation Evolution",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Evolutionary biology lecture tracing fossil skull structures and high-frequency sound navigation.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 43,
+      "padNumber": "43",
+      "id": "ls-test-placeholder-43",
+      "title": "Mock Test 43 — Early Agrarian Settlements & Mesopotamian Irrigation",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Archaeological discourse examining mud-brick canals, soil salinization, and urban collapse.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 44,
+      "padNumber": "44",
+      "id": "ls-test-placeholder-44",
+      "title": "Mock Test 44 — Urban Heat Island Mitigation & Reflective Canopies",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Civil engineering presentation on albedo materials, green roofs, and microclimate cooling.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 45,
+      "padNumber": "45",
+      "id": "ls-test-placeholder-45",
+      "title": "Mock Test 45 — Neuroscience of Olfactory Memory & Limbic Pathways",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Cognitive science lecture detailing receptor proteins, neural projections, and emotional recall.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 46,
+      "padNumber": "46",
+      "id": "ls-test-placeholder-46",
+      "title": "Mock Test 46 — Nanotechnology Applications in Water Desalination",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Materials science talk on graphene oxide membranes, reverse osmosis energy, and fouling resistance.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 47,
+      "padNumber": "47",
+      "id": "ls-test-placeholder-47",
+      "title": "Mock Test 47 — The Domestication of Canids & Paleolithic Symbiosis",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Paleoanthropology lecture reviewing wolf genome shifts, hunting mutualism, and burial sites.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 48,
+      "padNumber": "48",
+      "id": "ls-test-placeholder-48",
+      "title": "Mock Test 48 — Subterranean Fungal Networks & Forest Nutrient Sharing",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Botany lecture explaining mycorrhizal mycelium conduits, carbon allocation, and drought signals.",
+      "questionsCount": 10,
+      "accent": "North American (US & Canadian)",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 49,
+      "padNumber": "49",
+      "id": "ls-test-placeholder-49",
+      "title": "Mock Test 49 — Volcanic Caldera Formation & Magma Chamber Dynamics",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Geophysics lecture on caldera collapse mechanics, ignimbrite sheets, and supervolcanic markers.",
+      "questionsCount": 10,
+      "accent": "Australian & New Zealand",
+      "difficulty": "Accessible",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 50,
+      "padNumber": "50",
+      "id": "ls-test-placeholder-50",
+      "title": "Mock Test 50 — Evolution of Early Written Numerals & Abacus Reckoning",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Mathematics history lecture tracing cuneiform clay tallies, decimal bases, and merchant scripts.",
+      "questionsCount": 10,
+      "accent": "International English (UK/US/Scot)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 51,
+      "padNumber": "51",
+      "id": "ls-test-placeholder-51",
+      "title": "Mock Test 51 — Acoustic Ecology & Anthropogenic Ocean Noise Pollution",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Marine conservation lecture on seismic airguns, shipping sonar impacts, and baleen whale stress.",
+      "questionsCount": 10,
+      "accent": "British & Australian",
+      "difficulty": "Challenging",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    },
+    {
+      "testNumber": 52,
+      "padNumber": "52",
+      "id": "ls-test-placeholder-52",
+      "title": "Mock Test 52 — Carbon Sequestration in Coastal Mangrove Peatlands",
+      "section": 4,
+      "sectionName": "Section 4",
+      "sectionType": "Academic Lecture",
+      "speakers": "1 Speaker",
+      "context": "Ecosystem science lecture on blue carbon storage rates, tidal flushing, and sediment preservation.",
+      "questionsCount": 10,
+      "accent": "Standard British (RP)",
+      "difficulty": "Standard",
+      "status": "Full Exam Simulation",
+      "badge": "Standard Mock",
+      "dashboardPath": "/listening"
+    }
+  ],
+  "hero": {
+    "categoryBadge": "IELTS Academic & General Training",
+    "headline": "IELTS Listening Practice & Complete Preparation Guide",
+    "subheadline": "Master all 4 listening sections, authentic British/Australian accents, and every question format. Practice with 52 graded mock tests calibrated directly against official Cambridge band criteria.",
+    "stats": [
+      {
+        "label": "Full Audio Sections",
+        "value": "4 Parts",
+        "desc": "Everyday to Academic"
+      },
+      {
+        "label": "Questions Per Test",
+        "value": "40 Qs",
+        "desc": "1 Mark Per Correct Item"
+      },
+      {
+        "label": "Test Duration",
+        "value": "30+10 Min",
+        "desc": "Audio + Transfer / Review"
+      },
+      {
+        "label": "Mock Test Library",
+        "value": "52 Tests",
+        "desc": "Section 1 to 4 Graded"
+      }
+    ],
+    "primaryCta": {
+      "label": "Start Listening Practice",
+      "target": "/listening"
+    },
+    "secondaryCta": {
+      "label": "Explore Test Guide",
+      "target": "#guide-format"
+    }
+  },
+  "toc": [
+    {
+      "id": "overview",
+      "label": "Overview & Metrics"
+    },
+    {
+      "id": "mock-tests",
+      "label": "52 Mock Test Library"
+    },
+    {
+      "id": "test-format",
+      "label": "Test Format & Rules"
+    },
+    {
+      "id": "four-sections",
+      "label": "Four Sections Explained"
+    },
+    {
+      "id": "question-types",
+      "label": "9 Question Formats"
+    },
+    {
+      "id": "sample-visuals",
+      "label": "Sample Visual Layouts"
+    },
+    {
+      "id": "scoring-band",
+      "label": "Scoring & Band Conversion"
+    },
+    {
+      "id": "tips-strategies",
+      "label": "Listening Tips & Traps"
+    },
+    {
+      "id": "free-resources",
+      "label": "Official Free Resources"
+    },
+    {
+      "id": "interactive-drill",
+      "label": "Interactive Practice Drill"
+    },
+    {
+      "id": "faqs",
+      "label": "Frequently Asked Questions"
+    }
+  ],
+  "formatRules": {
+    "summary": "The IELTS Listening test evaluates your ability to understand spoken English across both everyday social situations and rigorous academic lectures. It is identical for both IELTS Academic and IELTS General Training candidates.",
+    "cards": [
+      {
+        "title": "Structure & Progression",
+        "badge": "40 Questions",
+        "icon": "Layers",
+        "points": [
+          "4 recorded sections, each containing 10 questions in progressive order of difficulty.",
+          "Section 1 starts with everyday social conversation; Section 4 culminates in a specialized university lecture.",
+          "You are tested on main ideas, specific factual details, speaker opinions, and purpose."
+        ]
+      },
+      {
+        "title": "Timing & Playback Rule",
+        "badge": "Played ONCE Only",
+        "icon": "Clock",
+        "points": [
+          "The audio recording is played ONLY ONCE. You cannot rewind, replay, or pause.",
+          "Approximately 30 minutes of continuous audio recording playback.",
+          "Paper-based test: You get 10 minutes at the end to transfer answers to the official answer sheet.",
+          "Computer-delivered test: You enter answers directly on screen and get 2 minutes to review."
+        ]
+      },
+      {
+        "title": "Accents & Pronunciation",
+        "badge": "Multi-Accent",
+        "icon": "Globe",
+        "points": [
+          "Reflects international English: British, Australian, New Zealand, American, and Canadian accents.",
+          "Section 1 frequently features British and Australian native speakers.",
+          "Familiarize yourself with varying vowel lengths, elision, and linked speech patterns."
+        ]
+      },
+      {
+        "title": "Strict Answering Rules",
+        "badge": "Word Limits",
+        "icon": "AlertTriangle",
+        "points": [
+          "Strict word count limits: 'NO MORE THAN TWO WORDS AND/OR A NUMBER'. Exceeding this limit results in zero marks.",
+          "Both UK and US spelling conventions are accepted (e.g., colour/color, theatre/theater).",
+          "Hyphenated words (e.g., part-time) count as a single word. Numbers can be written as figures (14) or words (fourteen)."
+        ]
+      }
+    ]
+  },
+  "fourSections": [
+    {
+      "section": 1,
+      "title": "Section 1: Everyday Social Dialogue",
+      "speakers": "Two speakers (Dialogue)",
+      "context": "Everyday social or transactional context — hotel bookings, leisure club sign-ups, customer service enquiries, renting accommodation.",
+      "typicalQuestions": [
+        "Form Completion",
+        "Note Completion",
+        "Table Completion",
+        "Short-answer"
+      ],
+      "description": "A conversation between two people in an everyday social setting. One speaker usually asks questions to extract specific factual details from the other.",
+      "keyFocus": "Names, phone numbers, postcodes, calendar dates, prices, addresses, and flight or booking reference codes.",
+      "expertTip": "Listen attentively to letter-by-letter spelling. Speakers frequently correct themselves mid-dialogue (e.g., 'Oh wait, that is 14 Hill Street, not 40'). Always write the final confirmed detail."
+    },
+    {
+      "section": 2,
+      "title": "Section 2: Everyday Social Monologue",
+      "speakers": "One speaker (Monologue)",
+      "context": "Everyday social situation with a single speaker providing public information — guided museum tour, botanical garden walk, charity event briefing, radio broadcast.",
+      "typicalQuestions": [
+        "Map & Plan Labelling",
+        "Multiple Choice",
+        "Matching",
+        "Note Completion"
+      ],
+      "description": "A monologue set in an everyday social context where one speaker addresses an audience or provides structured guidance on facilities or itineraries.",
+      "keyFocus": "Spatial orientation (north, south, opposite, adjoining), sequential event schedules, amenities, and visitor guidelines.",
+      "expertTip": "For map and plan questions, locate the starting point immediately ('You are here'). Trace the speaker's directional cues using compass bearings and positional prepositions ('turn left past the duck pond')."
+    },
+    {
+      "section": 3,
+      "title": "Section 3: Academic Discussion",
+      "speakers": "Two to four speakers (Group Discussion)",
+      "context": "Academic or educational setting — two university students planning a research presentation, a dissertation student consulting their professor, a seminar study group.",
+      "typicalQuestions": [
+        "Multiple Choice (Single & Multi)",
+        "Classification / Matching",
+        "Flow-chart Completion"
+      ],
+      "description": "A discussion involving 2 to 4 people exploring academic coursework, research methodology, scientific experiment design, or seminar paper evaluations.",
+      "keyFocus": "Tracking who says what, subtle nuances of agreement or polite disagreement, shifting hypotheses, and critical evaluations.",
+      "expertTip": "Identify each speaker's voice in the initial 15 seconds. Beware of distractors where one student proposes an idea but the professor or study partner subsequently rejects or refines it."
+    },
+    {
+      "section": 4,
+      "title": "Section 4: Academic Monologue / Lecture",
+      "speakers": "One speaker (University Lecture)",
+      "context": "A university lecture or academic presentation on a specialized topic — marine biology, anthropology, urban architecture, renewable energy, ancient archaeology.",
+      "typicalQuestions": [
+        "Note Completion",
+        "Summary Completion",
+        "Sentence Completion",
+        "Flow-chart"
+      ],
+      "description": "An authentic academic monologue delivering detailed research findings, historical chronologies, or technical explanations without conversational interruptions.",
+      "keyFocus": "Discourse markers ('turning now to', 'more importantly', 'the primary drawback'), dense academic vocabulary, cause-and-effect relationships.",
+      "expertTip": "There is NO pause midway through Section 4. Read all 10 questions during the preparation time. Use the headings and sub-bullets in the notes to stay synchronized with the lecturer."
+    }
+  ],
+  "questionTypes": [
+    {
+      "id": "multiple-choice",
+      "name": "Multiple Choice",
+      "format": "Choose 1 from 3 options (A, B, C) or 2 from 5 options (A–E)",
+      "description": "Evaluates your ability to understand specific points or the overall gist of an audio passage while eliminating plausible distractors.",
+      "howItWorks": "A question stem is followed by three options, or an incomplete sentence with three endings. In multiple-answer tasks, you select two or three correct options from a longer list.",
+      "strategy": "Underline keywords in the question stem during preparation time. Listen for synonyms and paraphrases rather than exact words. Avoid choosing an option just because a word from it was mentioned; check if the meaning matches.",
+      "commonPitfall": "Selecting an option because you heard an identical word. Test writers deliberately insert words from wrong options as distractors."
+    },
+    {
+      "id": "matching",
+      "name": "Matching",
+      "format": "Match numbered questions (e.g. 21–25) to lettered options (A–G)",
+      "description": "Assesses your ability to follow a conversation between speakers and link specific items to categories, opinions, or characteristics.",
+      "howItWorks": "You are given a list of items from the listening text and must match them to a set of criteria or options displayed in a box.",
+      "strategy": "Focus on the numbered list as your anchor because questions follow the chronological order of the audio. Keep your eyes on the options box to identify the matching concept as you listen.",
+      "commonPitfall": "Losing your place because you spend too much time reading the options list instead of keeping up with the spoken sequence."
+    },
+    {
+      "id": "plan-map-labelling",
+      "name": "Plan, Map & Diagram Labelling",
+      "format": "Complete labels on a map, building floorplan, or mechanical diagram using letters (A–H) or words",
+      "description": "Tests your spatial awareness and ability to follow spoken directional language, compass bearings, and landmark descriptions.",
+      "howItWorks": "You are presented with a visual schematic (e.g., a nature park map, library layout, or solar water heater diagram) with numbered blank spaces.",
+      "strategy": "Find the starting point ('We are standing at the main reception entrance'). Note compass directions (North, South, East, West) and orient yourself to left, right, opposite, adjacent, and circular pathways.",
+      "commonPitfall": "Confusing the speaker's perspective with your own. Always follow the route as the speaker moves through the map."
+    },
+    {
+      "id": "form-completion",
+      "name": "Form Completion",
+      "format": "Fill in factual blanks on an application form, order form, or registration sheet",
+      "description": "Tests your precision in recording factual details such as names, contact numbers, dates, times, currency amounts, and reference codes.",
+      "howItWorks": "An authentic form layout is provided with specific field gaps (e.g. 'Customer Surname', 'Contact Phone', 'Membership Tier').",
+      "strategy": "Read the field titles carefully. Predict the grammatical category and data type (e.g., number, date, postcode). Practice English alphabet spelling conventions and double letters.",
+      "commonPitfall": "Missing corrections. When a speaker says 'Sorry, that is double L, not single L', make sure you write the amended spelling."
+    },
+    {
+      "id": "note-completion",
+      "name": "Note Completion",
+      "format": "Fill in gaps in a structured outline, bulleted notes, or lecture summary",
+      "description": "Assesses your ability to follow a lecture or presentation and record key concepts and supporting evidence within strict word limits.",
+      "howItWorks": "A hierarchical set of notes with main headings and bulleted sub-points is presented with numbered blanks.",
+      "strategy": "Use the headings and bold text as signposts to track the speaker's progress. If you miss an answer, move immediately to the next bullet point.",
+      "commonPitfall": "Writing extra words that exceed the instructions (e.g., writing 'in the ancient forest' when the limit is 'NO MORE THAN ONE WORD')."
+    },
+    {
+      "id": "table-completion",
+      "name": "Table Completion",
+      "format": "Complete empty cells inside a structured data table with rows and columns",
+      "description": "Evaluates your ability to locate and summarize specific categories of information such as dates, costs, locations, or requirements.",
+      "howItWorks": "A grid or matrix categorizes information into clearly labeled columns (e.g., 'Activity', 'Equipment Provided', 'Cost per Session').",
+      "strategy": "Scan the column headings from left to right. Understand how rows represent individual cases. Look at completed adjacent cells to deduce the required format.",
+      "commonPitfall": "Misreading row or column intersections and writing the answer in the wrong blank number."
+    },
+    {
+      "id": "flow-chart-completion",
+      "name": "Flow-Chart Completion",
+      "format": "Fill in sequential stages of a process or project timeline with arrows",
+      "description": "Tests your understanding of chronological stages, procedural steps, cause-and-effect chains, or scientific experiments.",
+      "howItWorks": "A diagram with boxes connected by directional arrows outlines a sequential process with gaps in specific stages.",
+      "strategy": "Listen for sequence discourse markers: 'initially', 'the next phase involves', 'subsequently', 'prior to this', 'the final outcome'.",
+      "commonPitfall": "Skipping ahead or falling behind because arrows loop or branch into two concurrent stages."
+    },
+    {
+      "id": "sentence-completion",
+      "name": "Sentence Completion",
+      "format": "Fill in missing words within grammatically complete sentences",
+      "description": "Tests your comprehension of key factual relationships and ability to identify exact words from the audio that complete a written statement.",
+      "howItWorks": "You read sentences that summarize information from the listening text and insert words directly from what you heard.",
+      "strategy": "Check the grammar of the sentence before and after inserting your word. The resulting sentence must be grammatically sound and preserve the original meaning.",
+      "commonPitfall": "Changing the form of the word heard in the recording. You should generally use the EXACT word you heard without changing its tense or form."
+    },
+    {
+      "id": "short-answer",
+      "name": "Short-Answer Questions",
+      "format": "Answer factual questions using 1 to 3 words and/or a number",
+      "description": "Measures your ability to locate and extract precise factual information such as prices, dimensions, species, or reasons.",
+      "howItWorks": "You are asked direct questions (e.g. 'What two items must students bring to the fieldwork?').",
+      "strategy": "Identify the question word (What, Who, Where, When, Why, How many). Keep your answer strictly within the specified word count.",
+      "commonPitfall": "Writing full sentence answers instead of concise note-style answers (e.g., writing 'Students need to bring rubber boots' instead of 'rubber boots')."
+    }
+  ],
+  "sampleVisuals": [
+    {
+      "type": "Form Completion (Section 1)",
+      "title": "Riverside Athletic Club Membership Form",
+      "instruction": "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "fields": [
+        {
+          "label": "Applicant Name",
+          "value": "Emily HARPER"
+        },
+        {
+          "label": "Contact Phone",
+          "value": "07849 [ Question 1 ]",
+          "placeholder": "e.g. 332918"
+        },
+        {
+          "label": "Preferred Activity",
+          "value": "Evening [ Question 2 ]",
+          "placeholder": "e.g. badminton / pilates"
+        },
+        {
+          "label": "Payment Frequency",
+          "value": "[ Question 3 ] debit",
+          "placeholder": "e.g. monthly / annual"
+        },
+        {
+          "label": "Locker Room Code",
+          "value": "[ Question 4 ]",
+          "placeholder": "e.g. 5824"
+        }
+      ],
+      "examInsight": "Notice how Question 1 tests accurate digit transcription without skipping numbers, while Question 3 requires a precise frequency adjective."
+    },
+    {
+      "type": "Map Labelling (Section 2)",
+      "title": "Greenfield Botanical Gardens Pathway & Pavilion Plan",
+      "instruction": "Write the correct letter, A–F, next to questions 11–14.",
+      "nodes": [
+        {
+          "letter": "A",
+          "name": "Heritage Rose Arbour (North-East corner)"
+        },
+        {
+          "letter": "B",
+          "name": "Medicinal Herb Greenhouse (Adjacent to Pond)"
+        },
+        {
+          "letter": "C",
+          "name": "Tropical Fern Conservatory (Opposite Gift Shop)"
+        },
+        {
+          "letter": "D",
+          "name": "Observation Deck & Bird Sanctuary"
+        },
+        {
+          "letter": "E",
+          "name": "Children's Sensory Playground"
+        },
+        {
+          "letter": "F",
+          "name": "Main Visitor Pavilion & Refreshment Kiosk"
+        }
+      ],
+      "examInsight": "The audio begins at 'Main Visitor Pavilion (F)'. The speaker uses directional signposts: 'Turn sharp left after the footbridge' or 'Bordering the eastern perimeter'."
+    },
+    {
+      "type": "Flow-Chart Completion (Section 3)",
+      "title": "Recycled Plastic Polymerization Process",
+      "instruction": "Write NO MORE THAN ONE WORD for each step.",
+      "steps": [
+        {
+          "step": "Step 1",
+          "text": "Sorting bottles by density and optical [ Question 21 ]"
+        },
+        {
+          "step": "Step 2",
+          "text": "High-pressure wash to strip off paper and residual [ Question 22 ]"
+        },
+        {
+          "step": "Step 3",
+          "text": "Mechanical chopping into uniform five-millimeter [ Question 23 ]"
+        },
+        {
+          "step": "Step 4",
+          "text": "Thermal extrusion to synthesize high-grade synthetic [ Question 24 ]"
+        }
+      ],
+      "examInsight": "Arrows between steps indicate temporal progression. When speakers transition with 'Once that phase concludes...', you know to jump to the next box immediately."
+    }
+  ],
+  "scoringTable": [
+    {
+      "raw": "39–40",
+      "band": "9.0",
+      "level": "Expert User",
+      "desc": "Fluent, accurate comprehension of complex native speech including nuanced academic argumentation."
+    },
+    {
+      "raw": "37–38",
+      "band": "8.5",
+      "level": "Very Good User",
+      "desc": "Handles complex, detailed debate with only occasional unsystematic misunderstandings."
+    },
+    {
+      "raw": "35–36",
+      "band": "8.0",
+      "level": "Very Good User",
+      "desc": "Full operational command; understands detailed academic monologues and rapid multi-speaker dialogue."
+    },
+    {
+      "raw": "32–34",
+      "band": "7.5",
+      "level": "Good User",
+      "desc": "Solid operational grasp; handles complex language well and comprehends detailed reasoning in most contexts."
+    },
+    {
+      "raw": "30–31",
+      "band": "7.0",
+      "level": "Good User",
+      "desc": "Generally handles complex language well; understands detailed instructions with minor lapses under pressure."
+    },
+    {
+      "raw": "26–29",
+      "band": "6.5",
+      "level": "Competent User",
+      "desc": "Effective command despite inaccuracies; grasps main ideas and specific factual details in familiar contexts."
+    },
+    {
+      "raw": "23–25",
+      "band": "6.0",
+      "level": "Competent User",
+      "desc": "Adequate command; understands straightforward factual English but may struggle with rapid colloquialisms or dense theory."
+    },
+    {
+      "raw": "18–22",
+      "band": "5.5",
+      "level": "Modest User",
+      "desc": "Partial command; copes with overall meaning in common situations but makes frequent errors with fine details."
+    },
+    {
+      "raw": "16–17",
+      "band": "5.0",
+      "level": "Modest User",
+      "desc": "Partial command; likely to misunderstand abstract discussions or multi-part complex directions."
+    },
+    {
+      "raw": "13–15",
+      "band": "4.5",
+      "level": "Limited User",
+      "desc": "Basic understanding limited to familiar social contexts; frequent breakdowns in comprehension."
+    },
+    {
+      "raw": "11–12",
+      "band": "4.0",
+      "level": "Limited User",
+      "desc": "Basic competence is limited; unable to understand complex sentence structures or fast native delivery."
+    },
+    {
+      "raw": "0–10",
+      "band": "0–3.5",
+      "level": "Extremely Limited",
+      "desc": "Conveys and understands only isolated words in highly structured situations."
+    }
+  ],
+  "tipsAndStrategies": [
+    {
+      "category": "Phase 1: Pre-Listening Mastery (30–45s Preview Window)",
+      "items": [
+        {
+          "title": "Underline Anchor Keywords",
+          "desc": "Before audio begins, underline unchangeable words like proper names, dates, technical terms, and place names that cannot easily be paraphrased."
+        },
+        {
+          "title": "Predict Word Grammatical Category",
+          "desc": "Analyze the gap: does it require a noun, an adjective, a plural noun, a verb in past tense, or a numerical price? Knowing this primes your auditory cortex."
+        },
+        {
+          "title": "Verify Singular vs Plural Requirements",
+          "desc": "Check the surrounding syntax: if the text says 'a variety of _____', it will almost certainly be a plural noun or an uncountable noun."
+        }
+      ]
+    },
+    {
+      "category": "Phase 2: During Listening & Distractor Traps",
+      "items": [
+        {
+          "title": "Beware the 'Correction Trap'",
+          "desc": "Speakers routinely say one thing and immediately correct themselves: 'We planned to open on Tuesday, but due to refurbishments it has been postponed to Friday.' The answer is Friday."
+        },
+        {
+          "title": "Map Synonyms & Paraphrasing in Real Time",
+          "desc": "The question might say 'inexpensive accommodation' while the recording says 'budget-friendly lodgings' or 'low-cost rooms'. Never wait for identical words."
+        },
+        {
+          "title": "Track Discourse Signpost Markers",
+          "desc": "Words like 'however', 'conversely', 'the crucial point', 'turning now to' signal major structural shifts in the speaker's argument or the next answer."
+        },
+        {
+          "title": "Keep Moving — Never Freeze on a Missed Blank",
+          "desc": "If you realize you missed Question 14, immediately let it go and look ahead to Question 15. Hesitating on one missed blank can cause you to miss 3 more."
+        }
+      ]
+    },
+    {
+      "category": "Phase 3: Post-Listening Verification & Answer Transfer",
+      "items": [
+        {
+          "title": "Strictly Check Word Count Limits",
+          "desc": "If the instruction states 'NO MORE THAN TWO WORDS', writing 'in the green forest' (4 words) gives you zero marks even if the meaning is correct. Write 'green forest'."
+        },
+        {
+          "title": "Scrutinize Spelling & Capitalization",
+          "desc": "Misspelled words are marked completely wrong. Common pitfalls: necessary, accommodate, environment, government, separate, restaurant, recommendation."
+        },
+        {
+          "title": "Ensure No Blank Spaces on Answer Sheet",
+          "desc": "There is NO negative marking in IELTS Listening. Never leave an empty box; make an educated guess based on context if needed."
+        }
+      ]
+    }
+  ],
+  "freeResources": [
+    {
+      "title": "British Council Official Listening Practice Tests",
+      "provider": "British Council & TakeIELTS",
+      "description": "Authentic full-length practice sets with complete audio recordings, question papers, and downloadable answer sheets.",
+      "type": "Official Test Papers",
+      "url": "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-practice-tests/listening",
+      "isExternal": true
+    },
+    {
+      "title": "Cambridge English Official Sample Listening Materials",
+      "provider": "Cambridge Assessment English",
+      "description": "Direct sample test sets from the official creators of the IELTS exam with authentic native speaker recordings.",
+      "type": "Official Audio Sets",
+      "url": "https://www.ielts.org/for-test-takers/sample-test-questions",
+      "isExternal": true
+    },
+    {
+      "title": "IDP IELTS Official Preparation Practice",
+      "provider": "IDP Education Australia",
+      "description": "Free computer-delivered and paper-based listening drills with answer explanations and audio transcripts.",
+      "type": "Interactive Drills",
+      "url": "https://ielts.idp.com/prepare/article-free-ielts-listening-practice-tests",
+      "isExternal": true
+    },
+    {
+      "title": "BBC Learning English — 6 Minute English",
+      "provider": "BBC World Service",
+      "description": "Superb daily listening podcast featuring authentic British RP accents, natural conversational cadence, and topical vocabulary.",
+      "type": "Accent Immersion",
+      "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english",
+      "isExternal": true
+    },
+    {
+      "title": "TED-Ed & Academic Lecture Archives",
+      "provider": "TED Conferences",
+      "description": "Curated 10-to-15-minute academic presentations covering science, anthropology, and architecture ideal for Section 4 stamina.",
+      "type": "Lecture Stamina",
+      "url": "https://ed.ted.com",
+      "isExternal": true
+    }
+  ],
+  "interactiveDrills": [
+    {
+      "id": "drill-section-1",
+      "title": "Mini-Drill 1: Hotel Conference Booking (Section 1 Form)",
+      "instruction": "Listen to the simulated audio excerpt and complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "audioTranscript": "Receptionist: Good morning, Grand Royale Executive Suites, how may I direct your call?\nCaller: Hello, I'm calling to confirm our department conference booking for next month. It's under the name Harrison, that's Marcus Harrison.\nReceptionist: Yes Mr. Harrison, I have the booking here. You requested the Cedar Suite for the 18th of October.\nCaller: That's right. Could we update the delegate count to 45 attendees? We originally thought 40, but five additional regional directors are joining.\nReceptionist: Certainly, 45 delegates noted. And regarding the luncheon menu, did you prefer the hot buffet or the cold deli platters?\nCaller: Actually, we decided on the Mediterranean buffet. Most of our delegates prefer vegetarian options.\nReceptionist: Excellent. And I have your primary contact number as 07952 481903, correct?\nCaller: Ah, that's my old office desk phone. Could you update that to my direct mobile? It is 07952 642318.\nReceptionist: All updated, Mr. Harrison. We will email the confirmation summary to you this afternoon.",
+      "questions": [
+        {
+          "id": "q1",
+          "label": "1. Conference Suite Name:",
+          "correctAnswers": [
+            "cedar suite",
+            "cedar"
+          ],
+          "explanation": "The receptionist confirms the room as the 'Cedar Suite'."
+        },
+        {
+          "id": "q2",
+          "label": "2. Final number of delegates:",
+          "correctAnswers": [
+            "45",
+            "45 delegates",
+            "forty five",
+            "forty-five"
+          ],
+          "explanation": "They originally planned 40, but added 5 regional directors, bringing the confirmed total to 45."
+        },
+        {
+          "id": "q3",
+          "label": "3. Selected Luncheon Option:",
+          "correctAnswers": [
+            "mediterranean buffet",
+            "mediterranean"
+          ],
+          "explanation": "The caller specifically opts for the 'Mediterranean buffet' to accommodate dietary preferences."
+        },
+        {
+          "id": "q4",
+          "label": "4. Direct Mobile Contact:",
+          "correctAnswers": [
+            "07952 642318",
+            "07952642318"
+          ],
+          "explanation": "The caller replaces the old office phone with direct mobile number 07952 642318."
+        }
+      ]
+    },
+    {
+      "id": "drill-section-3",
+      "title": "Mini-Drill 2: Marine Biology Seminar (Section 3 Distractor Trap)",
+      "instruction": "Choose the correct letter, A, B, or C.",
+      "audioTranscript": "Professor: Now Liam, before we review your coral reef survey data, what did you decide regarding the water depth parameters?\nLiam: Well, our supervisor initially suggested taking samples down at 25 metres where human disturbance is minimal. And Chloe thought 10 metres would give us the richest biodiversity.\nProfessor: Both valid points. But what did your team actually do?\nLiam: After checking the tidal currents on the reef crest, we concluded that 15 metres was the only depth where our sensor equipment could maintain steady calibration for the full 48-hour cycle.\nProfessor: That makes complete methodological sense.",
+      "question": {
+        "text": "At what depth did the research team take their continuous sensor samples?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "10 metres (near the reef biodiversity zone)"
+          },
+          {
+            "letter": "B",
+            "text": "15 metres (due to sensor calibration and currents)"
+          },
+          {
+            "letter": "C",
+            "text": "25 metres (below the human disturbance threshold)"
+          }
+        ],
+        "correctOption": "B",
+        "explanation": "10 metres was Chloe's idea, and 25 metres was the supervisor's recommendation (both distractors). The team actually decided on 15 metres due to tidal currents and sensor stability."
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are there in IELTS Listening and how long does it take?",
+      "a": "The IELTS Listening examination consists of 40 questions split across 4 sections (10 questions per section). The audio recording plays for approximately 30 minutes without pauses. In the paper-based exam, you get 10 minutes at the end to transfer your handwritten notes to the official answer sheet. In the computer-delivered exam, you get 2 minutes to review your answers on screen."
+    },
+    {
+      "q": "Can I listen to the audio recording more than once?",
+      "a": "No. The recording is played strictly ONCE. There are no replays or pauses. This is why previewing questions during the allocated 30–45 second preparation intervals before each section and underlining keywords is critical to anticipating answers before they are spoken."
+    },
+    {
+      "q": "Are the Listening questions identical for Academic and General Training?",
+      "a": "Yes. Unlike the Reading and Writing modules which differ between Academic and General Training, the IELTS Listening test is completely identical for both candidate groups. Both groups face the exact same recording, question types, and scoring conversion curve."
+    },
+    {
+      "q": "What happens if I write more words than the specified word limit?",
+      "a": "If an instruction says 'NO MORE THAN TWO WORDS' and you write three words, your answer is automatically marked incorrect and receives zero marks, even if the correct keyword was part of your phrase. Always check the word limit instruction at the beginning of every question set."
+    },
+    {
+      "q": "Is spelling strictly checked in IELTS Listening?",
+      "a": "Yes, spelling accuracy is absolute. If a word is misspelled (for example, writing 'enviroment' instead of 'environment' or 'accomodation' instead of 'accommodation'), you lose the mark. Both standard British English and American English spellings are accepted (e.g., color or colour, centre or center)."
+    },
+    {
+      "q": "Are hyphenated words and numbers counted as one word?",
+      "a": "Yes. Hyphenated words such as 'part-time' or 'well-known' count as a single word. Numbers can be written as numerals (e.g., 25) or as words (e.g., twenty-five), and either counts as a single number/word."
+    },
+    {
+      "q": "What accents will I hear on the test?",
+      "a": "The IELTS test is an international English test. You will hear authentic native speakers with British, Australian, New Zealand, American, and Canadian accents. Practicing with a wide variety of English media and dialect podcasts ensures you are not caught off guard by regional vowel shifts or colloquial pacing."
+    },
+    {
+      "q": "What should I do if I miss an answer while listening?",
+      "a": "Never panic or stop listening. The recording will continue moving forward. If you freeze trying to remember a missed blank, you will likely miss the subsequent 2 or 3 questions as well. Immediately skip the missed item, focus your attention on the keywords of the next question, and make an educated guess on the missed blank during the final transfer/review window."
+    }
+  ]
+}

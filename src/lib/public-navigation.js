@@ -96,7 +96,7 @@ export const PRACTICE_NAV_ITEMS = [
     slug: 'listening',
     title: 'Listening',
     shortDesc: 'Section 1 to 4 audio tracks with instant answer sheet marking',
-    href: '/listening',
+    href: '/practice/listening',
     dashboardHref: '/listening',
     ctaLabel: 'Start Listening',
     icon: 'Headphones',

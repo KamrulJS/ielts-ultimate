@@ -106,7 +106,8 @@ export function PublicNavbar() {
     pathname === '/writing' ||
     pathname === '/listening' ||
     pathname === '/speaking' ||
-    pathname === '/mock-test';
+    pathname === '/mock-test' ||
+    pathname.startsWith('/practice');
 
   return (
     <>

@@ -27,7 +27,10 @@ export function LoginView() {
   const searchParams = useSearchParams();
   const app = useApp?.() || {};
   const hydrated = app.hydrated ?? false;
-  const auth = app.auth || { isAuthenticated: false, role: null };
+  const auth = useMemo(
+    () => app.auth || { isAuthenticated: false, role: null },
+    [app.auth]
+  );
   const loginWithCredentials = app.loginWithCredentials || (() => ({ success: false }));
   const registerStudent = app.registerStudent || (() => ({ success: false }));
   const logout = app.logout || (() => {});

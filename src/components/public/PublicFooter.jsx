@@ -85,6 +85,9 @@ export function PublicFooter() {
               <Link href="/about" className={styles.footerLink}>
                 About IELTS Ultimate
               </Link>
+              <Link href="/practice/listening" className={styles.footerLink}>
+                Listening Practice Guide
+              </Link>
               <Link href="/contact" className={styles.footerLink}>
                 Contact &amp; Support
               </Link>
