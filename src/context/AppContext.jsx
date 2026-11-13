@@ -454,8 +454,8 @@ export function AppProvider({ children }) {
         expectedRole,
       });
 
-      if (!res.ok) {
-        return res;
+      if (!res.ok && !res.success) {
+        return { ok: false, success: false, error: res.error || 'Authentication failed' };
       }
 
       const session = {
@@ -484,7 +484,7 @@ export function AppProvider({ children }) {
         showToast('Signed in to Admin Console', 'success');
       }
 
-      return { ok: true, role: res.user.role };
+      return { ok: true, success: true, role: res.user.role };
     },
     [showToast]
   );
@@ -509,8 +509,8 @@ export function AppProvider({ children }) {
         track,
       });
 
-      if (!res.ok) {
-        return res;
+      if (!res.ok && !res.success) {
+        return { ok: false, success: false, error: res.error || 'Registration failed' };
       }
 
       const session = {
@@ -535,7 +535,7 @@ export function AppProvider({ children }) {
       }));
 
       showToast(`Account created — welcome, ${res.user.name.split(' ')[0]}!`, 'success');
-      return { ok: true, role: 'student' };
+      return { ok: true, success: true, role: 'student' };
     },
     [showToast]
   );

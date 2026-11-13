@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "title": "Complete IELTS Speaking Guide & Preparation Module",
+    "description": "Master IELTS Speaking Parts 1, 2, and 3 with the 4 official assessment rubrics, 1-minute cue card strategy, PEEC discussion frameworks, and speech scoring criteria."
+  },
+  "hero": {
+    "badge": "IELTS Speaking Module",
+    "title": "Master IELTS Speaking Parts 1, 2 & 3",
+    "subtitle": "Discover the exact criteria IELTS examiners listen for across Fluency, Vocabulary, Grammar, and Pronunciation. Learn proven frameworks for Part 2 cue cards and abstract Part 3 discussions.",
+    "stats": [
+      { "label": "Exam Duration", "value": "11–14 Mins" },
+      { "label": "Speaking Parts", "value": "3 Test Sections" },
+      { "label": "Assessment Criteria", "value": "4 Official Rubrics" },
+      { "label": "Curated Topics", "value": "15 Exam Topics" }
+    ]
+  },
+  "tableOfContents": [
+    { "id": "overview", "title": "1. IELTS Speaking Overview & Format" },
+    { "id": "three-parts", "title": "2. Detailed Breakdown of Parts 1, 2 & 3" },
+    { "id": "assessment-criteria", "title": "3. The 4 Official Assessment Criteria" },
+    { "id": "part2-strategy", "title": "4. Part 2 Cue Card: 1-Minute Note-Taking" },
+    { "id": "part3-framework", "title": "5. Part 3 Abstract Discussion & PEEC Method" },
+    { "id": "pronunciation-guide", "title": "6. Pronunciation, Stress & Intonation" },
+    { "id": "band-descriptors", "title": "7. Band Descriptors (Band 6 to 9)" },
+    { "id": "interactive-drills", "title": "8. Interactive Speaking Drills" },
+    { "id": "topic-library", "title": "9. Curated Exam Topics Library" },
+    { "id": "faqs", "title": "10. Frequently Asked Questions" }
+  ],
+  "overview": {
+    "summary": "The IELTS Speaking test is a one-on-one structured spoken interview between you and a certified examiner (or conducted via high-definition video call in computer-delivered test centres). The test is identical for both Academic and General Training candidates and lasts between 11 and 14 minutes.",
+    "keyFacts": [
+      { "title": "Test Delivery", "desc": "Face-to-face or official HD video call in a private soundproof booth." },
+      { "title": "Audio Recording", "desc": "The entire session is recorded on an encrypted digital recorder for quality control and re-marking if requested." },
+      { "title": "Uniform Format", "desc": "Both Academic and General Training candidates take the exact same Speaking test." },
+      { "title": "Examiner Role", "desc": "The examiner adheres to strict script timings and follows official scripted prompts." }
+    ]
+  },
+  "threeParts": [
+    {
+      "part": "Part 1: Introduction & Interview",
+      "duration": "4 to 5 Minutes",
+      "focus": "Familiar everyday topics (hometown, studies, work, hobbies, daily habits, food, weather).",
+      "objective": "To establish rapport and assess your ability to give natural, expanded answers about yourself without artificial pauses.",
+      "bestStrategy": "Use the AREA formula: Answer directly + Reason + Example/Detail. Speak for 2–4 sentences per question. Avoid one-word answers ('Yes, I do') or excessively long speeches."
+    },
+    {
+      "part": "Part 2: Individual Long Turn (Cue Card)",
+      "duration": "3 to 4 Minutes (1m prep + 1–2m monologue)",
+      "focus": "A specific personal experience, object, person, place, or event specified on a cue card with 3-4 bullet prompts.",
+      "objective": "To assess your capacity to organize ideas coherently and speak at length on a given topic for up to 2 uninterrupted minutes.",
+      "bestStrategy": "Use your 1 minute of preparation to jot down key collocations and a chronological timeline. Aim to speak for the full 2 minutes until the examiner politely gestures or stops you."
+    },
+    {
+      "part": "Part 3: Two-Way Analytical Discussion",
+      "duration": "4 to 5 Minutes",
+      "focus": "Abstract, analytical, and speculative topics related thematically to your Part 2 topic.",
+      "objective": "To evaluate your ability to discuss broader societal issues, compare alternatives, speculate about the future, and defend points of view.",
+      "bestStrategy": "Shift from personal anecdotes to general societal observations. Use hedging language ('It is often argued that...', 'A plausible explanation might be...')."
+    }
+  ],
+  "assessmentCriteria": [
+    {
+      "code": "FC",
+      "name": "Fluency and Coherence",
+      "weight": "25% of Score",
+      "description": "Assesses your ability to speak continuously with natural rhythm and minimal hesitation. Examiners distinguish between language-related hesitations (searching for words or grammar) and content-related pauses (thinking what to say). Coherence refers to how logically your ideas connect using discourse markers.",
+      "band9Benchmark": "Speaks fluently with only rare repetition or self-correction; hesitation is content-related rather than to search for words."
+    },
+    {
+      "code": "LR",
+      "name": "Lexical Resource",
+      "weight": "25% of Score",
+      "description": "Evaluates the breadth, precision, and appropriateness of your vocabulary. Includes using precise collocations, idiomatic phrasing naturally (not forced clichés), and paraphrasing smoothly when an exact term slips your mind.",
+      "band9Benchmark": "Uses vocabulary with full flexibility and precision in all topics; uses idiomatic language naturally and accurately."
+    },
+    {
+      "code": "GRA",
+      "name": "Grammatical Range and Accuracy",
+      "weight": "25% of Score",
+      "description": "Measures your ability to deploy complex sentence structures naturally (subordinate clauses, conditionals, passive structures, relative pronouns) with a high proportion of error-free sentences.",
+      "band9Benchmark": "Uses a full range of structures naturally and appropriately; consistently produces accurate complex speech."
+    },
+    {
+      "code": "PR",
+      "name": "Pronunciation",
+      "weight": "25% of Score",
+      "description": "Assesses how easily you can be understood throughout the interview. Includes accurate individual sounds, word stress, sentence stress, intonation (rise and fall), and connected speech features.",
+      "band9Benchmark": "Uses a full range of pronunciation features with precision and subtlety; effortless to understand throughout."
+    }
+  ],
+  "part2Strategy": {
+    "title": "The 1-Minute Preparation Blueprint",
+    "advice": "During your 60 seconds of prep time, never write full sentences. Write keywords, collocations, and a 4-bullet storyline.",
+    "steps": [
+      { "step": "Second 0–15: Topic Lock & Tense Check", "desc": "Identify the primary tense required. If the cue says 'Describe a building you visited', your narrative must be in Past Simple ('I visited', 'I was struck by'). If it says 'a place you would like to visit', use Future/Conditional ('I would love to travel to')." },
+      { "step": "Second 15–40: Spidergram Keywords", "desc": "Write 2-3 advanced adjectives and collocations for each bullet point on your card instead of writing full sentences." },
+      { "step": "Second 40–60: Storytelling Arc", "desc": "Plan a brief personal story or vivid memory. Storytelling provides natural chronological momentum and prevents you from running out of things to say at 1 minute." }
+    ]
+  },
+  "part3Framework": {
+    "title": "The PEEC Framework for Part 3 Mastery",
+    "formula": "Point • Explain • Example • Counter / Speculate",
+    "steps": [
+      { "letter": "P", "name": "Point", "example": "Well, in my view, modern architecture significantly enhances a city's global prominence." },
+      { "letter": "E", "name": "Explain", "example": "This is primarily because iconic skyline structures attract international media exposure, foreign investment, and tourism revenues." },
+      { "letter": "E", "name": "Example", "example": "For instance, the Sydney Opera House or Dubai's Burj Khalifa serve as immediate visual ambassadors for their respective nations." },
+      { "letter": "C", "name": "Counter / Speculate", "example": "On the other hand, if developments disregard local heritage, cities risk losing their authentic cultural soul in pursuit of generic modernity." }
+    ]
+  },
+  "pronunciationGuide": {
+    "title": "Pronunciation vs. Accent: What Examiners Actually Score",
+    "truth": "Your native regional accent will NOT lower your band score. IELTS celebrates global accents (Asian, European, African, Latin American). Examiners only evaluate intelligibility and the use of phonological features.",
+    "pillars": [
+      { "feature": "Word Stress", "rule": "Stressing the correct syllable: PHO-to-graph vs pho-TOG-ra-phy vs pho-to-GRAPH-ic." },
+      { "feature": "Sentence Stress", "rule": "Emphasizing content words (nouns, verbs, adjectives) while unstressed function words become relaxed (schwa sound /ə/)." },
+      { "feature": "Intonation Contours", "rule": "Rising tone for lists and questions; falling tone for statements and finished thoughts to convey natural authority." },
+      { "feature": "Connected Speech", "rule": "Natural linking between words ('pick_it_up', 'as_a_result') rather than robotic word-by-word staccato delivery." }
+    ]
+  },
+  "bandDescriptors": [
+    {
+      "band": "Band 9",
+      "level": "Expert Speaker",
+      "fluency": "Speaks fluently with rare hesitation. Coherent and comprehensive development.",
+      "lexical": "Full flexibility and precision in all topics; idiomatic language used naturally.",
+      "grammar": "Full range of structures naturally; consistently accurate complex structures.",
+      "pronunciation": "Full range of features with precision and subtlety; effortless to understand."
+    },
+    {
+      "band": "Band 8",
+      "level": "Very Good Speaker",
+      "fluency": "Speaks fluently with only occasional repetition or self-correction.",
+      "lexical": "Uses wide vocabulary readily and flexibly; skillfully uses less common idioms.",
+      "grammar": "Uses wide range of structures flexibly; produces majority of error-free sentences.",
+      "pronunciation": "Uses wide range of phonological features; easy to understand throughout."
+    },
+    {
+      "band": "Band 7",
+      "level": "Good Speaker",
+      "fluency": "Speaks at length without noticeable effort; may show language-related hesitation.",
+      "lexical": "Uses vocabulary resource flexibly; uses some less common and idiomatic words.",
+      "grammar": "Uses range of complex structures with some flexibility; frequently produces error-free sentences.",
+      "pronunciation": "Shows all positive features of Band 6 and some of Band 8; generally clear."
+    },
+    {
+      "band": "Band 6",
+      "level": "Competent Speaker",
+      "fluency": "Willing to speak at length though may lose coherence at times through repetition.",
+      "lexical": "Has wide enough vocabulary to discuss topics at length, though vocabulary may be basic.",
+      "grammar": "Uses a mix of simple and complex structures, but with limited flexibility.",
+      "pronunciation": "Uses a range of features with mixed control; generally understood."
+    }
+  ],
+  "interactiveDrills": [
+    {
+      "id": "drill-part3",
+      "title": "Drill 1: Expanding Part 3 with Abstract Depth",
+      "question": "Examiner asks: 'Do people today spend too much time on digital devices?' Which response demonstrates Band 8+ analytical depth?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes, I agree. I use my smartphone for eight hours every day for gaming and social media, and so do all my friends.",
+          "isCorrect": false,
+          "feedback": "Incorrect. This is overly personal for Part 3. Part 3 requires societal and analytical perspectives rather than a simple personal diary answer."
+        },
+        {
+          "id": "B",
+          "text": "Undoubtedly. While digital platforms enhance occupational connectivity, empirical studies indicate that excessive screen exposure has accelerated attention deficits and sedentary lifestyle diseases across diverse demographics.",
+          "isCorrect": true,
+          "feedback": "Correct! This provides a balanced societal perspective ('While platforms enhance... studies indicate...'), sophisticated vocabulary ('empirical studies', 'sedentary lifestyle'), and abstract evaluation."
+        },
+        {
+          "id": "C",
+          "text": "Yes, they do, because phones are very interesting and cheap, so everyone has one in their pocket.",
+          "isCorrect": false,
+          "feedback": "Incorrect. The vocabulary is basic ('very interesting', 'cheap') and lacks grammatical variety."
+        }
+      ]
+    },
+    {
+      "id": "drill-discourse",
+      "title": "Drill 2: Natural Discourse Markers",
+      "question": "Which phrase is the most natural way to buy thinking time in Part 3 without awkward silence or artificial filler words like 'umm'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "'That is a thought-provoking question; looking at it from an economic perspective...'",
+          "isCorrect": true,
+          "feedback": "Correct! This acknowledges the complexity of the inquiry while buying 2–3 seconds to structure an academic response."
+        },
+        {
+          "id": "B",
+          "text": "'Wait, let me think about grammar first before I say anything.'",
+          "isCorrect": false,
+          "feedback": "Incorrect. This explicitly highlights hesitation to the examiner and lowers Fluency & Coherence."
+        },
+        {
+          "id": "C",
+          "text": "'As we all know from the beginning of human history, everything is changing...'",
+          "isCorrect": false,
+          "feedback": "Incorrect. Memorized philosophical clichés are recognized immediately by examiners and ignored."
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does my regional accent affect my IELTS Speaking score?",
+      "answer": "No. IELTS examiners are trained to assess international candidates from all linguistic backgrounds. You are scored on clarity, stress, and intonation, not on sounding like a native British or American speaker."
+    },
+    {
+      "question": "Can I ask the examiner to repeat or explain a question?",
+      "answer": "Yes. In Part 1 and Part 2, you can ask the examiner to repeat the question ('Could you repeat that, please?'). In Part 3, you can even ask them to rephrase or clarify a word ('Could you explain what you mean by municipal heritage?'). This will not penalize your score if done naturally."
+    },
+    {
+      "question": "What happens if I stop speaking before 2 minutes in Part 2?",
+      "answer": "If you speak for less than 1 minute and 30 seconds, the examiner will remain silent and gesture for you to continue. Stopping prematurely prevents you from demonstrating full fluency and grammatical range, which can cap your Fluency score at Band 6."
+    },
+    {
+      "question": "How does the AI Speaking Examiner grade my recordings on this platform?",
+      "answer": "Our AI Speaking Examiner utilizes OpenAI Whisper transcription calibrated to phonological speech models. It evaluates fluency rate (words per minute), lexical diversity, grammatical accuracy, and thematic coherence across official IELTS criteria."
+    }
+  ]
+}
+

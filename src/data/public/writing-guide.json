@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "title": "Complete IELTS Writing Guide & Practice Module",
+    "description": "Master IELTS Academic & General Writing with comprehensive task guides, the 4 official assessment criteria, 20/40 minute time management strategies, and Band 9 model answers."
+  },
+  "hero": {
+    "badge": "IELTS Writing Module",
+    "title": "Master IELTS Writing Task 1 & Task 2",
+    "subtitle": "From visual data reporting and formal correspondence to discursive Band 9 essays — learn the exact criteria IELTS examiners score against and practice with instant AI feedback.",
+    "stats": [
+      { "label": "Exam Duration", "value": "60 Mins" },
+      { "label": "Assessment Criteria", "value": "4 Official Rubrics" },
+      { "label": "Word Target", "value": "150 + 250 Words" },
+      { "label": "Practice Tasks", "value": "12 Tasks Available" }
+    ]
+  },
+  "tableOfContents": [
+    { "id": "overview", "title": "1. IELTS Writing Overview & Format" },
+    { "id": "criteria", "title": "2. The 4 Official Assessment Criteria" },
+    { "id": "task1-academic", "title": "3. Task 1 Academic: Visual Reporting" },
+    { "id": "task1-general", "title": "4. Task 1 General: Letter Writing" },
+    { "id": "task2-essays", "title": "5. Task 2: Discursive Essay Masterclass" },
+    { "id": "time-strategy", "title": "6. Time Management & The 20/40 Rule" },
+    { "id": "band-descriptors", "title": "7. Band Descriptors & Scoring Breakdown" },
+    { "id": "model-samples", "title": "8. Band 9 Model Answers & Analysis" },
+    { "id": "interactive-drills", "title": "9. Interactive Writing Drills" },
+    { "id": "practice-library", "title": "10. Authentic Tasks Practice Library" },
+    { "id": "faqs", "title": "11. Frequently Asked Questions" }
+  ],
+  "overview": {
+    "summary": "The IELTS Writing test evaluates how effectively and accurately you can present ideas, summarize factual information, construct an argument, and employ academic or formal English under timed exam conditions.",
+    "tracks": [
+      {
+        "name": "Academic Writing",
+        "audience": "University applicants, professional registrations (GMC, NMC), and academic visas.",
+        "task1": "Describe visual information (graph, chart, table, map, or process) in at least 150 words.",
+        "task2": "Write a formal discursive academic essay of at least 250 words responding to a point of view, argument, or problem."
+      },
+      {
+        "name": "General Training Writing",
+        "audience": "Work permits, permanent residency (Express Entry, Australian PR), and secondary education.",
+        "task1": "Write a letter (formal, semi-formal, or personal) in at least 150 words addressing a real-life situation.",
+        "task2": "Write a semi-formal or formal discursive essay of at least 250 words on a topic of general interest."
+      }
+    ],
+    "weightingRule": "Task 2 carries twice as much weight towards your final Writing Band score as Task 1. Therefore, spending 40 minutes on Task 2 and 20 minutes on Task 1 is strongly recommended."
+  },
+  "assessmentCriteria": [
+    {
+      "code": "TA / TR",
+      "name": "Task Achievement (Task 1) / Task Response (Task 2)",
+      "weight": "25% of Writing Score",
+      "description": "Evaluates how thoroughly you address every part of the prompt. For Task 1, you must provide a clear overview and highlight key trends/features with accurate data. For Task 2, you must present a clear, fully developed position throughout, with well-supported arguments.",
+      "band9Target": "Fully satisfies all requirements of the prompt with a clear, sustained position and nuanced supporting evidence."
+    },
+    {
+      "code": "CC",
+      "name": "Coherence and Cohesion",
+      "weight": "25% of Writing Score",
+      "description": "Assesses the overall clarity, organization, and flow of your writing. Coherence is how logical and intelligible your progression of ideas is. Cohesion refers to the smooth linking of sentences and paragraphs using appropriate referents, conjunctions, and discourse markers without over-use.",
+      "band9Target": "Skillfully manages paragraphing and uses cohesive devices seamlessly so that the reader moves effortlessly through the response."
+    },
+    {
+      "code": "LR",
+      "name": "Lexical Resource",
+      "weight": "25% of Writing Score",
+      "description": "Measures your vocabulary range, accuracy, and precision. High-scoring candidates use less common lexical items, precise collocations, and varied academic paraphrasing while avoiding clumsy forced synonyms or spelling errors.",
+      "band9Target": "Uses a wide range of vocabulary with very natural and sophisticated control of lexical features; rare minor slips only."
+    },
+    {
+      "code": "GRA",
+      "name": "Grammatical Range and Accuracy",
+      "weight": "25% of Writing Score",
+      "description": "Evaluates your ability to use a flexible mix of complex sentence structures (conditionals, relative clauses, passive voice, inversion) accurately and naturally, with rare grammatical and punctuation errors.",
+      "band9Target": "Uses a full range of structures naturally and with complete flexibility; produces error-free sentences throughout."
+    }
+  ],
+  "task1Academic": {
+    "title": "Academic Task 1: Visual Data Reporting",
+    "wordRequirement": "Minimum 150 words (aim for 160–185 words)",
+    "suggestedTime": "20 minutes",
+    "goldenRule": "You MUST include a clear Overview paragraph highlighting the main trends, differences, or stages. Without an overview, Task Achievement cannot exceed Band 5.",
+    "structure": [
+      { "part": "Paragraph 1: Introduction", "purpose": "Paraphrase the prompt using synonyms and grammatical reordering (1-2 sentences)." },
+      { "part": "Paragraph 2: Overview", "purpose": "Identify 2-3 significant overall trends, the highest/lowest values, or main phases. No specific numerical data here." },
+      { "part": "Paragraph 3: Detail Body 1", "purpose": "Group similar categories or first time periods together; report key figures, comparisons, and changes with precise data." },
+      { "part": "Paragraph 4: Detail Body 2", "purpose": "Report remaining categories or contrasting periods; compare directly with Body 1 figures." }
+    ],
+    "visualTypes": [
+      { "type": "Line Graphs", "focus": "Chronological trends, sharp rises, gradual declines, fluctuations, plateaus." },
+      { "type": "Bar Charts", "focus": "Categorical comparisons, rankings, significant contrasts between entities." },
+      { "type": "Pie Charts", "focus": "Proportions, percentages, largest vs smallest shares of a whole." },
+      { "type": "Tables", "focus": "High-density data extraction, identifying extremes, anomalies, and correlations." },
+      { "type": "Process Diagrams", "focus": "Sequential stages (natural cycles or human manufacturing), passive voice usage." },
+      { "type": "Maps / Layouts", "focus": "Geographical development, before/after urban transformations, directional prepositions." }
+    ]
+  },
+  "task1General": {
+    "title": "General Training Task 1: Real-World Letter",
+    "wordRequirement": "Minimum 150 words",
+    "suggestedTime": "20 minutes",
+    "letterTypes": [
+      {
+        "tone": "Formal Letter",
+        "recipient": "A manager, company director, university dean, or someone you do not know.",
+        "salutation": "Dear Sir or Madam, / Dear Mr. Henderson,",
+        "signOff": "Yours faithfully, (if name unknown) / Yours sincerely, (if name known)",
+        "conventions": "No contractions (use 'do not', not 'don't'), formal polite vocabulary, direct purpose statement."
+      },
+      {
+        "tone": "Semi-Formal Letter",
+        "recipient": "A landlord, colleague, neighbour, or local club coordinator.",
+        "salutation": "Dear Mr. Davis, / Dear Mrs. Jenkins,",
+        "signOff": "Warm regards, / Best regards,",
+        "conventions": "Polite, respectful tone; clear factual points; moderate formality."
+      },
+      {
+        "tone": "Informal / Personal Letter",
+        "recipient": "A close friend or family member.",
+        "salutation": "Dear Alex, / Hi Marcus,",
+        "signOff": "Best wishes, / Warmly, / Talk soon,",
+        "conventions": "Conversational idioms, natural contractions allowed, warm personal openings."
+      }
+    ]
+  },
+  "task2Essays": {
+    "title": "Task 2: Discursive Essay Masterclass",
+    "wordRequirement": "Minimum 250 words (aim for 270–290 words)",
+    "suggestedTime": "40 minutes",
+    "essayTypes": [
+      {
+        "type": "Opinion (Agree or Disagree)",
+        "promptExample": "Some people think universities should prioritize job training over theoretical education. To what extent do you agree or disagree?",
+        "strategy": "State your clear stance in the introduction. Maintain this stance across two body paragraphs, each providing a distinct, fully reasoned argument with real-world examples."
+      },
+      {
+        "type": "Discussion (Discuss Both Views + Give Opinion)",
+        "promptExample": "Some believe that unpaid community service should be compulsory in high school. Others feel it places an unfair burden on students. Discuss both views and give your opinion.",
+        "strategy": "Dedicate Body 1 to exploring View A objectively. Dedicate Body 2 to View B and clearly explain why you favor this side. Reiterate your conclusive position in the final paragraph."
+      },
+      {
+        "type": "Problems and Solutions (or Causes & Effects)",
+        "promptExample": "Traffic congestion in metropolitan centers has worsened significantly in recent decades. What are the main causes of this problem, and what measures can be taken to solve it?",
+        "strategy": "Body 1 analyzes 2 distinct root causes. Body 2 pairs actionable, realistic solutions directly addressing those causes."
+      },
+      {
+        "type": "Advantages and Disadvantages",
+        "promptExample": "In many countries, working from home has become standard. Do the advantages of this trend outweigh the disadvantages?",
+        "strategy": "Examine benefits and drawbacks in balanced paragraphs. Provide a clear comparative assessment on whether benefits prevail."
+      },
+      {
+        "type": "Two-Part Direct Questions",
+        "promptExample": "Happiness is considered essential for human life. Why is it difficult to define? What factors are important in achieving happiness?",
+        "strategy": "Answer question 1 thoroughly in Body Paragraph 1. Answer question 2 thoroughly in Body Paragraph 2. Maintain a unified academic tone."
+      }
+    ],
+    "paragraphFormula": [
+      { "part": "Introduction (40–50 words)", "steps": "1. Paraphrase the general background topic. 2. Thesis statement: clearly declare your stance and preview your primary points." },
+      { "part": "Body Paragraph 1 (90–100 words)", "steps": "1. Topic Sentence (main idea). 2. Explanation / Justification. 3. Concrete Example / Evidence. 4. Concluding / Linking sentence connecting back to the thesis." },
+      { "part": "Body Paragraph 2 (90–100 words)", "steps": "1. Topic Sentence (second main idea or counter-view). 2. Explanation. 3. Concrete Example. 4. Linking sentence." },
+      { "part": "Conclusion (35–45 words)", "steps": "1. Restate your thesis statement in fresh words. 2. Summarize key supporting pillars. No brand-new arguments introduced." }
+    ]
+  },
+  "timeManagement": {
+    "rule": "The 20 / 40 Minute Golden Allocation",
+    "task1Breakdown": [
+      { "phase": "Analyze & Plan", "time": "3–4 Mins", "action": "Identify key features, high/low points, main trend; formulate your 2-sentence Overview before writing." },
+      { "phase": "Draft Response", "time": "13–14 Mins", "action": "Write introduction, overview, and 2 detail paragraphs grouping data logically." },
+      { "phase": "Review & Edit", "time": "2–3 Mins", "action": "Check word count (150+), verify numbers against the graphic, correct subject-verb agreement and spelling." }
+    ],
+    "task2Breakdown": [
+      { "phase": "Deconstruct Prompt & Outline", "time": "5–6 Mins", "action": "Highlight keywords, determine your clear position, brainstorm 2 solid arguments with examples." },
+      { "phase": "Draft Complete Essay", "time": "28–30 Mins", "action": "Write intro, 2 detailed body paragraphs with topic sentences and evidence, and conclusion." },
+      { "phase": "Proofread & Refine", "time": "4–5 Mins", "action": "Eliminate repetition, ensure cohesive transitions, check punctuation (commas after fronted adverbials)." }
+    ]
+  },
+  "bandDescriptors": [
+    {
+      "band": "Band 9",
+      "level": "Expert User",
+      "taskResponse": "Fully addresses all parts with sophisticated, nuanced ideas.",
+      "coherence": "Seamless cohesion and effortless paragraph progression.",
+      "lexical": "Natural and sophisticated control of rare lexical items.",
+      "grammar": "Full range of structures used with complete accuracy."
+    },
+    {
+      "band": "Band 8",
+      "level": "Very Good User",
+      "taskResponse": "Sufficiently covers all parts with well-developed relevant responses.",
+      "coherence": "Sequences information logically; clear paragraphing throughout.",
+      "lexical": "Wide resource with fluency and flexibility; skillful collocations.",
+      "grammar": "Wide range of structures; majority of sentences are error-free."
+    },
+    {
+      "band": "Band 7",
+      "level": "Good User",
+      "taskResponse": "Addresses all parts; presents a clear position throughout.",
+      "coherence": "Logically organizes information; uses a range of cohesive devices.",
+      "lexical": "Sufficient range of vocabulary to allow some flexibility and style.",
+      "grammar": "Uses a variety of complex structures; frequent error-free sentences."
+    },
+    {
+      "band": "Band 6",
+      "level": "Competent User",
+      "taskResponse": "Addresses prompt adequately; main ideas may lack full expansion.",
+      "coherence": "Presents information with some progression; cohesive devices may be faulty.",
+      "lexical": "Adequate range of vocabulary with some noticeable errors in word choice.",
+      "grammar": "Mix of simple and complex sentence forms with minor grammatical slips."
+    }
+  ],
+  "interactiveDrills": [
+    {
+      "id": "drill-overview",
+      "title": "Drill 1: Identifying a Band 9 Task 1 Overview",
+      "scenario": "A line graph depicts renewable energy consumption across 4 nations between 1990 and 2020. Nation A rose from 10% to 45%, Nation B rose from 5% to 20%, while Nations C and D hovered below 8%. Which of the following sentences functions as the most effective Band 9 overview?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Overall, Nation A consumed 10% in 1990 and ended at 45% in 2020, while Nation B had 5% and 20% respectively.",
+          "isCorrect": false,
+          "feedback": "Incorrect. This contains specific numerical figures. An overview must identify major general patterns, not recite raw data points."
+        },
+        {
+          "id": "B",
+          "text": "Overall, all surveyed nations saw an increase in renewable energy adoption over the thirty-year period, with Nation A demonstrating the most substantial expansion throughout.",
+          "isCorrect": true,
+          "feedback": "Correct! This provides a macro-level trend (all nations increased) and distinguishes the dominant category (Nation A expanded most) without premature numerical clutter."
+        },
+        {
+          "id": "C",
+          "text": "To sum up, renewable energy is very beneficial for modern environments and global warming.",
+          "isCorrect": false,
+          "feedback": "Incorrect. In Task 1 you must never give your personal opinion or speculative reasons not shown on the graph."
+        }
+      ]
+    },
+    {
+      "id": "drill-cohesion",
+      "title": "Drill 2: Cohesive Device Selection for Task 2",
+      "scenario": "Select the most appropriate transitional device to complete the sentence: 'Proponents argue that artificial intelligence streamlines industrial output; ________, critics contend that widespread automation risks exacerbating socioeconomic inequality.'",
+      "options": [
+        { "id": "A", "text": "consequently", "isCorrect": false, "feedback": "Incorrect. 'Consequently' signals cause and effect, whereas here we have a contrasting counter-perspective." },
+        { "id": "B", "text": "conversely", "isCorrect": true, "feedback": "Correct! 'Conversely' introduces an opposing, parallel viewpoint with elegant academic precision." },
+        { "id": "C", "text": "furthermore", "isCorrect": false, "feedback": "Incorrect. 'Furthermore' introduces an additional supporting point rather than a contrasting critique." }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What happens if I write fewer than 150 or 250 words?",
+      "answer": "Writing under the minimum word limit will directly penalize your Task Achievement (Task 1) or Task Response (Task 2) score. While examiners no longer deduct rigid points per missing word, an underlength essay cannot adequately develop ideas or satisfy prompt requirements."
+    },
+    {
+      "question": "Is British or American spelling preferred in IELTS Writing?",
+      "answer": "Both British and American spelling systems are 100% accepted by IELTS examiners. However, you must remain consistent within your essay. Avoid switching between 'colour' and 'color' or 'analyse' and 'analyze' in the same text."
+    },
+    {
+      "question": "Can I use personal pronouns ('I', 'my') in Task 2?",
+      "answer": "Yes, but use them judiciously. When the prompt asks 'To what extent do you agree?', it is completely natural to state 'In my view' or 'I believe'. However, avoid over-personalizing objective claims with phrases like 'My uncle told me that...'. Keep examples academic or generalized."
+    },
+    {
+      "question": "Should I write a conclusion in Task 1?",
+      "answer": "No. In Task 1, you write a factual report, not an argumentative essay. You must include an Overview (best placed as Paragraph 2 or at the very end), but you do not need a speculative conclusion or recommendation."
+    },
+    {
+      "question": "How are IELTS Writing essays graded on our platform?",
+      "answer": "Our AI Writing Examiner uses calibrated GPT-4o models trained on thousands of official examiner-scored scripts. You receive individual scores across Task Achievement, Coherence & Cohesion, Lexical Resource, and Grammatical Range, along with annotated sentence corrections."
+    }
+  ]
+}
+

@@ -93,13 +93,15 @@ export function LoginView() {
   // Redirect cleanly if user already holds valid role for destination
   useEffect(() => {
     if (!hydrated || !auth?.isAuthenticated) return;
+    // If user is intentionally creating a new account, do not auto-redirect away from signup
+    if (tab === 'signup' || initialModeParam === 'signup') return;
     const expectedRole = tab === 'admin' || initialRoleParam === 'admin' ? 'admin' : 'student';
     if (isRoleAuthorized(auth, expectedRole)) {
       const safeNext = sanitizeNextPath(rawNext, expectedRole === 'admin' ? '/admin' : '/dashboard');
       const dest = expectedRole === 'admin' ? (safeNext.startsWith('/admin') ? safeNext : '/admin') : safeNext;
       router.replace(dest);
     }
-  }, [hydrated, auth, tab, initialRoleParam, rawNext, router]);
+  }, [hydrated, auth, tab, initialRoleParam, initialModeParam, rawNext, router]);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -114,7 +116,7 @@ export function LoginView() {
         expectedRole,
       });
 
-      if (!result.ok) {
+      if (!result.ok && !result.success) {
         setErrorMsg(result.error || 'Authentication failed. Please verify your credentials.');
         setLoading(false);
         return;
@@ -129,9 +131,10 @@ export function LoginView() {
         }
       }
 
-      const defaultDest = expectedRole === 'admin' ? '/admin' : '/dashboard';
+      const userRole = result.role || expectedRole;
+      const defaultDest = userRole === 'admin' ? '/admin' : '/dashboard';
       const safeNext = sanitizeNextPath(rawNext, defaultDest);
-      const dest = expectedRole === 'admin' ? (safeNext.startsWith('/admin') ? safeNext : '/admin') : safeNext;
+      const dest = userRole === 'admin' ? (safeNext.startsWith('/admin') ? safeNext : '/admin') : safeNext;
       router.replace(dest);
     } catch {
       setErrorMsg('An unexpected authentication error occurred. Please try again.');
@@ -156,13 +159,14 @@ export function LoginView() {
         track: regTrack,
       });
 
-      if (!result.ok) {
-        setErrorMsg(result.error);
+      if (!result.ok && !result.success) {
+        setErrorMsg(result.error || 'Failed to create account. Please check your information.');
         setLoading(false);
         return;
       }
 
-      router.replace(sanitizeNextPath(rawNext, '/dashboard'));
+      const safeNext = sanitizeNextPath(rawNext, '/dashboard');
+      router.replace(safeNext);
     } catch {
       setErrorMsg('An error occurred during account registration. Please try again.');
     } finally {

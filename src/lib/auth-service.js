@@ -137,39 +137,35 @@ export async function authenticateUser({ identifier = '', password = '', expecte
   const cleanPass = password.trim();
 
   if (!cleanId || !cleanPass) {
-    return { ok: false, error: 'Please enter both your username or email address and password.' };
+    return { ok: false, success: false, error: 'Please enter both your username or email address and password.' };
   }
 
-  // 1. Check Demo Admin
-  if (expectedRole === 'admin') {
-    if (
-      (cleanId === DEMO_ADMIN_CREDENTIALS.email || cleanId === DEMO_ADMIN_CREDENTIALS.username) &&
-      cleanPass === DEMO_ADMIN_CREDENTIALS.password
-    ) {
-      return {
-        ok: true,
-        role: 'admin',
-        user: {
-          name: DEMO_ADMIN_CREDENTIALS.name,
-          email: DEMO_ADMIN_CREDENTIALS.email,
-          username: DEMO_ADMIN_CREDENTIALS.username,
-          role: 'admin',
-        },
-      };
-    }
+  // 1. Check Demo Admin (Accepts either email or username, regardless of active tab)
+  if (
+    (cleanId === DEMO_ADMIN_CREDENTIALS.email || cleanId === DEMO_ADMIN_CREDENTIALS.username) &&
+    cleanPass === DEMO_ADMIN_CREDENTIALS.password
+  ) {
     return {
-      ok: false,
-      error: 'Invalid admin credentials. Please use the official demo admin details provided below.',
+      ok: true,
+      success: true,
+      role: 'admin',
+      user: {
+        name: DEMO_ADMIN_CREDENTIALS.name,
+        email: DEMO_ADMIN_CREDENTIALS.email,
+        username: DEMO_ADMIN_CREDENTIALS.username,
+        role: 'admin',
+      },
     };
   }
 
-  // 2. Check Demo Student
+  // 2. Check Demo Student (Accepts either email or username, regardless of active tab)
   if (
     (cleanId === DEMO_STUDENT_CREDENTIALS.email || cleanId === DEMO_STUDENT_CREDENTIALS.username) &&
     cleanPass === DEMO_STUDENT_CREDENTIALS.password
   ) {
     return {
       ok: true,
+      success: true,
       role: 'student',
       user: {
         name: DEMO_STUDENT_CREDENTIALS.name,
@@ -195,6 +191,7 @@ export async function authenticateUser({ identifier = '', password = '', expecte
     if (isPasswordValid) {
       return {
         ok: true,
+        success: true,
         role: matched.role || 'student',
         user: {
           name: matched.name,
@@ -210,6 +207,7 @@ export async function authenticateUser({ identifier = '', password = '', expecte
 
   return {
     ok: false,
+    success: false,
     error: 'Incorrect username, email, or password. Please verify your credentials or create a free account.',
   };
 }
@@ -227,49 +225,52 @@ export async function registerNewUser({
   track = 'Academic',
 }) {
   const cleanName = name.trim();
-  const cleanUsername = username.trim().toLowerCase();
   const cleanEmail = email.trim().toLowerCase();
+  let cleanUsername = (username || '').trim().toLowerCase();
+
+  // If username was omitted, derive from email prefix
+  if (!cleanUsername && cleanEmail.includes('@')) {
+    cleanUsername = cleanEmail.split('@')[0].replace(/[^a-zA-Z0-9_.-]/g, '');
+  }
 
   // 1. Required fields
   if (!cleanName) {
-    return { ok: false, error: 'Please enter your full name.' };
-  }
-  if (!cleanUsername) {
-    return { ok: false, error: 'Please choose a username for your account.' };
+    return { ok: false, success: false, error: 'Please enter your full name.' };
   }
   if (!cleanEmail) {
-    return { ok: false, error: 'Please enter your email address.' };
+    return { ok: false, success: false, error: 'Please enter your email address.' };
+  }
+  if (!cleanUsername) {
+    return { ok: false, success: false, error: 'Please choose a username for your account.' };
   }
   if (!password) {
-    return { ok: false, error: 'Please enter a secure password.' };
+    return { ok: false, success: false, error: 'Please enter a password.' };
   }
 
-  // 2. Username format (3-20 chars, alphanumeric & underscore)
-  const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+  // 2. Email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(cleanEmail)) {
+    return { ok: false, success: false, error: 'Please enter a valid email address (e.g. name@domain.com).' };
+  }
+
+  // 3. Username format (flexible: 3-30 chars, letters, numbers, hyphens, dots, or underscores)
+  const usernameRegex = /^[a-zA-Z0-9_.-]{3,30}$/;
   if (!usernameRegex.test(cleanUsername)) {
     return {
       ok: false,
-      error: 'Username must be 3–20 characters long and contain only letters, numbers, or underscores.',
+      success: false,
+      error: 'Username must be 3–30 characters long and contain only letters, numbers, hyphens, dots, or underscores.',
     };
   }
 
-  // 3. Email format validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(cleanEmail)) {
-    return { ok: false, error: 'Please enter a valid email address (e.g. name@domain.com).' };
-  }
-
-  // 4. Password length & strength (min 6 characters, must contain letters and numbers)
+  // 4. Password length (min 6 characters)
   if (password.length < 6) {
-    return { ok: false, error: 'Password must be at least 6 characters long.' };
-  }
-  if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
-    return { ok: false, error: 'Password must contain both letters and numbers for account security.' };
+    return { ok: false, success: false, error: 'Password must be at least 6 characters long.' };
   }
 
-  // 5. Password confirmation match
-  if (password !== confirmPassword) {
-    return { ok: false, error: 'The password and confirmation password do not match. Please re-enter.' };
+  // 5. Password confirmation match (only when confirmPassword is provided)
+  if (confirmPassword && password !== confirmPassword) {
+    return { ok: false, success: false, error: 'The password and confirmation password do not match.' };
   }
 
   // 6. Check unique username and email against demo credentials
@@ -277,25 +278,25 @@ export async function registerNewUser({
     cleanUsername === DEMO_STUDENT_CREDENTIALS.username ||
     cleanUsername === DEMO_ADMIN_CREDENTIALS.username
   ) {
-    return { ok: false, error: 'This username is already taken. Please choose another username.' };
+    return { ok: false, success: false, error: 'This username is already taken. Please choose another username.' };
   }
   if (
     cleanEmail === DEMO_STUDENT_CREDENTIALS.email ||
     cleanEmail === DEMO_ADMIN_CREDENTIALS.email
   ) {
-    return { ok: false, error: 'An account with this email address already exists. Please sign in instead.' };
+    return { ok: false, success: false, error: 'An account with this email address already exists. Please sign in instead.' };
   }
 
   // 7. Check unique username and email against stored accounts
   const accounts = getRegisteredAccounts();
   const existingByUsername = accounts.find((a) => a.username?.toLowerCase() === cleanUsername);
   if (existingByUsername) {
-    return { ok: false, error: 'This username is already registered. Please choose a different username.' };
+    return { ok: false, success: false, error: 'This username is already registered. Please choose a different username.' };
   }
 
   const existingByEmail = accounts.find((a) => a.email?.toLowerCase() === cleanEmail);
   if (existingByEmail) {
-    return { ok: false, error: 'An account with this email address is already registered. Please sign in.' };
+    return { ok: false, success: false, error: 'An account with this email address is already registered. Please sign in.' };
   }
 
   // 8. Secure salted password hashing (never store plain text)
@@ -318,6 +319,7 @@ export async function registerNewUser({
 
   return {
     ok: true,
+    success: true,
     user: {
       name: newAccount.name,
       username: newAccount.username,

@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "title": "Complete IELTS Full Mock Test Simulation & Exam Day Guide",
+    "description": "Experience authentic 2h 40m IELTS computer-delivered exam simulations covering Listening, Reading, Writing, and Speaking with composite band score calculation."
+  },
+  "hero": {
+    "badge": "Full Simulation Exam",
+    "title": "Authentic IELTS Full Mock Test Simulation",
+    "subtitle": "Test your stamina across Listening, Reading, Writing, and Speaking under realistic timed exam conditions. Experience official computer-delivered navigation, highlighters, and instant composite band prediction.",
+    "stats": [
+      { "label": "Full Exam Duration", "value": "2h 40m + 14m" },
+      { "label": "Exam Modules", "value": "All 4 Skills" },
+      { "label": "Available Mocks", "value": "10 Full Tests" },
+      { "label": "Scoring Engine", "value": "Composite Band" }
+    ]
+  },
+  "tableOfContents": [
+    { "id": "overview", "title": "1. Computer-Delivered Test Overview" },
+    { "id": "skills-timeline", "title": "2. Complete 4-Skill Exam Timeline" },
+    { "id": "band-calculator", "title": "3. Band Calculation & Interactive Calculator" },
+    { "id": "interface-features", "title": "4. Official Computer Screen Features" },
+    { "id": "stamina-tips", "title": "5. Mental Stamina & Pacing Strategies" },
+    { "id": "test-day-checklist", "title": "6. Test Day Simulation Checklist" },
+    { "id": "mock-library", "title": "7. Available Full Mock Tests Library" },
+    { "id": "faqs", "title": "8. Frequently Asked Questions" }
+  ],
+  "overview": {
+    "summary": "Taking a full-length IELTS simulation is the single most reliable predictor of your test-day performance. On test day, you sit the Listening, Reading, and Writing sections in a single continuous 2 hour and 40 minute session with zero breaks between sections. The Speaking test is conducted on the same day or within a few days before/after.",
+    "keyFeatures": [
+      { "title": "Authentic Exam Flow", "desc": "Strict timed progression through Listening (30m), Reading (60m), and Writing (60m) without pauses." },
+      { "title": "Exact CD-IELTS UI", "desc": "Split-screen reading passages, question navigation palette, word count trackers, and audio playback." },
+      { "title": "Composite Band Prediction", "desc": "Weighted algorithm aggregates your performance across all 4 components into an overall Band 0–9 score." }
+    ]
+  },
+  "skillsTimeline": [
+    {
+      "skill": "1. Listening",
+      "duration": "30 Minutes (+ 2 mins review)",
+      "questions": "40 Questions • 4 Audio Sections",
+      "format": "Section 1: Everyday conversation; Section 2: Monologue on general topic; Section 3: Academic discussion between up to 4 people; Section 4: University lecture monologue. Audio plays ONCE only."
+    },
+    {
+      "skill": "2. Reading",
+      "duration": "60 Minutes",
+      "questions": "40 Questions • 3 Complex Passages",
+      "format": "Total length approx. 2,150–2,750 words. Texts taken from books, journals, magazines, and newspapers. No extra transfer time for answers."
+    },
+    {
+      "skill": "3. Writing",
+      "duration": "60 Minutes",
+      "questions": "2 Tasks (Task 1 + Task 2)",
+      "format": "Task 1 (150 words, 20 mins): Academic graph/chart description OR General letter. Task 2 (250 words, 40 mins): Discursive formal essay worth 67% of total Writing mark."
+    },
+    {
+      "skill": "4. Speaking",
+      "duration": "11 to 14 Minutes",
+      "questions": "3 Parts • One-on-One Interview",
+      "format": "Part 1: Introduction (4–5m). Part 2: Cue Card monologue (3–4m). Part 3: Deep abstract discussion (4–5m). Tested separately or on same afternoon."
+    }
+  ],
+  "bandCalculation": {
+    "formula": "Overall Band = (Listening + Reading + Writing + Speaking) / 4",
+    "roundingRules": [
+      { "rule": "Averages ending in .25 round UP to the nearest half band", "example": "Listening 6.5, Reading 6.5, Writing 6.0, Speaking 6.0 = 25.0 / 4 = 6.25 -> Overall Band 6.5" },
+      { "rule": "Averages ending in .75 round UP to the next whole band", "example": "Listening 7.0, Reading 7.0, Writing 6.5, Speaking 6.5 = 27.0 / 4 = 6.75 -> Overall Band 7.0" },
+      { "rule": "Averages ending in .125 round DOWN to the whole band", "example": "Listening 6.5, Reading 6.0, Writing 6.0, Speaking 6.0 = 24.5 / 4 = 6.125 -> Overall Band 6.0" },
+      { "rule": "Averages ending in .625 round DOWN to the half band", "example": "Listening 7.0, Reading 6.5, Writing 6.5, Speaking 6.5 = 26.5 / 4 = 6.625 -> Overall Band 6.5" }
+    ]
+  },
+  "interfaceFeatures": [
+    {
+      "title": "Split-Screen Passage & Questions",
+      "desc": "Independent scroll panels allow you to read lengthy passages while keeping questions and answer inputs in view."
+    },
+    {
+      "title": "Digital Text Highlighting & Notes",
+      "desc": "Select text in the reading passage to highlight keywords in yellow or add margin notes, matching official computer test centres."
+    },
+    {
+      "title": "Question Palette & Review Flags",
+      "desc": "Quickly jump to any question, view answered vs unanswered items, and flag doubtful questions for end-of-test review."
+    },
+    {
+      "title": "Live Character & Word Counters",
+      "desc": "Writing workspace displays dynamic word counters so you never write below the required 150 or 250 word thresholds."
+    }
+  ],
+  "staminaTips": [
+    {
+      "tip": "Simulate the 2h 40m Lock-In",
+      "desc": "Do not practice in 15-minute bursts. At least once a week, sit an unbroken full mock test at the exact time of day your real exam is scheduled."
+    },
+    {
+      "tip": "Combat the Task 2 Fatigue Dip",
+      "desc": "Most test-takers experience mental fatigue 1 hour and 45 minutes into the test — right as Task 2 begins. Consider tackling Task 2 first while concentration is fresh."
+    },
+    {
+      "tip": "Hydration and Screen Ergonomics",
+      "desc": "Eye fatigue is real during 60 minutes of intensive computer reading. Practice scanning at 100% monitor zoom with good lighting."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can I pause a full mock exam once started?",
+      "answer": "In our training mode, you can pause if emergencies arise. However, for an authentic exam prediction, we strongly urge you to take the test in one continuous 160-minute session without pauses, mimicking official IELTS testing room conditions."
+    },
+    {
+      "question": "How are computer-delivered and paper-based IELTS tests different?",
+      "answer": "Content, question types, scoring, and difficulty are 100% identical. The key differences: in Computer-delivered IELTS, you type your essays (with real-time word counts), hear audio through personal noise-isolating headphones, and receive results in 1 to 5 days instead of 13 days."
+    },
+    {
+      "question": "Do I need to take the Speaking module at the same time?",
+      "answer": "You can take the Speaking module immediately after your Writing test or practice it independently. On official exam day, Speaking may take place on the same day or up to 7 days before/after."
+    },
+    {
+      "question": "How accurate is the platform's composite prediction?",
+      "answer": "Our mock test scoring uses official Cambridge answer keys for Listening and Reading, combined with calibrated GPT-4o rubric evaluation for Writing and Whisper speech analysis for Speaking, achieving an average error variance below 0.25 band."
+    }
+  ]
+}
+

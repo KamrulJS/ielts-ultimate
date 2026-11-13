@@ -91,6 +91,15 @@ export function PublicFooter() {
               <Link href="/practice/reading" className={styles.footerLink}>
                 Reading Practice Guide
               </Link>
+              <Link href="/practice/writing" className={styles.footerLink}>
+                Writing Practice Guide
+              </Link>
+              <Link href="/practice/speaking" className={styles.footerLink}>
+                Speaking Practice Guide
+              </Link>
+              <Link href="/practice/full-test" className={styles.footerLink}>
+                Full Test Practice Guide
+              </Link>
               <Link href="/contact" className={styles.footerLink}>
                 Contact &amp; Support
               </Link>
