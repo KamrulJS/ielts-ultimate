@@ -12,7 +12,7 @@ import {
   LogOut,
   LayoutDashboard,
 } from 'lucide-react';
-import { RESOURCE_NAV_ITEMS, SERVICE_NAV_ITEMS } from '@/lib/public-navigation';
+import { PRODUCT_NAV_ITEMS, PRACTICE_NAV_ITEMS } from '@/lib/public-navigation';
 import { useApp } from '@/context/AppContext';
 import { useIsMounted } from '@/hooks/useIsMounted';
 import { PublicIcon } from './PublicPrimitives';
@@ -21,12 +21,14 @@ import styles from './PublicLayout.module.css';
 export function PublicNavbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { auth, logout } = useApp();
+  const app = useApp?.() || {};
+  const auth = app.auth || { isAuthenticated: false };
+  const logout = app.logout || (() => {});
   const mounted = useIsMounted();
 
-  const [openMenu, setOpenMenu] = useState(null); // 'resources' | 'services' | null
+  const [openMenu, setOpenMenu] = useState(null); // 'products' | 'practice' | null
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState('resources');
+  const [mobileAccordion, setMobileAccordion] = useState('products');
 
   const navRef = useRef(null);
   const closeTimerRef = useRef(null);
@@ -93,6 +95,19 @@ export function PublicNavbar() {
 
   const isLoggedIn = mounted && auth?.isAuthenticated;
 
+  const isProductsActive =
+    pathname.startsWith('/products') ||
+    pathname.startsWith('/resources') ||
+    pathname.startsWith('/services') ||
+    pathname === '/live-classes';
+
+  const isPracticeActive =
+    pathname === '/reading' ||
+    pathname === '/writing' ||
+    pathname === '/listening' ||
+    pathname === '/speaking' ||
+    pathname === '/mock-test';
+
   return (
     <>
       <header className={styles.publicHeader} ref={navRef}>
@@ -102,7 +117,7 @@ export function PublicNavbar() {
             <span className={styles.brandMark} aria-hidden="true">
               <Sparkles size={16} strokeWidth={2.4} />
             </span>
-            <span>IELTS Ultimate</span>
+            <span>IELTS WIST</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -115,31 +130,31 @@ export function PublicNavbar() {
               Home
             </Link>
 
-            {/* Resources Dropdown */}
+            {/* Products Dropdown (7 Items) */}
             <div
               className={styles.dropdownWrap}
-              onMouseEnter={() => openOnHover('resources')}
-              onMouseLeave={() => closeOnLeave('resources')}
+              onMouseEnter={() => openOnHover('products')}
+              onMouseLeave={() => closeOnLeave('products')}
             >
               <button
                 type="button"
-                className={`${styles.navLink} ${pathname.startsWith('/resources') ? styles.navLinkActive : ''}`}
-                aria-expanded={openMenu === 'resources'}
-                onClick={() => toggleMenuClick('resources')}
+                className={`${styles.navLink} ${isProductsActive ? styles.navLinkActive : ''}`}
+                aria-expanded={openMenu === 'products'}
+                onClick={() => toggleMenuClick('products')}
               >
-                <span>Resources</span>
+                <span>Products</span>
                 <ChevronDown
                   size={15}
                   style={{
-                    transform: openMenu === 'resources' ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transform: openMenu === 'products' ? 'rotate(180deg)' : 'rotate(0deg)',
                     transition: 'transform 0.16s ease',
                   }}
                 />
               </button>
 
-              {openMenu === 'resources' && (
+              {openMenu === 'products' && (
                 <div className={`${styles.dropdownMenu} ${styles.dropdownMenuWide}`} role="menu">
-                  {RESOURCE_NAV_ITEMS.map((item) => (
+                  {PRODUCT_NAV_ITEMS.map((item) => (
                     <Link
                       key={item.slug}
                       href={item.href}
@@ -154,6 +169,9 @@ export function PublicNavbar() {
                         <div style={{ fontWeight: 600, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
                           {item.title}
                         </div>
+                        <div className="text-xs text-muted" style={{ fontSize: '0.74rem', marginTop: 2 }}>
+                          {item.shortDesc}
+                        </div>
                       </div>
                     </Link>
                   ))}
@@ -161,31 +179,31 @@ export function PublicNavbar() {
               )}
             </div>
 
-            {/* Services Dropdown */}
+            {/* Practice Dropdown (5 Items) */}
             <div
               className={styles.dropdownWrap}
-              onMouseEnter={() => openOnHover('services')}
-              onMouseLeave={() => closeOnLeave('services')}
+              onMouseEnter={() => openOnHover('practice')}
+              onMouseLeave={() => closeOnLeave('practice')}
             >
               <button
                 type="button"
-                className={`${styles.navLink} ${pathname.startsWith('/services') ? styles.navLinkActive : ''}`}
-                aria-expanded={openMenu === 'services'}
-                onClick={() => toggleMenuClick('services')}
+                className={`${styles.navLink} ${isPracticeActive ? styles.navLinkActive : ''}`}
+                aria-expanded={openMenu === 'practice'}
+                onClick={() => toggleMenuClick('practice')}
               >
-                <span>Services</span>
+                <span>Practice</span>
                 <ChevronDown
                   size={15}
                   style={{
-                    transform: openMenu === 'services' ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transform: openMenu === 'practice' ? 'rotate(180deg)' : 'rotate(0deg)',
                     transition: 'transform 0.16s ease',
                   }}
                 />
               </button>
 
-              {openMenu === 'services' && (
+              {openMenu === 'practice' && (
                 <div className={styles.dropdownMenu} role="menu">
-                  {SERVICE_NAV_ITEMS.map((item) => (
+                  {PRACTICE_NAV_ITEMS.map((item) => (
                     <Link
                       key={item.slug}
                       href={item.href}
@@ -199,6 +217,9 @@ export function PublicNavbar() {
                       <div style={{ minWidth: 0 }}>
                         <div style={{ fontWeight: 600, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
                           {item.title}
+                        </div>
+                        <div className="text-xs text-muted" style={{ fontSize: '0.74rem', marginTop: 2 }}>
+                          {item.shortDesc}
                         </div>
                       </div>
                     </Link>
@@ -208,14 +229,11 @@ export function PublicNavbar() {
             </div>
 
             <Link
-              href="/live-classes"
-              className={`${styles.navLink} ${pathname === '/live-classes' ? styles.navLinkActive : ''}`}
+              href="/pricing"
+              className={`${styles.navLink} ${pathname === '/pricing' ? styles.navLinkActive : ''}`}
               onClick={() => setOpenMenu(null)}
             >
-              <span>Live Free Class</span>
-              <span className="badge badge-yellow" style={{ padding: '2px 7px', fontSize: '0.68rem' }}>
-                Free
-              </span>
+              Pricing
             </Link>
 
             <Link
@@ -241,11 +259,11 @@ export function PublicNavbar() {
               {isLoggedIn ? (
                 <>
                   <Link
-                    href={auth.role === 'admin' ? '/admin' : '/dashboard'}
+                    href={auth?.role === 'admin' ? '/admin' : '/dashboard'}
                     className="btn btn-primary btn-sm"
                   >
                     <LayoutDashboard size={14} />
-                    <span>{auth.role === 'admin' ? 'Admin Console' : 'Dashboard'}</span>
+                    <span>{auth?.role === 'admin' ? 'Admin Console' : 'Dashboard'}</span>
                   </Link>
                   <button
                     type="button"
@@ -299,23 +317,23 @@ export function PublicNavbar() {
                 justifyContent: 'space-between',
               }}
             >
-              <Link href="/" className={styles.brandLink} onClick={() => setMobileOpen(false)}>
-                <span className={styles.brandMark} aria-hidden="true">
-                  <Sparkles size={16} strokeWidth={2.4} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 9, fontWeight: 800 }}>
+                <span className={styles.brandMark}>
+                  <Sparkles size={16} />
                 </span>
-                <span>IELTS Ultimate</span>
-              </Link>
+                <span>IELTS WIST</span>
+              </div>
               <button
                 type="button"
-                className="btn btn-ghost btn-icon"
+                className="btn btn-secondary btn-icon"
                 onClick={() => setMobileOpen(false)}
-                aria-label="Close public navigation menu"
+                aria-label="Close menu"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
             </div>
 
-            <div className={styles.drawerBody}>
+            <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 6, flex: 1, overflowY: 'auto' }}>
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}
@@ -324,11 +342,11 @@ export function PublicNavbar() {
                 Home
               </Link>
 
-              {/* Mobile Resources Accordion */}
-              <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: 6 }}>
+              {/* Mobile Products Accordion (7 items) */}
+              <div style={{ border: '1px solid var(--border)', borderRadius: 0, padding: 6 }}>
                 <button
                   type="button"
-                  onClick={() => setMobileAccordion((a) => (a === 'resources' ? '' : 'resources'))}
+                  onClick={() => setMobileAccordion((a) => (a === 'products' ? '' : 'products'))}
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -337,20 +355,23 @@ export function PublicNavbar() {
                     padding: '8px 10px',
                     fontWeight: 700,
                     fontSize: '0.88rem',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
                   }}
                 >
-                  <span>Resources</span>
+                  <span>Products (7)</span>
                   <ChevronDown
                     size={16}
                     style={{
-                      transform: mobileAccordion === 'resources' ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transform: mobileAccordion === 'products' ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.16s ease',
                     }}
                   />
                 </button>
-                {mobileAccordion === 'resources' && (
+                {mobileAccordion === 'products' && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingTop: 4 }}>
-                    {RESOURCE_NAV_ITEMS.map((item) => (
+                    {PRODUCT_NAV_ITEMS.map((item) => (
                       <Link
                         key={item.slug}
                         href={item.href}
@@ -366,11 +387,11 @@ export function PublicNavbar() {
                 )}
               </div>
 
-              {/* Mobile Services Accordion */}
-              <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: 6 }}>
+              {/* Mobile Practice Accordion (5 items) */}
+              <div style={{ border: '1px solid var(--border)', borderRadius: 0, padding: 6 }}>
                 <button
                   type="button"
-                  onClick={() => setMobileAccordion((a) => (a === 'services' ? '' : 'services'))}
+                  onClick={() => setMobileAccordion((a) => (a === 'practice' ? '' : 'practice'))}
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -379,20 +400,23 @@ export function PublicNavbar() {
                     padding: '8px 10px',
                     fontWeight: 700,
                     fontSize: '0.88rem',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
                   }}
                 >
-                  <span>Services</span>
+                  <span>Practice (5)</span>
                   <ChevronDown
                     size={16}
                     style={{
-                      transform: mobileAccordion === 'services' ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transform: mobileAccordion === 'practice' ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.16s ease',
                     }}
                   />
                 </button>
-                {mobileAccordion === 'services' && (
+                {mobileAccordion === 'practice' && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingTop: 4 }}>
-                    {SERVICE_NAV_ITEMS.map((item) => (
+                    {PRACTICE_NAV_ITEMS.map((item) => (
                       <Link
                         key={item.slug}
                         href={item.href}
@@ -409,14 +433,11 @@ export function PublicNavbar() {
               </div>
 
               <Link
-                href="/live-classes"
+                href="/pricing"
                 onClick={() => setMobileOpen(false)}
-                className={`${styles.navLink} ${pathname === '/live-classes' ? styles.navLinkActive : ''}`}
+                className={`${styles.navLink} ${pathname === '/pricing' ? styles.navLinkActive : ''}`}
               >
-                <span>Live Free Class</span>
-                <span className="badge badge-yellow" style={{ padding: '2px 7px', fontSize: '0.68rem' }}>
-                  Free
-                </span>
+                Pricing
               </Link>
               <Link
                 href="/about"
@@ -446,11 +467,11 @@ export function PublicNavbar() {
               {isLoggedIn ? (
                 <>
                   <Link
-                    href={auth.role === 'admin' ? '/admin' : '/dashboard'}
+                    href={auth?.role === 'admin' ? '/admin' : '/dashboard'}
                     className="btn btn-primary"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <LayoutDashboard size={15} /> Open {auth.role === 'admin' ? 'Admin Console' : 'Dashboard'}
+                    <LayoutDashboard size={15} /> Open {auth?.role === 'admin' ? 'Admin Console' : 'Dashboard'}
                   </Link>
                   <button
                     type="button"
@@ -480,4 +501,3 @@ export function PublicNavbar() {
     </>
   );
 }
-

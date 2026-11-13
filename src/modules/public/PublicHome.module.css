@@ -1,9 +1,9 @@
-/* Scoped styles strictly for Homepage UX Enhancements (IELTS Ultimate) */
+/* Scoped styles strictly for Homepage UX Enhancements (IELTS WIST) */
 
 /* Strict stationary hover border rule (border-color only, zero shadow or movement) */
 .hoverBorderCard {
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: 0px !important;
   background-color: var(--surface);
   box-shadow: var(--shadow-xs);
   transition: border-color 250ms ease;
@@ -11,34 +11,67 @@
 
 .hoverBorderCard:hover,
 .hoverBorderCard:focus-visible {
-  border-color: #f6bd28;
+  border-color: #8867b8;
   box-shadow: var(--shadow-xs);
   transform: none;
 }
 
 .hoverSubBox {
   border: 1px solid var(--border);
+  border-radius: 0px !important;
   transition: border-color 250ms ease;
 }
 
 .hoverSubBox:hover,
 .hoverSubBox:focus-visible {
-  border-color: #f6bd28;
+  border-color: #8867b8;
   box-shadow: none;
   transform: none;
 }
 
-/* Section 01: Platform Statistics Horizontal Two-Zone Cards */
+/* Section 01: Hero Section */
+.mainHeroTransparent {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  min-height: clamp(520px, calc(88vh - 90px), 760px);
+  padding: 8px 0 24px;
+}
+
+.mainHeroTransparent > * {
+  min-width: 0;
+}
+
+.heroVisualCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.heroTransparentImg {
+  width: 100%;
+  max-width: min(100%, 600px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(32, 32, 32, 0.08));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
 .statHorizontal {
   display: flex;
   align-items: center;
   gap: 16px;
+  border-radius: 0px !important;
 }
 
 .statIconWrap {
   width: 56px;
   height: 56px;
-  border-radius: 14px;
+  border-radius: 0px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,94 +112,567 @@
   margin-top: 4px;
 }
 
-/* Section 02: Everything Under One Roof Enlarged Icon Boxes */
-.resourceIconBox {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+/* =========================================================================
+   Section 02: IELTS Learning Roadmap (Screenshot 01)
+   ========================================================================= */
+.roadmapSection {
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Section 04: Inside the Platform Right-Side Metric Cards */
-.platformMetricCard {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
+.roadmapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 40px auto 0;
+  padding: 20px 0;
 }
 
-.platformMetricIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 13px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.roadmapDesktopView {
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
-.platformMetricIconDark {
-  background-color: rgba(246, 189, 40, 0.14);
-  border: 1px solid rgba(246, 189, 40, 0.26);
-  color: var(--accent-yellow);
+.roadmapSvg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  display: block;
 }
 
-.platformMetricIconWarm {
+.roadmapStepItem {
+  position: absolute;
+  width: 230px;
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.roadmapStepItem:hover {
+  transform: translateY(-4px);
+}
+
+.roadmapCardBox {
   background-color: var(--surface);
   border: 1px solid var(--border);
+  border-radius: 0px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.roadmapStepItem:hover .roadmapCardBox,
+.roadmapStepItemActive .roadmapCardBox {
+  border-color: var(--accent-purple);
+  box-shadow: 0 4px 16px rgba(136, 103, 184, 0.18);
+}
+
+.roadmapStepNumber {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.roadmapStepTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text-primary);
-}
-
-.platformMetricBody {
-  min-width: 0;
-  flex: 1;
-}
-
-.platformMetricLabel {
-  font-size: 0.9rem;
-  font-weight: 600;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
-.platformMetricValue {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.8rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-top: 5px;
+.roadmapStepDesc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
 }
 
-/* Section 06: Expert Services Enlarged Top Icon Box */
-.serviceIconBox {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+.roadmapMobileView {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.roadmapMobileTimelineLine {
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--accent-purple),
+    var(--accent-purple) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.roadmapMobileStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px;
+  padding: 16px;
+}
+
+.roadmapMobilePin {
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-purple);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+}
+
+/* =========================================================================
+   Section 03: One Platform. All Your IELTS Needs. (Screenshot 02)
+   ========================================================================= */
+.onePlatformGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.platformFeatureCard {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  padding: 32px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  min-height: 150px;
+}
+
+.platformFeatureCard:hover {
+  border-color: var(--accent-purple);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(136, 103, 184, 0.12);
+}
+
+.platformFeatureIconWrap {
+  width: 52px;
+  height: 52px;
+  background-color: var(--accent-purple-soft);
+  color: var(--accent-purple);
+  border: 1px solid rgba(136, 103, 184, 0.2);
+  border-radius: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.platformFeatureCard:hover .platformFeatureIconWrap {
+  background-color: var(--accent-purple);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.platformFeatureTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* =========================================================================
+   Section 04: Inside the Platform (Screenshot 03)
+   ========================================================================= */
+.insidePlatformSection {
+  padding: 70px 0 80px;
+}
+
+.platformTabsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 32px auto 36px;
+}
+
+.platformTabBtn {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  padding: 9px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.platformTabBtn:hover {
+  border-color: var(--accent-purple);
+  color: var(--text-primary);
+}
+
+.platformTabBtnActive {
+  background-color: var(--accent-purple);
+  border-color: var(--accent-purple);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.platformMockupChrome {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mockupHeaderBar {
+  background-color: #FAF9F5;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+.mockupHeaderTitle {
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mockupHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mockupTimerBadge {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border-radius: 0px !important;
+}
+
+.mockupImgWrap {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+}
+
+.mockupImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   Section 05: Smart Study Plan Two-Column & Slider
+   ========================================================================= */
+.studyPlanGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.studyBenefitList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.studyBenefitItem {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.studyBenefitItem:hover {
+  border-color: var(--accent-purple);
+  transform: translateY(-2px);
+}
+
+.studyBenefitIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0px !important;
+  background-color: var(--accent-yellow-soft);
+  color: var(--text-primary);
+  border: 1px solid rgba(246, 189, 40, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studyBenefitTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.studyBenefitDesc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.studySliderCard {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sliderNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.sliderDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sliderDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0px !important;
+  background-color: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.sliderDotActive {
+  width: 24px;
+  background-color: var(--accent-purple);
+}
+
+/* =========================================================================
+   Section 06: AI-Powered Feedback (Screenshot 04)
+   ========================================================================= */
+.aiFeedbackWrapper {
+  background-color: #24143D;
+  color: #FFFFFF;
+  border-radius: 0px !important;
+  padding: 64px 32px 56px;
+  position: relative;
+  overflow: hidden;
+  margin: 60px 0;
+}
+
+.aiFeedbackHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.aiFeedbackEyebrow {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #F1EFE6;
+  border-radius: 0px !important;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.aiFeedbackTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: #FFFFFF;
+}
+
+.aiFeedbackSubtitle {
+  font-size: 0.98rem;
+  color: #D3CEE0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.aiFeedbackTwoCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto 36px;
+}
+
+.aiFeedbackCard {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0px !important;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.aiFeedbackCard:hover {
+  border-color: rgba(246, 189, 40, 0.45);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.aiCardIconBox {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(136, 103, 184, 0.35);
+  border: 1px solid rgba(136, 103, 184, 0.5);
+  border-radius: 0px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.aiCardTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.aiCardDesc {
+  font-size: 0.88rem;
+  color: #C8C3D8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.aiCriteriaMatrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0px !important;
+  padding: 14px;
+}
+
+.aiCriteriaTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #E2DFEC;
+}
+
+.aiCriteriaCode {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(136, 103, 184, 0.45);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  border-radius: 0px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* Section 07: Upcoming Live Free Classes Warm Brand Yellow Surface */
-.liveClassesYellowCard {
-  background-color: var(--accent-yellow-soft);
-  border: 1px solid rgba(246, 189, 40, 0.45);
-  border-radius: var(--radius-lg);
-  padding: 24px;
+.aiFeatureChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.liveClassInnerCard {
-  background-color: var(--surface);
-  border: 1px solid rgba(32, 32, 32, 0.1);
-  border-radius: var(--radius-md);
-  padding: 18px;
+.aiFeatureChip {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #DCD8CA;
+  border-radius: 0px !important;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
-/* Section 09: Testimonials Responsive Carousel */
+.aiVerifyCallout {
+  max-width: 860px;
+  margin: 0 auto 36px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0px !important;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.84rem;
+  color: #D3CEE0;
+}
+
+.aiFeedbackCtaRow {
+  text-align: center;
+}
+
+/* =========================================================================
+   Testimonials & Responsive
+   ========================================================================= */
 .carouselShell {
   --carousel-cols: 3;
   --carousel-gap: 18px;
@@ -200,7 +706,7 @@
 .carouselNavBtn {
   width: 40px;
   height: 40px;
-  border-radius: 999px;
+  border-radius: 0px !important;
   border: 1px solid var(--border);
   background-color: var(--surface);
   color: var(--text-primary);
@@ -212,8 +718,8 @@
 }
 
 .carouselNavBtn:hover:not(:disabled) {
-  border-color: #f6bd28;
-  background-color: var(--accent-yellow-soft);
+  border-color: #8867b8;
+  background-color: var(--accent-purple-soft);
 }
 
 .carouselNavBtn:disabled {
@@ -244,7 +750,7 @@
   width: 100%;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: 0px !important;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -254,7 +760,7 @@
 }
 
 .testimonialCard:hover {
-  border-color: #f6bd28;
+  border-color: #8867b8;
   box-shadow: none;
   transform: none;
 }
@@ -277,7 +783,7 @@
 .carouselDot {
   width: 9px;
   height: 9px;
-  border-radius: 999px;
+  border-radius: 0px !important;
   border: 1px solid var(--border-strong);
   background-color: var(--bg-secondary);
   padding: 0;
@@ -287,62 +793,68 @@
 
 .carouselDotActive {
   width: 26px;
-  background-color: var(--accent-yellow);
-  border-color: var(--accent-yellow-hover);
+  background-color: var(--accent-purple);
+  border-color: var(--accent-purple-hover);
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .carouselShell {
-    --carousel-cols: 2;
-    --carousel-gap: 16px;
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .onePlatformGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .roadmapDesktopView {
+    display: none;
+  }
+
+  .roadmapMobileView {
+    display: flex;
+  }
+
+  .studyPlanGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .aiFeedbackTwoCards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .onePlatformGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .studyBenefitList {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+  .mainHeroTransparent {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 28px;
+    padding: 10px 0 20px;
+  }
+
+  .heroTransparentImg {
+    max-width: 320px;
+  }
+
+  .aiFeedbackWrapper {
+    padding: 40px 18px 36px;
+  }
+
+  .aiCriteriaMatrix {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .carouselShell {
     --carousel-cols: 1;
     --carousel-gap: 12px;
-  }
-
-  .statHorizontal {
-    gap: 14px;
-  }
-
-  .statIconWrap {
-    width: 50px;
-    height: 50px;
-  }
-
-  .statValue {
-    font-size: 1.5rem;
-  }
-
-  .resourceIconBox,
-  .serviceIconBox {
-    width: 48px;
-    height: 48px;
-  }
-
-  .platformMetricCard {
-    padding: 14px;
-    gap: 12px;
-  }
-
-  .platformMetricIcon {
-    width: 42px;
-    height: 42px;
-  }
-
-  .platformMetricValue {
-    font-size: 1.5rem;
-  }
-
-  .liveClassesYellowCard {
-    padding: 18px 16px;
-  }
-
-  .testimonialCard {
-    padding: 20px;
   }
 }

@@ -25,7 +25,12 @@ import { Badge } from '@/components/common/UiPrimitives';
 export function LoginView() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { hydrated, auth, loginWithCredentials, registerStudent, logout } = useApp();
+  const app = useApp?.() || {};
+  const hydrated = app.hydrated ?? false;
+  const auth = app.auth || { isAuthenticated: false, role: null };
+  const loginWithCredentials = app.loginWithCredentials || (() => ({ success: false }));
+  const registerStudent = app.registerStudent || (() => ({ success: false }));
+  const logout = app.logout || (() => {});
 
   const initialModeParam = searchParams?.get('mode');
   const initialRoleParam = searchParams?.get('role');

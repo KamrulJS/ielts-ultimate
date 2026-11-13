@@ -7,7 +7,9 @@ import { useApp } from '@/context/AppContext';
 import { isRoleAuthorized } from '@/lib/auth';
 
 export function AuthGuard({ requiredRole = 'student', children }) {
-  const { hydrated, auth } = useApp();
+  const app = useApp?.() || {};
+  const hydrated = app.hydrated ?? false;
+  const auth = app.auth || { isAuthenticated: false, role: null };
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

@@ -16,6 +16,10 @@ import {
   GraduationCap,
   ArrowUpRight,
   ChevronDown,
+  BookOpenText,
+  PenTool,
+  Headphones,
+  Mic,
 } from 'lucide-react';
 import { Badge } from '@/components/common/UiPrimitives';
 
@@ -31,6 +35,10 @@ const PUBLIC_ICONS = {
   Video,
   FileText,
   GraduationCap,
+  BookOpenText,
+  PenTool,
+  Headphones,
+  Mic,
 };
 
 export function PublicIcon({ name, size = 16, strokeWidth = 1.85, style }) {

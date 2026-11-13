@@ -102,7 +102,7 @@ export function LiveClassesView() {
             <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Live Free Class</span>
           </nav>
 
-          <div className={`card-warm ${styles.publicHeroGrid}`} data-animate="card" style={{ marginTop: 14 }}>
+          <div className={styles.publicHeroTransparent} data-animate="card" style={{ marginTop: 14 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <Badge variant="yellow">Free Open Webinars</Badge>

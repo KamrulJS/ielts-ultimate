@@ -278,9 +278,10 @@
 .popoverPanel {
   position: absolute;
   right: 0;
+  left: auto;
   top: calc(100% + 10px);
   width: min(272px, calc(100vw - 24px));
-  max-width: none;
+  max-width: calc(100vw - 20px);
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);

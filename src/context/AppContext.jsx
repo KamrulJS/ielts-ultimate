@@ -23,14 +23,72 @@ import {
 
 const STORAGE_KEY = 'ielts_ultimate_platform_v1';
 
-const AppContext = createContext(null);
-
 const INITIAL_BOOKMARKS = {
   tests: ['rd-test-01', 'ls-test-04'],
   questions: ['rq-04', 'rq-15'],
   vocabulary: ['v-01', 'v-03', 'v-06', 'v-10'],
   resources: ['qt-reading-tfng', 'qt-writing-task1'],
 };
+
+const DEFAULT_APP_STATE = {
+  hydrated: false,
+  auth: UNAUTHENTICATED_STATE,
+  loginWithCredentials: () => ({ success: false }),
+  registerStudent: () => ({ success: false }),
+  logout: () => {},
+  profile: defaultProfile,
+  updateProfile: () => {},
+  notifications: defaultNotifications,
+  unreadCount: 0,
+  markNotificationRead: () => {},
+  markAllNotificationsRead: () => {},
+  testResults: defaultResults,
+  addTestResult: () => {},
+  studyPlan: defaultPlan,
+  studyTasks: defaultTasks,
+  toggleStudyTask: () => {},
+  addStudyTask: () => {},
+  saveStudyPlan: () => {},
+  bookmarks: INITIAL_BOOKMARKS,
+  toggleBookmark: () => {},
+  masteredWords: ['v-01', 'v-05', 'v-16'],
+  toggleMasteredWord: () => {},
+  writingSubmissions: defaultWritingSubs,
+  addWritingSubmission: () => {},
+  speakingRecordings: [],
+  addSpeakingRecording: () => {},
+  posts: defaultPosts,
+  likedPosts: ['cp-01'],
+  toggleLikePost: () => {},
+  addPost: () => {},
+  addComment: () => {},
+  addReply: () => {},
+  groups: defaultGroups,
+  toggleJoinGroup: () => {},
+  bookings: defaultBookings,
+  addBooking: () => {},
+  cancelBooking: () => {},
+  rescheduleBooking: () => {},
+  referrals: defaultReferrals,
+  students: defaultStudents,
+  addStudent: () => {},
+  updateStudent: () => {},
+  deleteStudent: () => {},
+  sidebarCollapsed: false,
+  toggleSidebar: () => {},
+  mobileNavOpen: false,
+  setMobileNavOpen: () => {},
+  searchOpen: false,
+  setSearchOpen: () => {},
+  activeTestSession: null,
+  startTestSession: () => {},
+  endTestSession: () => {},
+  toasts: [],
+  showToast: () => {},
+  removeToast: () => {},
+};
+
+const AppContext = createContext(DEFAULT_APP_STATE);
 
 export function AppProvider({ children }) {
   const [hydrated, setHydrated] = useState(false);
@@ -602,7 +660,6 @@ export function AppProvider({ children }) {
 
 export function useApp() {
   const ctx = useContext(AppContext);
-  if (!ctx) throw new Error('useApp must be used inside AppProvider');
-  return ctx;
+  return ctx || DEFAULT_APP_STATE;
 }
 

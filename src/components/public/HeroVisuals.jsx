@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import {
   CheckCircle2,
   Clock,
@@ -21,6 +22,36 @@ import {
 } from 'lucide-react';
 import { Badge, ProgressBar } from '@/components/common/UiPrimitives';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
+
+function AiHeroImage({ src, alt, width = 640, height = 480, priority = true }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        position: 'relative',
+      }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        style={{
+          width: '100%',
+          maxWidth: 'min(100%, 580px)',
+          height: 'auto',
+          objectFit: 'contain',
+          filter: 'drop-shadow(0 14px 32px rgba(32, 32, 32, 0.08))',
+          transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+        }}
+      />
+    </div>
+  );
+}
 
 function MockWindowFrame({ title, rightBadge, dark = false, children }) {
   return (
@@ -75,205 +106,61 @@ function MockWindowFrame({ title, rightBadge, dark = false, children }) {
 export function ResourceHeroVisual({ slug }) {
   if (slug === 'roadmap') {
     return (
-      <MockWindowFrame
-        title="IELTS Progression Path"
-        rightBadge={<Badge variant="yellow">Band 5.5 → 7.5 Target</Badge>}
-      >
-        <div
-          className="card-warm card-compact"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}
-        >
-          <div>
-            <div className="text-xs text-muted" style={{ fontWeight: 600 }}>Trajectory Forecast</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.35rem' }}>
-              Stage 3 of 5 Active
-            </div>
-          </div>
-          <svg viewBox="0 0 130 44" width="130" height="44" aria-hidden="true">
-            <path d="M8 36 Q42 32 66 20 T122 8" fill="none" stroke="#8867B8" strokeWidth="2.8" strokeLinecap="round" />
-            <circle cx="8" cy="36" r="4" fill="#242424" />
-            <circle cx="66" cy="20" r="4.5" fill="#F6BD28" stroke="#242424" strokeWidth="1.5" />
-            <circle cx="122" cy="8" r="4.5" fill="#39966B" />
-          </svg>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {[
-            { stage: '01', name: 'Baseline Diagnostic', status: 'Done', pct: 100 },
-            { stage: '02', name: 'Question Mechanics & Traps', status: 'Done', pct: 100 },
-            { stage: '03', name: 'Task 2 Cohesion & Structure', status: '75%', pct: 75, active: true },
-            { stage: '04', name: 'Full 2h 40m Mock Prediction', status: 'Next', pct: 15 },
-          ].map((row) => (
-            <div
-              key={row.stage}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '9px 12px',
-                borderRadius: 10,
-                backgroundColor: row.active ? 'var(--accent-yellow-soft)' : 'var(--bg-primary)',
-                border: '1px solid var(--border)',
-              }}
-            >
-              <span className={row.active ? 'badge badge-dark' : 'badge badge-neutral'} style={{ padding: '2px 8px' }}>
-                {row.stage}
-              </span>
-              <span style={{ flex: 1, fontWeight: 600, fontSize: '0.86rem' }}>{row.name}</span>
-              <span className="text-xs" style={{ fontWeight: 700, color: row.status === 'Done' ? 'var(--success)' : 'var(--text-primary)' }}>
-                {row.status}
-              </span>
-            </div>
-          ))}
-        </div>
-      </MockWindowFrame>
+      <AiHeroImage
+        src="/images/hero/hero-ielts-roadmap.png"
+        alt="IELTS Roadmap 3D learning journey with milestone checkpoints for Listening, Reading, Writing, and Speaking leading to Band 8.0 target"
+        width={600}
+        height={448}
+        priority
+      />
     );
   }
 
   if (slug === 'study-planner') {
     return (
-      <MockWindowFrame
-        title="Weekly Study Planner"
-        rightBadge={<Badge variant="yellow"><Flame size={12} /> 12-Day Streak</Badge>}
-      >
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: 6 }}>
-          {['08', '09', '10', '11', '12', '13', '14'].map((day, idx) => {
-            const active = day === '11';
-            const done = idx < 3;
-            return (
-              <div
-                key={day}
-                style={{
-                  textAlign: 'center',
-                  padding: '8px 0',
-                  borderRadius: 9,
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  border: active ? '1.5px solid var(--dark-section)' : '1px solid var(--border)',
-                  backgroundColor: active ? 'var(--dark-section)' : done ? 'var(--accent-yellow-soft)' : 'var(--bg-primary)',
-                  color: active ? '#FFFFFF' : 'var(--text-primary)',
-                }}
-              >
-                {day}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="card-warm card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', fontWeight: 600 }}>
-            <span>Today&apos;s Daily Goal</span>
-            <span>45 / 60 min</span>
-          </div>
-          <ProgressBar value={75} variant="purple" />
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-          {[
-            { label: 'Passage 2: Thermal Albedo & TFNG', meta: 'Reading • 25 min', done: true },
-            { label: 'Body Paragraph Cohesion Rewrite', meta: 'Writing • 20 min', done: true },
-            { label: '15 Academic Urbanism Flashcards', meta: 'Vocabulary • 15 min', done: false },
-          ].map((task) => (
-            <div
-              key={task.label}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '9px 11px',
-                borderRadius: 10,
-                backgroundColor: 'var(--bg-primary)',
-                border: '1px solid var(--border)',
-              }}
-            >
-              <CheckCircle2
-                size={16}
-                style={{ color: task.done ? 'var(--success)' : 'var(--text-muted)', flexShrink: 0 }}
-              />
-              <div style={{ minWidth: 0, flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: '0.85rem', textDecoration: task.done ? 'line-through' : 'none' }}>
-                  {task.label}
-                </div>
-                <div className="text-xs text-muted">{task.meta}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </MockWindowFrame>
+      <AiHeroImage
+        src="/images/hero/hero-study-planner.png"
+        alt="IELTS Study Planner 3D visualization showing candidate organizing daily lessons, study blocks, and 12-day streak"
+        width={600}
+        height={448}
+        priority
+      />
     );
   }
 
   if (slug === 'simulation') {
     return (
-      <MockWindowFrame
-        title="Computer-Delivered Mock Interface"
-        rightBadge={<Badge variant="dark"><Clock size={12} /> 47:12</Badge>}
-      >
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-          {[
-            { label: 'Listening', icon: Headphones, done: true },
-            { label: 'Reading', icon: BookOpen, active: true },
-            { label: 'Writing', icon: PenTool },
-            { label: 'Speaking', icon: Mic },
-          ].map((mod) => {
-            const Icon = mod.icon;
-            return (
-              <span
-                key={mod.label}
-                className={`badge ${mod.active ? 'badge-yellow' : mod.done ? 'badge-success' : 'badge-neutral'}`}
-                style={{ padding: '5px 10px' }}
-              >
-                <Icon size={12} /> {mod.label}
-              </span>
-            );
-          })}
-        </div>
+      <AiHeroImage
+        src="/images/hero/hero-mock-simulation.png"
+        alt="IELTS Mock Examination simulation interface showing timed session, question palette, and four-skill modules"
+        width={600}
+        height={448}
+        priority
+      />
+    );
+  }
 
-        <div className="grid-2" style={{ gap: 10 }}>
-          <div
-            style={{
-              padding: 12,
-              borderRadius: 10,
-              backgroundColor: 'var(--bg-primary)',
-              border: '1px solid var(--border)',
-              fontSize: '0.82rem',
-              lineHeight: 1.55,
-            }}
-          >
-            <div className="text-xs text-muted" style={{ fontWeight: 700, marginBottom: 4 }}>PASSAGE VIEW (50/50)</div>
-            Vegetated urban rooftops <mark style={{ backgroundColor: 'var(--accent-yellow-soft)', padding: '0 3px', borderRadius: 3 }}>mitigated peak heat by 3.2°C</mark> across test districts.
-          </div>
-          <div
-            style={{
-              padding: 12,
-              borderRadius: 10,
-              backgroundColor: 'var(--bg-secondary)',
-              border: '1px solid var(--border)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 6,
-            }}
-          >
-            <div className="text-xs" style={{ fontWeight: 700 }}>Q14 • True / False / Not Given</div>
-            {['True ✓', 'False', 'Not Given'].map((opt, idx) => (
-              <div
-                key={opt}
-                style={{
-                  padding: '5px 9px',
-                  borderRadius: 7,
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  backgroundColor: idx === 0 ? 'var(--dark-section)' : 'var(--surface)',
-                  color: idx === 0 ? '#FFFFFF' : 'var(--text-primary)',
-                  border: '1px solid var(--border)',
-                }}
-              >
-                {opt}
-              </div>
-            ))}
-          </div>
-        </div>
-      </MockWindowFrame>
+  if (slug === 'ai-coach') {
+    return (
+      <AiHeroImage
+        src="/images/hero/hero-ai-coach.png"
+        alt="IELTS AI Coach 3D holographic orb with real-time feedback cards and criteria tips"
+        width={560}
+        height={560}
+        priority
+      />
+    );
+  }
+
+  if (slug === 'ai-examiner') {
+    return (
+      <AiHeroImage
+        src="/images/hero/hero-ai-examiner.png"
+        alt="IELTS AI Examiner 3D scoring console with Task Response, Coherence, Lexical Resource, and Grammar Range criteria meters"
+        width={680}
+        height={380}
+        priority
+      />
     );
   }
 
@@ -309,89 +196,6 @@ export function ResourceHeroVisual({ slug }) {
             <span>248 words mastered</span>
           </div>
           <ProgressBar value={78} variant="yellow" />
-        </div>
-      </MockWindowFrame>
-    );
-  }
-
-  if (slug === 'ai-coach') {
-    return (
-      <MockWindowFrame
-        title="IELTS AI Coach Session"
-        rightBadge={<Badge variant="success">24/7 Guided Prep</Badge>}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <div
-            style={{
-              alignSelf: 'flex-end',
-              maxWidth: '88%',
-              padding: '10px 14px',
-              borderRadius: '14px 14px 4px 14px',
-              backgroundColor: 'var(--bg-secondary)',
-              border: '1px solid var(--border)',
-              fontSize: '0.88rem',
-              fontWeight: 500,
-            }}
-          >
-            &ldquo;Why did my Writing Coherence stay at 6.0 even with transition words?&rdquo;
-          </div>
-
-          <div
-            className="card-dark card-compact"
-            style={{
-              borderRadius: '14px 14px 14px 4px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 8,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Sparkles size={14} style={{ color: 'var(--accent-yellow)' }} />
-              <span className="text-xs" style={{ fontWeight: 700, color: 'var(--accent-yellow)' }}>Coach Diagnosis</span>
-            </div>
-            <p style={{ fontSize: '0.88rem', lineHeight: 1.55, color: '#EAE8E1' }}>
-              Body paragraph 2 shifts to municipal budgets without referencing your thesis. Connect paragraphs with pronoun framing, then drill one 10-minute topic sentence rewrite.
-            </p>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-              <Badge variant="yellow">Recommended: 10m Cohesion Drill</Badge>
-            </div>
-          </div>
-        </div>
-      </MockWindowFrame>
-    );
-  }
-
-  if (slug === 'ai-examiner') {
-    return (
-      <MockWindowFrame
-        title="4-Criterion Examiner Scorecard"
-        rightBadge={<Badge variant="dark">Writing Task 2 • Evaluated</Badge>}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, padding: 14, borderRadius: 12, backgroundColor: 'var(--dark-section)', color: '#FFFFFF' }}>
-          <div>
-            <div className="text-xs" style={{ color: '#B7B5AD' }}>Estimated Overall Score</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2.1rem', color: 'var(--accent-yellow)', lineHeight: 1.1 }}>
-              Band 7.0
-            </div>
-          </div>
-          <Badge variant="yellow">±0.25 Rubric Calibrated</Badge>
-        </div>
-
-        <div className="grid-2" style={{ gap: 8 }}>
-          {[
-            { name: 'Task Response', score: '7.0', pct: 78 },
-            { name: 'Coherence & Cohesion', score: '6.5', pct: 70 },
-            { name: 'Lexical Resource', score: '7.5', pct: 84 },
-            { name: 'Grammatical Range', score: '7.0', pct: 78 },
-          ].map((c) => (
-            <div key={c.name} className="card-warm card-compact" style={{ padding: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', fontWeight: 700 }}>
-                <span>{c.name}</span>
-                <span>{c.score}</span>
-              </div>
-              <ProgressBar value={c.pct} variant={c.score === '6.5' ? 'yellow' : 'purple'} />
-            </div>
-          ))}
         </div>
       </MockWindowFrame>
     );
@@ -592,35 +396,13 @@ export function ServiceHeroVisual({ slug }) {
 
 export function LiveClassHeroVisual() {
   return (
-    <MockWindowFrame
-      title="Next Live Interactive Clinic"
-      rightBadge={<Badge variant="yellow">Free Open Seat</Badge>}
-    >
-      <div className="card-dark card-compact" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-          <Badge variant="purple">Writing Clinic</Badge>
-          <span className="text-xs" style={{ color: 'var(--accent-yellow)', fontWeight: 700 }}>Thu, Nov 19 • 19:00 UTC</span>
-        </div>
-        <div style={{ fontWeight: 700, fontSize: '0.96rem', color: '#FFFFFF' }}>
-          Task 2 Coherence Lab: Eliminating Paragraph Jumps
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <SafeAvatar
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80"
-              name="Dr. Claire Bennett"
-              size={30}
-            />
-            <span className="text-xs" style={{ color: '#EAE8E1' }}>Dr. Claire Bennett</span>
-          </div>
-          <span className="text-xs" style={{ color: '#B7B5AD' }}><Users size={12} style={{ display: 'inline' }} /> 14 seats open</span>
-        </div>
-      </div>
-      <div className="grid-2" style={{ gap: 8 }}>
-        <div className="card-warm card-compact text-xs"><strong>Live Q&amp;A Included</strong><div className="text-muted">Ask mentors directly</div></div>
-        <div className="card-warm card-compact text-xs"><strong>Replay Archive</strong><div className="text-muted">4 strategy videos free</div></div>
-      </div>
-    </MockWindowFrame>
+    <AiHeroImage
+      src="/images/hero/hero-live-classes.png"
+      alt="IELTS Live Free Classes 3D masterclass webinar with certified mentor, live attendee avatars, and interactive chat"
+      width={600}
+      height={448}
+      priority
+    />
   );
 }
 

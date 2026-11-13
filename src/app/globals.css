@@ -985,3 +985,25 @@ svg {
     margin-left: 0 !important;
   }
 }
+
+/* Global Square-Corner Visual Identity */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-icon,
+.btn-sm,
+.btn-lg,
+.card,
+.card-warm,
+.card-dark,
+.badge,
+.tab-trigger,
+.modal-dialog,
+.popoverPanel,
+.popoverNotifications,
+.dropdownMenu,
+input,
+select,
+textarea {
+  border-radius: 0 !important;
+}
