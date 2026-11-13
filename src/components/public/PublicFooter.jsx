@@ -88,6 +88,9 @@ export function PublicFooter() {
               <Link href="/practice/listening" className={styles.footerLink}>
                 Listening Practice Guide
               </Link>
+              <Link href="/practice/reading" className={styles.footerLink}>
+                Reading Practice Guide
+              </Link>
               <Link href="/contact" className={styles.footerLink}>
                 Contact &amp; Support
               </Link>

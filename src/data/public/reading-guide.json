@@ -1,0 +1,724 @@
+{
+  "meta": {
+    "title": "IELTS Reading Practice & Comprehensive Preparation Guide",
+    "description": "Master all 14 IELTS Reading question types, academic vs general training formats, skimming and scanning strategies, 60-minute time management, band scoring tables, and interactive practice exercises.",
+    "lastUpdated": "November 2026",
+    "examDurationMinutes": 60,
+    "totalQuestions": 40,
+    "passagesCount": 3
+  },
+  "hero": {
+    "badge": "IELTS Reading Masterclass",
+    "headline": "IELTS Reading Practice & Complete Strategy Guide",
+    "description": "Master the 60-minute IELTS Reading test with proven scanning techniques, in-depth breakdowns of all 14 question types, band conversion tables, and Cambridge practice test integration.",
+    "stats": [
+      { "label": "Test Duration", "value": "60 Mins" },
+      { "label": "Total Questions", "value": "40 Questions" },
+      { "label": "Academic Passages", "value": "3 Passages" },
+      { "label": "Question Formats", "value": "14 Types" }
+    ],
+    "primaryCta": { "label": "Launch Cambridge Reading Tests", "href": "/reading" },
+    "secondaryCta": { "label": "Explore 14 Question Types", "href": "#question-types" }
+  },
+  "tableOfContents": [
+    { "id": "overview", "label": "1. Reading Overview" },
+    { "id": "academic-vs-general", "label": "2. Academic vs General" },
+    { "id": "test-format", "label": "3. Test Format & Rules" },
+    { "id": "question-types", "label": "4. All 14 Question Types" },
+    { "id": "strategies", "label": "5. Core Reading Strategies" },
+    { "id": "difficulty-guide", "label": "6. Question Difficulty & Priority" },
+    { "id": "time-management", "label": "7. 60-Minute Time Management" },
+    { "id": "scoring", "label": "8. Band Scoring Conversion" },
+    { "id": "tips-and-mistakes", "label": "9. Tips & Common Pitfalls" },
+    { "id": "interactive-drills", "label": "10. Sample Interactive Exercises" },
+    { "id": "cambridge-library", "label": "11. Cambridge Books 9–25" },
+    { "id": "faqs", "label": "12. Frequently Asked Questions" }
+  ],
+  "overview": {
+    "title": "Understanding the IELTS Reading Examination",
+    "subtitle": "A rigorous assessment of your reading comprehension, scanning speed, vocabulary recognition, and analytical deduction.",
+    "paragraphs": [
+      "The IELTS Reading test evaluates a candidate's ability to read for gist, identify main ideas, locate specific detail, understand logical arguments, and recognize an author's stated opinions and implied attitudes. Candidates have exactly 60 minutes to read three extended passages and answer 40 questions.",
+      "A pivotal distinction that catches many test takers off-guard: unlike the IELTS Listening test, which grants a 10-minute paper transfer allowance or a 2-minute computer check buffer, IELTS Reading gives ZERO extra time. Every answer must be recorded on your final answer sheet or typed directly into the testing interface within the 60-minute window."
+    ],
+    "keyFacts": [
+      { "label": "Total Time", "detail": "60 minutes (strict — no extra transfer time)" },
+      { "label": "Total Passages", "detail": "3 passages (approx. 2,150–2,750 words total across Academic)" },
+      { "label": "Total Questions", "detail": "40 questions (each correct answer earns 1 raw mark)" },
+      { "label": "Scoring Basis", "detail": "Raw score (0–40) converted into official IELTS Band 1.0–9.0" },
+      { "label": "Marking Policy", "detail": "No negative marking — never leave an answer blank" }
+    ]
+  },
+  "comparison": {
+    "title": "Academic Reading vs General Training Reading",
+    "subtitle": "While both formats share 40 questions and a 60-minute duration, their texts, topics, and band score thresholds differ significantly.",
+    "columns": ["Feature", "IELTS Academic Reading", "IELTS General Training Reading"],
+    "rows": [
+      {
+        "feature": "Intended Purpose",
+        "academic": "Undergraduate, postgraduate admissions & professional accreditation (medical, legal, engineering).",
+        "general": "Immigration (Canada Express Entry, Australia PR, UK Skilled Worker), secondary education, and employment."
+      },
+      {
+        "feature": "Section Structure",
+        "academic": "3 long academic passages of equal length (~750–950 words each) with increasing argumentative complexity.",
+        "general": "Section 1: 2–3 short factual everyday texts; Section 2: 2 workplace texts; Section 3: 1 long complex text."
+      },
+      {
+        "feature": "Source Material",
+        "academic": "Scholarly journals, research publications, academic books, magazines, and newspapers written for non-specialists.",
+        "general": "Notices, company handbooks, advertisements, timetables, contracts, and general interest periodicals."
+      },
+      {
+        "feature": "Vocabulary & Tone",
+        "academic": "Formal, discursive, analytical, academic collocations, scientific, historical, and sociological terminology.",
+        "general": "Everyday functional English, practical workplace terminology, and descriptive narrative vocabulary."
+      },
+      {
+        "feature": "Raw Score for Band 7.0",
+        "academic": "30 out of 40 correct answers (~75%).",
+        "general": "34 out of 40 correct answers (~85%) — stricter raw threshold because texts in Sections 1 & 2 are simpler."
+      },
+      {
+        "feature": "Raw Score for Band 8.0",
+        "academic": "35 out of 40 correct answers.",
+        "general": "38 out of 40 correct answers."
+      }
+    ]
+  },
+  "formatRules": {
+    "title": "Essential Examination Rules & Answer Sheet Guidelines",
+    "subtitle": "Over 15% of lost marks in IELTS Reading stem from formatting oversights rather than comprehension failures.",
+    "rules": [
+      {
+        "title": "Adhere Strictly to Word Limits",
+        "desc": "Instructions like 'NO MORE THAN TWO WORDS AND/OR A NUMBER' are absolute. If the correct answer is 'leather boots' and you write 'the leather boots', you score 0 marks. Hyphenated words (e.g., 'state-of-the-art') count as single words."
+      },
+      {
+        "title": "Grammatical & Spelling Accuracy",
+        "desc": "Spelling mistakes (e.g., writing 'accommodation' with one 'm') receive zero credit. The exact word form required by the sentence grammar must be used unless instructed to select from a provided word box."
+      },
+      {
+        "title": "Capitalization & Legibility",
+        "desc": "In paper-based exams, writing in all capital letters (e.g., FALSE, NOT GIVEN, AUSTRALIA) is officially permitted and prevents ambiguity over lower-case letters. In computer-delivered exams, capitalization is not case-sensitive for text inputs."
+      },
+      {
+        "title": "Never Leave an Empty Field",
+        "desc": "Because IELTS Reading employs no negative marking, unanswered questions forfeit potential marks. For multiple choice or TFNG, always make an educated guess if time expires."
+      }
+    ]
+  },
+  "questionTypes": [
+    {
+      "id": 1,
+      "slug": "multiple-choice",
+      "name": "Multiple Choice Questions (MCQ)",
+      "badge": "Standard & Multi-Select",
+      "frequency": "Very High",
+      "difficulty": "Medium to High",
+      "meaning": "Questions asking you to select one best answer (from 4 choices: A, B, C, D) or multiple correct answers (e.g., choose TWO letters from A–E) based on factual information or tone in the passage.",
+      "presentation": "Presented with a question stem followed by lettered options. In multi-select variants, instructions explicitly state 'Choose TWO letters, A–E'.",
+      "identification": "Keywords in the question stem guide you directly to the relevant paragraph. Questions follow the chronological order of the passage.",
+      "strategy": [
+        "Read the question stem carefully; do NOT read all 4 options yet (they contain plausible distractors designed to confuse you).",
+        "Underline keywords (proper names, technical dates, key verbs) and locate the relevant paragraph in the passage.",
+        "Read the 2–3 sentences surrounding the keyword carefully to understand the passage's precise meaning.",
+        "Return to the options and eliminate choices that contradict the passage, introduce unmentioned information, or twist facts.",
+        "Confirm your chosen letter against the exact synonym or paraphrasing in the passage."
+      ],
+      "pitfalls": "Choosing an option simply because it matches the exact words of the passage. Distractors intentionally reuse passage words with altered context (e.g., adding 'only', 'never', or changing causal relationships).",
+      "tips": "Focus on meaning rather than word-matching. The correct answer is almost always an accurate paraphrase of the passage text.",
+      "samplePassage": "While solar thermal concentrators achieved commercial viability in the Mojave desert during the mid-1980s, subsequent drops in fossil fuel prices curtailed venture funding. It was not until feed-in tariff mandates were enacted across Northern Europe in 2004 that institutional investors resumed capital deployment into utility-scale arrays.",
+      "sampleQuestion": "What prompted institutional investors to resume financing solar plants in 2004?",
+      "sampleOptions": ["A. Sharp drops in fossil fuel prices", "B. The success of Mojave desert test projects", "C. Legislative feed-in tariff guarantees in Europe", "D. Advances in thermal concentrator efficiency"],
+      "sampleAnswer": "C. Legislative feed-in tariff guarantees in Europe",
+      "sampleExplanation": "The passage clearly states 'It was not until feed-in tariff mandates were enacted across Northern Europe in 2004 that institutional investors resumed capital deployment...'. 'Mandates' paraphrases 'legislative guarantees'."
+    },
+    {
+      "id": 2,
+      "slug": "true-false-not-given",
+      "name": "True / False / Not Given (TFNG)",
+      "badge": "Factual Verification",
+      "frequency": "Extremely High (Almost Every Test)",
+      "difficulty": "High",
+      "meaning": "Assesses your ability to distinguish whether a statement agrees with facts in the passage (TRUE), contradicts facts (FALSE), or cannot be verified because the information is not present (NOT GIVEN).",
+      "presentation": "A list of statements followed by the instructions: 'TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this'.",
+      "identification": "Statements follow the passage in strict chronological sequence. If you find Question 1 in Paragraph 2 and Question 3 in Paragraph 4, Question 2 MUST be in Paragraph 2 or 3.",
+      "strategy": [
+        "Deconstruct the statement into 3 components: Subject, Action/Verb, and Qualifier/Boundary (e.g., 'all', 'only', 'occasionally', 'first').",
+        "Locate the exact evidence sentence in the text using proper nouns or numbers from the statement.",
+        "If the text says the same thing with synonyms: TRUE.",
+        "If the text says the opposite or proves the statement impossible: FALSE.",
+        "If you find the topic mentioned, but the text never confirms or denies the specific claim: NOT GIVEN."
+      ],
+      "pitfalls": "Confusing FALSE with NOT GIVEN. FALSE requires clear contradiction (evidence proving the opposite). NOT GIVEN means the text does not supply enough information to decide either way.",
+      "tips": "Beware of extreme qualifying words: 'always', 'all', 'completely', 'never', 'solely'. Passages typically use nuanced phrasing like 'often' or 'partially', turning extreme statements into FALSE.",
+      "samplePassage": "The excavation at Göbekli Tepe revealed carved limestone pillars dating back over 11,000 years, predating Stonehenge by more than six millennia. Although popular accounts speculate that the site served as an astronomical observatory, archaeological teams have found no definitive celestial alignments in the megalith layouts.",
+      "sampleQuestion": "Archaeologists have confirmed that Göbekli Tepe was constructed to track astronomical movements.",
+      "sampleOptions": ["TRUE", "FALSE", "NOT GIVEN"],
+      "sampleAnswer": "FALSE",
+      "sampleExplanation": "The text states 'archaeological teams have found no definitive celestial alignments in the megalith layouts', directly contradicting the claim that archaeologists have confirmed it was constructed to track astronomical movements."
+    },
+    {
+      "id": 3,
+      "slug": "yes-no-not-given",
+      "name": "Yes / No / Not Given (YNNG)",
+      "badge": "Opinion & Argument Analysis",
+      "frequency": "High (Passages 2 & 3)",
+      "difficulty": "High",
+      "meaning": "Similar in format to TFNG, but tests whether a statement agrees with the writer's opinions, arguments, or claims (YES), contradicts the writer's claim (NO), or whether the writer expresses no opinion on the matter (NOT GIVEN).",
+      "presentation": "Instructions state: 'YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks'.",
+      "identification": "Focus on the writer's stance, attitude words, evaluation adjectives (e.g., 'unconvincing', 'vital', 'overestimated'), and modal verbs ('ought to', 'must'). Questions follow passage order.",
+      "strategy": [
+        "Identify the subjective claim or assertion in the statement rather than just isolated facts.",
+        "Scan for the writer's argument in the passage (look for discourse markers like 'In my view', 'However', 'Undoubtedly', 'Critics argue, but...').",
+        "Determine whether the author endorses, disputes, or refrains from commenting on the assertion.",
+        "Never write TRUE/FALSE on your answer sheet when the instruction specifies YES/NO/NOT GIVEN."
+      ],
+      "pitfalls": "Writing 'TRUE' instead of 'YES'. Official Cambridge IELTS examiners may mark TRUE as incorrect when the question rubric specifies YES/NO/NOT GIVEN.",
+      "tips": "Look for concessions where the writer acknowledges an opposing view before delivering their actual conclusion (e.g., 'While critics maintain X, the reality is Y').",
+      "samplePassage": "Proponents of open-plan workspaces assert that eliminating internal partitions accelerates cross-functional collaboration. However, empirical workplace studies demonstrate that face-to-face interaction actually declines by roughly 70 percent as employees retreat behind headphones to preserve cognitive focus.",
+      "sampleQuestion": "The author believes open-plan office layouts foster superior team collaboration.",
+      "sampleOptions": ["YES", "NO", "NOT GIVEN"],
+      "sampleAnswer": "NO",
+      "sampleExplanation": "The author introduces the claim as an assertion by 'proponents' and immediately refutes it with empirical evidence showing interaction drops by 70%, thus disagreeing with the statement."
+    },
+    {
+      "id": 4,
+      "slug": "matching-headings",
+      "name": "Matching Headings",
+      "badge": "Gist & Paragraph Architecture",
+      "frequency": "Very High",
+      "difficulty": "High to Very High",
+      "meaning": "Matching a list of numbered roman headings (i, ii, iii, iv...) to lettered paragraphs or sections (A, B, C...) by identifying the primary core concept of each paragraph.",
+      "presentation": "A list of headings appears before the passage. There are always more headings than paragraphs (e.g., 8 headings for 5 paragraphs), creating intentional distractors.",
+      "identification": "Headings do NOT follow paragraph order. They summarize the overall purpose or argument of an entire paragraph.",
+      "strategy": [
+        "Do this question type FIRST before any other questions for that passage, because solving headings forces you to skim and map every paragraph.",
+        "Read the list of headings and underline key differentiator words in each.",
+        "Read Paragraph A: pay close attention to the opening sentence (topic sentence), the closing sentence, and any internal transition words ('However', 'In contrast', 'Consequently').",
+        "Synthesize the main purpose of the paragraph in your own mind before looking at the heading list.",
+        "Select the heading that reflects the whole paragraph, not just an isolated sentence or minor supporting example.",
+        "Cross out used headings to prevent repeat selection."
+      ],
+      "pitfalls": "Matching a heading based on a single keyword found in one sentence. Headings reflect the macro-level theme, whereas distractors frequently summarize a single supporting example.",
+      "tips": "If two headings seem plausible for one paragraph, write both down temporarily and move to Paragraph B. As remaining headings are eliminated, the correct pairing becomes obvious.",
+      "samplePassage": "Paragraph B: Historically, cities addressed stormwater runoff through subterranean concrete culverts designed to funnel precipitation rapidly into river basins. However, rapid urbanization has overwhelmed these rigid conduits, producing severe localized flash flooding. In response, contemporary urban planners are pivoting toward bioswales, permeable pavements, and retention wetlands that absorb rainfall at the source.",
+      "sampleQuestion": "Which heading best captures the main idea of Paragraph B?",
+      "sampleOptions": ["i. An economic assessment of drainage pipes", "ii. Shifting from rigid infrastructure to nature-based stormwater management", "iii. The global history of flash flooding disasters", "iv. How urban concrete improves groundwater purity"],
+      "sampleAnswer": "ii. Shifting from rigid infrastructure to nature-based stormwater management",
+      "sampleExplanation": "The paragraph contrasts traditional concrete culverts with the modern pivot toward permeable pavements and wetlands, matching heading ii precisely."
+    },
+    {
+      "id": 5,
+      "slug": "matching-information",
+      "name": "Matching Information",
+      "badge": "Paragraph Scanning",
+      "frequency": "High",
+      "difficulty": "Difficult",
+      "meaning": "Identifying which lettered paragraph contains specific piece of information: a description, an example, an explanation, a comparison, or a reference.",
+      "presentation": "Phrased as: 'Which paragraph contains the following information? Write the correct letter, A–G'. Instructions may state: 'NB You may use any letter more than once'.",
+      "identification": "Information does NOT follow passage order. The detail is often embedded in the middle or end of a paragraph.",
+      "strategy": [
+        "Leave Matching Information until AFTER you have answered other questions (such as MCQ or sentence completion) that have already familiarized you with the passage.",
+        "Analyze the noun phrase in each question: identify whether it requests a reason ('why...'), a comparison ('contrast between...'), a historical date ('the earliest record of...'), or an example ('an instance of...').",
+        "Scan paragraphs for synonyms of these structural categories.",
+        "Remember that if 'NB You may use any letter more than once' is present, one paragraph will contain at least two answers."
+      ],
+      "pitfalls": "Wasting 20 minutes scanning from the beginning for every statement. Solve other chronological questions first to build mental bookmarks of each paragraph's content.",
+      "tips": "Pay attention to functional indicator words: 'a reference to', 'an explanation of', 'an outline of', 'data comparing'. These signal what rhetorical device you are seeking.",
+      "samplePassage": "Paragraph D: Unlike traditional acoustic monitoring stations, the newly deployed hydrophone arrays operate autonomously across the abyssal plain for up to 36 months, transmitting encrypted compressed acoustic telemetry via satellite buoy relays whenever they breach the surface.",
+      "sampleQuestion": "Which paragraph contains details of how deep-sea acoustic devices relay recorded data to researchers?",
+      "sampleOptions": ["Paragraph B", "Paragraph C", "Paragraph D", "Paragraph E"],
+      "sampleAnswer": "Paragraph D",
+      "sampleExplanation": "Paragraph D explains data transmission: 'transmitting encrypted compressed acoustic telemetry via satellite buoy relays whenever they breach the surface'."
+    },
+    {
+      "id": 6,
+      "slug": "matching-features",
+      "name": "Matching Features",
+      "badge": "Categorization & Entity Linking",
+      "frequency": "Medium to High",
+      "difficulty": "Medium",
+      "meaning": "Connecting a list of numbered statements or discoveries to a box of categorized features (typically historical figures, researchers, organizations, periods, or geographical regions).",
+      "presentation": "A box with options (e.g., List of Researchers: A. Dr. Aris Thorne, B. Elena Rostova, C. Marcus Vance) followed by statements to attribute to them.",
+      "identification": "The names or categories appear multiple times throughout the passage. Statements are NOT chronological, but the entities usually are.",
+      "strategy": [
+        "Scan the entire passage first and highlight every mention of each person or entity from the box.",
+        "Read the context around each mention, looking for reporting verbs: 'argued that', 'demonstrated', 'hypothesized', 'found no evidence for'.",
+        "Match the statement to the specific individual's quote, conclusion, or research outcome.",
+        "Check if options may be used more than once (check for the 'NB' note)."
+      ],
+      "pitfalls": "Attributing a theory to a researcher who was merely reviewing or critiquing someone else's work.",
+      "tips": "Proper names (capitalized words) are the easiest landmarks to scan in a reading text. Highlight all of them before reading the questions.",
+      "samplePassage": "While Dr. Liam Vance maintained that glacial retreat in the Patagonian ice field was primarily driven by surface atmospheric warming, climatologist Sofia Chen demonstrated through subsurface borehole thermometry that warm oceanic current incursions beneath calving shelf margins accounted for more than 60 percent of basal mass deficit.",
+      "sampleQuestion": "Which researcher demonstrated that oceanic currents beneath the ice shelf are the dominant factor in glacier loss?",
+      "sampleOptions": ["A. Dr. Liam Vance", "B. Sofia Chen", "C. Both Vance and Chen", "D. Neither researcher"],
+      "sampleAnswer": "B. Sofia Chen",
+      "sampleExplanation": "The text states 'climatologist Sofia Chen demonstrated through subsurface borehole thermometry that warm oceanic current incursions... accounted for more than 60 percent of basal mass deficit'."
+    },
+    {
+      "id": 7,
+      "slug": "matching-sentence-endings",
+      "name": "Matching Sentence Endings",
+      "badge": "Syntactic & Logical Alignment",
+      "frequency": "Medium",
+      "difficulty": "Medium",
+      "meaning": "Completing the first half of a sentence (based on the passage) by choosing the correct ending from a provided list of lettered options (A–G).",
+      "presentation": "Incomplete sentence stems (1, 2, 3...) with a box containing 6–8 possible endings.",
+      "identification": "Sentence stems appear in strict chronological order in the passage. More endings are provided than stems.",
+      "strategy": [
+        "Read the sentence stem and underline keywords to locate the evidence in the passage.",
+        "Locate the sentence in the text and comprehend the full idea.",
+        "Check grammatical alignment: the ending must connect grammatically to the stem (subject-verb agreement, tense, prepositions).",
+        "Verify meaning alignment: ensure the completed sentence reflects the passage accurately without distortions."
+      ],
+      "pitfalls": "Selecting an ending that is grammatically plausible but factually incorrect according to the passage.",
+      "tips": "Eliminate grammatically incompatible endings immediately before looking for textual proof.",
+      "samplePassage": "Archaeometallurgical testing on the bronze daggers recovered from the Mycenaean shaft graves confirmed that the copper ore originated from mines in Cyprus, whereas the tin was sourced across trans-European riverine trade routes terminating in Cornwall.",
+      "sampleQuestion": "Laboratory analysis of the Mycenaean daggers revealed that...",
+      "sampleOptions": ["A. tin was mined locally within the Peloponnese.", "B. the copper ore was imported from the island of Cyprus.", "C. bronze weapons were exclusively ceremonial.", "D. trade with Cornwall had ceased prior to the Bronze Age."],
+      "sampleAnswer": "B. the copper ore was imported from the island of Cyprus",
+      "sampleExplanation": "The passage confirms copper ore originated from mines in Cyprus, which matches option B directly."
+    },
+    {
+      "id": 8,
+      "slug": "sentence-completion",
+      "name": "Sentence Completion",
+      "badge": "Vocabulary & Grammar Extraction",
+      "frequency": "High",
+      "difficulty": "Medium",
+      "meaning": "Filling in blanks in incomplete sentences using exact words taken directly from the passage within a specified word limit.",
+      "presentation": "Sentences with missing words and instructions: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.'",
+      "identification": "Questions follow the chronological sequence of the text.",
+      "strategy": [
+        "Read the incomplete sentence and determine what part of speech (noun, adjective, number, verb) is missing.",
+        "Identify keywords immediately before and after the blank.",
+        "Scan the passage for synonyms of those boundary keywords.",
+        "Extract the exact word(s) from the text without changing their grammatical form.",
+        "Verify that your answer fits the grammar of the sentence and does not exceed the word limit."
+      ],
+      "pitfalls": "Altering the word form (e.g., writing the plural 'forests' when the text says 'forest'). IELTS instructions state: 'words taken from the passage'. Do not change them.",
+      "tips": "Always read the completed sentence back to yourself to confirm it makes logical and grammatical sense.",
+      "samplePassage": "To insulate the subterranean living capsules against extreme lunar temperature fluctuations, engineers utilized a compressed lunar regolith blanket measuring nearly three metres in thickness.",
+      "sampleQuestion": "Subterranean habitat chambers are shielded from extreme temperature shifts by a thick layer of [_______].",
+      "sampleOptions": ["Answer: NO MORE THAN TWO WORDS from the passage"],
+      "sampleAnswer": "lunar regolith",
+      "sampleExplanation": "'Lunar regolith' is the exact material mentioned in the text used as a protective insulating blanket."
+    },
+    {
+      "id": 9,
+      "slug": "summary-completion",
+      "name": "Summary Completion",
+      "badge": "Contextual Synthesis",
+      "frequency": "Extremely High",
+      "difficulty": "Medium to High",
+      "meaning": "Filling in gaps in a condensed summary of a section of the reading passage. Can be in two formats: (1) selecting words directly from the text, or (2) selecting from a provided box of words (which are synonyms of the text words).",
+      "presentation": "A title and 1–2 paragraphs of summary text with numbered blanks. Instructions define the word limit or reference a word box (A–H).",
+      "identification": "Usually covers a specific portion of the passage (e.g., 2–3 consecutive paragraphs), though occasionally it synthesizes the whole passage.",
+      "strategy": [
+        "Read the summary title to identify which section of the passage is being summarized.",
+        "Skim the entire summary to understand the overall narrative.",
+        "For each blank, analyze the surrounding words to predict the part of speech and meaning required.",
+        "Locate the corresponding sentence in the passage and match the synonyms.",
+        "If selecting from a word box, choose the word whose meaning corresponds to the text's finding."
+      ],
+      "pitfalls": "Failing to recognize that when a word box is provided, the answer is a letter (A, B, C...) representing a synonym, NOT the word directly from the passage.",
+      "tips": "Because summaries condense information, look out for linking transitions ('as a consequence', 'in addition to') that mirror the logic of the passage.",
+      "samplePassage": "Mycelium composites are biodegradable materials fabricated by cultivating fungal hyphae through agricultural waste such as hemp husks and sawdust. Within seven to ten days, the hyphae bind the substrate into an interlocking structural matrix. Once thermal treatment neutralizes further biological growth, the resulting blocks display thermal insulation characteristics on par with extruded polystyrene.",
+      "sampleQuestion": "Mycelium insulation is created by allowing fungal threads to bind [1: _______] before applying heat to stop all further [2: _______].",
+      "sampleOptions": ["Gaps 1 & 2: NO MORE THAN TWO WORDS from passage"],
+      "sampleAnswer": "1: agricultural waste (or hemp husks) | 2: biological growth",
+      "sampleExplanation": "Hyphae grow through 'agricultural waste' and thermal treatment halts 'biological growth'."
+    },
+    {
+      "id": 10,
+      "slug": "note-completion",
+      "name": "Note Completion",
+      "badge": "Structural Point Extraction",
+      "frequency": "High",
+      "difficulty": "Easy to Medium",
+      "meaning": "Filling in gaps in a structured set of bulleted notes under distinct headings, capturing factual records, specifications, timelines, or procedures.",
+      "presentation": "Arranged with headings, subheadings, and bullet points with blanks. Instructions state: 'Choose ONE WORD ONLY from the passage for each answer.'",
+      "identification": "Information follows passage order within each note section.",
+      "strategy": [
+        "Use the note headings to pinpoint the exact paragraph in the text.",
+        "Read the bullet point containing the blank and predict the missing word type.",
+        "Scan the paragraph for parallel information and write the exact word."
+      ],
+      "pitfalls": "Writing more words than permitted by the instructions (e.g., writing 'two words' when instructions specify 'ONE WORD ONLY').",
+      "tips": "Note headings act as signposts. You can navigate the passage rapidly without reading irrelevant paragraphs.",
+      "samplePassage": "The excavation team catalogued three distinct ceramic types: coarse cooking pots tempered with crushed shell, polished red-slip bowls decorated with geometric incising, and heavy storage amphorae sealed with natural bitumen.",
+      "sampleQuestion": "Ceramic Types Catalogued:\n- Cooking vessels tempered with shell\n- Red-slip bowls featuring geometric patterns\n- Storage containers sealed with [_______]",
+      "sampleOptions": ["ONE WORD ONLY"],
+      "sampleAnswer": "bitumen",
+      "sampleExplanation": "'Natural bitumen' is used to seal the amphorae; 'bitumen' satisfies the ONE WORD ONLY limit."
+    },
+    {
+      "id": 11,
+      "slug": "table-completion",
+      "name": "Table Completion",
+      "badge": "Matrix & Data Extraction",
+      "frequency": "Medium",
+      "difficulty": "Easy to Medium",
+      "meaning": "Completing empty cells within a grid or data table that categorizes information (e.g., historical dates, locations, architectural characteristics, or scientific results).",
+      "presentation": "A multi-column table with column headers (e.g., Period | Architecture Style | Primary Building Material | Notable Vulnerability).",
+      "identification": "Read horizontally or vertically depending on table structure. Usually ordered chronologically or category-by-category.",
+      "strategy": [
+        "Study the column headings and row labels to understand the organizational criteria.",
+        "Use the filled cells as guideposts to locate the exact passage section.",
+        "Fill in the missing data using exact words from the text."
+      ],
+      "pitfalls": "Reading across rows when the table is organized by columns, or vice versa.",
+      "tips": "Tables are among the easiest question types to locate in the text because column headers provide instant search keywords.",
+      "samplePassage": "The coastal stepwells of Gujarat were constructed during the Solanki dynasty (10th–12th centuries) primarily from soft sandstone, allowing intricate carving. By contrast, the inland stepwells of Rajasthan built during the 15th century utilized hard quartzite blocks to withstand seismic shifts.",
+      "sampleQuestion": "Table Entry: Location: Rajasthan | Period: 15th Century | Primary Material: [_______]",
+      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleAnswer": "quartzite (or hard quartzite)",
+      "sampleExplanation": "Inland stepwells in Rajasthan were built from hard quartzite blocks."
+    },
+    {
+      "id": 12,
+      "slug": "flow-chart-completion",
+      "name": "Flow-chart Completion",
+      "badge": "Sequential Process Mapping",
+      "frequency": "Medium",
+      "difficulty": "Medium",
+      "meaning": "Filling in gaps in a visual flowchart that outlines the stages of a process, production sequence, scientific cycle, or operational workflow.",
+      "presentation": "Connected directional boxes with arrows showing step 1 -> step 2 -> step 3. Words to fill in appear in sequential order.",
+      "identification": "The text contains a dedicated process description using sequential linkers: 'initially', 'subsequently', 'following this', 'the final stage'.",
+      "strategy": [
+        "Identify the start and end points of the flowchart.",
+        "Locate the process section in the reading passage.",
+        "Follow each arrow step-by-step to match the sequential stage.",
+        "Ensure the extracted word fits the grammatical structure of the flowchart box."
+      ],
+      "pitfalls": "Jumping ahead in the passage and missing a subtle intermediate stage.",
+      "tips": "Look for cause-and-effect language: 'leads to', 'triggers', 'is transformed into', 'enables'.",
+      "samplePassage": "During the initial phase of tea manufacture, freshly plucked leaves are spread onto perforated troughs where warm air reduces moisture by roughly 50 percent—a stage termed withering. Next, the leaves undergo mechanical rolling, which fractures cell walls and releases essential oils. These oils interact with atmospheric oxygen during oxidation, developing the distinctive amber coloration.",
+      "sampleQuestion": "Stage 1: Withering (reduces moisture) -> Stage 2: Mechanical rolling (causes fracturing of [_______]) -> Stage 3: Oxidation",
+      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleAnswer": "cell walls",
+      "sampleExplanation": "Rolling 'fractures cell walls', directly completing the second flowchart stage."
+    },
+    {
+      "id": 13,
+      "slug": "diagram-label-completion",
+      "name": "Diagram Label Completion",
+      "badge": "Technical & Spatial Matching",
+      "frequency": "Medium",
+      "difficulty": "Medium",
+      "meaning": "Labeling specific mechanical parts, architectural elements, or natural processes on an illustrated diagram based on technical descriptions in the passage.",
+      "presentation": "A line drawing or technical cutaway diagram with pointer lines pointing to components, paired with numbered blanks.",
+      "identification": "Concentrated in a specific descriptive paragraph that explains how a mechanism, machine, or natural structure functions.",
+      "strategy": [
+        "Scan the passage for spatial and mechanical keywords (e.g., 'upper chamber', 'base', 'pivoting axle', 'subterranean reservoir', 'valve').",
+        "Trace the layout of the diagram: identify top vs bottom, interior vs exterior, input vs output.",
+        "Extract the exact label words from the text."
+      ],
+      "pitfalls": "Guessing based on visual intuition rather than verifying the technical terms used in the passage.",
+      "tips": "Diagrams often explain historical inventions (e.g., the Falkirk Wheel, water clocks, Roman ships) or ecological systems. The text will describe components systematically from one side to the other.",
+      "samplePassage": "The tidal turbine consists of two counter-rotating blades mounted onto a central tubular steel mast. At the seabed anchor point, a heavy concrete gravity base secures the structure, while the hydraulic pitch actuator located within the nacelle adjusts blade angle according to flow velocity.",
+      "sampleQuestion": "Diagram Component [Arrow pointing to seabed stabilization block]: [_______]",
+      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleAnswer": "gravity base (or concrete gravity base)",
+      "sampleExplanation": "The seabed anchor point is described as a 'heavy concrete gravity base'."
+    },
+    {
+      "id": 14,
+      "slug": "short-answer-questions",
+      "name": "Short-Answer Questions",
+      "badge": "Direct Factual Extraction",
+      "frequency": "Medium",
+      "difficulty": "Easy to Medium",
+      "meaning": "Answering direct open-ended questions (Who, What, Where, When, How, Which) using words retrieved directly from the reading passage.",
+      "presentation": "Numbered questions followed by 'Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage for each answer.'",
+      "identification": "Questions follow the chronological sequence of the passage.",
+      "strategy": [
+        "Identify the question word to understand what is being sought (e.g., 'What material...' requires a substance; 'In what year...' requires a date).",
+        "Locate the sentence in the text using keywords from the question.",
+        "Extract the answer concisely without writing a full sentence (e.g., write 'sandstone', not 'It was made of sandstone')."
+      ],
+      "pitfalls": "Writing complete sentences. IELTS Short-Answer questions require concise factual extracts that fit the word limit.",
+      "tips": "Numbers can be written in words or digits (e.g., '3' or 'three'). Writing digits saves time and eliminates spelling risk.",
+      "samplePassage": "The initial patent for synthetic mauveine was granted to eighteen-year-old chemist William Henry Perkin in August 1856, after his attempt to synthesize quinine accidentally produced an intense purple residue.",
+      "sampleQuestion": "What medicinal substance was William Perkin attempting to synthesize when he discovered mauve dye?",
+      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleAnswer": "quinine",
+      "sampleExplanation": "Perkin's attempt to synthesize 'quinine' led to the accidental discovery of mauveine."
+    }
+  ],
+  "strategies": {
+    "title": "Mastering the 3 Core IELTS Reading Strategies",
+    "subtitle": "Choosing the right reading strategy depends on your reading speed, your target band score, and the specific question types in each passage.",
+    "list": [
+      {
+        "id": "strategy-1",
+        "name": "Strategy 1: Full-Passage Reading First",
+        "tag": "Best for Band 8.0+ Fast Readers",
+        "summary": "Read the entire passage at a brisk pace (approx. 3–4 minutes) to absorb structure, thesis, and paragraph intentions before looking at questions.",
+        "pros": [
+          "Gives complete context, reducing susceptibility to distractor traps.",
+          "Makes 'Matching Headings' and 'Global Multiple Choice' significantly easier.",
+          "Prevents getting lost when questions paraphrase passage ideas heavily."
+        ],
+        "cons": [
+          "Risk of running out of time if your reading speed is under 220 words per minute.",
+          "You will still need to re-read specific sentences when answering detailed questions."
+        ],
+        "whenToUse": "Recommended only for strong readers (already reading at Band 7.5+) on Passage 1 or Passage 2 when Matching Headings is the primary question type."
+      },
+      {
+        "id": "strategy-2",
+        "name": "Strategy 2: Question-First Reading & Keyword Hunting",
+        "tag": "Most Popular & Time-Efficient",
+        "summary": "Analyze 2–3 questions first, identify unique keywords (names, dates, terminology), then scan the passage directly for those target zones.",
+        "pros": [
+          "Zero time wasted reading irrelevant descriptive paragraphs.",
+          "Guarantees you locate the exact evidence sentences for factual questions (TFNG, Sentence Completion, Table Completion).",
+          "Highly accessible for test takers aiming for Band 6.5–7.5."
+        ],
+        "cons": [
+          "Vulnerable to synonyms: if the test replaces 'accelerated' with 'precipitated', basic keyword scanning fails.",
+          "Poor fit for 'Matching Headings' where overall paragraph gist is required rather than isolated facts."
+        ],
+        "whenToUse": "The optimal strategy for factual question types (Passage 1 & 2 tables, sentence completion, diagram labeling, short answers)."
+      },
+      {
+        "id": "strategy-3",
+        "name": "Strategy 3: Skim, Margin Note & Target (Hybrid Technique)",
+        "tag": "The Professional IELTS Recommended Method",
+        "summary": "Spend 90 seconds reading only the title, subtitle, first sentence of every paragraph, and final sentence. Write a 2-word mental tag next to each paragraph, then tackle questions.",
+        "pros": [
+          "Creates an instant mental index of the passage without burning cognitive energy.",
+          "When you read Question 4 about 'economic repercussions', your margin note directs you straight to Paragraph D.",
+          "Combines the contextual safety of Strategy 1 with the speed of Strategy 2."
+        ],
+        "cons": [
+          "Requires consistent practice during preparation to build confident paragraph synthesis skills."
+        ],
+        "whenToUse": "The gold standard for Passage 2 and Passage 3, especially when passages feature a mix of Matching Information and Multiple Choice."
+      }
+    ],
+    "microSkills": [
+      {
+        "skill": "Skimming",
+        "desc": "Reading at 3x normal speed (approx. 400 wpm) exclusively to comprehend the general topic and architecture. Do not pronounce words in your head; move your eyes across topic sentences."
+      },
+      {
+        "skill": "Scanning",
+        "desc": "Moving eyes rapidly in search of specific visual shapes: numbers (1984), capital letters (Dr. Harrison), symbols (%), or technical terms. Do NOT read for meaning while scanning."
+      },
+      {
+        "skill": "Synonym Mapping",
+        "desc": "IELTS questions rarely use passage words directly. Train yourself to spot equivalence pairs: 'curtailed' = 'reduced', 'mitigate' = 'lessen', 'indigenous' = 'native', 'pioneering' = 'innovative'."
+      },
+      {
+        "skill": "Distractor Awareness",
+        "desc": "Recognizing when an option reuses verbatim words from the passage to mislead you into selecting an inaccurate causal relationship."
+      }
+    ]
+  },
+  "difficultyGuide": {
+    "title": "Question Difficulty Ranking & Beginner Preparation Roadmap",
+    "subtitle": "Prioritizing high-accuracy question types early builds momentum and locks in safe baseline marks before tackling complex discursive tasks.",
+    "rankings": [
+      {
+        "tier": "Easy / High Accuracy",
+        "types": ["Table Completion", "Diagram Label Completion", "Short-Answer Questions", "Note Completion"],
+        "why": "Keywords are concrete and easy to locate; answers are taken directly from the passage with minimal linguistic distortion.",
+        "beginnerGuidance": "Beginners should practice these first to build familiarity with time limits and exact word-count constraints."
+      },
+      {
+        "tier": "Medium / Moderate Complexity",
+        "types": ["Sentence Completion", "Multiple Choice (Single Answer)", "Flow-chart Completion", "Matching Features", "Matching Sentence Endings"],
+        "why": "Requires understanding sentence grammar and recognizing mid-tier paraphrasing and antonyms.",
+        "beginnerGuidance": "Focus on grammatical alignment: predicting whether the gap requires a noun, verb, or adjective before scanning."
+      },
+      {
+        "tier": "Difficult / High Linguistic Trap Density",
+        "types": ["True / False / Not Given", "Yes / No / Not Given", "Matching Headings", "Matching Information"],
+        "why": "Requires discerning subtle shades of meaning (contrasting negation with absence of data) and evaluating paragraph-level themes.",
+        "beginnerGuidance": "Tackle these questions systematically only after mastering factual question types; never rush TFNG without proof."
+      }
+    ]
+  },
+  "timeManagement": {
+    "title": "60-Minute Reading Time Management Matrix",
+    "subtitle": "Because IELTS Reading grants zero transfer time at the end, pacing must be calibrated strictly passage by passage.",
+    "breakdown": [
+      {
+        "passage": "Passage 1 (Easiest)",
+        "allocatedMinutes": 17,
+        "questions": "1–13 (Factual & Descriptive)",
+        "pacing": "~1.3 minutes per question",
+        "focus": "Lock in 12–13 marks quickly. Do not linger. Transfer answers immediately."
+      },
+      {
+        "passage": "Passage 2 (Intermediate)",
+        "allocatedMinutes": 20,
+        "questions": "14–26 (Analytical & Explanatory)",
+        "pacing": "~1.5 minutes per question",
+        "focus": "Balanced pacing. Watch for synonym traps in Matching Features and Summary Completion."
+      },
+      {
+        "passage": "Passage 3 (Most Complex)",
+        "allocatedMinutes": 23,
+        "questions": "27–40 (Theoretical & Argumentative)",
+        "pacing": "~1.6 minutes per question",
+        "focus": "Requires deepest comprehension for Yes/No/Not Given and Matching Information."
+      }
+    ],
+    "roadblockProtocol": {
+      "title": "The 90-Second Roadblock Protocol",
+      "rule": "If you spend more than 90 seconds on any single question without locating clear evidence: STOP.",
+      "action": "Make an educated guess immediately (e.g., choose B or NOT GIVEN), put a star next to the question number on your booklet, and move to the next question. Every question is worth exactly 1 mark—do not sacrifice 3 easy questions in Passage 3 for 1 stubborn question in Passage 1."
+    }
+  },
+  "scoringTables": {
+    "title": "Official IELTS Reading Band Score Conversion",
+    "subtitle": "Each correct answer awards 1 raw mark out of 40. Conversion charts reflect official Cambridge Assessment evaluation guidelines.",
+    "academic": [
+      { "rawScore": "39–40", "band": "9.0", "level": "Expert User" },
+      { "rawScore": "37–38", "band": "8.5", "level": "Very Good User" },
+      { "rawScore": "35–36", "band": "8.0", "level": "Very Good User" },
+      { "rawScore": "33–34", "band": "7.5", "level": "Good User" },
+      { "rawScore": "30–32", "band": "7.0", "level": "Good User (University Admissions Benchmark)" },
+      { "rawScore": "27–29", "band": "6.5", "level": "Competent User" },
+      { "rawScore": "23–26", "band": "6.0", "level": "Competent User" },
+      { "rawScore": "19–22", "band": "5.5", "level": "Modest User" },
+      { "rawScore": "15–18", "band": "5.0", "level": "Modest User" },
+      { "rawScore": "13–14", "band": "4.5", "level": "Limited User" },
+      { "rawScore": "10–12", "band": "4.0", "level": "Limited User" }
+    ],
+    "general": [
+      { "rawScore": "40", "band": "9.0", "level": "Expert User" },
+      { "rawScore": "39", "band": "8.5", "level": "Very Good User" },
+      { "rawScore": "37–38", "band": "8.0", "level": "Very Good User" },
+      { "rawScore": "36", "band": "7.5", "level": "Good User" },
+      { "rawScore": "34–35", "band": "7.0", "level": "Good User (Immigration Benchmark)" },
+      { "rawScore": "32–33", "band": "6.5", "level": "Competent User" },
+      { "rawScore": "30–31", "band": "6.0", "level": "Competent User" },
+      { "rawScore": "27–29", "band": "5.5", "level": "Modest User" },
+      { "rawScore": "23–26", "band": "5.0", "level": "Modest User" },
+      { "rawScore": "19–22", "band": "4.5", "level": "Limited User" },
+      { "rawScore": "15–18", "band": "4.0", "level": "Limited User" }
+    ]
+  },
+  "tipsAndMistakes": {
+    "title": "Top Practical Tips & 10 Costly Mistakes to Avoid",
+    "tips": [
+      { "title": "Read Questions Before the Passage", "desc": "Never read a 900-word passage blindly. Always preview questions so your brain knows what specific information it is hunting for." },
+      { "title": "Underline Anchor Words", "desc": "Proper names, years, chemical formulas, and technical nouns rarely change into synonyms. Use them as anchors to pinpoint the right paragraph." },
+      { "title": "Double-Check Word Counts", "desc": "If instructions state 'NO MORE THAN TWO WORDS', writing 'in the summer' receives zero credit even if 'summer' was correct." },
+      { "title": "Never Rely on Personal Background Knowledge", "desc": "Even if you hold a PhD in biology, answers must be based strictly on what the text says—not what is scientifically true in the real world." }
+    ],
+    "mistakes": [
+      { "mistake": "Treating NOT GIVEN as FALSE", "fix": "FALSE requires direct contradiction. If the passage simply never confirms or denies the statement, it is NOT GIVEN." },
+      { "mistake": "Writing Answers at the Last Minute", "fix": "There is no 10-minute transfer time in Reading. Transfer every answer to the answer sheet as you finish each passage." },
+      { "mistake": "Reading Every Word at the Same Speed", "fix": "Vary your speed dynamically: skim non-essential paragraphs at 400 wpm, but slow down to 100 wpm when reading the exact evidence sentence." },
+      { "mistake": "Leaving Blank Answers", "fix": "There is no negative marking. Even a complete guess gives you a 25% chance on multiple choice and a 33% chance on TFNG." }
+    ]
+  },
+  "interactiveDrills": [
+    {
+      "id": "drill-tfng",
+      "title": "Interactive Exercise 1: True / False / Not Given",
+      "type": "True / False / Not Given",
+      "passage": "Hydrothermal vents located along mid-ocean ridges support chemosynthetic ecosystems completely decoupled from solar photosynthesis. Microorganisms convert toxic hydrogen sulfide emitted from volcanic chimneys into organic cellular mass, sustaining dense colonies of giant tube worms and vent shrimp. Although marine biologists initially hypothesized that vent species possessed high longevity due to cold ambient abyssal waters, radioisotope dating of tube worm carapaces established that individual specimens rarely survive past sixteen years due to frequent tectonic venting disruptions.",
+      "questions": [
+        {
+          "qId": "q1",
+          "statement": "Hydrothermal vent organisms depend indirectly on sunlight for biological energy.",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correct": "FALSE",
+          "explanation": "The text explicitly states vent ecosystems are 'completely decoupled from solar photosynthesis', contradicting the statement that they depend indirectly on sunlight."
+        },
+        {
+          "qId": "q2",
+          "statement": "Tectonic disruptions frequently shorten the lifespan of giant tube worms.",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correct": "TRUE",
+          "explanation": "The text confirms specimens 'rarely survive past sixteen years due to frequent tectonic venting disruptions', directly agreeing with the statement."
+        },
+        {
+          "qId": "q3",
+          "statement": "Vent shrimp have developed natural immunity to volcanic mineral toxicity.",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correct": "NOT GIVEN",
+          "explanation": "While vent shrimp are mentioned as part of the ecosystem, the text says nothing about whether they have developed natural immunity to mineral toxicity."
+        }
+      ]
+    },
+    {
+      "id": "drill-headings",
+      "title": "Interactive Exercise 2: Matching Headings",
+      "type": "Matching Headings",
+      "passage": "Paragraph A: Modern high-density metropolises experience localized microclimates known as urban heat islands, where concrete pavements and asphalt roadways absorb solar radiation during daylight hours and re-radiate thermal energy throughout the night. As a consequence, central downtown districts frequently register temperatures 4 to 7 degrees Celsius warmer than surrounding agrarian periphery zones, driving peak electrical grid consumption through widespread air conditioning.",
+      "questions": [
+        {
+          "qId": "h1",
+          "statement": "Select the heading that best summarizes Paragraph A:",
+          "options": [
+            "i. The agricultural benefits of city radiation",
+            "ii. Mechanisms and thermal impacts of urban heat islands",
+            "iii. Government regulations on corporate air conditioning",
+            "iv. Economic collapse caused by summer power failures"
+          ],
+          "correct": "ii. Mechanisms and thermal impacts of urban heat islands",
+          "explanation": "Paragraph A explains how heat islands work (concrete absorbing and re-radiating heat) and their impact (temperatures 4-7 degrees warmer and spike in grid consumption), perfectly captured by heading ii."
+        }
+      ]
+    },
+    {
+      "id": "drill-summary",
+      "title": "Interactive Exercise 3: Summary Completion",
+      "type": "Summary Completion",
+      "passage": "Mycelium composites are fabricated by introducing fungal filaments into low-value agricultural byproducts such as flax shives and spent coffee grounds. Over a period of one week, the fungus digests lignocellulose, binding the loose organic substrate into an interlocking structural composite. Once biological activity is arrested through kiln drying, the resulting lightweight material delivers fire-retardant and thermal insulation metrics matching traditional synthetic foams.",
+      "questions": [
+        {
+          "qId": "s1",
+          "statement": "Fungal threads transform agricultural waste into an interlocking material before all biological activity is halted through [_______].",
+          "options": ["kiln drying", "chemical freezing", "solar radiation", "water immersion"],
+          "correct": "kiln drying",
+          "explanation": "The passage confirms: 'Once biological activity is arrested through kiln drying...'. 'Arrested' is a direct synonym for 'halted'."
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there any extra transfer time in the IELTS Reading test?",
+      "a": "No. Unlike the Listening test where candidates are given transfer time, IELTS Reading gives you exactly 60 minutes in total. You must record all 40 answers directly on your answer sheet (paper-based) or in the software (computer-delivered) before the 60 minutes expire."
+    },
+    {
+      "q": "Can I write my answers in all capital letters?",
+      "a": "Yes. For paper-based exams, Cambridge officially allows and recommends writing answers in all CAPITAL LETTERS (e.g., TRUE, FALSE, NOT GIVEN, or names like AUSTRALIA) to avoid ambiguity with handwriting legibility."
+    },
+    {
+      "q": "What is the key difference between FALSE and NOT GIVEN?",
+      "a": "FALSE means the passage directly contradicts the statement—there is factual proof in the text showing the statement is incorrect. NOT GIVEN means the passage does not contain enough information to confirm or deny the statement, even if the general topic is mentioned."
+    },
+    {
+      "q": "Are Cambridge IELTS Books 9–21 real examination papers?",
+      "a": "Yes. Cambridge IELTS Books 9 through 21 contain authentic previous past examination papers published by Cambridge University Press & Assessment. They reflect the exact test design, question distributions, and difficulty levels encountered on official IELTS test days."
+    },
+    {
+      "q": "How many correct answers do I need for Band 7.0 in Reading?",
+      "a": "In IELTS Academic Reading, you typically need 30 out of 40 correct answers (~75%). In IELTS General Training Reading, because the texts in Sections 1 and 2 are simpler everyday documents, you need 34 out of 40 correct answers (~85%) to achieve Band 7.0."
+    },
+    {
+      "q": "Should I read the passage first or the questions first?",
+      "a": "For most candidates, using Strategy 3 (Skim for 90 seconds to grasp the overall structure and write brief margin notes, then tackle questions) or Strategy 2 (Question-first reading for factual sections) is vastly more time-efficient than reading the entire passage word-for-word."
+    },
+    {
+      "q": "What happens if my answer is misspelled?",
+      "a": "In IELTS Reading, misspelled words are marked incorrect and receive zero credit. Always copy words letter-by-letter directly from the passage to eliminate spelling errors."
+    },
+    {
+      "q": "Are hyphenated words counted as one word or two?",
+      "a": "Hyphenated words (e.g., 'state-of-the-art', 'well-being') count as a single word in the IELTS word count rubric."
+    }
+  ]
+}
+

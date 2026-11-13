@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   BookOpen,
@@ -11,12 +10,22 @@ import {
   Bookmark,
   CheckCircle2,
   FolderOpen,
+  ChevronLeft,
+  Calendar,
+  Sparkles,
+  Layers,
+  FileCheck,
+  ExternalLink,
+  BookMarked,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { useGsapEntrance } from '@/hooks/useGsapEntrance';
 import { PageHeader, Badge } from '@/components/common/UiPrimitives';
 import { SearchBar } from '@/components/common/DataControls';
 import { Modal } from '@/components/common/Modal';
+
+import readingTests from '@/data/reading/tests.json';
+import cambridgeBooks from '@/data/reading/cambridge-reading-books.json';
 import collections from '@/data/reading/collections.json';
 import passages from '@/data/reading/passages.json';
 
@@ -26,45 +35,79 @@ export function ReadingLibraryView() {
   const rootRef = useGsapEntrance('reading-library');
 
   const [track, setTrack] = useState('Academic');
-  const [partFilter, setPartFilter] = useState('All');
-  const [categoryTab, setCategoryTab] = useState('All');
+  const [category, setCategory] = useState('Cambridge IELTS');
   const [search, setSearch] = useState('');
-  const [popupTest, setPopupTest] = useState(null);
-  const [selectedPartMode, setSelectedPartMode] = useState('Full');
+  const [selectedBookNum, setSelectedBookNum] = useState(null);
+  const [selectedTest, setSelectedTest] = useState(null);
+  const [selectedPassageIndex, setSelectedPassageIndex] = useState(0);
   const [timedMode, setTimedMode] = useState(true);
 
-  const filteredCollections = useMemo(() => {
+  // Filtered Cambridge books
+  const filteredBooks = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return collections
-      .filter((col) => (categoryTab === 'All' ? true : col.category === categoryTab))
-      .map((col) => {
-        const tests = col.tests.filter((t) => {
-          const matchesSearch = !q || t.topic.toLowerCase().includes(q) || col.title.toLowerCase().includes(q);
-          return matchesSearch;
-        });
-        return { ...col, tests };
-      })
-      .filter((col) => col.tests.length > 0);
-  }, [categoryTab, search]);
+    if (!q) return cambridgeBooks;
+    return cambridgeBooks.filter(
+      (b) =>
+        b.title.toLowerCase().includes(q) ||
+        String(b.bookNumber).includes(q) ||
+        b.overview.toLowerCase().includes(q)
+    );
+  }, [search]);
 
-  const filteredPassages = useMemo(() => {
+  // Selected Cambridge Book details
+  const activeBook = useMemo(() => {
+    if (!selectedBookNum) return null;
+    return cambridgeBooks.find((b) => b.bookNumber === selectedBookNum) || null;
+  }, [selectedBookNum]);
+
+  // Tests for active Cambridge book
+  const activeBookTests = useMemo(() => {
+    if (!selectedBookNum) return [];
+    return readingTests.filter((t) => t.bookNumber === selectedBookNum);
+  }, [selectedBookNum]);
+
+  // Filtered tests for other categories
+  const filteredTests = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return passages.filter((p) => {
-      const matchPart = partFilter === 'All' || p.partLabel === partFilter;
-      const matchQ =
-        !q ||
-        p.title.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q);
-      return matchPart && matchQ;
-    });
-  }, [partFilter, search]);
+    return readingTests
+      .filter((t) => {
+        if (category === 'Cambridge IELTS') {
+          return t.category === 'Cambridge Official Collection';
+        }
+        if (category === 'All') return true;
+        return t.category === category;
+      })
+      .filter((t) =>
+        !q
+          ? true
+          : t.title.toLowerCase().includes(q) ||
+            (t.collection && t.collection.toLowerCase().includes(q))
+      );
+  }, [category, search]);
+
+  const handleLaunchTest = (test, passageIdx = 0) => {
+    setSelectedTest(test);
+    setSelectedPassageIndex(passageIdx);
+  };
+
+  const confirmStartTest = () => {
+    if (!selectedTest) return;
+    const passage = selectedTest.passages?.[selectedPassageIndex] || selectedTest.passages?.[0];
+    const targetId = passage?.id || selectedTest.id;
+    router.push(`/reading/test/${targetId}`);
+  };
 
   return (
-    <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+    <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <PageHeader
-        title="Explore the Reading Library"
-        description="Official-style academic passages, recent practice sets, and timed speed drills across all 14 IELTS Reading question types."
-        breadcrumbs={[{ label: 'Dashboard', href: '/dashboard' }, { label: 'Reading' }]}
+        title="IELTS Reading Practice Library"
+        description="Authentic Cambridge IELTS Academic Reading collection (Books 9–25) with full 3-passage examination sets, split-screen reading interface, live question navigator, and instant band scoring."
+        breadcrumbs={[
+          { label: 'Dashboard', href: '/dashboard' },
+          { label: 'Reading', href: '/reading' },
+          ...(activeBook ? [{ label: `Cambridge ${activeBook.bookNumber}` }] : []),
+        ]}
+        badge={<Badge variant="yellow">Cambridge Books 9–25 Integrated</Badge>}
         actions={
           <div className="tabs-list">
             {['Academic', 'General'].map((t) => (
@@ -81,279 +124,500 @@ export function ReadingLibraryView() {
         }
       />
 
-      {/* Part Mode Pills + Category Tabs + Search */}
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 12,
-        }}
-      >
+      {/* Category Pills & Search Controls */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
         <div className="filter-pills">
-          {['All', 'Recent Real Tests', 'Official-Style Library', 'Road to IELTS'].map((cat) => (
+          {[
+            { key: 'Cambridge IELTS', label: 'Cambridge IELTS (Books 9–25)', badge: '68 Tests' },
+            { key: 'All', label: 'All Practice Sets' },
+            { key: 'Recent Real Tests', label: 'Recent Real Tests', badge: 'NEW' },
+            { key: 'Official-Style Library', label: 'Official-Style Library' },
+            { key: 'Road to IELTS', label: 'Road to IELTS' },
+          ].map((cat) => (
             <button
-              key={cat}
+              key={cat.key}
               type="button"
-              onClick={() => setCategoryTab(cat)}
-              className={`filter-pill ${categoryTab === cat ? 'active' : ''}`}
+              className={`filter-pill ${category === cat.key ? 'active' : ''}`}
+              onClick={() => {
+                setCategory(cat.key);
+                setSelectedBookNum(null);
+              }}
             >
-              <span>{cat}</span>
-              {cat === 'Recent Real Tests' && <Badge variant="yellow">NEW</Badge>}
+              <span>{cat.label}</span>
+              {cat.badge && (
+                <Badge variant={cat.badge === 'NEW' ? 'yellow' : 'neutral'} style={{ fontSize: '0.7rem' }}>
+                  {cat.badge}
+                </Badge>
+              )}
             </button>
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-          <div className="tabs-list" style={{ padding: 3 }}>
-            {['All', 'Part 1', 'Part 2', 'Part 3'].map((p) => (
-              <button
-                key={p}
-                type="button"
-                className={`tab-trigger ${partFilter === p ? 'active' : ''}`}
-                onClick={() => setPartFilter(p)}
-                style={{ padding: '5px 10px', fontSize: '0.76rem' }}
-              >
-                {p}
-              </button>
-            ))}
-          </div>
-          <SearchBar value={search} onChange={setSearch} placeholder="Search passages..." style={{ width: 210 }} />
+        <SearchBar
+          value={search}
+          onChange={setSearch}
+          placeholder="Search passages, topics, or Cambridge books..."
+          style={{ width: 280 }}
+        />
+      </div>
+
+      {/* Reading Architecture Guidance Notice */}
+      <div className="card-warm" style={{ padding: '14px 18px', display: 'flex', gap: 12, alignItems: 'center', borderRadius: 0 }}>
+        <Info size={18} style={{ color: 'var(--accent-purple)', flexShrink: 0 }} />
+        <div className="text-xs text-muted" style={{ lineHeight: 1.5 }}>
+          <strong>Exam Architecture Notice:</strong> IELTS Reading grants exactly 60 minutes with ZERO extra transfer time. All 3 passages and 40 questions per test feature adjustable split-screen layouts, text highlighters, personal scratchpads, and live question navigation palettes.
         </div>
       </div>
 
-      {/* Guidance Banner (Image 5 inspired) */}
-      <div
-        className="card-warm"
-        style={{
-          padding: '12px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 10,
-        }}
-      >
-        <Info size={16} style={{ color: 'var(--accent-purple)', flexShrink: 0 }} />
-        <p className="text-xs text-muted">
-          <strong>Practice Guidance:</strong> All passages use original IELTS Ultimate academic texts (no copyrighted exam reproductions). Use text highlighting and personal notes inside the split-screen exam viewer.
-        </p>
-      </div>
-
-      {/* Practice Collections Grid (Image 5 3-column collection cards with clickable Test 1-4 rows) */}
-      <section>
-        <div className="section-header">
-          <h2 className="h2">Reading Practice Collections</h2>
-          <span className="text-xs text-muted">{filteredCollections.length} volumes</span>
-        </div>
-
-        <div className="grid-3">
-          {filteredCollections.map((col) => (
-            <div key={col.id} data-animate="card" className="card" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span
-                    style={{
-                      width: 34,
-                      height: 34,
-                      borderRadius: 9,
-                      backgroundColor: '#EDF4FF',
-                      color: '#3B6FD4',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <BookOpen size={17} />
-                  </span>
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: '0.96rem' }}>{col.title}</div>
-                    <div className="text-xs text-muted">{col.tests.length} TESTS • {col.category}</div>
-                  </div>
-                </div>
-                <Link
-                  href={`/reading/collections/${col.id}`}
-                  className="btn btn-ghost btn-sm"
-                  title="Open collection"
-                >
-                  <FolderOpen size={15} />
-                </Link>
+      {/* VIEW 1: CAMBRIDGE IELTS COLLECTION OVERVIEW (Books 9–25) */}
+      {category === 'Cambridge IELTS' && !selectedBookNum && (
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {/* Collection Metrics Summary Card */}
+          <div
+            className="card"
+            style={{
+              background: 'linear-gradient(135deg, #F1EFE6 0%, #FAF9F5 100%)',
+              border: '1px solid var(--border)',
+              borderRadius: 0,
+              padding: '24px 28px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 12,
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+              <div>
+                <span className="badge badge-purple" style={{ textTransform: 'uppercase' }}>
+                  Official Past Examination Collection
+                </span>
+                <h2 className="h2" style={{ marginTop: 6, marginBottom: 4 }}>
+                  Cambridge IELTS Books 9 through 25 Academic Library
+                </h2>
+                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 840 }}>
+                  Explore complete 4-test Academic Reading suites from Cambridge University Press &amp; Assessment. Select any edition below to access its individual Tests 1 through 4 with authentic 3-passage breakdowns and split-screen examination interfaces.
+                </p>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                {col.tests.map((test, idx) => (
-                  <button
-                    key={`${col.id}-${idx}`}
-                    type="button"
-                    onClick={() => {
-                      setPopupTest({ ...test, collectionTitle: col.title });
-                      setSelectedPartMode('Full');
-                    }}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '10px 12px',
-                      borderRadius: 10,
-                      border: '1px solid var(--border)',
-                      backgroundColor: 'var(--bg-primary)',
-                      textAlign: 'left',
-                      transition: 'border-color 0.16s ease, background-color 0.16s ease',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-                      <span
-                        style={{
-                          width: 24,
-                          height: 24,
-                          borderRadius: 999,
-                          backgroundColor: 'var(--surface)',
-                          border: '1px solid var(--border)',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                        }}
-                      >
-                        {idx + 1}
-                      </span>
-                      <div style={{ minWidth: 0 }}>
-                        <div style={{ fontWeight: 600, fontSize: '0.84rem' }}>{test.label}: {test.topic}</div>
-                        <div className="text-xs text-muted">{test.difficulty} • {test.duration}m</div>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      {test.completedScore && <Badge variant="success">{test.completedScore}</Badge>}
-                      <ArrowRight size={14} className="text-muted" />
-                    </div>
-                  </button>
-                ))}
+              <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--accent-purple)' }}>17 Books</div>
+                  <div className="text-xs text-muted">13 Published &bull; 4 Forthcoming</div>
+                </div>
+                <div style={{ width: 1, height: 36, background: 'var(--border)' }} />
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: '1.4rem', color: '#B45309' }}>156 Passages</div>
+                  <div className="text-xs text-muted">2,080 Questions</div>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Individual Passage Bank */}
-      <section>
-        <div className="section-header">
-          <div>
-            <h2 className="h2">Individual Passages & Question Bank</h2>
-            <p className="text-xs text-muted">Jump directly into single timed academic passages</p>
           </div>
-          <span className="text-xs text-muted">{filteredPassages.length} passages</span>
-        </div>
 
-        <div className="grid-2">
-          {filteredPassages.map((p) => {
-            const saved = bookmarks.tests.includes(p.id);
-            return (
-              <div key={p.id} data-animate="card" className="card card-interactive" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', gap: 6 }}>
-                    <Badge variant="purple">{p.partLabel}</Badge>
-                    <Badge variant="neutral">{p.category}</Badge>
+          {/* 17 Book Cards Grid */}
+          <div className="grid-3">
+            {filteredBooks.map((book) => (
+              <div
+                key={book.bookNumber}
+                className="card card-interactive"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  gap: 16,
+                  borderRadius: 0,
+                  border: book.isForthcoming ? '1px dashed var(--border)' : '1px solid var(--border)',
+                  backgroundColor: book.isForthcoming ? '#FAF9F5' : '#FFFFFF',
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                    <span
+                      style={{
+                        fontSize: '0.78rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.04em',
+                        background: book.isForthcoming ? '#F3F4F6' : 'var(--accent-yellow-soft)',
+                        color: book.isForthcoming ? '#4B5563' : '#9A6900',
+                        padding: '4px 8px',
+                        border: '1px solid var(--border)',
+                        borderRadius: 0,
+                      }}
+                    >
+                      Cambridge {book.bookNumber}
+                    </span>
+
+                    <span
+                      className="badge"
+                      style={{
+                        backgroundColor: book.isForthcoming ? '#FEF3C7' : '#ECFDF5',
+                        color: book.isForthcoming ? '#B45309' : '#047857',
+                        border: 'none',
+                        fontSize: '0.72rem',
+                      }}
+                    >
+                      {book.status}
+                    </span>
                   </div>
-                  <button
-                    type="button"
-                    className="btn btn-ghost btn-sm"
-                    onClick={() => toggleBookmark('tests', p.id, 'Saved Tests')}
-                    aria-label="Bookmark passage"
-                  >
-                    <Bookmark
-                      size={15}
-                      fill={saved ? 'var(--accent-yellow)' : 'none'}
-                      color={saved ? '#B48200' : 'var(--text-secondary)'}
-                    />
-                  </button>
+
+                  <h3 className="h3" style={{ fontSize: '1.05rem', marginBottom: 6 }}>
+                    {book.title}
+                  </h3>
+
+                  <div className="text-xs text-muted" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+                    <Calendar size={13} />
+                    <span>{book.year} &bull; {book.publisher}</span>
+                  </div>
+
+                  <p className="text-xs text-muted" style={{ lineHeight: 1.55, margin: '0 0 12px 0' }}>
+                    {book.overview}
+                  </p>
                 </div>
 
                 <div>
-                  <h3 className="h3">{p.title}</h3>
-                  <p className="text-xs text-muted" style={{ marginTop: 4 }}>{p.subtitle}</p>
-                </div>
+                  <div
+                    style={{
+                      borderTop: '1px solid var(--border)',
+                      paddingTop: 12,
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div className="text-xs text-muted">
+                      <strong>{book.testCount} Tests</strong> &bull; {book.passagesCount} Passages
+                    </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: 6 }}>
-                  <span className="text-xs text-muted" style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
-                    <Clock size={13} /> {p.durationMinutes} min • {p.wordCount} words
-                  </span>
-                  <Link href={`/reading/test/${p.id}`} className="btn btn-primary btn-sm">
-                    Start Passage →
-                  </Link>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedBookNum(book.bookNumber)}
+                      className="btn btn-primary btn-sm"
+                      style={{ borderRadius: 0 }}
+                    >
+                      <span>{book.isForthcoming ? 'View Syllabus' : 'Explore Tests'}</span>
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* Test Selection & Instructions Popup */}
-      <Modal
-        open={Boolean(popupTest)}
-        onClose={() => setPopupTest(null)}
-        title={popupTest ? `${popupTest.collectionTitle} — ${popupTest.label}` : ''}
-        subtitle={popupTest?.topic}
-      >
-        {popupTest && (
+      {/* VIEW 2: SELECTED CAMBRIDGE BOOK TESTS */}
+      {category === 'Cambridge IELTS' && selectedBookNum && activeBook && (
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {/* Back button & Book Overview Banner */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setSelectedBookNum(null)}
+              className="btn btn-ghost btn-sm"
+              style={{ borderRadius: 0, marginBottom: 14, color: 'var(--text-secondary)' }}
+            >
+              <ChevronLeft size={16} /> Back to Cambridge Books Collection
+            </button>
+
+            <div
+              className="card"
+              style={{
+                borderRadius: 0,
+                border: '1px solid var(--border)',
+                padding: '24px 28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 12,
+                backgroundColor: activeBook.isForthcoming ? '#FAF9F5' : '#FFFFFF',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                    <span className="badge badge-yellow">Book {activeBook.bookNumber}</span>
+                    <Badge variant={activeBook.isForthcoming ? 'yellow' : 'neutral'}>
+                      {activeBook.status}
+                    </Badge>
+                    <span className="text-xs text-muted">{activeBook.year}</span>
+                  </div>
+                  <h2 className="h2" style={{ margin: 0 }}>{activeBook.title}</h2>
+                  <p className="text-sm text-muted" style={{ margin: '6px 0 0', maxWidth: 880 }}>
+                    {activeBook.overview}
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, textAlign: 'right' }}>
+                  <div className="text-xs text-muted"><strong>ISBN:</strong> {activeBook.isbn}</div>
+                  <div className="text-xs text-muted"><strong>Publisher:</strong> {activeBook.publisher}</div>
+                  {activeBook.officialUrl && (
+                    <a
+                      href={activeBook.officialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs"
+                      style={{ color: 'var(--accent-purple)', display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: 'flex-end' }}
+                    >
+                      Official Cambridge Catalog <ExternalLink size={12} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Book Tests Grid */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div>
-              <div className="field-label" style={{ marginBottom: 8 }}>Select Practice Scope</div>
-              <div className="filter-pills">
-                {['Full', 'Part 1', 'Part 2', 'Part 3'].map((mode) => (
-                  <button
-                    key={mode}
-                    type="button"
-                    className={`filter-pill ${selectedPartMode === mode ? 'active' : ''}`}
-                    onClick={() => setSelectedPartMode(mode)}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3 className="h3" style={{ margin: 0 }}>
+                Academic Reading Tests (Tests 1 through 4)
+              </h3>
+              <span className="text-xs text-muted">
+                3 Passages &bull; 40 Questions &bull; 60 Minutes per Test
+              </span>
+            </div>
+
+            <div className="grid-2" style={{ gap: 18 }}>
+              {activeBookTests.map((test) => {
+                const isBookmarked = bookmarks?.has?.(test.id);
+                return (
+                  <div
+                    key={test.id}
+                    className="card"
+                    style={{
+                      borderRadius: 0,
+                      border: '1px solid var(--border)',
+                      padding: 22,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 16,
+                      backgroundColor: '#FFFFFF',
+                    }}
                   >
-                    {mode === 'Full' ? 'Full Reading Mode' : `${mode} Only`}
-                  </button>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                          <span
+                            style={{
+                              fontSize: '0.74rem',
+                              fontWeight: 800,
+                              textTransform: 'uppercase',
+                              background: 'var(--accent-yellow-soft)',
+                              color: '#9A6900',
+                              padding: '2px 8px',
+                              border: '1px solid var(--border)',
+                            }}
+                          >
+                            Test {test.testNumber}
+                          </span>
+                          <Badge variant={test.difficulty === 'Challenging' ? 'purple' : 'neutral'}>
+                            {test.difficulty}
+                          </Badge>
+                        </div>
+                        <h4 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
+                          {test.title}
+                        </h4>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => toggleBookmark?.(test.id)}
+                        className="btn btn-ghost btn-sm"
+                        style={{ padding: 6, color: isBookmarked ? '#B45309' : 'var(--text-muted)' }}
+                        title="Bookmark Test"
+                      >
+                        <Bookmark size={18} fill={isBookmarked ? '#B45309' : 'none'} />
+                      </button>
+                    </div>
+
+                    {/* Passages List */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <div className="text-xs text-muted" style={{ fontWeight: 700, textTransform: 'uppercase' }}>
+                        Included Reading Passages:
+                      </div>
+                      {test.passages?.map((p, pIdx) => (
+                        <div
+                          key={p.id || pIdx}
+                          onClick={() => handleLaunchTest(test, pIdx)}
+                          style={{
+                            padding: '10px 12px',
+                            border: '1px solid var(--border)',
+                            background: '#FAF9F5',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            cursor: 'pointer',
+                            transition: 'all 0.12s ease',
+                          }}
+                        >
+                          <div>
+                            <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
+                              Passage {p.passageNumber}: {p.title}
+                            </div>
+                            <div className="text-xs text-muted" style={{ marginTop: 2 }}>
+                              {p.questionTypes?.join(', ')} &bull; ~{p.wordCount} words
+                            </div>
+                          </div>
+                          <span className="text-xs" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+                            Practice &rarr;
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span className="text-xs text-muted" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <Clock size={13} /> 60 Minutes &bull; 40 Questions
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => handleLaunchTest(test, 0)}
+                        className="btn btn-primary btn-sm"
+                        style={{ borderRadius: 0 }}
+                      >
+                        Start Full 60m Test &rarr;
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* VIEW 3: LEGACY COLLECTIONS & OTHER SETS */}
+      {category !== 'Cambridge IELTS' && (
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div className="grid-3">
+            {filteredTests.map((test) => (
+              <div
+                key={test.id}
+                className="card card-interactive"
+                style={{
+                  borderRadius: 0,
+                  border: '1px solid var(--border)',
+                  padding: 20,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 12,
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <Badge variant="purple">{test.category || 'Reading'}</Badge>
+                  <span className="text-xs text-muted">{test.durationMinutes || 60}m</span>
+                </div>
+
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0 }}>{test.title}</h4>
+
+                <div className="text-xs text-muted">
+                  {test.passages?.length || 1} Passages &bull; {test.difficulty || 'Standard'}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => handleLaunchTest(test, 0)}
+                  className="btn btn-primary btn-sm"
+                  style={{ borderRadius: 0, marginTop: 'auto', justifyContent: 'center' }}
+                >
+                  Start Reading Test &rarr;
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Test Launch Configuration Modal */}
+      {selectedTest && (
+        <Modal
+          isOpen={Boolean(selectedTest)}
+          onClose={() => setSelectedTest(null)}
+          title={`Configure Reading Examination: ${selectedTest.title}`}
+          maxWidth="600px"
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            <div className="card-warm" style={{ padding: 14, borderRadius: 0 }}>
+              <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--text-primary)' }}>
+                {selectedTest.collection || selectedTest.title}
+              </div>
+              <p className="text-xs text-muted" style={{ margin: '4px 0 0', lineHeight: 1.5 }}>
+                Authentic IELTS Academic Reading test interface with split-screen passage viewing, active question navigator, highlighters, and instant band conversion.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <label style={{ fontWeight: 700, fontSize: '0.85rem' }}>Select Starting Passage</label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {selectedTest.passages?.map((p, idx) => (
+                  <label
+                    key={p.id || idx}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 10,
+                      padding: '8px 12px',
+                      border: '1px solid var(--border)',
+                      background: selectedPassageIndex === idx ? 'rgba(136, 103, 184, 0.08)' : '#FFFFFF',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="startingPassage"
+                      checked={selectedPassageIndex === idx}
+                      onChange={() => setSelectedPassageIndex(idx)}
+                    />
+                    <div style={{ fontSize: '0.86rem' }}>
+                      <strong>Passage {p.passageNumber}:</strong> {p.title}
+                    </div>
+                  </label>
                 ))}
               </div>
             </div>
 
-            <div
-              className="card-warm card-compact"
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-            >
-              <div>
-                <div style={{ fontWeight: 600, fontSize: '0.88rem' }}>Exam Countdown Timer</div>
-                <div className="text-xs text-muted">Recommended: {selectedPartMode === 'Full' ? '60 minutes' : '20 minutes'}</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <label style={{ fontWeight: 700, fontSize: '0.85rem' }}>Pacing &amp; Timer Mode</label>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <button
+                  type="button"
+                  onClick={() => setTimedMode(true)}
+                  className={`btn btn-sm ${timedMode ? 'btn-primary' : 'btn-secondary'}`}
+                  style={{ borderRadius: 0, flex: 1, justifyContent: 'center' }}
+                >
+                  Timed (60 Mins Strict)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTimedMode(false)}
+                  className={`btn btn-sm ${!timedMode ? 'btn-primary' : 'btn-secondary'}`}
+                  style={{ borderRadius: 0, flex: 1, justifyContent: 'center' }}
+                >
+                  Untimed Practice
+                </button>
               </div>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 10 }}>
               <button
                 type="button"
-                className={`btn btn-sm ${timedMode ? 'btn-primary' : 'btn-secondary'}`}
-                onClick={() => setTimedMode((v) => !v)}
+                onClick={() => setSelectedTest(null)}
+                className="btn btn-secondary"
+                style={{ borderRadius: 0 }}
               >
-                {timedMode ? 'Timed ON' : 'Untimed'}
-              </button>
-            </div>
-
-            <div className="text-xs text-muted" style={{ lineHeight: 1.6 }}>
-              Instructions: Highlight key sentences directly on the passage, jot down paragraph notes, and bookmark uncertain questions before submitting.
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
-              <button type="button" className="btn btn-secondary" onClick={() => setPopupTest(null)}>
                 Cancel
               </button>
               <button
                 type="button"
+                onClick={confirmStartTest}
                 className="btn btn-primary"
-                onClick={() => {
-                  const targetId = popupTest.id;
-                  setPopupTest(null);
-                  router.push(`/reading/test/${targetId}?mode=${encodeURIComponent(selectedPartMode)}&timed=${timedMode ? '1' : '0'}`);
-                }}
+                style={{ borderRadius: 0 }}
               >
-                <CheckCircle2 size={15} /> Launch Reading Interface
+                Begin Reading Examination &rarr;
               </button>
             </div>
           </div>
-        )}
-      </Modal>
+        </Modal>
+      )}
     </div>
   );
 }
-

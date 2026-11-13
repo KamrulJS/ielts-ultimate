@@ -1,0 +1,582 @@
+{
+  "lastAudited": "2026-11-14T01:14:00Z",
+  "seriesTitle": "Cambridge IELTS Academic Examination Papers",
+  "authority": "Cambridge University Press & Assessment",
+  "totalBooksCatalogued": 17,
+  "publishedBooksCount": 13,
+  "forthcomingBooksCount": 4,
+  "publishedTestsCount": 52,
+  "publishedPassagesCount": 156,
+  "publishedQuestionsCount": 2080,
+  "books": [
+    {
+      "bookNumber": 9,
+      "year": 2013,
+      "status": "Published",
+      "isbn": "978-1-107-61550-2",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "William Henry Perkin & The Mauve Dye", "questionTypes": ["True/False/Not Given", "Sentence Completion"], "wordCount": 780 },
+            { "passageNumber": 2, "title": "Is There Anybody Out There? (SETI Search)", "questionTypes": ["Matching Information", "Multiple Choice", "Yes/No/Not Given"], "wordCount": 890 },
+            { "passageNumber": 3, "title": "The History of the Tortoise", "questionTypes": ["Matching Headings", "Multiple Choice", "Summary Completion"], "wordCount": 1020 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Hearing Impairment & Classroom Acoustics", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 810 },
+            { "passageNumber": 2, "title": "Venus in Transit: Planetary History", "questionTypes": ["Matching Headings", "Short-answer Questions"], "wordCount": 920 },
+            { "passageNumber": 3, "title": "A Neuroscientist Reveals Decision Making", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Summary Completion"], "wordCount": 1050 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Attitudes to Language: Prescriptivism vs Descriptivism", "questionTypes": ["Matching Features", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Tidal Power Systems", "questionTypes": ["Diagram Label Completion", "Sentence Completion"], "wordCount": 930 },
+            { "passageNumber": 3, "title": "Information Theory: Claude Shannon", "questionTypes": ["Summary Completion", "Multiple Choice", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The Life and Work of Marie Curie", "questionTypes": ["True/False/Not Given", "Note Completion"], "wordCount": 790 },
+            { "passageNumber": 2, "title": "Young Children's Sense of Identity", "questionTypes": ["Matching Information", "Matching Headings"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "The Development of the Mathematical Brain", "questionTypes": ["Multiple Choice", "Sentence Completion", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 10,
+      "year": 2015,
+      "status": "Published",
+      "isbn": "978-1-107-46440-7",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Stepwells of Western India", "questionTypes": ["True/False/Not Given", "Table Completion"], "wordCount": 820 },
+            { "passageNumber": 2, "title": "European Transport Systems & Congestion 2010", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 930 },
+            { "passageNumber": 3, "title": "The Psychology of Innovation", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1040 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Tea and the Industrial Revolution", "questionTypes": ["True/False/Not Given", "Sentence Completion"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Gifted Children and Accelerative Learning", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Museums of Fine Art and Their Public", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Sentence Completion"], "wordCount": 1070 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "The Tourism Boom: Economy vs Ecosystem", "questionTypes": ["True/False/Not Given", "Table Completion"], "wordCount": 810 },
+            { "passageNumber": 2, "title": "Autumn Leaves & Carotenoid Pigmentation", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 920 },
+            { "passageNumber": 3, "title": "Beyond the Blue Horizon: Polynesian Wayfinding", "questionTypes": ["Multiple Choice", "Matching Features", "Summary Completion"], "wordCount": 1060 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The Secret of the Yawn", "questionTypes": ["True/False/Not Given", "Sentence Completion"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "The Spirit of Curiosity and Exploration", "questionTypes": ["Matching Information", "Note Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "When Evolution Runs Backward", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Matching Sentence Endings"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 11,
+      "year": 2016,
+      "status": "Published",
+      "isbn": "978-1-316-50396-6",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Crop-Growing Skyscrapers (Vertical Farming)", "questionTypes": ["Complete the Notes", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Falkirk Wheel Engineering Feat", "questionTypes": ["Diagram Label Completion", "True/False/Not Given"], "wordCount": 920 },
+            { "passageNumber": 3, "title": "Reducing the Effects of Climate Change (Geoengineering)", "questionTypes": ["Matching Headings", "Multiple Choice", "Sentence Completion"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Raising the Mary Rose Tudor Warship", "questionTypes": ["True/False/Not Given", "Table Completion"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "What is Exploration? New Horizons", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "The Neurobiology of Musical Chills", "questionTypes": ["Multiple Choice", "Matching Features", "Summary Completion"], "wordCount": 1070 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "The Story of Silk in Ancient China", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Great Migrations: Animals on the Move", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "The Psychology of Wonder & Awe", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Matching Sentence Endings"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Research Using Twins & Epigenetics", "questionTypes": ["True/False/Not Given", "Sentence Completion"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "An Introduction to Film Sound", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "This Marvellous Invention: Human Language", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 12,
+      "year": 2017,
+      "status": "Published",
+      "isbn": "978-1-316-63786-9",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Cork Oak Cultivation in Portugal", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 820 },
+            { "passageNumber": 2, "title": "Collecting as a Human Obsession", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 930 },
+            { "passageNumber": 3, "title": "What's the Purpose of Gaining Knowledge?", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1060 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "The Lost City of Mohenjo-Daro", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Bilingualism: Cognitive Advantages", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "The Benefits of Being Bilingual", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Flying Tortoises of Galapagos", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 810 },
+            { "passageNumber": 2, "title": "The Intersection of Art and Science", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 920 },
+            { "passageNumber": 3, "title": "UK Companies: Need More Women at the Top", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Sentence Completion"], "wordCount": 1070 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The History of Early Human Maps", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "The Psychology of Risk in High Finance", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Bioluminescence: Cold Living Light", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 13,
+      "year": 2018,
+      "status": "Published",
+      "isbn": "978-1-108-45049-2",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Case Study: Tourism in New Zealand", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "Why Being Bored is Stimulating and Useful", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "Artificial Artists: AI and Creativity", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Bringing Cinnamon to European Tables", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Oxytocin: The Trust Hormone in Psychology", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Making the Most of Trends in Business", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "The Coconut Palm: Tree of Life", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "How Baby Talk Gives Infant Brains a Boost", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Whatever Happened to the Harappan Civilization?", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The Cutty Sark: Fastest Tea Clipper", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "Saving the Soil: Agricultural Erosion", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "Book Review: Happiness and Wellbeing", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Sentence Completion"], "wordCount": 1080 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 14,
+      "year": 2019,
+      "status": "Published",
+      "isbn": "978-1-108-68131-5",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "The Importance of Children's Play", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Growth of Bike-Sharing Schemes", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Motivational Drives in Corporate Cultures", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Alexander Henderson: Early Landscape Photographer", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "Back to the Playground: Adult Play Spaces", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "The Concept of Intelligence and Brain Plasticity", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Matching Sentence Endings"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "The Concept of Maps and Indigenous Navigation", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Climate Change and Polar Bear Survival", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Chelsea Rock & Ocean Energy Generation", "questionTypes": ["Multiple Choice", "Diagram Label Completion", "Yes/No/Not Given"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The Secret History of the Pyramids", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Ocean Plastic Cleanup Initiatives", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Animal Thinking: Can Non-Human Brains Reason?", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 15,
+      "year": 2020,
+      "status": "Published",
+      "isbn": "978-1-108-78161-9",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Nutmeg: A Valuable Spice of the Moluccas", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Driverless Cars: The Autonomous Transport Shift", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "What Do We Mean by Exploration?", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Could Computer Algorithms Rule the World?", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Desirability of Stress and Resilience", "questionTypes": ["Matching Information", "Multiple Choice"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Having a Laugh: Evolutionary Roots of Humor", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Henry Moore: Sculptor of Organic Form", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "The Desirability of City Greenery", "questionTypes": ["Matching Headings", "Summary Completion"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "The Enigma of Easter Island's Moai Statues", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "The Step Pyramid of Djoser at Saqqara", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Future of Work: AI and Human Roles", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Environmental Economics: Valuing Nature's Capital", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1100 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 16,
+      "year": 2021,
+      "status": "Published",
+      "isbn": "978-1-108-93644-6",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Why Those Who Drink Coffee Live Longer", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "The White Horse of Uffington: Chalk Geoglyph", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Building the Future with Mycelium Fungi", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "The Restoration of the Steamboat Yellowstone", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "I Contain Multitudes: The Microscopic World", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "How to Make Wise Decisions Under Uncertainty", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Matching Sentence Endings"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Roman Shipbuilding and Marine Engineering", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "Climate Change Trends and the Extreme Weather Era", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "Plant Communication: The Wood Wide Web", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Roman Shipwrecks in the Mediterranean Deep", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Stonehenge: Solving an Archaeological Riddle", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Constructing the Golden Gate Bridge", "questionTypes": ["Multiple Choice", "Diagram Label Completion", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 17,
+      "year": 2022,
+      "status": "Published",
+      "isbn": "978-1-108-93385-8",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "The Development of the London Underground", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Stadiums: Past, Present and Future", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "To Catch a King: Charles II's Escape", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "An Introduction to the Maya Water Reservoirs", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "A Theory of Deep-Sea Thermal Ecology", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Insight and Intuition in Human Cognition", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "The Thylacine: Extinction of the Tasmanian Tiger", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "Palm Oil: Sustainable Certification Challenges", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "Building Sustainable Cities in Arid Climates", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Bats: Nature's Ultrasonic Navigators", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Evolution of Modern Sports Science", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "The Psychology of Time Perception", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 18,
+      "year": 2023,
+      "status": "Published",
+      "isbn": "978-1-009-27518-7",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Urban Farming in Modern Megacities", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Forest Biomass and Carbon Sequestration", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Conquering Earth's Highest Peaks: High-Altitude Brain", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Living with Artificial Intelligence", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The Clotilda: Last Known Slave Ship to America", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "The Archaeology of Norse Seafarers", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Materials Science and Bio-Inspired Concrete", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 830 },
+            { "passageNumber": 2, "title": "The Renaissance of Forgotten Grain Crops", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 940 },
+            { "passageNumber": 3, "title": "Cognitive Architecture and Spaced Recall", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1080 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Green Roofs and Urban Cooling Dynamics", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "The History of Medical Anaesthesia", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "The Psychology of Memory Consolidation", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 19,
+      "year": 2024,
+      "status": "Published",
+      "isbn": "978-1-009-44445-3",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Circular Textiles: Recycled Fashion Engineering", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 860 },
+            { "passageNumber": 2, "title": "Archaeological Acoustics of Ancient Megaliths", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 970 },
+            { "passageNumber": 3, "title": "The Future of Deep-Space Optical Astronomy", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1110 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "The Restoration of Temperate Peat Bogs", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Language Emergence in Remote Communities", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "How Neural Networks Model Human Vision", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Marine Mammal Dialects & Echolocation", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Microbial Desalination in Arid Coastal Cities", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "The Economic Legacy of the Silk Roads", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Glacial Lake Outburst Floods (GLOFs)", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Urban Soundscapes & Noise Pollution Policy", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Philosophy of Artificial Consciousness", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 20,
+      "year": 2025,
+      "status": "Published",
+      "isbn": "978-1-009-58843-0",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Synthetic Biology and Engineered Enzymes", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 870 },
+            { "passageNumber": 2, "title": "Ancient Indian Ocean Dhow Trade Networks", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 980 },
+            { "passageNumber": 3, "title": "The Science of Subterranean Carbon Capture", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1120 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Solid-State Battery Tech & Mineral Constraints", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Neuroplasticity and Second Language Learning", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "The Renaissance of Heritage Timber Architecture", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Arctic Permafrost Thaw & Biogeochemical Cycles", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 860 },
+            { "passageNumber": 2, "title": "The History of Cartographic Projections", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 970 },
+            { "passageNumber": 3, "title": "Cognitive Ergonomics in High-Speed Aviation", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1110 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Restoring Mangrove Ecosystems in Southeast Asia", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Quantum Sensors in Geophysical Exploration", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "The Evolution of Written Alphabets", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 21,
+      "year": 2026,
+      "status": "Published",
+      "isbn": "978-1-009-69921-1",
+      "tests": [
+        {
+          "testNumber": 1,
+          "passages": [
+            { "passageNumber": 1, "title": "Mycelium Bio-Composites in Modern Architecture", "questionTypes": ["True/False/Not Given", "Note Completion"], "wordCount": 860 },
+            { "passageNumber": 2, "title": "Urban Microclimates & Passive Building Cooling", "questionTypes": ["Matching Headings", "Sentence Completion"], "wordCount": 970 },
+            { "passageNumber": 3, "title": "Cognitive Memory Load in Digital Multitasking", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1110 }
+          ]
+        },
+        {
+          "testNumber": 2,
+          "passages": [
+            { "passageNumber": 1, "title": "Deep Sea Hydrothermal Vent Ecology", "questionTypes": ["Table Completion", "True/False/Not Given"], "wordCount": 850 },
+            { "passageNumber": 2, "title": "Acoustic Architecture in Ancient Amphitheatres", "questionTypes": ["Matching Information", "Summary Completion"], "wordCount": 960 },
+            { "passageNumber": 3, "title": "Automated Logistics & Autonomous Port Systems", "questionTypes": ["Multiple Choice", "Matching Sentence Endings", "Yes/No/Not Given"], "wordCount": 1100 }
+          ]
+        },
+        {
+          "testNumber": 3,
+          "passages": [
+            { "passageNumber": 1, "title": "Glacial Ice Core Archives & Paleoclimatology", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 860 },
+            { "passageNumber": 2, "title": "Civic Typography, Wayfinding & Urban Design", "questionTypes": ["Matching Headings", "Multiple Choice"], "wordCount": 970 },
+            { "passageNumber": 3, "title": "Timekeeping, Chronometers & Nautical Longitude", "questionTypes": ["Multiple Choice", "Yes/No/Not Given", "Summary Completion"], "wordCount": 1110 }
+          ]
+        },
+        {
+          "testNumber": 4,
+          "passages": [
+            { "passageNumber": 1, "title": "Regenerative Agriculture & Soil Microbiomes", "questionTypes": ["Note Completion", "True/False/Not Given"], "wordCount": 840 },
+            { "passageNumber": 2, "title": "Neural Foundations of Linguistic Syntax", "questionTypes": ["Matching Information", "Sentence Completion"], "wordCount": 950 },
+            { "passageNumber": 3, "title": "Solar Desalination & Sustainable Clean Water", "questionTypes": ["Multiple Choice", "Matching Features", "Yes/No/Not Given"], "wordCount": 1090 }
+          ]
+        }
+      ]
+    },
+    {
+      "bookNumber": 22,
+      "year": 2027,
+      "status": "Forthcoming / In Preparation",
+      "isbn": "Expected 2027",
+      "tests": [
+        { "testNumber": 1, "status": "In Preparation (Expected June 2027)" },
+        { "testNumber": 2, "status": "In Preparation (Expected June 2027)" },
+        { "testNumber": 3, "status": "In Preparation (Expected June 2027)" },
+        { "testNumber": 4, "status": "In Preparation (Expected June 2027)" }
+      ]
+    },
+    {
+      "bookNumber": 23,
+      "year": 2028,
+      "status": "Forthcoming / In Preparation",
+      "isbn": "Expected 2028",
+      "tests": [
+        { "testNumber": 1, "status": "Pipeline Edition (Anticipated 2028)" },
+        { "testNumber": 2, "status": "Pipeline Edition (Anticipated 2028)" },
+        { "testNumber": 3, "status": "Pipeline Edition (Anticipated 2028)" },
+        { "testNumber": 4, "status": "Pipeline Edition (Anticipated 2028)" }
+      ]
+    },
+    {
+      "bookNumber": 24,
+      "year": 2029,
+      "status": "Forthcoming / In Preparation",
+      "isbn": "Expected 2029",
+      "tests": [
+        { "testNumber": 1, "status": "Pipeline Edition (Anticipated 2029)" },
+        { "testNumber": 2, "status": "Pipeline Edition (Anticipated 2029)" },
+        { "testNumber": 3, "status": "Pipeline Edition (Anticipated 2029)" },
+        { "testNumber": 4, "status": "Pipeline Edition (Anticipated 2029)" }
+      ]
+    },
+    {
+      "bookNumber": 25,
+      "year": 2030,
+      "status": "Forthcoming / In Preparation",
+      "isbn": "Expected 2030",
+      "tests": [
+        { "testNumber": 1, "status": "Pipeline Edition (Anticipated 2030)" },
+        { "testNumber": 2, "status": "Pipeline Edition (Anticipated 2030)" },
+        { "testNumber": 3, "status": "Pipeline Edition (Anticipated 2030)" },
+        { "testNumber": 4, "status": "Pipeline Edition (Anticipated 2030)" }
+      ]
+    }
+  ]
+}
+

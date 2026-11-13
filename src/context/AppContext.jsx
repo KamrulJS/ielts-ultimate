@@ -19,6 +19,8 @@ import {
   DEMO_ADMIN_CREDENTIALS,
   DEMO_STUDENT_CREDENTIALS,
   UNAUTHENTICATED_STATE,
+  authenticateUser,
+  registerNewUser,
 } from '@/lib/auth';
 
 const STORAGE_KEY = 'ielts_ultimate_platform_v1';
@@ -444,124 +446,95 @@ export function AppProvider({ children }) {
   }, [showToast]);
 
   const loginWithCredentials = useCallback(
-    ({ email = '', password = '', expectedRole = 'student' }) => {
-      const cleanEmail = email.trim().toLowerCase();
-      if (!cleanEmail || !password) {
-        return { ok: false, error: 'Please enter both your email address and password.' };
+    async ({ identifier = '', email = '', password = '', expectedRole = 'student' }) => {
+      const targetIdentifier = identifier || email;
+      const res = await authenticateUser({
+        identifier: targetIdentifier,
+        password,
+        expectedRole,
+      });
+
+      if (!res.ok) {
+        return res;
       }
-
-      if (expectedRole === 'admin') {
-        if (
-          cleanEmail === DEMO_ADMIN_CREDENTIALS.email &&
-          password === DEMO_ADMIN_CREDENTIALS.password
-        ) {
-          const session = {
-            isAuthenticated: true,
-            role: 'admin',
-            email: DEMO_ADMIN_CREDENTIALS.email,
-            name: DEMO_ADMIN_CREDENTIALS.name,
-          };
-          setAuth(session);
-          try {
-            window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
-          } catch {}
-          showToast('Signed in to Admin Console', 'success');
-          return { ok: true, role: 'admin' };
-        }
-        return { ok: false, error: 'Invalid admin credentials. Please check the demo admin login details below.' };
-      }
-
-      if (
-        cleanEmail === DEMO_STUDENT_CREDENTIALS.email &&
-        password === DEMO_STUDENT_CREDENTIALS.password
-      ) {
-        const session = {
-          isAuthenticated: true,
-          role: 'student',
-          email: DEMO_STUDENT_CREDENTIALS.email,
-          name: profile.name || DEMO_STUDENT_CREDENTIALS.name,
-        };
-        setAuth(session);
-        try {
-          window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
-        } catch {}
-        showToast('Welcome back to IELTS Ultimate!', 'success');
-        return { ok: true, role: 'student' };
-      }
-
-      try {
-        const rawAccs = window.localStorage.getItem(ACCOUNTS_STORAGE_KEY);
-        const accounts = rawAccs ? JSON.parse(rawAccs) : [];
-        const match = accounts.find(
-          (a) => a.email?.toLowerCase() === cleanEmail && a.password === password
-        );
-        if (match) {
-          const session = {
-            isAuthenticated: true,
-            role: 'student',
-            email: match.email,
-            name: match.name,
-          };
-          setAuth(session);
-          setProfile((prev) => ({
-            ...prev,
-            name: match.name,
-            email: match.email,
-            track: match.track || prev.track,
-            targetBand: match.targetBand || prev.targetBand,
-          }));
-          window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
-          showToast(`Welcome back, ${match.name.split(' ')[0]}!`, 'success');
-          return { ok: true, role: 'student' };
-        }
-      } catch {}
-
-      return { ok: false, error: 'Incorrect email or password. Use the demo credentials below or create a free account.' };
-    },
-    [profile.name, showToast]
-  );
-
-  const registerStudent = useCallback(
-    ({ name = '', email = '', password = '', targetBand = 7.5, track = 'Academic' }) => {
-      const cleanName = name.trim();
-      const cleanEmail = email.trim().toLowerCase();
-      if (!cleanName || !cleanEmail || password.length < 6) {
-        return { ok: false, error: 'Please provide your full name, valid email, and a password of at least 6 characters.' };
-      }
-
-      try {
-        const rawAccs = window.localStorage.getItem(ACCOUNTS_STORAGE_KEY);
-        const accounts = rawAccs ? JSON.parse(rawAccs) : [];
-        const filtered = accounts.filter((a) => a.email?.toLowerCase() !== cleanEmail);
-        filtered.push({
-          name: cleanName,
-          email: cleanEmail,
-          password,
-          targetBand: Number(targetBand) || 7.5,
-          track,
-        });
-        window.localStorage.setItem(ACCOUNTS_STORAGE_KEY, JSON.stringify(filtered));
-      } catch {}
-
-      setProfile((prev) => ({
-        ...prev,
-        name: cleanName,
-        email: cleanEmail,
-        targetBand: Number(targetBand) || 7.5,
-        track,
-      }));
 
       const session = {
         isAuthenticated: true,
-        role: 'student',
-        email: cleanEmail,
-        name: cleanName,
+        role: res.user.role,
+        email: res.user.email,
+        username: res.user.username,
+        name: res.user.name,
       };
+
       setAuth(session);
       try {
         window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
       } catch {}
-      showToast(`Account created — welcome, ${cleanName.split(' ')[0]}!`, 'success');
+
+      if (res.user.role === 'student') {
+        setProfile((prev) => ({
+          ...prev,
+          name: res.user.name,
+          email: res.user.email,
+          track: res.user.track || prev.track,
+          targetBand: res.user.targetBand || prev.targetBand,
+        }));
+        showToast(`Welcome back, ${res.user.name.split(' ')[0]}!`, 'success');
+      } else {
+        showToast('Signed in to Admin Console', 'success');
+      }
+
+      return { ok: true, role: res.user.role };
+    },
+    [showToast]
+  );
+
+  const registerStudent = useCallback(
+    async ({
+      name = '',
+      username = '',
+      email = '',
+      password = '',
+      confirmPassword = '',
+      targetBand = 7.5,
+      track = 'Academic',
+    }) => {
+      const res = await registerNewUser({
+        name,
+        username,
+        email,
+        password,
+        confirmPassword,
+        targetBand,
+        track,
+      });
+
+      if (!res.ok) {
+        return res;
+      }
+
+      const session = {
+        isAuthenticated: true,
+        role: 'student',
+        email: res.user.email,
+        username: res.user.username,
+        name: res.user.name,
+      };
+
+      setAuth(session);
+      try {
+        window.localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(session));
+      } catch {}
+
+      setProfile((prev) => ({
+        ...prev,
+        name: res.user.name,
+        email: res.user.email,
+        targetBand: res.user.targetBand,
+        track: res.user.track,
+      }));
+
+      showToast(`Account created — welcome, ${res.user.name.split(' ')[0]}!`, 'success');
       return { ok: true, role: 'student' };
     },
     [showToast]
