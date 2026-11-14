@@ -80,7 +80,7 @@ export function PublicFaqAccordion({ items = [] }) {
       {items.map((item, idx) => {
         const isOpen = openIdx === idx;
         return (
-          <div key={item.q} className="card card-compact">
+          <div key={item.q} className="card card-compact" style={{ borderRadius: 0 }}>
             <button
               type="button"
               aria-expanded={isOpen}
@@ -138,6 +138,7 @@ export function PublicCtaBanner({
       data-animate="reveal"
       className="card-dark"
       style={{
+        borderRadius: 0,
         padding: 'clamp(24px, 3.2vw, 38px)',
         display: 'flex',
         flexWrap: 'wrap',
@@ -147,7 +148,7 @@ export function PublicCtaBanner({
       }}
     >
       <div style={{ maxWidth: 660, minWidth: 0 }}>
-        <Badge variant="yellow">{badge}</Badge>
+        <Badge variant="yellow" style={{ borderRadius: 0 }}>{badge}</Badge>
         <h2 className="subheading" style={{ color: '#FFFFFF', marginTop: 12, marginBottom: 8 }}>
           {title}
         </h2>
@@ -156,7 +157,7 @@ export function PublicCtaBanner({
         </p>
       </div>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-        <Link href={primaryHref} className="btn btn-accent">
+        <Link href={primaryHref} className="btn btn-accent" style={{ borderRadius: 0 }}>
           {primaryLabel} <ArrowUpRight size={16} />
         </Link>
         {secondaryLabel && (
@@ -164,6 +165,7 @@ export function PublicCtaBanner({
             href={secondaryHref}
             className="btn"
             style={{
+              borderRadius: 0,
               backgroundColor: 'rgba(255,255,255,0.08)',
               color: '#FFFFFF',
               borderColor: 'var(--dark-border)',

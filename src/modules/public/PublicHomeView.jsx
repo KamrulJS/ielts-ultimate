@@ -6,6 +6,9 @@ import Image from 'next/image';
 import {
   ArrowRight,
   Star,
+  Users,
+  ClipboardCheck,
+  BookOpen,
 } from 'lucide-react';
 import { useGsapEntrance } from '@/hooks/useGsapEntrance';
 import { Badge } from '@/components/common/UiPrimitives';
@@ -39,10 +42,10 @@ export function PublicHomeView() {
                 <Badge variant="yellow">{homepageData.hero.eyebrow}</Badge>
                 <Badge variant="purple">IELTS Academic Dedicated</Badge>
               </div>
-              <h1 className="hero-heading">
+              <h1 className="hero-heading" style={{ fontSize: 'clamp(1.95rem, 3.1vw, 2.75rem)', lineHeight: 1.18 }}>
                 {homepageData.hero.headline}
               </h1>
-              <p className="hero-desc">
+              <p className="hero-desc" style={{ fontSize: '1.02rem', lineHeight: 1.6, maxWidth: 560 }}>
                 {homepageData.hero.description}
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 4 }}>
@@ -64,43 +67,64 @@ export function PublicHomeView() {
 
             <div className={homeStyles.heroVisualCol} data-animate="reveal">
               <Image
-                src="/images/hero/hero-student-wist.png"
-                alt="IELTS WIST candidate preparing with four skill modules and 7.0 target band goal"
-                width={620}
-                height={460}
+                src="/images/hero/IELTS Ultimate AI Learning.png"
+                alt="IELTS Ultimate AI Learning workspace and preparation ecosystem"
+                width={720}
+                height={480}
                 priority
                 className={homeStyles.heroTransparentImg}
               />
             </div>
           </div>
 
-          {/* Metrics Strip */}
-          <div className="grid-4" style={{ marginTop: 24 }}>
+          {/* Metrics Strip — 4 Consistent Light Cards with Unique Relevant Icons */}
+          <div className="grid-4" style={{ marginTop: 28 }}>
             {homepageData.hero.stats.map((st, idx) => (
               <div
                 key={st.label}
                 data-animate="card"
-                className={`${idx === 0 ? 'card-dark card-compact' : 'card card-compact'} ${homeStyles.statHorizontal}`}
-                style={{ borderRadius: 0 }}
+                className={`stat-card ${homeStyles.statHorizontal}`}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid var(--border)',
+                  borderRadius: 0,
+                  padding: '16px 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 14,
+                  transition: 'all 0.2s ease',
+                  cursor: 'default',
+                }}
               >
                 <div
-                  className={`${homeStyles.statIconWrap} ${
-                    idx === 0 ? homeStyles.statIconWrapDark : homeStyles.statIconWrapLight
-                  }`}
-                  style={{ borderRadius: 0 }}
+                  style={{
+                    width: 46,
+                    height: 46,
+                    borderRadius: 0,
+                    backgroundColor: '#F1E8FF',
+                    border: '1px solid rgba(136, 103, 184, 0.25)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    color: '#8867B8',
+                  }}
                 >
-                  <StatSvgIcon index={idx} />
+                  {idx === 0 && <Users size={22} />}
+                  {idx === 1 && <ClipboardCheck size={22} />}
+                  {idx === 2 && <BookOpen size={22} />}
+                  {idx === 3 && <Star size={22} />}
                 </div>
                 <div className={homeStyles.statTextCol}>
                   <div
                     className={homeStyles.statValue}
-                    style={{ color: idx === 0 ? 'var(--accent-yellow)' : 'var(--text-primary)' }}
+                    style={{ color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: 800 }}
                   >
                     {st.value}
                   </div>
                   <div
                     className={homeStyles.statLabel}
-                    style={{ color: idx === 0 ? 'rgba(250, 249, 245, 0.76)' : 'var(--text-secondary)' }}
+                    style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontWeight: 500 }}
                   >
                     {st.label}
                   </div>

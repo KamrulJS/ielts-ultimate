@@ -32,7 +32,7 @@
 /* Section 01: Hero Section */
 .mainHeroTransparent {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
   min-height: clamp(520px, calc(88vh - 90px), 760px);
@@ -53,7 +53,7 @@
 
 .heroTransparentImg {
   width: 100%;
-  max-width: min(100%, 600px);
+  max-width: min(100%, 720px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 16px 36px rgba(32, 32, 32, 0.08));
@@ -66,6 +66,15 @@
   align-items: center;
   gap: 16px;
   border-radius: 0px !important;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.statHorizontal:hover {
+  background-color: #FEF6DD !important;
+  border-color: #8867B8 !important;
+  transform: translateY(-2px);
 }
 
 .statIconWrap {
@@ -424,42 +433,45 @@
 }
 
 .studyBenefitItem {
-  background-color: var(--surface);
+  background-color: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: 0px !important;
-  padding: 20px 18px;
+  padding: 18px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .studyBenefitItem:hover {
-  border-color: var(--accent-purple);
+  background-color: #FEF6DD !important;
+  border-color: #8867B8 !important;
   transform: translateY(-2px);
 }
 
 .studyBenefitIcon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 0px !important;
-  background-color: var(--accent-yellow-soft);
-  color: var(--text-primary);
-  border: 1px solid rgba(246, 189, 40, 0.4);
+  background-color: #F1E8FF;
+  color: #8867B8;
+  border: 1px solid rgba(136, 103, 184, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .studyBenefitTitle {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0;
+  margin: 0 0 4px;
 }
 
 .studyBenefitDesc {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.45;
   margin: 0;
@@ -509,29 +521,26 @@
 }
 
 /* =========================================================================
-   Section 06: AI-Powered Feedback (Screenshot 04)
+   Section 06: AI-Powered Feedback
    ========================================================================= */
 .aiFeedbackWrapper {
-  background-color: #24143D;
-  color: #FFFFFF;
+  background-color: var(--bg-primary);
   border-radius: 0px !important;
-  padding: 64px 32px 56px;
+  padding: 40px 0 60px;
   position: relative;
-  overflow: hidden;
-  margin: 60px 0;
 }
 
 .aiFeedbackHeader {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 48px;
+  max-width: 760px;
+  margin: 0 auto 44px;
 }
 
 .aiFeedbackEyebrow {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #F1EFE6;
+  background-color: #F1E8FF;
+  color: #8867B8;
   border-radius: 0px !important;
-  padding: 4px 12px;
+  padding: 5px 14px;
   font-size: 0.78rem;
   font-weight: 700;
   display: inline-block;
@@ -540,16 +549,16 @@
 
 .aiFeedbackTitle {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
   font-weight: 800;
   line-height: 1.2;
   margin: 0 0 12px;
-  color: #FFFFFF;
+  color: var(--text-primary);
 }
 
 .aiFeedbackSubtitle {
-  font-size: 0.98rem;
-  color: #D3CEE0;
+  font-size: 1rem;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -558,49 +567,50 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  max-width: 1100px;
+  max-width: 1240px;
   margin: 0 auto 36px;
 }
 
 .aiFeedbackCard {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border);
   border-radius: 0px !important;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .aiFeedbackCard:hover {
-  border-color: rgba(246, 189, 40, 0.45);
-  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #8867B8;
+  box-shadow: var(--shadow-sm);
 }
 
 .aiCardIconBox {
-  width: 44px;
-  height: 44px;
-  background-color: rgba(136, 103, 184, 0.35);
-  border: 1px solid rgba(136, 103, 184, 0.5);
+  width: 46px;
+  height: 46px;
+  background-color: #F1E8FF;
+  border: 1px solid rgba(136, 103, 184, 0.25);
   border-radius: 0px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #8867B8;
+  flex-shrink: 0;
 }
 
 .aiCardTitle {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .aiCardDesc {
-  font-size: 0.88rem;
-  color: #C8C3D8;
-  line-height: 1.55;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -608,8 +618,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #FAF9F5;
+  border: 1px solid var(--border);
   border-radius: 0px !important;
   padding: 14px;
 }
@@ -618,16 +628,22 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 0px !important;
+  padding: 8px 10px;
   font-size: 0.8rem;
-  color: #E2DFEC;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .aiCriteriaCode {
-  width: 24px;
-  height: 24px;
-  background-color: rgba(136, 103, 184, 0.45);
-  color: #FFFFFF;
-  font-size: 0.68rem;
+  width: 26px;
+  height: 26px;
+  background-color: #FEF6DD;
+  color: var(--text-primary);
+  border: 1px solid rgba(246, 189, 40, 0.4);
+  font-size: 0.72rem;
   font-weight: 800;
   border-radius: 0px !important;
   display: inline-flex;
@@ -643,27 +659,28 @@
 }
 
 .aiFeatureChip {
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #DCD8CA;
+  background-color: #FEF6DD;
+  border: 1px solid rgba(246, 189, 40, 0.35);
+  color: var(--text-primary);
   border-radius: 0px !important;
-  padding: 4px 10px;
-  font-size: 0.74rem;
+  padding: 5px 12px;
+  font-size: 0.76rem;
   font-weight: 600;
 }
 
 .aiVerifyCallout {
-  max-width: 860px;
+  max-width: 1240px;
   margin: 0 auto 36px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #FEF6DD;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 0px !important;
-  padding: 14px 20px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.84rem;
-  color: #D3CEE0;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.55;
 }
 
 .aiFeedbackCtaRow {
@@ -756,11 +773,12 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 18px;
-  transition: border-color 250ms ease;
+  transition: background-color 250ms ease, border-color 250ms ease;
 }
 
 .testimonialCard:hover {
   border-color: #8867b8;
+  background-color: #FEF6DD;
   box-shadow: none;
   transform: none;
 }

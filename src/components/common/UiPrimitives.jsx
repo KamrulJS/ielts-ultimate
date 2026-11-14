@@ -4,8 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
-export function Badge({ children, variant = 'neutral', className = '' }) {
-  return <span className={`badge badge-${variant} ${className}`}>{children}</span>;
+export function Badge({ children, variant = 'neutral', className = '', ...props }) {
+  return <span className={`badge badge-${variant} ${className}`} {...props}>{children}</span>;
 }
 
 export function ProgressBar({ value = 0, variant = 'purple', small = false, showLabel = false }) {

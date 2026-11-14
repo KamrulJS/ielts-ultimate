@@ -99,8 +99,10 @@ export function HomeStudyPlanSection() {
                     <div className={homeStyles.studyBenefitIcon}>
                       <Icon size={20} />
                     </div>
-                    <h3 className={homeStyles.studyBenefitTitle}>{item.title}</h3>
-                    <p className={homeStyles.studyBenefitDesc}>{item.desc}</p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0 }}>
+                      <h3 className={homeStyles.studyBenefitTitle}>{item.title}</h3>
+                      <p className={homeStyles.studyBenefitDesc}>{item.desc}</p>
+                    </div>
                   </div>
                 );
               })}

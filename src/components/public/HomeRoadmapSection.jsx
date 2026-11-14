@@ -87,14 +87,16 @@ export function HomeRoadmapSection() {
           <span
             style={{
               display: 'inline-block',
-              backgroundColor: 'rgba(136, 103, 184, 0.12)',
+              backgroundColor: '#F1E8FF',
               color: '#8867B8',
-              borderRadius: '9999px',
+              borderRadius: 0,
               padding: '6px 16px',
               fontSize: '0.8rem',
               fontWeight: 700,
               marginBottom: 14,
-              letterSpacing: '0.02em',
+              border: '1px solid rgba(136, 103, 184, 0.25)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
             }}
           >
             Your Journey
@@ -251,22 +253,23 @@ export function HomeRoadmapSection() {
                     transform: isSelected ? 'scale(1.03)' : 'scale(1)',
                   }}
                 >
-                  {/* Purple Rounded Square Icon Box */}
+                  {/* Purple Square Icon Box */}
                   <div
                     style={{
-                      width: 42,
-                      height: 42,
-                      borderRadius: 12,
-                      backgroundColor: '#8867B8',
-                      color: '#FFFFFF',
+                      width: 44,
+                      height: 44,
+                      borderRadius: 0,
+                      backgroundColor: '#F1E8FF',
+                      border: '1px solid rgba(136, 103, 184, 0.3)',
+                      color: '#8867B8',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 4px 12px rgba(136, 103, 184, 0.25)',
+                      boxShadow: '0 2px 8px rgba(136, 103, 184, 0.15)',
                       marginBottom: 10,
                     }}
                   >
-                    <Icon size={20} />
+                    <Icon size={22} />
                   </div>
 
                   {/* Step Label */}
@@ -337,7 +340,7 @@ export function HomeRoadmapSection() {
                     position: 'relative',
                     background: '#FFFFFF',
                     border: `1px solid ${isSelected ? '#8867B8' : 'var(--border, #E2DDD1)'}`,
-                    borderRadius: 12,
+                    borderRadius: 0,
                     padding: '16px 18px',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
                     cursor: 'pointer',
@@ -350,15 +353,15 @@ export function HomeRoadmapSection() {
                       top: 16,
                       width: 22,
                       height: 22,
-                      borderRadius: '50%',
-                      backgroundColor: s.isGoal ? '#F6BD28' : '#8867B8',
-                      color: s.isGoal ? '#202020' : '#FFFFFF',
+                      borderRadius: 0,
+                      backgroundColor: s.isGoal ? '#FEF6DD' : '#F1E8FF',
+                      color: s.isGoal ? '#202020' : '#8867B8',
                       fontSize: '0.68rem',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      border: '2px solid #FFFFFF',
+                      border: '1px solid #8867B8',
                     }}
                   >
                     {s.step}

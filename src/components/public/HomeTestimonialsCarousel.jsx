@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Badge } from '@/components/common/UiPrimitives';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
@@ -16,8 +16,17 @@ function getVisibleSlidesCount(viewportWidth) {
 export function HomeTestimonialsCarousel({ testimonials = [] }) {
   const [visibleCount, setVisibleCount] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+
+  const startXRef = useRef(0);
+  const currentDragOffsetRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const hasDraggedRef = useRef(false);
+
   const touchStartXRef = useRef(null);
   const touchStartYRef = useRef(null);
+  const isHorizontalSwipeRef = useRef(null);
 
   useEffect(() => {
     const syncBreakpoint = () => {
@@ -35,25 +44,107 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
   const clampedIndex = Math.min(activeIndex, maxIndex);
   const totalStops = maxIndex + 1;
 
-  const goPrev = () => setActiveIndex((prev) => Math.max(0, prev - 1));
-  const goNext = () => setActiveIndex((prev) => Math.min(maxIndex, prev + 1));
+  const goPrev = useCallback(() => setActiveIndex((prev) => Math.max(0, prev - 1)), []);
+  const goNext = useCallback(() => setActiveIndex((prev) => Math.min(maxIndex, prev + 1)), [maxIndex]);
 
+  // Desktop Mouse Drag Handling
+  const handleMouseDown = (e) => {
+    if (e.button !== 0) return; // left click only
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.clientX;
+    currentDragOffsetRef.current = 0;
+    setIsDragging(true);
+    setDragOffset(0);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDraggingRef.current) return;
+      const diff = e.clientX - startXRef.current;
+      if (Math.abs(diff) > 5) {
+        hasDraggedRef.current = true;
+      }
+      // Apply rubber-band dampening at extremes
+      let boundedDiff = diff;
+      if ((clampedIndex === 0 && diff > 0) || (clampedIndex >= maxIndex && diff < 0)) {
+        boundedDiff = diff * 0.25;
+      }
+      currentDragOffsetRef.current = boundedDiff;
+      setDragOffset(boundedDiff);
+    };
+
+    const handleMouseUp = () => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      setIsDragging(false);
+
+      const offset = currentDragOffsetRef.current;
+      currentDragOffsetRef.current = 0;
+      setDragOffset(0);
+
+      const threshold = 55; // minimum px to change slide
+      if (offset < -threshold) {
+        goNext();
+      } else if (offset > threshold) {
+        goPrev();
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [clampedIndex, maxIndex, goNext, goPrev]);
+
+  // Mobile Touch Handling with vertical scroll preservation
   const handleTouchStart = (e) => {
     if (!e.touches || e.touches.length === 0) return;
     touchStartXRef.current = e.touches[0].clientX;
     touchStartYRef.current = e.touches[0].clientY;
+    isHorizontalSwipeRef.current = null;
+    currentDragOffsetRef.current = 0;
   };
 
-  const handleTouchEnd = (e) => {
-    if (touchStartXRef.current === null || !e.changedTouches || e.changedTouches.length === 0) return;
-    const dx = touchStartXRef.current - e.changedTouches[0].clientX;
-    const dy = (touchStartYRef.current ?? e.changedTouches[0].clientY) - e.changedTouches[0].clientY;
+  const handleTouchMove = (e) => {
+    if (touchStartXRef.current === null || !e.touches || e.touches.length === 0) return;
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const dx = currentX - touchStartXRef.current;
+    const dy = currentY - (touchStartYRef.current ?? currentY);
+
+    if (isHorizontalSwipeRef.current === null) {
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
+        isHorizontalSwipeRef.current = Math.abs(dx) > Math.abs(dy);
+      }
+    }
+
+    if (isHorizontalSwipeRef.current) {
+      let boundedDiff = dx;
+      if ((clampedIndex === 0 && dx > 0) || (clampedIndex >= maxIndex && dx < 0)) {
+        boundedDiff = dx * 0.25;
+      }
+      currentDragOffsetRef.current = boundedDiff;
+      setDragOffset(boundedDiff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartXRef.current === null) return;
+    const offset = currentDragOffsetRef.current;
     touchStartXRef.current = null;
     touchStartYRef.current = null;
+    isHorizontalSwipeRef.current = null;
+    currentDragOffsetRef.current = 0;
+    setDragOffset(0);
 
-    if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx > 0) goNext();
-      else goPrev();
+    const threshold = 40;
+    if (offset < -threshold) {
+      goNext();
+    } else if (offset > threshold) {
+      goPrev();
     }
   };
 
@@ -110,18 +201,26 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
 
       <div
         className={styles.carouselViewport}
+        onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        style={{
+          cursor: isDragging ? 'grabbing' : 'grab',
+          userSelect: isDragging ? 'none' : 'auto',
+          touchAction: 'pan-y',
+        }}
       >
         <div
           className={styles.carouselTrack}
           style={{
-            transform: `translateX(calc(-${clampedIndex} * ((100% + var(--carousel-gap)) / var(--carousel-cols))))`,
+            transform: `translateX(calc(-${clampedIndex} * ((100% + var(--carousel-gap)) / var(--carousel-cols)) + ${dragOffset}px))`,
+            transition: isDragging || dragOffset !== 0 ? 'none' : 'transform 380ms cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         >
           {testimonials.map((item) => (
             <div key={item.name} className={styles.carouselSlide}>
-              <article className={styles.testimonialCard}>
+              <article className={styles.testimonialCard} style={{ borderRadius: 0 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
@@ -180,8 +279,8 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
                     borderTop: '1px solid var(--border)',
                   }}
                 >
-                  <Badge variant="yellow">{item.score}</Badge>
-                  <Badge variant="purple">{item.gain}</Badge>
+                  <Badge variant="yellow" style={{ borderRadius: 0 }}>{item.score}</Badge>
+                  <Badge variant="purple" style={{ borderRadius: 0 }}>{item.gain}</Badge>
                 </div>
               </article>
             </div>
@@ -201,6 +300,7 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
                 aria-label={`Show testimonial set ${idx + 1}`}
                 onClick={() => setActiveIndex(idx)}
                 className={`${styles.carouselDot} ${clampedIndex === idx ? styles.carouselDotActive : ''}`}
+                style={{ borderRadius: 0 }}
               />
             ))}
           </div>

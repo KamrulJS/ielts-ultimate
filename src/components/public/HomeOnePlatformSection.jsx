@@ -14,99 +14,63 @@ import {
   MessageCircle,
   Dumbbell,
   Headphones,
-  MessageSquareHeart,
+  Sparkles,
   GraduationCap,
+  BookOpenText,
+  Target,
 } from 'lucide-react';
 import styles from './PublicLayout.module.css';
 
-const ROW1_FEATURES = [
+const PLATFORM_FEATURES = [
+  // Row 1 (5 items)
   { id: '1', title: 'Full Simulation Test', icon: ClipboardCheck, href: '/mock-test' },
   { id: '2', title: 'Instant Band Score', icon: Zap, href: '/services/prediction-test' },
   { id: '3', title: 'AI Writing Examiner', icon: PenTool, href: '/writing' },
-  { id: '4', title: 'AI Speaking Examiner', icon: Mic, href: '/speaking', highlighted: true },
+  { id: '4', title: 'AI Speaking Examiner', icon: Mic, href: '/speaking' },
   { id: '5', title: 'Self-Paced Courses', icon: BookOpen, href: '/resources/self-paced-courses' },
-  { id: '6', title: 'Progress Dashboard', icon: BarChart3, href: '/dashboard' },
-];
 
-const ROW2_FEATURES = [
+  // Row 2 (5 items)
+  { id: '6', title: 'Progress Dashboard', icon: BarChart3, href: '/dashboard' },
   { id: '7', title: 'Study Plan', icon: Calendar, href: '/resources/study-planner' },
   { id: '8', title: 'IELTS Vocabulary', icon: Smartphone, href: '/resources/vocabulary' },
   { id: '9', title: 'IELTS Forums', icon: MessageCircle, href: '/community' },
   { id: '10', title: 'Vocabulary Drill', icon: Dumbbell, href: '/vocabulary' },
-  { id: '11', title: 'Transcription Challenge', icon: Headphones, href: '/listening' },
-  { id: '12', title: 'Ask Wistie', icon: MessageSquareHeart, href: '/resources/ai-coach' },
-];
 
-const ROW3_FEATURES = [
+  // Row 3 (5 items)
+  { id: '11', title: 'Transcription Challenge', icon: Headphones, href: '/listening' },
+  { id: '12', title: 'Ask Wistie AI Coach', icon: Sparkles, href: '/resources/ai-coach' },
   { id: '13', title: 'Live Classes', icon: GraduationCap, href: '/live-classes' },
+  { id: '14', title: 'Academic Reading Bank', icon: BookOpenText, href: '/practice/reading' },
+  { id: '15', title: 'Target Band Analytics', icon: Target, href: '/services/prediction-test' },
 ];
 
 export function HomeOnePlatformSection() {
-  const renderCard = (feat) => {
-    const Icon = feat.icon;
-    return (
-      <Link
-        key={feat.id}
-        href={feat.href}
-        className="platform-feature-card"
-        style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: 16,
-          border: '1px solid rgba(0, 0, 0, 0.06)',
-          boxShadow: feat.highlighted
-            ? '0 6px 20px rgba(136, 103, 184, 0.18)'
-            : '0 3px 12px rgba(0, 0, 0, 0.04)',
-          padding: '24px 16px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 12,
-          textDecoration: 'none',
-          textAlign: 'center',
-          transition: 'all 0.25s ease',
-          minHeight: 110,
-        }}
-      >
-        <div
-          style={{
-            color: '#8867B8',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Icon size={24} strokeWidth={1.8} />
-        </div>
-        <span
-          style={{
-            fontSize: '0.86rem',
-            fontWeight: 700,
-            color: '#202020',
-            lineHeight: 1.3,
-          }}
-        >
-          {feat.title}
-        </span>
-      </Link>
-    );
-  };
-
   return (
-    <section className={styles.sectionWarmBand} style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '70px 0 80px', backgroundColor: '#FFFFFF' }}>
+    <section
+      className={styles.sectionWarmBand}
+      style={{
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        padding: '64px 0 76px',
+        backgroundColor: '#FAF9F5',
+      }}
+    >
       <div className={styles.container}>
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto 40px' }}>
+        <div style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto 36px' }}>
           <span
             style={{
               display: 'inline-block',
-              backgroundColor: 'rgba(136, 103, 184, 0.12)',
+              backgroundColor: '#F1E8FF',
               color: '#8867B8',
-              borderRadius: '9999px',
+              borderRadius: 0,
               padding: '6px 16px',
               fontSize: '0.8rem',
               fontWeight: 700,
               marginBottom: 12,
+              border: '1px solid rgba(136, 103, 184, 0.25)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
             }}
           >
             Everything You Need
@@ -124,53 +88,102 @@ export function HomeOnePlatformSection() {
             One platform. All your <span style={{ color: '#8867B8' }}>IELTS needs.</span>
           </h2>
           <p style={{ color: 'var(--text-secondary, #5F5E5B)', fontSize: '1.02rem', lineHeight: 1.6, margin: 0 }}>
-            From full mock tests to AI feedback to structured courses, IELTS WIST covers every corner of your IELTS preparation.
+            From full mock tests to AI feedback to structured courses, IELTS Ultimate covers every corner of your IELTS preparation.
           </p>
         </div>
 
-        {/* 13-Card Grid Matching Screenshot 3 */}
-        <div style={{ maxWidth: 1120, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {/* Row 1: 6 Cards */}
-          <div className="platform-grid-row">
-            {ROW1_FEATURES.map(renderCard)}
-          </div>
-
-          {/* Row 2: 6 Cards */}
-          <div className="platform-grid-row">
-            {ROW2_FEATURES.map(renderCard)}
-          </div>
-
-          {/* Row 3: 1 Centered Card */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '100%', maxWidth: 175 }}>
-              {ROW3_FEATURES.map(renderCard)}
-            </div>
-          </div>
+        {/* 5-Column Desktop Grid with Square Borders & Larger Icons */}
+        <div className="five-column-platform-grid">
+          {PLATFORM_FEATURES.map((feat) => {
+            const Icon = feat.icon;
+            return (
+              <Link
+                key={feat.id}
+                href={feat.href}
+                className="one-platform-card"
+              >
+                {/* Square-bordered Larger Icon Container */}
+                <div className="one-platform-icon-wrap">
+                  <Icon size={26} strokeWidth={1.8} />
+                </div>
+                {/* Slightly larger, bold readable text */}
+                <span className="one-platform-title">
+                  {feat.title}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
       <style jsx>{`
-        .platform-grid-row {
+        .five-column-platform-grid {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 16px;
+          max-width: 1240px;
+          margin: 0 auto;
         }
 
-        :global(.platform-feature-card:hover) {
-          transform: translateY(-4px);
+        :global(.one-platform-card) {
+          background-color: #FFFFFF;
+          border: 1px solid var(--border, #E2DDD1);
+          border-radius: 0px !important;
+          padding: 24px 14px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          text-decoration: none;
+          text-align: center;
+          min-height: 120px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+          transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        :global(.one-platform-card:hover) {
+          background-color: #FEF6DD !important;
           border-color: #8867B8 !important;
-          box-shadow: 0 10px 24px rgba(136, 103, 184, 0.18) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(136, 103, 184, 0.12) !important;
         }
 
-        @media (max-width: 1024px) {
-          .platform-grid-row {
+        .one-platform-icon-wrap {
+          width: 52px;
+          height: 52px;
+          border-radius: 0px !important;
+          background-color: #F1E8FF;
+          border: 1px solid rgba(136, 103, 184, 0.25);
+          color: #8867B8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: background-color 0.2s ease;
+        }
+
+        :global(.one-platform-card:hover) .one-platform-icon-wrap {
+          background-color: #FFFFFF;
+        }
+
+        .one-platform-title {
+          font-size: 0.94rem;
+          font-weight: 700;
+          color: #202020;
+          line-height: 1.35;
+        }
+
+        @media (max-width: 1100px) {
+          .five-column-platform-grid {
             grid-template-columns: repeat(3, 1fr);
           }
         }
 
-        @media (max-width: 640px) {
-          .platform-grid-row {
+        @media (max-width: 680px) {
+          .five-column-platform-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
           }
         }
       `}</style>
