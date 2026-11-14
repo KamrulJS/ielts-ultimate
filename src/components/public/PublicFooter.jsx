@@ -44,9 +44,9 @@ export function PublicFooter() {
               Complete IELTS preparation combining realistic 4-skill mock simulations, rubric-calibrated Writing &amp; Speaking feedback, curated lexical studios, and certified online instruction.
             </p>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 4 }}>
-              <span className="badge badge-yellow">Academic</span>
+              <span className="badge badge-yellow">IELTS Academic</span>
               <span className="badge" style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: '#EAE8E1', borderColor: 'var(--dark-border)' }}>
-                General Training
+                Official Exam Standard
               </span>
             </div>
           </div>

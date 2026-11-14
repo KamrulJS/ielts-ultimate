@@ -71,8 +71,8 @@
   },
   {
     "id": "mock-05",
-    "title": "General Training Mock #05 — Workplace & Relocation",
-    "track": "General",
+    "title": "Academic Full Mock Exam #05 — Applied Robotics & Healthcare Systems",
+    "track": "Academic",
     "difficulty": "Standard (Band 6.5 - 7.5)",
     "durationMinutes": 160,
     "durationLabel": "2h 40m",
@@ -122,8 +122,8 @@
   },
   {
     "id": "mock-08",
-    "title": "General Training Mock #08 — Community & Digital Life",
-    "track": "General",
+    "title": "Academic Full Mock Exam #08 — Deep Sea Ecology & Conservation",
+    "track": "Academic",
     "difficulty": "Moderate (Band 6.0 - 7.0)",
     "durationMinutes": 160,
     "durationLabel": "2h 40m",

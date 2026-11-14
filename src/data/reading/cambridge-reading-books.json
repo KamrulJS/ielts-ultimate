@@ -57,7 +57,7 @@
     "passagesCount": 12,
     "questionCount": 160,
     "availabilityStatus": "Fully Available (Authentic Past Papers)",
-    "overview": "First edition separating Academic and General Training into dedicated volumes. Features crop growing in skyscrapers, the Falkirk Wheel boat lift, reducing the effects of climate change through geoengineering, and the story of silk.",
+    "overview": "Landmark Academic volume from Cambridge Assessment. Features crop growing in skyscrapers, the Falkirk Wheel boat lift, reducing the effects of climate change through geoengineering, and the story of silk.",
     "tests": [
       { "id": "cam-rd-11-t1", "testNumber": 1, "label": "Academic Reading Test 1", "passages": ["Crop-Growing Skyscrapers (Vertical Farming)", "The Falkirk Wheel Engineering Feat", "Reducing the Effects of Climate Change (Geoengineering)"] },
       { "id": "cam-rd-11-t2", "testNumber": 2, "label": "Academic Reading Test 2", "passages": ["Raising the Mary Rose Tudor Warship", "What is Exploration? New Horizons", "The Neurobiology of Musical Chills"] },

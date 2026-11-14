@@ -5,7 +5,7 @@
     "description": "Combine realistic full-length simulation exams, AI-calibrated Writing and Speaking rubric scoring, structured self-paced lessons, and a personalized daily study plan in one focused learning workspace.",
     "primaryCta": { "label": "Start Learning Free", "href": "/study-plan" },
     "secondaryCta": { "label": "Explore How It Works", "href": "#platform-preview" },
-    "trustNote": "Rated 4.9/5 by learners • Academic & General Training • Free account to start",
+    "trustNote": "Rated 4.9/5 by learners • IELTS Academic Dedicated • Free account to start",
     "stats": [
       { "value": "1,200+", "label": "Active Learners" },
       { "value": "4,800+", "label": "Timed Mock Sessions" },
@@ -67,7 +67,7 @@
     {
       "num": "01",
       "title": "Create a Free Student Account",
-      "desc": "Sign up in moments and choose Academic or General Training along with your target overall band."
+      "desc": "Sign up in moments and choose IELTS Academic along with your target overall band."
     },
     {
       "num": "02",
@@ -175,7 +175,7 @@
       "tag": "Zero Fragmentation"
     },
     {
-      "title": "Academic & General Training",
+      "title": "IELTS Academic Dedicated",
       "desc": "Switch smoothly between university-entry charts/academic texts and workplace/migration letter & practical reading tasks.",
       "tag": "Dual Module"
     },
@@ -245,8 +245,8 @@
       "a": "Evaluations score separately across all four official criteria—Task Achievement/Response, Coherence & Cohesion, Lexical Resource, and Grammatical Range (plus Fluency & Pronunciation in Speaking)—paired with actionable rewrite pointers."
     },
     {
-      "q": "Does the platform support both IELTS Academic and General Training?",
-      "a": "Yes. Both Mock Simulations and Writing/Reading tracks include dedicated Academic modules (charts, academic essays, scholarly passages) and General Training pathways (formal/informal letters and everyday workplace texts)."
+      "q": "Does the platform support both IELTS IELTS Academic?",
+      "a": "Yes. Both Mock Simulations and Writing/Reading tracks include dedicated Academic modules (charts, academic essays, scholarly passages) and Academic Dedicated pathways (formal/informal letters and everyday workplace texts)."
     },
     {
       "q": "Where do online classes and live mentoring fit alongside self-study?",

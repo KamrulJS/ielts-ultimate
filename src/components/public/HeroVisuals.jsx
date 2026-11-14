@@ -242,7 +242,7 @@ export function ResourceHeroVisual({ slug }) {
           { track: 'Beginner', band: 'Band 4.5–5.5', count: '24 Units' },
           { track: 'Intermediate', band: 'Band 5.5–6.5', count: '30 Units' },
           { track: 'Advanced', band: 'Band 7.0–8.5+', count: '22 Units' },
-          { track: 'General Training', band: 'Work & Migration', count: '20 Units' },
+          { track: 'Academic Intensive', band: 'Postgraduate & Honors', count: '20 Units' },
         ].map((t) => (
           <div key={t.track} className="card-warm card-compact" style={{ padding: '10px 12px' }}>
             <div style={{ fontWeight: 700, fontSize: '0.86rem' }}>{t.track}</div>

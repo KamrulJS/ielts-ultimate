@@ -40,10 +40,9 @@ function EditProfileForm({ profile, updateProfile, onClose }) {
         </div>
       </div>
       <div className="field-group">
-        <label className="field-label" htmlFor="edit-track">IELTS Track</label>
-        <select id="edit-track" className="select" value={track} onChange={(e) => setTrack(e.target.value)}>
-          <option value="Academic">IELTS Academic</option>
-          <option value="General Training">IELTS General Training</option>
+        <label className="field-label" htmlFor="edit-track">Examination Stream</label>
+        <select id="edit-track" className="select" value="Academic" disabled style={{ backgroundColor: 'var(--bg-secondary)', cursor: 'not-allowed' }}>
+          <option value="Academic">IELTS Academic (Dedicated)</option>
         </select>
       </div>
       <div className="field-group">

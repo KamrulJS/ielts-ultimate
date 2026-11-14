@@ -4,7 +4,7 @@
     { "id": "faq-1", "category": "Examinations & Scoring", "q": "How does IELTS Ultimate calculate Reading and Listening Band Scores?", "a": "Scores out of 40 follow official IELTS Academic conversion thresholds (e.g., 30/40 = Band 7.0, 35/40 = Band 8.0) and round overall four-skill averages to the nearest 0.5 band." },
     { "id": "faq-2", "category": "Writing & Speaking", "q": "Are Writing and Speaking evaluations connected to a live AI service?", "a": "Currently, Writing and Speaking results use realistic local demo rubric templates stored in JSON so you can test the complete submission, timer, recording, and feedback workflow offline without external API keys." },
     { "id": "faq-3", "category": "Getting Started", "q": "Are my test answers and study progress saved?", "a": "Yes! Active drafts, completed study plan tasks, bookmarks, community likes/comments, and completed test attempts persist automatically in your browser's LocalStorage." },
-    { "id": "faq-4", "category": "Account & Billing", "q": "Can I switch between Academic and General Training tracks?", "a": "Yes. Both Full Mock Test and Reading/Writing libraries allow switching tracks, and you can set your default target track in My Profile." }
+    { "id": "faq-4", "category": "Account & Billing", "q": "Can I switch between IELTS Academic tracks?", "a": "Yes. Both Full Mock Test and Reading/Writing libraries allow switching tracks, and you can set your default target track in My Profile." }
   ],
   "guides": [
     { "id": "gd-1", "title": "Exam Day Pacing Blueprint (2h 40m)", "summary": "Manage stamina across Listening, Reading, and Writing without fatigue.", "href": "/mock-test" },

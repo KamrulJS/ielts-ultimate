@@ -34,7 +34,6 @@ export function ReadingLibraryView() {
   const { bookmarks, toggleBookmark } = useApp();
   const rootRef = useGsapEntrance('reading-library');
 
-  const [track, setTrack] = useState('Academic');
   const [category, setCategory] = useState('Cambridge IELTS');
   const [search, setSearch] = useState('');
   const [selectedBookNum, setSelectedBookNum] = useState(null);
@@ -108,20 +107,7 @@ export function ReadingLibraryView() {
           ...(activeBook ? [{ label: `Cambridge ${activeBook.bookNumber}` }] : []),
         ]}
         badge={<Badge variant="yellow">Cambridge Books 9–25 Integrated</Badge>}
-        actions={
-          <div className="tabs-list">
-            {['Academic', 'General'].map((t) => (
-              <button
-                key={t}
-                type="button"
-                className={`tab-trigger ${track === t ? 'active' : ''}`}
-                onClick={() => setTrack(t)}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-        }
+        actions={<Badge variant="purple">IELTS Academic Dedicated</Badge>}
       />
 
       {/* Category Pills & Search Controls */}

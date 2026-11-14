@@ -1,7 +1,7 @@
 [
   {
     "bookNumber": 9,
-    "bookTitle": "Cambridge IELTS 9 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 9 Academic",
     "testNumber": 1,
     "testId": "cam-09-t1",
     "sectionCount": 4,
@@ -18,7 +18,7 @@
   },
   {
     "bookNumber": 9,
-    "bookTitle": "Cambridge IELTS 9 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 9 Academic",
     "testNumber": 2,
     "testId": "cam-09-t2",
     "sectionCount": 4,
@@ -35,7 +35,7 @@
   },
   {
     "bookNumber": 9,
-    "bookTitle": "Cambridge IELTS 9 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 9 Academic",
     "testNumber": 3,
     "testId": "cam-09-t3",
     "sectionCount": 4,
@@ -52,7 +52,7 @@
   },
   {
     "bookNumber": 9,
-    "bookTitle": "Cambridge IELTS 9 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 9 Academic",
     "testNumber": 4,
     "testId": "cam-09-t4",
     "sectionCount": 4,
@@ -69,7 +69,7 @@
   },
   {
     "bookNumber": 10,
-    "bookTitle": "Cambridge IELTS 10 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 10 Academic",
     "testNumber": 1,
     "testId": "cam-10-t1",
     "sectionCount": 4,
@@ -86,7 +86,7 @@
   },
   {
     "bookNumber": 10,
-    "bookTitle": "Cambridge IELTS 10 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 10 Academic",
     "testNumber": 2,
     "testId": "cam-10-t2",
     "sectionCount": 4,
@@ -103,7 +103,7 @@
   },
   {
     "bookNumber": 10,
-    "bookTitle": "Cambridge IELTS 10 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 10 Academic",
     "testNumber": 3,
     "testId": "cam-10-t3",
     "sectionCount": 4,
@@ -120,7 +120,7 @@
   },
   {
     "bookNumber": 10,
-    "bookTitle": "Cambridge IELTS 10 Academic & General Training",
+    "bookTitle": "Cambridge IELTS 10 Academic",
     "testNumber": 4,
     "testId": "cam-10-t4",
     "sectionCount": 4,

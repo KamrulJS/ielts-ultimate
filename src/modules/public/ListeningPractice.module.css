@@ -106,6 +106,9 @@
 }
 
 /* Mobile Floating / Collapsible TOC */
+.mobileTocStickyWrapper {
+  display: none;
+}
 .mobileTocToggle {
   display: none;
 }
@@ -1035,11 +1038,16 @@
     display: none;
   }
 
-  .mobileTocToggle {
-    display: flex;
+  .mobileTocStickyWrapper {
+    display: block;
     position: sticky;
     top: 72px;
-    z-index: 30;
+    z-index: 1000;
+    margin-bottom: 20px;
+  }
+
+  .mobileTocToggle {
+    display: flex;
     background: #FAF9F5;
     border: 1px solid var(--border-color, #E2DDD1);
     padding: 10px 16px;
@@ -1047,11 +1055,10 @@
     justify-content: space-between;
     font-size: 0.85rem;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 0px !important;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 20px;
   }
 
   .mobileTocDrawer {
@@ -1060,9 +1067,12 @@
     gap: 6px;
     background: #FFFFFF;
     border: 1px solid var(--border-color, #E2DDD1);
+    border-top: none;
     padding: 14px;
-    margin-bottom: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     border-radius: 0px !important;
+    max-height: 55vh;
+    overflow-y: auto;
   }
 
   .heroBanner {

@@ -39,9 +39,6 @@ export function ReadingPracticeView() {
   const [activeTocId, setActiveTocId] = useState('overview');
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
 
-  // Scoring tab: 'academic' | 'general'
-  const [scoreTab, setScoreTab] = useState('academic');
-
   // Question Types Filter & Search
   const [qtSearch, setQtSearch] = useState('');
   const [selectedQtType, setSelectedQtType] = useState('All');
@@ -128,7 +125,7 @@ export function ReadingPracticeView() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                 <Badge variant="purple">{guideData.hero.badge}</Badge>
-                <Badge variant="yellow">Academic &amp; General Training</Badge>
+                <Badge variant="yellow">IELTS Academic Dedicated</Badge>
               </div>
               <h1 className="hero-heading" style={{ fontSize: '2.5rem', lineHeight: 1.15 }}>
                 {guideData.hero.headline}
@@ -288,29 +285,29 @@ export function ReadingPracticeView() {
               </div>
             </section>
 
-            {/* 2. Academic vs General */}
-            <section id="academic-vs-general" className={styles.guideSection}>
+            {/* 2. Academic Test Standards */}
+            <section id="academic-standards" className={styles.guideSection}>
               <div className={styles.sectionHeader}>
                 <Badge variant="yellow" className={styles.sectionBadge}>Section 02</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.comparison.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.comparison.subtitle}</p>
+                <h2 className={styles.sectionTitle}>{guideData.academicStandards.title}</h2>
+                <p className={styles.sectionSubtitle}>{guideData.academicStandards.subtitle}</p>
               </div>
 
               <div className={styles.tableWrapper}>
                 <table className={styles.comparisonTable}>
                   <thead>
                     <tr>
-                      {guideData.comparison.columns.map((col, idx) => (
+                      {guideData.academicStandards.columns.map((col, idx) => (
                         <th key={idx}>{col}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {guideData.comparison.rows.map((row, idx) => (
+                    {guideData.academicStandards.rows.map((row, idx) => (
                       <tr key={idx}>
-                        <td>{row.feature}</td>
-                        <td>{row.academic}</td>
-                        <td>{row.general}</td>
+                        <td style={{ fontWeight: 700, color: 'var(--primary)', whiteSpace: 'nowrap' }}>{row.component}</td>
+                        <td>{row.specification}</td>
+                        <td>{row.competencies}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -614,37 +611,17 @@ export function ReadingPracticeView() {
                 <p className={styles.sectionSubtitle}>{guideData.scoringTables.subtitle}</p>
               </div>
 
-              {/* Tabs for Academic vs General */}
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button
-                  type="button"
-                  onClick={() => setScoreTab('academic')}
-                  className={`btn btn-sm ${scoreTab === 'academic' ? 'btn-primary' : 'btn-secondary'}`}
-                  style={{ borderRadius: 0 }}
-                >
-                  Academic Reading (Raw to Band)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setScoreTab('general')}
-                  className={`btn btn-sm ${scoreTab === 'general' ? 'btn-primary' : 'btn-secondary'}`}
-                  style={{ borderRadius: 0 }}
-                >
-                  General Training Reading (Raw to Band)
-                </button>
-              </div>
-
               <div className={styles.tableWrapper}>
                 <table className={styles.comparisonTable}>
                   <thead>
                     <tr>
                       <th>Raw Score (out of 40)</th>
-                      <th>Estimated Band Score</th>
+                      <th>IELTS Academic Band Score</th>
                       <th>Proficiency Classification</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {(scoreTab === 'academic' ? guideData.scoringTables.academic : guideData.scoringTables.general).map((row, idx) => (
+                    {guideData.scoringTables.academic.map((row, idx) => (
                       <tr key={idx}>
                         <td style={{ fontWeight: 800, color: 'var(--primary)', width: '30%' }}>{row.rawScore}</td>
                         <td style={{ fontWeight: 800, color: 'var(--text-primary)', width: '30%' }}>Band {row.band}</td>

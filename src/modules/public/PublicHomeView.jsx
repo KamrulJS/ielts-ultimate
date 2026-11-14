@@ -37,7 +37,7 @@ export function PublicHomeView() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                 <Badge variant="yellow">{homepageData.hero.eyebrow}</Badge>
-                <Badge variant="purple">Academic &amp; General Training</Badge>
+                <Badge variant="purple">IELTS Academic Dedicated</Badge>
               </div>
               <h1 className="hero-heading">
                 {homepageData.hero.headline}
@@ -64,8 +64,8 @@ export function PublicHomeView() {
 
             <div className={homeStyles.heroVisualCol} data-animate="reveal">
               <Image
-                src="/images/hero/hero-ielts-preparation.png"
-                alt="IELTS candidate preparing with digital learning and four skill modules"
+                src="/images/hero/hero-student-wist.png"
+                alt="IELTS WIST candidate preparing with four skill modules and 7.0 target band goal"
                 width={620}
                 height={460}
                 priority

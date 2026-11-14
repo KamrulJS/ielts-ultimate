@@ -474,16 +474,15 @@ export function LoginView() {
 
               <div className="grid-2" style={{ gap: 10 }}>
                 <div className="field-group">
-                  <label className="field-label" htmlFor="reg-track">IELTS Track</label>
+                  <label className="field-label" htmlFor="reg-track">Examination Stream</label>
                   <select
                     id="reg-track"
                     className="select"
-                    value={regTrack}
-                    onChange={(e) => setRegTrack(e.target.value)}
-                    style={{ borderRadius: 0 }}
+                    value="Academic"
+                    disabled
+                    style={{ borderRadius: 0, backgroundColor: 'var(--bg-secondary)', cursor: 'not-allowed' }}
                   >
-                    <option value="Academic">Academic</option>
-                    <option value="General Training">General Training</option>
+                    <option value="Academic">IELTS Academic (Dedicated)</option>
                   </select>
                 </div>
                 <div className="field-group">

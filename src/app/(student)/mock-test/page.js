@@ -3,7 +3,7 @@ import { MockTestLibraryView } from '@/modules/mock/MockTestLibraryView';
 
 export const metadata = {
   title: 'Full Mock Test — IELTS Ultimate',
-  description: 'Take complete 2h 40m IELTS Academic and General Training mock examinations.',
+  description: 'Take complete 2h 40m IELTS Academic mock examinations.',
 };
 
 export default function MockTestPage() {

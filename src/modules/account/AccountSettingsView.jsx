@@ -53,15 +53,15 @@ export function AccountSettingsView() {
             <input id="set-email" type="email" className="input" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div className="field-group">
-            <label className="field-label" htmlFor="set-track">Default IELTS Track</label>
+            <label className="field-label" htmlFor="set-track">Examination Stream</label>
             <select
               id="set-track"
               className="select"
-              value={profile.track}
-              onChange={(e) => updateProfile({ track: e.target.value })}
+              value="Academic"
+              disabled
+              style={{ backgroundColor: 'var(--bg-secondary)', cursor: 'not-allowed' }}
             >
-              <option value="Academic">Academic</option>
-              <option value="General Training">General Training</option>
+              <option value="Academic">IELTS Academic (Dedicated)</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>

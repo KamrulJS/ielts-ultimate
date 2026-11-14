@@ -87,7 +87,7 @@
   {
     "id": "sp-topic-05",
     "title": "Public Transport & Sustainable Commutes",
-    "category": "General Topics",
+    "category": "Campus & Daily Life",
     "difficulty": "Standard",
     "durationLabel": "11-14 min",
     "part1": ["How do you usually travel across your city?", "Has traffic changed in your area recently?"],
@@ -113,7 +113,7 @@
   {
     "id": "sp-topic-07",
     "title": "Memorable Photographs & Visual Media",
-    "category": "General Topics",
+    "category": "Campus & Daily Life",
     "difficulty": "Moderate",
     "durationLabel": "11-14 min",
     "part1": ["Do you take photos mainly with your phone?", "Do you ever print photographs?"],
@@ -139,7 +139,7 @@
   {
     "id": "sp-topic-09",
     "title": "Live Concerts & Performing Arts",
-    "category": "General Topics",
+    "category": "Campus & Daily Life",
     "difficulty": "Standard",
     "durationLabel": "11-14 min",
     "part1": ["What genres of music help you concentrate?", "Have you ever learned to play an instrument?"],
@@ -165,7 +165,7 @@
   {
     "id": "sp-topic-11",
     "title": "Time Management & Daily Routines",
-    "category": "General Topics",
+    "category": "Campus & Daily Life",
     "difficulty": "Moderate",
     "durationLabel": "11-14 min",
     "part1": ["Are you usually punctual for appointments?", "Do you write daily to-do lists?"],
@@ -191,7 +191,7 @@
   {
     "id": "sp-topic-13",
     "title": "Parks, Walking & Physical Wellbeing",
-    "category": "General Topics",
+    "category": "Campus & Daily Life",
     "difficulty": "Moderate",
     "durationLabel": "11-14 min",
     "part1": ["Do you enjoy walking in your city?", "How often do you exercise outdoors?"],

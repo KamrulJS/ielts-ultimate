@@ -886,7 +886,7 @@
     }
   ],
   "hero": {
-    "categoryBadge": "IELTS Academic & General Training",
+    "categoryBadge": "IELTS Academic",
     "headline": "IELTS Listening Practice & Complete Preparation Guide",
     "subheadline": "Master all 4 listening sections, authentic British/Australian accents, and every question format. Practice with 52 graded mock tests calibrated directly against official Cambridge band criteria.",
     "stats": [
@@ -967,7 +967,7 @@
     }
   ],
   "formatRules": {
-    "summary": "The IELTS Listening test evaluates your ability to understand spoken English across both everyday social situations and rigorous academic lectures. It is identical for both IELTS Academic and IELTS General Training candidates.",
+    "summary": "The IELTS Listening test evaluates your ability to understand spoken English across both everyday social situations and rigorous academic lectures. It is identical for both IELTS Academic and IELTS Academic candidates.",
     "cards": [
       {
         "title": "Structure & Progression",
@@ -1502,8 +1502,8 @@
       "a": "No. The recording is played strictly ONCE. There are no replays or pauses. This is why previewing questions during the allocated 30–45 second preparation intervals before each section and underlining keywords is critical to anticipating answers before they are spoken."
     },
     {
-      "q": "Are the Listening questions identical for Academic and General Training?",
-      "a": "Yes. Unlike the Reading and Writing modules which differ between Academic and General Training, the IELTS Listening test is completely identical for both candidate groups. Both groups face the exact same recording, question types, and scoring conversion curve."
+      "q": "Are the Listening questions identical for Academic and Academic?",
+      "a": "Yes. Unlike the Reading and Writing modules which differ between Academic and Academic, the IELTS Listening test is completely identical for both candidate groups. Both groups face the exact same recording, question types, and scoring conversion curve."
     },
     {
       "q": "What happens if I write more words than the specified word limit?",

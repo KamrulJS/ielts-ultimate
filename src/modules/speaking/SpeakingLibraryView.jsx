@@ -25,7 +25,7 @@ export function SpeakingLibraryView() {
       .filter((t) => (!q ? true : t.title.toLowerCase().includes(q) || t.part2.cueTitle.toLowerCase().includes(q)));
   }, [category, difficulty, search]);
 
-  const groups = ['Recent Speaking', 'Academic Speaking', 'General Topics'].filter((g) =>
+  const groups = ['Recent Speaking', 'Academic Speaking', 'Campus & Daily Life'].filter((g) =>
     category === 'All' ? true : category === g
   );
 
@@ -44,7 +44,7 @@ export function SpeakingLibraryView() {
 
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <div className="filter-pills">
-          {['All', 'Recent Speaking', 'Academic Speaking', 'General Topics'].map((cat) => (
+          {['All', 'Recent Speaking', 'Academic Speaking', 'Campus & Daily Life'].map((cat) => (
             <button
               key={cat}
               type="button"

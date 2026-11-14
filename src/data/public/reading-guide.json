@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "IELTS Reading Practice & Comprehensive Preparation Guide",
-    "description": "Master all 14 IELTS Reading question types, academic vs general training formats, skimming and scanning strategies, 60-minute time management, band scoring tables, and interactive practice exercises.",
+    "description": "Master all 14 IELTS Academic Reading question types, 3-passage architecture, Cambridge IELTS Books 9–25 test library, time management strategies, and official band conversion tables.",
     "lastUpdated": "November 2026",
     "examDurationMinutes": 60,
     "totalQuestions": 40,
@@ -12,27 +12,81 @@
     "headline": "IELTS Reading Practice & Complete Strategy Guide",
     "description": "Master the 60-minute IELTS Reading test with proven scanning techniques, in-depth breakdowns of all 14 question types, band conversion tables, and Cambridge practice test integration.",
     "stats": [
-      { "label": "Test Duration", "value": "60 Mins" },
-      { "label": "Total Questions", "value": "40 Questions" },
-      { "label": "Academic Passages", "value": "3 Passages" },
-      { "label": "Question Formats", "value": "14 Types" }
+      {
+        "label": "Test Duration",
+        "value": "60 Mins"
+      },
+      {
+        "label": "Total Questions",
+        "value": "40 Questions"
+      },
+      {
+        "label": "Academic Passages",
+        "value": "3 Passages"
+      },
+      {
+        "label": "Question Formats",
+        "value": "14 Types"
+      }
     ],
-    "primaryCta": { "label": "Launch Cambridge Reading Tests", "href": "/reading" },
-    "secondaryCta": { "label": "Explore 14 Question Types", "href": "#question-types" }
+    "primaryCta": {
+      "label": "Launch Cambridge Reading Tests",
+      "href": "/reading"
+    },
+    "secondaryCta": {
+      "label": "Explore 14 Question Types",
+      "href": "#question-types"
+    }
   },
   "tableOfContents": [
-    { "id": "overview", "label": "1. Reading Overview" },
-    { "id": "academic-vs-general", "label": "2. Academic vs General" },
-    { "id": "test-format", "label": "3. Test Format & Rules" },
-    { "id": "question-types", "label": "4. All 14 Question Types" },
-    { "id": "strategies", "label": "5. Core Reading Strategies" },
-    { "id": "difficulty-guide", "label": "6. Question Difficulty & Priority" },
-    { "id": "time-management", "label": "7. 60-Minute Time Management" },
-    { "id": "scoring", "label": "8. Band Scoring Conversion" },
-    { "id": "tips-and-mistakes", "label": "9. Tips & Common Pitfalls" },
-    { "id": "interactive-drills", "label": "10. Sample Interactive Exercises" },
-    { "id": "cambridge-library", "label": "11. Cambridge Books 9–25" },
-    { "id": "faqs", "label": "12. Frequently Asked Questions" }
+    {
+      "id": "overview",
+      "label": "1. Reading Overview"
+    },
+    {
+      "id": "academic-standards",
+      "label": "2. Academic Test Standards"
+    },
+    {
+      "id": "test-format",
+      "label": "3. Test Format & Rules"
+    },
+    {
+      "id": "question-types",
+      "label": "4. All 14 Question Types"
+    },
+    {
+      "id": "strategies",
+      "label": "5. Core Reading Strategies"
+    },
+    {
+      "id": "difficulty-guide",
+      "label": "6. Question Difficulty & Priority"
+    },
+    {
+      "id": "time-management",
+      "label": "7. 60-Minute Time Management"
+    },
+    {
+      "id": "scoring",
+      "label": "8. Band Scoring Conversion"
+    },
+    {
+      "id": "tips-and-mistakes",
+      "label": "9. Tips & Common Pitfalls"
+    },
+    {
+      "id": "interactive-drills",
+      "label": "10. Sample Interactive Exercises"
+    },
+    {
+      "id": "cambridge-library",
+      "label": "11. Cambridge Books 9–25"
+    },
+    {
+      "id": "faqs",
+      "label": "12. Frequently Asked Questions"
+    }
   ],
   "overview": {
     "title": "Understanding the IELTS Reading Examination",
@@ -42,47 +96,25 @@
       "A pivotal distinction that catches many test takers off-guard: unlike the IELTS Listening test, which grants a 10-minute paper transfer allowance or a 2-minute computer check buffer, IELTS Reading gives ZERO extra time. Every answer must be recorded on your final answer sheet or typed directly into the testing interface within the 60-minute window."
     ],
     "keyFacts": [
-      { "label": "Total Time", "detail": "60 minutes (strict — no extra transfer time)" },
-      { "label": "Total Passages", "detail": "3 passages (approx. 2,150–2,750 words total across Academic)" },
-      { "label": "Total Questions", "detail": "40 questions (each correct answer earns 1 raw mark)" },
-      { "label": "Scoring Basis", "detail": "Raw score (0–40) converted into official IELTS Band 1.0–9.0" },
-      { "label": "Marking Policy", "detail": "No negative marking — never leave an answer blank" }
-    ]
-  },
-  "comparison": {
-    "title": "Academic Reading vs General Training Reading",
-    "subtitle": "While both formats share 40 questions and a 60-minute duration, their texts, topics, and band score thresholds differ significantly.",
-    "columns": ["Feature", "IELTS Academic Reading", "IELTS General Training Reading"],
-    "rows": [
       {
-        "feature": "Intended Purpose",
-        "academic": "Undergraduate, postgraduate admissions & professional accreditation (medical, legal, engineering).",
-        "general": "Immigration (Canada Express Entry, Australia PR, UK Skilled Worker), secondary education, and employment."
+        "label": "Total Time",
+        "detail": "60 minutes (strict — no extra transfer time)"
       },
       {
-        "feature": "Section Structure",
-        "academic": "3 long academic passages of equal length (~750–950 words each) with increasing argumentative complexity.",
-        "general": "Section 1: 2–3 short factual everyday texts; Section 2: 2 workplace texts; Section 3: 1 long complex text."
+        "label": "Total Passages",
+        "detail": "3 passages (approx. 2,150–2,750 words total across Academic)"
       },
       {
-        "feature": "Source Material",
-        "academic": "Scholarly journals, research publications, academic books, magazines, and newspapers written for non-specialists.",
-        "general": "Notices, company handbooks, advertisements, timetables, contracts, and general interest periodicals."
+        "label": "Total Questions",
+        "detail": "40 questions (each correct answer earns 1 raw mark)"
       },
       {
-        "feature": "Vocabulary & Tone",
-        "academic": "Formal, discursive, analytical, academic collocations, scientific, historical, and sociological terminology.",
-        "general": "Everyday functional English, practical workplace terminology, and descriptive narrative vocabulary."
+        "label": "Scoring Basis",
+        "detail": "Raw score (0–40) converted into official IELTS Band 1.0–9.0"
       },
       {
-        "feature": "Raw Score for Band 7.0",
-        "academic": "30 out of 40 correct answers (~75%).",
-        "general": "34 out of 40 correct answers (~85%) — stricter raw threshold because texts in Sections 1 & 2 are simpler."
-      },
-      {
-        "feature": "Raw Score for Band 8.0",
-        "academic": "35 out of 40 correct answers.",
-        "general": "38 out of 40 correct answers."
+        "label": "Marking Policy",
+        "detail": "No negative marking — never leave an answer blank"
       }
     ]
   },
@@ -130,7 +162,12 @@
       "tips": "Focus on meaning rather than word-matching. The correct answer is almost always an accurate paraphrase of the passage text.",
       "samplePassage": "While solar thermal concentrators achieved commercial viability in the Mojave desert during the mid-1980s, subsequent drops in fossil fuel prices curtailed venture funding. It was not until feed-in tariff mandates were enacted across Northern Europe in 2004 that institutional investors resumed capital deployment into utility-scale arrays.",
       "sampleQuestion": "What prompted institutional investors to resume financing solar plants in 2004?",
-      "sampleOptions": ["A. Sharp drops in fossil fuel prices", "B. The success of Mojave desert test projects", "C. Legislative feed-in tariff guarantees in Europe", "D. Advances in thermal concentrator efficiency"],
+      "sampleOptions": [
+        "A. Sharp drops in fossil fuel prices",
+        "B. The success of Mojave desert test projects",
+        "C. Legislative feed-in tariff guarantees in Europe",
+        "D. Advances in thermal concentrator efficiency"
+      ],
       "sampleAnswer": "C. Legislative feed-in tariff guarantees in Europe",
       "sampleExplanation": "The passage clearly states 'It was not until feed-in tariff mandates were enacted across Northern Europe in 2004 that institutional investors resumed capital deployment...'. 'Mandates' paraphrases 'legislative guarantees'."
     },
@@ -155,7 +192,11 @@
       "tips": "Beware of extreme qualifying words: 'always', 'all', 'completely', 'never', 'solely'. Passages typically use nuanced phrasing like 'often' or 'partially', turning extreme statements into FALSE.",
       "samplePassage": "The excavation at Göbekli Tepe revealed carved limestone pillars dating back over 11,000 years, predating Stonehenge by more than six millennia. Although popular accounts speculate that the site served as an astronomical observatory, archaeological teams have found no definitive celestial alignments in the megalith layouts.",
       "sampleQuestion": "Archaeologists have confirmed that Göbekli Tepe was constructed to track astronomical movements.",
-      "sampleOptions": ["TRUE", "FALSE", "NOT GIVEN"],
+      "sampleOptions": [
+        "TRUE",
+        "FALSE",
+        "NOT GIVEN"
+      ],
       "sampleAnswer": "FALSE",
       "sampleExplanation": "The text states 'archaeological teams have found no definitive celestial alignments in the megalith layouts', directly contradicting the claim that archaeologists have confirmed it was constructed to track astronomical movements."
     },
@@ -179,7 +220,11 @@
       "tips": "Look for concessions where the writer acknowledges an opposing view before delivering their actual conclusion (e.g., 'While critics maintain X, the reality is Y').",
       "samplePassage": "Proponents of open-plan workspaces assert that eliminating internal partitions accelerates cross-functional collaboration. However, empirical workplace studies demonstrate that face-to-face interaction actually declines by roughly 70 percent as employees retreat behind headphones to preserve cognitive focus.",
       "sampleQuestion": "The author believes open-plan office layouts foster superior team collaboration.",
-      "sampleOptions": ["YES", "NO", "NOT GIVEN"],
+      "sampleOptions": [
+        "YES",
+        "NO",
+        "NOT GIVEN"
+      ],
       "sampleAnswer": "NO",
       "sampleExplanation": "The author introduces the claim as an assertion by 'proponents' and immediately refutes it with empirical evidence showing interaction drops by 70%, thus disagreeing with the statement."
     },
@@ -205,7 +250,12 @@
       "tips": "If two headings seem plausible for one paragraph, write both down temporarily and move to Paragraph B. As remaining headings are eliminated, the correct pairing becomes obvious.",
       "samplePassage": "Paragraph B: Historically, cities addressed stormwater runoff through subterranean concrete culverts designed to funnel precipitation rapidly into river basins. However, rapid urbanization has overwhelmed these rigid conduits, producing severe localized flash flooding. In response, contemporary urban planners are pivoting toward bioswales, permeable pavements, and retention wetlands that absorb rainfall at the source.",
       "sampleQuestion": "Which heading best captures the main idea of Paragraph B?",
-      "sampleOptions": ["i. An economic assessment of drainage pipes", "ii. Shifting from rigid infrastructure to nature-based stormwater management", "iii. The global history of flash flooding disasters", "iv. How urban concrete improves groundwater purity"],
+      "sampleOptions": [
+        "i. An economic assessment of drainage pipes",
+        "ii. Shifting from rigid infrastructure to nature-based stormwater management",
+        "iii. The global history of flash flooding disasters",
+        "iv. How urban concrete improves groundwater purity"
+      ],
       "sampleAnswer": "ii. Shifting from rigid infrastructure to nature-based stormwater management",
       "sampleExplanation": "The paragraph contrasts traditional concrete culverts with the modern pivot toward permeable pavements and wetlands, matching heading ii precisely."
     },
@@ -229,7 +279,12 @@
       "tips": "Pay attention to functional indicator words: 'a reference to', 'an explanation of', 'an outline of', 'data comparing'. These signal what rhetorical device you are seeking.",
       "samplePassage": "Paragraph D: Unlike traditional acoustic monitoring stations, the newly deployed hydrophone arrays operate autonomously across the abyssal plain for up to 36 months, transmitting encrypted compressed acoustic telemetry via satellite buoy relays whenever they breach the surface.",
       "sampleQuestion": "Which paragraph contains details of how deep-sea acoustic devices relay recorded data to researchers?",
-      "sampleOptions": ["Paragraph B", "Paragraph C", "Paragraph D", "Paragraph E"],
+      "sampleOptions": [
+        "Paragraph B",
+        "Paragraph C",
+        "Paragraph D",
+        "Paragraph E"
+      ],
       "sampleAnswer": "Paragraph D",
       "sampleExplanation": "Paragraph D explains data transmission: 'transmitting encrypted compressed acoustic telemetry via satellite buoy relays whenever they breach the surface'."
     },
@@ -253,7 +308,12 @@
       "tips": "Proper names (capitalized words) are the easiest landmarks to scan in a reading text. Highlight all of them before reading the questions.",
       "samplePassage": "While Dr. Liam Vance maintained that glacial retreat in the Patagonian ice field was primarily driven by surface atmospheric warming, climatologist Sofia Chen demonstrated through subsurface borehole thermometry that warm oceanic current incursions beneath calving shelf margins accounted for more than 60 percent of basal mass deficit.",
       "sampleQuestion": "Which researcher demonstrated that oceanic currents beneath the ice shelf are the dominant factor in glacier loss?",
-      "sampleOptions": ["A. Dr. Liam Vance", "B. Sofia Chen", "C. Both Vance and Chen", "D. Neither researcher"],
+      "sampleOptions": [
+        "A. Dr. Liam Vance",
+        "B. Sofia Chen",
+        "C. Both Vance and Chen",
+        "D. Neither researcher"
+      ],
       "sampleAnswer": "B. Sofia Chen",
       "sampleExplanation": "The text states 'climatologist Sofia Chen demonstrated through subsurface borehole thermometry that warm oceanic current incursions... accounted for more than 60 percent of basal mass deficit'."
     },
@@ -277,7 +337,12 @@
       "tips": "Eliminate grammatically incompatible endings immediately before looking for textual proof.",
       "samplePassage": "Archaeometallurgical testing on the bronze daggers recovered from the Mycenaean shaft graves confirmed that the copper ore originated from mines in Cyprus, whereas the tin was sourced across trans-European riverine trade routes terminating in Cornwall.",
       "sampleQuestion": "Laboratory analysis of the Mycenaean daggers revealed that...",
-      "sampleOptions": ["A. tin was mined locally within the Peloponnese.", "B. the copper ore was imported from the island of Cyprus.", "C. bronze weapons were exclusively ceremonial.", "D. trade with Cornwall had ceased prior to the Bronze Age."],
+      "sampleOptions": [
+        "A. tin was mined locally within the Peloponnese.",
+        "B. the copper ore was imported from the island of Cyprus.",
+        "C. bronze weapons were exclusively ceremonial.",
+        "D. trade with Cornwall had ceased prior to the Bronze Age."
+      ],
       "sampleAnswer": "B. the copper ore was imported from the island of Cyprus",
       "sampleExplanation": "The passage confirms copper ore originated from mines in Cyprus, which matches option B directly."
     },
@@ -302,7 +367,9 @@
       "tips": "Always read the completed sentence back to yourself to confirm it makes logical and grammatical sense.",
       "samplePassage": "To insulate the subterranean living capsules against extreme lunar temperature fluctuations, engineers utilized a compressed lunar regolith blanket measuring nearly three metres in thickness.",
       "sampleQuestion": "Subterranean habitat chambers are shielded from extreme temperature shifts by a thick layer of [_______].",
-      "sampleOptions": ["Answer: NO MORE THAN TWO WORDS from the passage"],
+      "sampleOptions": [
+        "Answer: NO MORE THAN TWO WORDS from the passage"
+      ],
       "sampleAnswer": "lunar regolith",
       "sampleExplanation": "'Lunar regolith' is the exact material mentioned in the text used as a protective insulating blanket."
     },
@@ -327,7 +394,9 @@
       "tips": "Because summaries condense information, look out for linking transitions ('as a consequence', 'in addition to') that mirror the logic of the passage.",
       "samplePassage": "Mycelium composites are biodegradable materials fabricated by cultivating fungal hyphae through agricultural waste such as hemp husks and sawdust. Within seven to ten days, the hyphae bind the substrate into an interlocking structural matrix. Once thermal treatment neutralizes further biological growth, the resulting blocks display thermal insulation characteristics on par with extruded polystyrene.",
       "sampleQuestion": "Mycelium insulation is created by allowing fungal threads to bind [1: _______] before applying heat to stop all further [2: _______].",
-      "sampleOptions": ["Gaps 1 & 2: NO MORE THAN TWO WORDS from passage"],
+      "sampleOptions": [
+        "Gaps 1 & 2: NO MORE THAN TWO WORDS from passage"
+      ],
       "sampleAnswer": "1: agricultural waste (or hemp husks) | 2: biological growth",
       "sampleExplanation": "Hyphae grow through 'agricultural waste' and thermal treatment halts 'biological growth'."
     },
@@ -350,7 +419,9 @@
       "tips": "Note headings act as signposts. You can navigate the passage rapidly without reading irrelevant paragraphs.",
       "samplePassage": "The excavation team catalogued three distinct ceramic types: coarse cooking pots tempered with crushed shell, polished red-slip bowls decorated with geometric incising, and heavy storage amphorae sealed with natural bitumen.",
       "sampleQuestion": "Ceramic Types Catalogued:\n- Cooking vessels tempered with shell\n- Red-slip bowls featuring geometric patterns\n- Storage containers sealed with [_______]",
-      "sampleOptions": ["ONE WORD ONLY"],
+      "sampleOptions": [
+        "ONE WORD ONLY"
+      ],
       "sampleAnswer": "bitumen",
       "sampleExplanation": "'Natural bitumen' is used to seal the amphorae; 'bitumen' satisfies the ONE WORD ONLY limit."
     },
@@ -373,7 +444,9 @@
       "tips": "Tables are among the easiest question types to locate in the text because column headers provide instant search keywords.",
       "samplePassage": "The coastal stepwells of Gujarat were constructed during the Solanki dynasty (10th–12th centuries) primarily from soft sandstone, allowing intricate carving. By contrast, the inland stepwells of Rajasthan built during the 15th century utilized hard quartzite blocks to withstand seismic shifts.",
       "sampleQuestion": "Table Entry: Location: Rajasthan | Period: 15th Century | Primary Material: [_______]",
-      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleOptions": [
+        "NO MORE THAN TWO WORDS"
+      ],
       "sampleAnswer": "quartzite (or hard quartzite)",
       "sampleExplanation": "Inland stepwells in Rajasthan were built from hard quartzite blocks."
     },
@@ -397,7 +470,9 @@
       "tips": "Look for cause-and-effect language: 'leads to', 'triggers', 'is transformed into', 'enables'.",
       "samplePassage": "During the initial phase of tea manufacture, freshly plucked leaves are spread onto perforated troughs where warm air reduces moisture by roughly 50 percent—a stage termed withering. Next, the leaves undergo mechanical rolling, which fractures cell walls and releases essential oils. These oils interact with atmospheric oxygen during oxidation, developing the distinctive amber coloration.",
       "sampleQuestion": "Stage 1: Withering (reduces moisture) -> Stage 2: Mechanical rolling (causes fracturing of [_______]) -> Stage 3: Oxidation",
-      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleOptions": [
+        "NO MORE THAN TWO WORDS"
+      ],
       "sampleAnswer": "cell walls",
       "sampleExplanation": "Rolling 'fractures cell walls', directly completing the second flowchart stage."
     },
@@ -420,7 +495,9 @@
       "tips": "Diagrams often explain historical inventions (e.g., the Falkirk Wheel, water clocks, Roman ships) or ecological systems. The text will describe components systematically from one side to the other.",
       "samplePassage": "The tidal turbine consists of two counter-rotating blades mounted onto a central tubular steel mast. At the seabed anchor point, a heavy concrete gravity base secures the structure, while the hydraulic pitch actuator located within the nacelle adjusts blade angle according to flow velocity.",
       "sampleQuestion": "Diagram Component [Arrow pointing to seabed stabilization block]: [_______]",
-      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleOptions": [
+        "NO MORE THAN TWO WORDS"
+      ],
       "sampleAnswer": "gravity base (or concrete gravity base)",
       "sampleExplanation": "The seabed anchor point is described as a 'heavy concrete gravity base'."
     },
@@ -443,7 +520,9 @@
       "tips": "Numbers can be written in words or digits (e.g., '3' or 'three'). Writing digits saves time and eliminates spelling risk.",
       "samplePassage": "The initial patent for synthetic mauveine was granted to eighteen-year-old chemist William Henry Perkin in August 1856, after his attempt to synthesize quinine accidentally produced an intense purple residue.",
       "sampleQuestion": "What medicinal substance was William Perkin attempting to synthesize when he discovered mauve dye?",
-      "sampleOptions": ["NO MORE THAN TWO WORDS"],
+      "sampleOptions": [
+        "NO MORE THAN TWO WORDS"
+      ],
       "sampleAnswer": "quinine",
       "sampleExplanation": "Perkin's attempt to synthesize 'quinine' led to the accidental discovery of mauveine."
     }
@@ -525,19 +604,35 @@
     "rankings": [
       {
         "tier": "Easy / High Accuracy",
-        "types": ["Table Completion", "Diagram Label Completion", "Short-Answer Questions", "Note Completion"],
+        "types": [
+          "Table Completion",
+          "Diagram Label Completion",
+          "Short-Answer Questions",
+          "Note Completion"
+        ],
         "why": "Keywords are concrete and easy to locate; answers are taken directly from the passage with minimal linguistic distortion.",
         "beginnerGuidance": "Beginners should practice these first to build familiarity with time limits and exact word-count constraints."
       },
       {
         "tier": "Medium / Moderate Complexity",
-        "types": ["Sentence Completion", "Multiple Choice (Single Answer)", "Flow-chart Completion", "Matching Features", "Matching Sentence Endings"],
+        "types": [
+          "Sentence Completion",
+          "Multiple Choice (Single Answer)",
+          "Flow-chart Completion",
+          "Matching Features",
+          "Matching Sentence Endings"
+        ],
         "why": "Requires understanding sentence grammar and recognizing mid-tier paraphrasing and antonyms.",
         "beginnerGuidance": "Focus on grammatical alignment: predicting whether the gap requires a noun, verb, or adjective before scanning."
       },
       {
         "tier": "Difficult / High Linguistic Trap Density",
-        "types": ["True / False / Not Given", "Yes / No / Not Given", "Matching Headings", "Matching Information"],
+        "types": [
+          "True / False / Not Given",
+          "Yes / No / Not Given",
+          "Matching Headings",
+          "Matching Information"
+        ],
         "why": "Requires discerning subtle shades of meaning (contrasting negation with absence of data) and evaluating paragraph-level themes.",
         "beginnerGuidance": "Tackle these questions systematically only after mastering factual question types; never rush TFNG without proof."
       }
@@ -577,47 +672,102 @@
   },
   "scoringTables": {
     "title": "Official IELTS Reading Band Score Conversion",
-    "subtitle": "Each correct answer awards 1 raw mark out of 40. Conversion charts reflect official Cambridge Assessment evaluation guidelines.",
+    "subtitle": "Each correct answer awards 1 raw mark out of 40. Official IELTS Academic Reading band conversion table.",
     "academic": [
-      { "rawScore": "39–40", "band": "9.0", "level": "Expert User" },
-      { "rawScore": "37–38", "band": "8.5", "level": "Very Good User" },
-      { "rawScore": "35–36", "band": "8.0", "level": "Very Good User" },
-      { "rawScore": "33–34", "band": "7.5", "level": "Good User" },
-      { "rawScore": "30–32", "band": "7.0", "level": "Good User (University Admissions Benchmark)" },
-      { "rawScore": "27–29", "band": "6.5", "level": "Competent User" },
-      { "rawScore": "23–26", "band": "6.0", "level": "Competent User" },
-      { "rawScore": "19–22", "band": "5.5", "level": "Modest User" },
-      { "rawScore": "15–18", "band": "5.0", "level": "Modest User" },
-      { "rawScore": "13–14", "band": "4.5", "level": "Limited User" },
-      { "rawScore": "10–12", "band": "4.0", "level": "Limited User" }
-    ],
-    "general": [
-      { "rawScore": "40", "band": "9.0", "level": "Expert User" },
-      { "rawScore": "39", "band": "8.5", "level": "Very Good User" },
-      { "rawScore": "37–38", "band": "8.0", "level": "Very Good User" },
-      { "rawScore": "36", "band": "7.5", "level": "Good User" },
-      { "rawScore": "34–35", "band": "7.0", "level": "Good User (Immigration Benchmark)" },
-      { "rawScore": "32–33", "band": "6.5", "level": "Competent User" },
-      { "rawScore": "30–31", "band": "6.0", "level": "Competent User" },
-      { "rawScore": "27–29", "band": "5.5", "level": "Modest User" },
-      { "rawScore": "23–26", "band": "5.0", "level": "Modest User" },
-      { "rawScore": "19–22", "band": "4.5", "level": "Limited User" },
-      { "rawScore": "15–18", "band": "4.0", "level": "Limited User" }
+      {
+        "rawScore": "39–40",
+        "band": "9.0",
+        "level": "Expert User"
+      },
+      {
+        "rawScore": "37–38",
+        "band": "8.5",
+        "level": "Very Good User"
+      },
+      {
+        "rawScore": "35–36",
+        "band": "8.0",
+        "level": "Very Good User"
+      },
+      {
+        "rawScore": "33–34",
+        "band": "7.5",
+        "level": "Good User"
+      },
+      {
+        "rawScore": "30–32",
+        "band": "7.0",
+        "level": "Good User (University Admissions Benchmark)"
+      },
+      {
+        "rawScore": "27–29",
+        "band": "6.5",
+        "level": "Competent User"
+      },
+      {
+        "rawScore": "23–26",
+        "band": "6.0",
+        "level": "Competent User"
+      },
+      {
+        "rawScore": "19–22",
+        "band": "5.5",
+        "level": "Modest User"
+      },
+      {
+        "rawScore": "15–18",
+        "band": "5.0",
+        "level": "Modest User"
+      },
+      {
+        "rawScore": "13–14",
+        "band": "4.5",
+        "level": "Limited User"
+      },
+      {
+        "rawScore": "10–12",
+        "band": "4.0",
+        "level": "Limited User"
+      }
     ]
   },
   "tipsAndMistakes": {
     "title": "Top Practical Tips & 10 Costly Mistakes to Avoid",
     "tips": [
-      { "title": "Read Questions Before the Passage", "desc": "Never read a 900-word passage blindly. Always preview questions so your brain knows what specific information it is hunting for." },
-      { "title": "Underline Anchor Words", "desc": "Proper names, years, chemical formulas, and technical nouns rarely change into synonyms. Use them as anchors to pinpoint the right paragraph." },
-      { "title": "Double-Check Word Counts", "desc": "If instructions state 'NO MORE THAN TWO WORDS', writing 'in the summer' receives zero credit even if 'summer' was correct." },
-      { "title": "Never Rely on Personal Background Knowledge", "desc": "Even if you hold a PhD in biology, answers must be based strictly on what the text says—not what is scientifically true in the real world." }
+      {
+        "title": "Read Questions Before the Passage",
+        "desc": "Never read a 900-word passage blindly. Always preview questions so your brain knows what specific information it is hunting for."
+      },
+      {
+        "title": "Underline Anchor Words",
+        "desc": "Proper names, years, chemical formulas, and technical nouns rarely change into synonyms. Use them as anchors to pinpoint the right paragraph."
+      },
+      {
+        "title": "Double-Check Word Counts",
+        "desc": "If instructions state 'NO MORE THAN TWO WORDS', writing 'in the summer' receives zero credit even if 'summer' was correct."
+      },
+      {
+        "title": "Never Rely on Personal Background Knowledge",
+        "desc": "Even if you hold a PhD in biology, answers must be based strictly on what the text says—not what is scientifically true in the real world."
+      }
     ],
     "mistakes": [
-      { "mistake": "Treating NOT GIVEN as FALSE", "fix": "FALSE requires direct contradiction. If the passage simply never confirms or denies the statement, it is NOT GIVEN." },
-      { "mistake": "Writing Answers at the Last Minute", "fix": "There is no 10-minute transfer time in Reading. Transfer every answer to the answer sheet as you finish each passage." },
-      { "mistake": "Reading Every Word at the Same Speed", "fix": "Vary your speed dynamically: skim non-essential paragraphs at 400 wpm, but slow down to 100 wpm when reading the exact evidence sentence." },
-      { "mistake": "Leaving Blank Answers", "fix": "There is no negative marking. Even a complete guess gives you a 25% chance on multiple choice and a 33% chance on TFNG." }
+      {
+        "mistake": "Treating NOT GIVEN as FALSE",
+        "fix": "FALSE requires direct contradiction. If the passage simply never confirms or denies the statement, it is NOT GIVEN."
+      },
+      {
+        "mistake": "Writing Answers at the Last Minute",
+        "fix": "There is no 10-minute transfer time in Reading. Transfer every answer to the answer sheet as you finish each passage."
+      },
+      {
+        "mistake": "Reading Every Word at the Same Speed",
+        "fix": "Vary your speed dynamically: skim non-essential paragraphs at 400 wpm, but slow down to 100 wpm when reading the exact evidence sentence."
+      },
+      {
+        "mistake": "Leaving Blank Answers",
+        "fix": "There is no negative marking. Even a complete guess gives you a 25% chance on multiple choice and a 33% chance on TFNG."
+      }
     ]
   },
   "interactiveDrills": [
@@ -630,21 +780,33 @@
         {
           "qId": "q1",
           "statement": "Hydrothermal vent organisms depend indirectly on sunlight for biological energy.",
-          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
           "correct": "FALSE",
           "explanation": "The text explicitly states vent ecosystems are 'completely decoupled from solar photosynthesis', contradicting the statement that they depend indirectly on sunlight."
         },
         {
           "qId": "q2",
           "statement": "Tectonic disruptions frequently shorten the lifespan of giant tube worms.",
-          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
           "correct": "TRUE",
           "explanation": "The text confirms specimens 'rarely survive past sixteen years due to frequent tectonic venting disruptions', directly agreeing with the statement."
         },
         {
           "qId": "q3",
           "statement": "Vent shrimp have developed natural immunity to volcanic mineral toxicity.",
-          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
           "correct": "NOT GIVEN",
           "explanation": "While vent shrimp are mentioned as part of the ecosystem, the text says nothing about whether they have developed natural immunity to mineral toxicity."
         }
@@ -679,7 +841,12 @@
         {
           "qId": "s1",
           "statement": "Fungal threads transform agricultural waste into an interlocking material before all biological activity is halted through [_______].",
-          "options": ["kiln drying", "chemical freezing", "solar radiation", "water immersion"],
+          "options": [
+            "kiln drying",
+            "chemical freezing",
+            "solar radiation",
+            "water immersion"
+          ],
           "correct": "kiln drying",
           "explanation": "The passage confirms: 'Once biological activity is arrested through kiln drying...'. 'Arrested' is a direct synonym for 'halted'."
         }
@@ -705,7 +872,7 @@
     },
     {
       "q": "How many correct answers do I need for Band 7.0 in Reading?",
-      "a": "In IELTS Academic Reading, you typically need 30 out of 40 correct answers (~75%). In IELTS General Training Reading, because the texts in Sections 1 and 2 are simpler everyday documents, you need 34 out of 40 correct answers (~85%) to achieve Band 7.0."
+      "a": "In IELTS Academic Reading, you typically need 30 out of 40 correct answers (~75%). In IELTS Academic Reading, because the texts in Sections 1 and 2 are simpler everyday documents, you need 34 out of 40 correct answers (~85%) to achieve Band 7.0."
     },
     {
       "q": "Should I read the passage first or the questions first?",
@@ -719,6 +886,31 @@
       "q": "Are hyphenated words counted as one word or two?",
       "a": "Hyphenated words (e.g., 'state-of-the-art', 'well-being') count as a single word in the IELTS word count rubric."
     }
-  ]
+  ],
+  "academicStandards": {
+    "title": "IELTS Academic Reading 3-Passage Architecture",
+    "subtitle": "The IELTS Academic Reading examination consists of three extended passages from scholarly sources, designed with progressive cognitive demand.",
+    "columns": [
+      "Passage Component",
+      "Academic Reading Specification",
+      "Core Competencies Tested"
+    ],
+    "rows": [
+      {
+        "component": "Passage 1 (Questions 1–13)",
+        "specification": "Factual & descriptive academic prose (~750–900 words) discussing natural phenomena, technological evolution, or historical figures.",
+        "competencies": "Skimming for central themes, scanning for proper nouns and dates, identifying explicit facts, True/False/Not Given verification."
+      },
+      {
+        "component": "Passage 2 (Questions 14–26)",
+        "specification": "Discursive research investigation (~800–950 words) examining scientific experiments, social sciences, or industrial case studies.",
+        "competencies": "Information matching, identifying research methodologies, analyzing contrasting expert theories, summary completion."
+      },
+      {
+        "component": "Passage 3 (Questions 27–40)",
+        "specification": "Complex analytical paper (~850–1,000 words) presenting dense theoretical argumentation, philosophical discourse, or cognitive critique.",
+        "competencies": "Yes/No/Not Given (claims vs opinions), matching headings, identifying author's subtle viewpoint, deductive inference."
+      }
+    ]
+  }
 }
-

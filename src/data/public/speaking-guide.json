@@ -27,11 +27,11 @@
     { "id": "faqs", "title": "10. Frequently Asked Questions" }
   ],
   "overview": {
-    "summary": "The IELTS Speaking test is a one-on-one structured spoken interview between you and a certified examiner (or conducted via high-definition video call in computer-delivered test centres). The test is identical for both Academic and General Training candidates and lasts between 11 and 14 minutes.",
+    "summary": "The IELTS Speaking test is a one-on-one structured spoken interview between you and a certified examiner (or conducted via high-definition video call in computer-delivered test centres). The test evaluates authentic conversational and analytical English and lasts between 11 and 14 minutes.",
     "keyFacts": [
       { "title": "Test Delivery", "desc": "Face-to-face or official HD video call in a private soundproof booth." },
       { "title": "Audio Recording", "desc": "The entire session is recorded on an encrypted digital recorder for quality control and re-marking if requested." },
-      { "title": "Uniform Format", "desc": "Both Academic and General Training candidates take the exact same Speaking test." },
+      { "title": "Uniform Format", "desc": "The Speaking examination adheres strictly to the official four IELTS assessment rubrics." },
       { "title": "Examiner Role", "desc": "The examiner adheres to strict script timings and follows official scripted prompts." }
     ]
   },

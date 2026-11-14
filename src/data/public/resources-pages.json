@@ -28,19 +28,19 @@
       { "title": "Baseline Skill Diagnostic", "desc": "Calibrate initial Listening, Reading, Writing, and Speaking scores against official band descriptors." },
       { "title": "Milestone Progression Tracking", "desc": "Monitor percentage completion across Foundations, Question Mechanics, Fluency Drills, and Full Timed Mocks." },
       { "title": "Weakness-First Sequencing", "desc": "Prioritizes bottleneck criteria such as Cohesion, Lexical Precision, or Listening Part 3 distractors first." },
-      { "title": "Module-Specific Paths", "desc": "Adapts automatically for Academic (University Entry) or General Training (Work & Migration) formats." },
+      { "title": "Module-Specific Paths", "desc": "Adapts automatically for Academic (University Entry) or Academic Intensive (Work & Migration) formats." },
       { "title": "Readiness Confidence Gauge", "desc": "Estimates how close your recent timed scores sit relative to your target score before test registration." },
       { "title": "Integrated Next Actions", "desc": "Jump with one click from any stage card straight into the matching Study Plan or Practice set." }
     ],
     "howItWorks": [
-      { "step": "01", "title": "Set Track & Goal", "desc": "Pick Academic or General Training and lock your target band (e.g. 6.5, 7.0, 7.5, or 8.0)." },
+      { "step": "01", "title": "Set Academic Target", "desc": "Pick Academic or Academic Intensive and lock your target band (e.g. 6.5, 7.0, 7.5, or 8.0)." },
       { "step": "02", "title": "Complete Baseline Check", "desc": "Record initial sub-scores across Reading, Listening, Writing, and Speaking." },
       { "step": "03", "title": "Advance Through Stages", "desc": "Complete guided lessons, question-type drills, and daily lexical decks per stage." },
       { "step": "04", "title": "Validate with Timed Mocks", "desc": "Confirm stability across two full 2h 40m simulations before sitting the official exam." }
     ],
     "useCases": [
       { "persona": "University Applicant (6 weeks left)", "plan": "Moves rapidly past Basic Grammar into Passage Timing, Task 2 Essay Argumentation, and 3 weekly timed simulations." },
-      { "persona": "General Training Candidate", "plan": "Concentrates on workplace texts, formal vs semi-formal letter tone shifts, and Listening spelling accuracy." },
+      { "persona": "Academic Fast-Track Student", "plan": "Concentrates on workplace texts, formal vs semi-formal letter tone shifts, and Listening spelling accuracy." },
       { "persona": "First-Time Test Taker (Band 5.5 -> 7.0)", "plan": "Builds solid sentence variety and TFNG verification habits before adding full 60-minute endurance runs." }
     ],
     "sampleStages": [
@@ -122,7 +122,7 @@
       }
     ],
     "keyFeatures": [
-      { "title": "Academic & General Training Sets", "desc": "Toggle seamlessly between Academic passages/charts and General Training workplace tasks." },
+      { "title": "IELTS Academic Sets", "desc": "Toggle seamlessly between Academic passages/charts and Academic Intensive workplace tasks." },
       { "title": "Split-Screen Reading Viewer", "desc": "Drag or toggle 40/60, 50/50, and 60/40 panel widths alongside A-/A+ text scaling and passage notes." },
       { "title": "Listening Single-Play & Demo Audio", "desc": "Part 1–4 synchronized transcript & speech audio with map/diagram question layouts." },
       { "title": "Distraction-Free Writing & Speaking", "desc": "Live word counter, elapsed clock, 60-second Cue Card prep countdown, and browser audio capture." },
@@ -130,7 +130,7 @@
       { "title": "Detailed Answer Explanations", "desc": "Review exact passage evidence locations and why distractors fail." }
     ],
     "howItWorks": [
-      { "step": "01", "title": "Select Track & Mock Paper", "desc": "Choose Academic or General Training, then full 4-skill mock or single module set." },
+      { "step": "01", "title": "Select Track & Mock Paper", "desc": "Choose Academic or Academic Intensive, then full 4-skill mock or single module set." },
       { "step": "02", "title": "Read Exam Briefing", "desc": "Review exact section durations (Listening 30m, Reading 60m, Writing 60m, Speaking 14m)." },
       { "step": "03", "title": "Complete Timed Interface", "desc": "Highlight evidence, navigate flagged questions cleanly, and watch section timers." },
       { "step": "04", "title": "Review Score Report", "desc": "Inspect overall band, module breakdown, and question-level explanations immediately." }
@@ -335,13 +335,13 @@
     "slug": "self-paced-courses",
     "badge": "Structured Curriculum • 4 Learning Paths",
     "title": "IELTS Self-Paced Courses",
-    "headline": "Progressive step-by-step IELTS tracks built for Beginner, Intermediate, Advanced, and General Training learners.",
+    "headline": "Progressive step-by-step IELTS tracks built for Beginner, Intermediate, Advanced, and Academic Intensive learners.",
     "subheadline": "Replace disorganized videos with a real sequential curriculum spanning Listening, Reading, Writing, Speaking, Grammar, and Vocabulary—learn cleanly at your own pace with interactive comprehension checks.",
     "ctaLabel": "Start Learning",
     "dashboardHref": "/question-types",
     "purposeTitle": "Why Sequencing Beats Random Exam Tips",
     "purposeBody": "Jumping straight into Band 8 essay tricks before mastering paragraph coherence or complex clause boundaries slows long-term progress. Our Self-Paced Courses structure IELTS concepts in progressive order—teach cleanly, test comprehension interactively, and advance once core mechanics stick.",
-    "highlights": ["4 Complete Skill Tracks", "Academic + General Training", "All 6 Core Pillars Covered"],
+    "highlights": ["4 Complete Skill Tracks", "Academic + Academic Intensive", "All 6 Core Pillars Covered"],
     "whyLearnersNeed": [
       {
         "title": "A Curated Order Instead of Random Searching",
@@ -365,7 +365,7 @@
       { "title": "Synced with Your Daily Study Plan", "desc": "Recommended course modules drop smoothly onto your daily study checklist." }
     ],
     "howItWorks": [
-      { "step": "01", "title": "Pick Your Current Track", "desc": "Select Beginner, Intermediate, Advanced, or General Training based on your diagnostic baseline." },
+      { "step": "01", "title": "Pick Your Current Track", "desc": "Select Beginner, Intermediate, Advanced, or Academic Intensive based on your diagnostic baseline." },
       { "step": "02", "title": "Work Sequential Modules", "desc": "Study clear strategy notes, examiner rubrics, and annotated model breakdowns." },
       { "step": "03", "title": "Pass Quick Knowledge Checks", "desc": "Verify comprehension of tricky distractors or grammar rules mid-lesson." },
       { "step": "04", "title": "Apply in Full Simulations", "desc": "Transfer newly mastered mechanics straight into timed mock tests." }
@@ -373,7 +373,7 @@
     "useCases": [
       { "persona": "Foundations Builder (Band 5.0)", "plan": "Starts in Beginner Track fixing sentence syntax, paragraph framing, and listening spelling rules." },
       { "persona": "Plateau Breaker (Band 6.5 -> 7.5+)", "plan": "Moves into Advanced Track tackling nuanced Task 2 concession arguments and Passage 3 inference." },
-      { "persona": "Skilled Migration Applicant", "plan": "Follows General Training Track mastering complaint/request letter tones and practical workplace reading." }
+      { "persona": "Postgraduate Applicant", "plan": "Follows Academic Intensive Track mastering complaint/request letter tones and practical workplace reading." }
     ],
     "tracks": [
       {
@@ -402,10 +402,10 @@
       },
       {
         "id": "general",
-        "level": "General Training Pathway",
+        "level": "Undergraduate Foundation Pathway",
         "targetBand": "Migration & Work • Band 6.5 – 8.0+",
         "moduleCount": "20 Modules",
-        "summary": "Tailored exclusively to IELTS General Training format differences, letter writing register shifts, and everyday workplace/notice reading comprehension.",
+        "summary": "Tailored exclusively to IELTS Academic undergraduate admissions format differences, letter writing register shifts, and everyday workplace/notice reading comprehension.",
         "subjects": ["Formal & Semi-Formal Letters", "Informal Letter Tone Balance", "GT Everyday Notice Scanning", "Workplace Policy Reading", "Section 1–4 GT Timing", "GT Writing Essay Strategy"]
       }
     ]

@@ -85,7 +85,7 @@ export const PRACTICE_NAV_ITEMS = [
   {
     slug: 'reading',
     title: 'Reading',
-    shortDesc: 'Full academic & general passages with authentic timed questions',
+    shortDesc: 'Authentic Academic passages with timed examination questions',
     href: '/practice/reading',
     dashboardHref: '/reading',
     ctaLabel: 'Start Reading',

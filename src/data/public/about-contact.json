@@ -35,7 +35,7 @@
         "desc": "Flexible 25–60 minute daily study blocks work around university classes, full-time shifts, and exam countdown dates."
       },
       {
-        "title": "Academic & General Training Coverage",
+        "title": "IELTS Academic Coverage",
         "desc": "Dedicated task formats, rubrics, and reading collections for both degree applicants and migration candidates."
       },
       {
@@ -81,7 +81,7 @@
   "contact": {
     "eyebrow": "Contact & Support",
     "headline": "Questions about study plans, live classes, or admissions mentoring? Reach our team directly.",
-    "intro": "Whether you need advice selecting the right Academic or General Training cohort, document proofreading timelines, or technical help with your workspace, we reply within one business day.",
+    "intro": "Whether you need advice selecting the right IELTS Academic cohort, document proofreading timelines, or technical help with your workspace, we reply within one business day.",
     "channels": [
       { "label": "Student & Academic Support", "value": "support@ieltsultimate.edu", "note": "Mon–Sat, replies within 24 hours" },
       { "label": "Admissions & Mentoring Desk", "value": "admissions@ieltsultimate.edu", "note": "SOP review & scholarship prep" },

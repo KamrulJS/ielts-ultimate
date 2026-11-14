@@ -33,7 +33,7 @@ const PLANS = [
   },
   {
     id: 'pro',
-    name: 'Pro Academic / GT',
+    name: 'Pro Academic',
     badge: 'Most Popular',
     price: '$29',
     period: '/ month',
@@ -81,8 +81,8 @@ const FAQS = [
     a: 'Our AI Examiner runs on GPT-4o calibrated specifically against the public IELTS band descriptors. Internal evaluations maintain an average error margin of under 0.25 band.',
   },
   {
-    q: 'Does IELTS WIST cater to both Academic and General Training?',
-    a: 'Yes. All simulation tests, reading passages, and writing task 1 prompts have dedicated tracks for both Academic and General Training formats.',
+    q: 'Is IELTS WIST dedicated exclusively to IELTS Academic?',
+    a: 'Yes. IELTS WIST is 100% dedicated to IELTS Academic preparation, featuring authentic Cambridge Academic reading suites, Academic Task 1 visual reports, and higher education essay simulations.',
   },
 ];
 

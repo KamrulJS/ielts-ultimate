@@ -27,7 +27,6 @@ export function MockTestLibraryView() {
   const { testResults } = useApp();
   const rootRef = useGsapEntrance('mock-library');
 
-  const [track, setTrack] = useState('Academic');
   const [difficulty, setDifficulty] = useState('all');
   const [search, setSearch] = useState('');
   const [selectedTest, setSelectedTest] = useState(null);
@@ -35,10 +34,9 @@ export function MockTestLibraryView() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return mockTests
-      .filter((t) => t.track === track)
       .filter((t) => (difficulty === 'all' ? true : t.difficulty.toLowerCase().includes(difficulty)))
       .filter((t) => (!q ? true : t.title.toLowerCase().includes(q)));
-  }, [track, difficulty, search]);
+  }, [difficulty, search]);
 
   const previousMocks = useMemo(
     () => testResults.filter((r) => r.type === 'mock'),
@@ -80,34 +78,26 @@ export function MockTestLibraryView() {
           4 modules • 1 continuous session • automatic answer saving • complete band score breakdown.
         </p>
 
-        {/* Track Selector */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginBottom: 22, flexWrap: 'wrap' }}>
-          {[
-            { id: 'Academic', sub: 'University & Professional Study' },
-            { id: 'General', sub: 'Work & Migration Pathways' },
-          ].map((opt) => {
-            const active = track === opt.id;
-            return (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => setTrack(opt.id)}
-                style={{
-                  flex: '1 1 150px',
-                  maxWidth: 260,
-                  minWidth: 0,
-                  padding: '12px 18px',
-                  borderRadius: 12,
-                  border: active ? '2px solid var(--accent-yellow)' : '1px solid var(--border)',
-                  backgroundColor: active ? 'var(--accent-yellow-soft)' : 'var(--surface)',
-                  textAlign: 'center',
-                }}
-              >
-                <div style={{ fontWeight: 700, fontSize: '0.94rem' }}>{opt.id}</div>
-                <div className="text-xs text-muted">{opt.sub}</div>
-              </button>
-            );
-          })}
+        {/* IELTS Academic Dedicated Banner */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '8px 18px',
+              border: '1px solid var(--accent-purple)',
+              backgroundColor: 'rgba(136, 103, 184, 0.08)',
+              color: 'var(--text-primary)',
+              fontSize: '0.86rem',
+              fontWeight: 700,
+            }}
+          >
+            <span>IELTS Academic Examination Stream</span>
+            <span className="badge badge-purple" style={{ borderRadius: 0, fontSize: '0.72rem' }}>
+              Standard Academic Rubric
+            </span>
+          </div>
         </div>
 
         {/* 4 Module Pills + Summary Stats */}

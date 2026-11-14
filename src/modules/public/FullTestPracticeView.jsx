@@ -473,7 +473,7 @@ export function FullTestPracticeView() {
               <h2 className={styles.sectionTitle}>Available Full Mock Tests Library</h2>
             </div>
             <p style={{ lineHeight: 1.65, color: 'var(--text-secondary)' }}>
-              Select from {mockTestsData.length} complete academic and general training mock exams. Experience real-time timing, auto-marking, and full diagnostic feedback.
+              Select from {mockTestsData.length} complete IELTS Academic mock exams. Experience real-time timing, auto-marking, and full diagnostic feedback.
             </p>
 
             <div className={styles.cardGrid}>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Highlighter,
@@ -10,93 +10,50 @@ import {
   Eraser,
   BookOpen,
   ListChecks,
+  AlertCircle,
+  Layers,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
-import { rawScoreToBand } from '@/lib/utils';
 import { ExamTopBar } from '@/components/examination/ExamTopBar';
 import { QuestionNavigator } from '@/components/examination/QuestionNavigator';
 import { QuestionInput } from '@/components/examination/QuestionInput';
 import { ConfirmationDialog } from '@/components/common/ConfirmationDialog';
 import { Badge } from '@/components/common/UiPrimitives';
-
-import passages from '@/data/reading/passages.json';
-import allQuestions from '@/data/reading/questions.json';
-import readingTests from '@/data/reading/tests.json';
-
-function createCambridgePassage(passageId, tInfo, pInfo) {
-  return {
-    id: passageId,
-    title: pInfo?.title || tInfo?.title,
-    category: tInfo?.collection || 'Cambridge Academic Reading',
-    difficulty: tInfo?.difficulty || 'Standard',
-    durationMinutes: 60,
-    partLabel: `Passage ${pInfo?.passageNumber || 1}`,
-    track: 'Academic',
-    wordCount: pInfo?.wordCount || 820,
-    subtitle: `Official Cambridge IELTS Academic Reading Paper — ${tInfo?.title}`,
-    paragraphs: [
-      {
-        label: 'A',
-        text: `This authentic Cambridge examination passage examines ${pInfo?.title || 'the designated academic research topic'}. Scholars and researchers have long analyzed the historical and empirical foundations of this phenomenon, noting distinct developments across successive eras. Initial academic investigations concentrated predominantly on foundational structural paradigms before transitioning toward modern quantitative assessments.`,
-      },
-      {
-        label: 'B',
-        text: `Subsequent field studies conducted by international working groups demonstrated that earlier theoretical assumptions required substantial revision. As comparative empirical data accumulated across multiple independent research stations, investigators recognized that environmental variables, technological innovations, and socio-economic dynamics operated in complex reciprocal feedback loops.`,
-      },
-      {
-        label: 'C',
-        text: `Contemporary scientific methodologies have introduced high-precision computational modeling and non-invasive analytical diagnostic instrumentation. Consequently, multidisciplinary teams are now capable of testing hypotheses that were previously inaccessible through conventional twentieth-century field techniques, yielding insights with profound implications for both scholarly theory and civic policy.`,
-      },
-      {
-        label: 'D',
-        text: `Notwithstanding these substantial methodological advances, significant research debates persist concerning long-term system equilibrium and resource allocation. Leading academic authorities continue to call for rigorous long-term longitudinal data collection to validate predictive simulation models against ongoing global transformations.`,
-      },
-    ],
-  };
-}
-
-function resolveReadingPassage(passageId) {
-  const existing = passages.find((p) => p.id === passageId);
-  if (existing) return existing;
-
-  for (const t of readingTests) {
-    if (t.id === passageId) {
-      const pInfo = t.passages?.[0];
-      return createCambridgePassage(passageId, t, pInfo);
-    }
-    const matchedP = t.passages?.find((p) => p.id === passageId);
-    if (matchedP) {
-      return createCambridgePassage(passageId, t, matchedP);
-    }
-  }
-
-  return passages[0];
-}
+import { getReadingTestPackage } from '@/lib/reading-repository';
+import { validateReadingAnswer, rawScoreToAcademicReadingBand } from '@/lib/reading-validation';
 
 export function ReadingExamInterface({ passageId }) {
   const router = useRouter();
   const { bookmarks, toggleBookmark, addTestResult, showToast } = useApp();
 
-  const passage = useMemo(() => resolveReadingPassage(passageId), [passageId]);
+  // Load complete 3-passage test package and all 40 questions
+  const testPackage = useMemo(() => getReadingTestPackage(passageId), [passageId]);
+  const { test, passages, questions, totalQuestions } = testPackage;
 
-  const questions = useMemo(() => {
-    const matched = allQuestions.filter((q) => q.passageId === passage.id);
-    return matched.length ? matched : allQuestions.slice(0, 13);
-  }, [passage.id]);
+  // Active passage index: 0 (Passage 1), 1 (Passage 2), 2 (Passage 3)
+  const [activePassageIndex, setActivePassageIndex] = useState(() => {
+    const idx = passages.findIndex((p) => p.id === passageId);
+    return idx >= 0 ? idx : 0;
+  });
 
-  const draftKey = `ielts_ultimate_reading_draft_${passage.id}`;
+  const activePassage = passages[activePassageIndex] || passages[0];
 
+  // Active question index: 0 to questions.length - 1
+  const [activeQIndex, setActiveQIndex] = useState(0);
+
+  // Candidate answers map: { [questionId]: answerString }
   const [answers, setAnswers] = useState({});
   const [notes, setNotes] = useState('');
   const [showNotes, setShowNotes] = useState(false);
-  const [highlights, setHighlights] = useState([]); // { paragraphLabel, phrase, color }
+  const [highlights, setHighlights] = useState([]); // { phrase, color }
   const [splitPercent, setSplitPercent] = useState(50);
   const [fontSize, setFontSize] = useState('md');
-  const [activeQIndex, setActiveQIndex] = useState(0);
-  const [mobileTab, setMobileTab] = useState('passage'); // passage | questions
+  const [mobileTab, setMobileTab] = useState('passage'); // 'passage' | 'questions'
   const [confirmSubmit, setConfirmSubmit] = useState(false);
 
-  // Restore saved draft
+  const draftKey = `ielts_academic_reading_draft_${test.id}`;
+
+  // Restore saved draft from localStorage
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       try {
@@ -106,23 +63,28 @@ export function ReadingExamInterface({ passageId }) {
           if (parsed.answers) setAnswers(parsed.answers);
           if (parsed.notes) setNotes(parsed.notes);
           if (parsed.highlights) setHighlights(parsed.highlights);
+          if (typeof parsed.activePassageIndex === 'number') setActivePassageIndex(parsed.activePassageIndex);
         }
       } catch {
-        // ignore
+        // ignore storage errors
       }
     });
     return () => cancelAnimationFrame(frame);
   }, [draftKey]);
 
-  // Autosave
+  // Autosave draft
   useEffect(() => {
     try {
-      window.localStorage.setItem(draftKey, JSON.stringify({ answers, notes, highlights }));
+      window.localStorage.setItem(
+        draftKey,
+        JSON.stringify({ answers, notes, highlights, activePassageIndex })
+      );
     } catch {
       // ignore
     }
-  }, [draftKey, answers, notes, highlights]);
+  }, [draftKey, answers, notes, highlights, activePassageIndex]);
 
+  // Highlight functionality
   const handleHighlightSelection = (color) => {
     if (typeof window === 'undefined') return;
     const sel = window.getSelection();
@@ -140,7 +102,6 @@ export function ReadingExamInterface({ passageId }) {
 
   const renderHighlightedText = (paragraphText) => {
     if (!highlights.length) return paragraphText;
-    // Safely highlight matched phrases without dangerouslySetInnerHTML
     let segments = [{ text: paragraphText, color: null }];
     highlights.forEach((h) => {
       const nextSegments = [];
@@ -180,55 +141,115 @@ export function ReadingExamInterface({ passageId }) {
     );
   };
 
-  const answeredCount = questions.filter((q) => Boolean(answers[q.id] && String(answers[q.id]).trim())).length;
+  // Switch passage when user selects a question outside current passage
+  const handleSelectQuestion = (idx) => {
+    const targetQ = questions[idx];
+    if (!targetQ) return;
+    setActiveQIndex(idx);
 
+    // Find which passage this question belongs to
+    const targetPassageIdx = passages.findIndex((p) => p.id === targetQ.passageId);
+    if (targetPassageIdx >= 0 && targetPassageIdx !== activePassageIndex) {
+      setActivePassageIndex(targetPassageIdx);
+    }
+
+    // Scroll question into view in the questions pane
+    requestAnimationFrame(() => {
+      const qEl = document.getElementById(`reading-q-${targetQ.id}`);
+      qEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  };
+
+  // Navigate Previous / Next question
+  const handlePrevQuestion = () => {
+    if (activeQIndex > 0) {
+      handleSelectQuestion(activeQIndex - 1);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (activeQIndex < questions.length - 1) {
+      handleSelectQuestion(activeQIndex + 1);
+    }
+  };
+
+  // Questions filtered to the current active passage
+  const currentPassageQuestions = useMemo(() => {
+    return questions.filter((q) => q.passageId === activePassage.id);
+  }, [questions, activePassage.id]);
+
+  // Answer counts and unanswered tracking
+  const answeredCount = useMemo(() => {
+    return questions.filter((q) => Boolean(answers[q.id] && String(answers[q.id]).trim())).length;
+  }, [questions, answers]);
+
+  const unansweredQuestions = useMemo(() => {
+    return questions
+      .filter((q) => !Boolean(answers[q.id] && String(answers[q.id]).trim()))
+      .map((q) => q.number);
+  }, [questions, answers]);
+
+  // Submit test and calculate authentic Academic band
   const handleSubmit = () => {
-    let correct = 0;
-    let incorrect = 0;
-    let unanswered = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let unansweredCount = 0;
+
+    const passageScores = [
+      { label: 'Passage 1', correct: 0, total: 0 },
+      { label: 'Passage 2', correct: 0, total: 0 },
+      { label: 'Passage 3', correct: 0, total: 0 },
+    ];
 
     const items = questions.map((q) => {
-      const userAns = String(answers[q.id] || '').trim();
-      if (!userAns) {
-        unanswered += 1;
-        return {
-          number: q.number,
-          question: q.prompt,
-          userAnswer: '',
-          correctAnswer: q.answer,
-          status: 'unanswered',
-          explanation: q.explanation,
-        };
+      const pIdx = Math.max(0, (q.passageNumber || 1) - 1);
+      if (passageScores[pIdx]) passageScores[pIdx].total += 1;
+
+      const validation = validateReadingAnswer(answers[q.id], q);
+
+      if (validation.isUnanswered) {
+        unansweredCount += 1;
+      } else if (validation.isCorrect) {
+        correctCount += 1;
+        if (passageScores[pIdx]) passageScores[pIdx].correct += 1;
+      } else {
+        incorrectCount += 1;
       }
-      const isRight = userAns.toLowerCase() === String(q.answer).toLowerCase();
-      if (isRight) correct += 1;
-      else incorrect += 1;
+
       return {
         number: q.number,
         question: q.prompt,
-        userAnswer: userAns,
-        correctAnswer: q.answer,
-        status: isRight ? 'correct' : 'incorrect',
-        explanation: q.explanation,
+        userAnswer: validation.userAnswer,
+        correctAnswer: validation.correctAnswer,
+        status: validation.status,
+        explanation: validation.explanation,
       };
     });
 
-    const band = rawScoreToBand(correct, questions.length);
+    // Official IELTS Academic Reading Band Score
+    const band = rawScoreToAcademicReadingBand(correctCount);
     const resultId = `res-reading-${Date.now()}`;
+
     addTestResult({
       id: resultId,
       type: 'reading',
-      title: passage.title,
-      partLabel: passage.partLabel,
+      title: test.title,
+      partLabel: `IELTS Academic Reading (${test.collection || 'Official Practice'})`,
       date: new Date().toISOString().slice(0, 10),
       timeLabel: 'Just now',
       bandScore: band,
-      correct,
-      incorrect,
-      unanswered,
+      correct: correctCount,
+      incorrect: incorrectCount,
+      unanswered: unansweredCount,
       totalQuestions: questions.length,
       durationUsed: 'Completed',
-      testId: passage.id,
+      testId: test.id,
+      breakdown: passageScores.map((ps) => ({
+        label: ps.label,
+        correct: ps.correct,
+        total: ps.total,
+        band: rawScoreToAcademicReadingBand(Math.round((ps.correct / (ps.total || 13)) * 40)),
+      })),
       items,
     });
 
@@ -237,6 +258,7 @@ export function ReadingExamInterface({ passageId }) {
     } catch {
       // ignore
     }
+
     router.push(`/reading/result/${resultId}`);
   };
 
@@ -245,14 +267,14 @@ export function ReadingExamInterface({ passageId }) {
   return (
     <div className="exam-shell">
       <ExamTopBar
-        title={passage.title}
-        subtitle={`${passage.partLabel} • ${passage.category} • ${questions.length} Questions`}
-        totalSeconds={(passage.durationMinutes || 20) * 60}
+        title={test.title}
+        subtitle={`${activePassage.partLabel}: ${activePassage.title} • 3 Passages • ${questions.length} Questions`}
+        totalSeconds={60 * 60}
         answeredCount={answeredCount}
         totalCount={questions.length}
         exitHref="/reading"
         onSubmitClick={() => setConfirmSubmit(true)}
-        submitLabel="Submit Reading"
+        submitLabel="Submit Reading Test"
       />
 
       {/* Reading Utility Toolbar */}
@@ -274,6 +296,7 @@ export function ReadingExamInterface({ passageId }) {
             className="btn btn-secondary btn-sm"
             onClick={() => handleHighlightSelection('yellow')}
             title="Select passage text then click to highlight"
+            style={{ borderRadius: 0 }}
           >
             <Highlighter size={14} style={{ color: '#A67400' }} /> Highlight Yellow
           </button>
@@ -281,6 +304,7 @@ export function ReadingExamInterface({ passageId }) {
             type="button"
             className="btn btn-secondary btn-sm"
             onClick={() => handleHighlightSelection('purple')}
+            style={{ borderRadius: 0 }}
           >
             <Highlighter size={14} style={{ color: 'var(--accent-purple)' }} /> Highlight Purple
           </button>
@@ -289,6 +313,7 @@ export function ReadingExamInterface({ passageId }) {
               type="button"
               className="btn btn-ghost btn-sm"
               onClick={() => setHighlights([])}
+              style={{ borderRadius: 0 }}
             >
               <Eraser size={14} /> Clear ({highlights.length})
             </button>
@@ -297,6 +322,7 @@ export function ReadingExamInterface({ passageId }) {
             type="button"
             className={`btn btn-sm ${showNotes ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setShowNotes((v) => !v)}
+            style={{ borderRadius: 0 }}
           >
             <StickyNote size={14} /> Notes
           </button>
@@ -312,7 +338,7 @@ export function ReadingExamInterface({ passageId }) {
                 type="button"
                 onClick={() => setSplitPercent(pct)}
                 className={`btn btn-sm ${splitPercent === pct ? 'btn-primary' : 'btn-secondary'}`}
-                style={{ padding: '4px 8px', fontSize: '0.73rem' }}
+                style={{ padding: '4px 8px', fontSize: '0.73rem', borderRadius: 0 }}
               >
                 {pct}/{100 - pct}
               </button>
@@ -344,7 +370,7 @@ export function ReadingExamInterface({ passageId }) {
             style={{ flex: 1, justifyContent: 'center' }}
             onClick={() => setMobileTab('passage')}
           >
-            <BookOpen size={14} /> Passage
+            <BookOpen size={14} /> Passage {activePassage.passageNumber}
           </button>
           <button
             type="button"
@@ -368,53 +394,105 @@ export function ReadingExamInterface({ passageId }) {
           overflow: 'hidden',
         }}
       >
-        {/* Left Panel: Passage + Notes */}
+        {/* Left Panel: Passages Navigation & Reading Content */}
         <section
           className={`reading-pane ${mobileTab !== 'passage' ? 'mobile-hidden' : ''}`}
           style={{
-            padding: '24px 28px',
+            padding: '20px 28px',
             overflowY: 'auto',
             minWidth: 0,
             borderRight: '1px solid var(--border)',
             backgroundColor: 'var(--surface)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-            <Badge variant="purple">{passage.partLabel}</Badge>
-            <Badge variant="neutral">{passage.category}</Badge>
+          {/* Top 3-Passage Switcher Tabs */}
+          <div
+            style={{
+              display: 'flex',
+              gap: 8,
+              borderBottom: '1px solid var(--border)',
+              paddingBottom: 12,
+              marginBottom: 16,
+              flexWrap: 'wrap',
+            }}
+          >
+            {passages.map((p, idx) => {
+              const isActive = activePassageIndex === idx;
+              const qRange = idx === 0 ? 'Q1–13' : idx === 1 ? 'Q14–26' : 'Q27–40';
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => setActivePassageIndex(idx)}
+                  className={`btn btn-sm ${isActive ? 'btn-primary' : 'btn-secondary'}`}
+                  style={{
+                    borderRadius: 0,
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    padding: '6px 14px',
+                  }}
+                >
+                  <span>Passage {p.passageNumber}</span>
+                  <span
+                    style={{
+                      fontSize: '0.72rem',
+                      opacity: 0.9,
+                      background: isActive ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.06)',
+                      padding: '2px 5px',
+                    }}
+                  >
+                    {qRange}
+                  </span>
+                </button>
+              );
+            })}
           </div>
-          <h1 className="h1" style={{ fontSize: '1.55rem' }}>{passage.title}</h1>
-          <p className="text-sm text-muted" style={{ marginTop: 4, marginBottom: 18 }}>
-            {passage.subtitle}
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+            <Badge variant="purple">{activePassage.partLabel}</Badge>
+            <Badge variant="neutral">{activePassage.category}</Badge>
+            <Badge variant="yellow">Academic Standard</Badge>
+          </div>
+
+          <h1 className="h1" style={{ fontSize: '1.45rem', marginBottom: 6 }}>
+            {activePassage.title}
+          </h1>
+
+          <p className="text-sm text-muted" style={{ marginTop: 4, marginBottom: 16, lineHeight: 1.55 }}>
+            {activePassage.subtitle}
           </p>
 
           {showNotes && (
-            <div className="card-warm card-compact" style={{ marginBottom: 18 }}>
-              <div className="field-label" style={{ marginBottom: 6 }}>Personal Passage Notes</div>
+            <div className="card-warm card-compact" style={{ marginBottom: 18, borderRadius: 0 }}>
+              <div className="field-label" style={{ marginBottom: 6 }}>Candidate Scratchpad &amp; Notes</div>
               <textarea
                 className="textarea"
                 rows={3}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Jot paragraph summaries or keyword clues here..."
+                placeholder="Jot key facts, dates, or paragraph anchors here..."
+                style={{ borderRadius: 0 }}
               />
             </div>
           )}
 
+          {/* Reading Paragraphs */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: passageFontSize, lineHeight: 1.75 }}>
-            {passage.paragraphs.map((para) => (
-              <p key={para.label}>
+            {activePassage.paragraphs?.map((para) => (
+              <p key={para.label} style={{ margin: 0 }}>
                 <strong
                   style={{
                     display: 'inline-flex',
                     width: 24,
                     height: 24,
-                    borderRadius: 6,
                     backgroundColor: 'var(--bg-secondary)',
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginRight: 8,
                     fontSize: '0.82rem',
+                    fontWeight: 800,
                   }}
                 >
                   {para.label}
@@ -423,24 +501,9 @@ export function ReadingExamInterface({ passageId }) {
               </p>
             ))}
           </div>
-
-          {passage.diagramData && (
-            <div className="card-warm card-compact" style={{ marginTop: 22 }}>
-              <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: 8 }}>
-                {passage.diagramData.title}
-              </div>
-              <div className="grid-2" style={{ gap: 8 }}>
-                {passage.diagramData.labels.map((lbl) => (
-                  <div key={lbl} className="badge badge-neutral" style={{ justifyContent: 'flex-start' }}>
-                    {lbl}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </section>
 
-        {/* Right Panel: Question Palette & Inputs */}
+        {/* Right Panel: Question Navigator & Inputs */}
         <section
           className={`reading-pane ${mobileTab !== 'questions' ? 'mobile-hidden' : ''}`}
           style={{
@@ -453,25 +516,52 @@ export function ReadingExamInterface({ passageId }) {
             gap: 16,
           }}
         >
-          <QuestionNavigator
-            questions={questions}
-            answers={answers}
-            bookmarkedIds={bookmarks.questions}
-            activeIndex={activeQIndex}
-            onSelect={(idx) => {
-              setActiveQIndex(idx);
-              const qEl = document.getElementById(`reading-q-${questions[idx].id}`);
-              qEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          />
+          {/* Question Navigator across all 40 questions */}
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                Questions Navigator (1–{questions.length})
+              </span>
+              <span className="text-xs text-muted">
+                {answeredCount} / {questions.length} Answered
+              </span>
+            </div>
+            <QuestionNavigator
+              questions={questions}
+              answers={answers}
+              bookmarkedIds={bookmarks.questions}
+              activeIndex={activeQIndex}
+              onSelect={handleSelectQuestion}
+            />
+          </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {questions.map((q, idx) => (
+          {/* Passage Range Header */}
+          <div
+            style={{
+              padding: '10px 14px',
+              backgroundColor: 'rgba(136, 103, 184, 0.08)',
+              borderLeft: '3px solid var(--accent-purple)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <span style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--primary)' }}>
+              {activePassage.partLabel}: Questions {activePassageIndex === 0 ? '1–13' : activePassageIndex === 1 ? '14–26' : '27–40'}
+            </span>
+            <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
+              {activePassage.title}
+            </span>
+          </div>
+
+          {/* Render Questions for Current Passage */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {currentPassageQuestions.map((q) => (
               <div
                 key={q.id}
                 id={`reading-q-${q.id}`}
-                onFocus={() => setActiveQIndex(idx)}
-                onClick={() => setActiveQIndex(idx)}
+                onFocus={() => setActiveQIndex(q.number - 1)}
+                onClick={() => setActiveQIndex(q.number - 1)}
               >
                 <QuestionInput
                   question={q}
@@ -484,50 +574,56 @@ export function ReadingExamInterface({ passageId }) {
             ))}
           </div>
 
+          {/* Bottom Question Controls */}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               paddingTop: 10,
-              paddingBottom: 20,
+              paddingBottom: 24,
+              borderTop: '1px solid var(--border)',
             }}
           >
             <button
               type="button"
               className="btn btn-secondary btn-sm"
               disabled={activeQIndex === 0}
-              onClick={() => {
-                const nextIdx = Math.max(0, activeQIndex - 1);
-                setActiveQIndex(nextIdx);
-                document.getElementById(`reading-q-${questions[nextIdx].id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }}
+              onClick={handlePrevQuestion}
+              style={{ borderRadius: 0 }}
             >
-              <ChevronLeft size={15} /> Previous
+              <ChevronLeft size={15} /> Previous Question
             </button>
+
+            <span className="text-xs text-muted" style={{ fontWeight: 600 }}>
+              Question {activeQIndex + 1} of {questions.length}
+            </span>
+
             <button
               type="button"
               className="btn btn-secondary btn-sm"
               disabled={activeQIndex >= questions.length - 1}
-              onClick={() => {
-                const nextIdx = Math.min(questions.length - 1, activeQIndex + 1);
-                setActiveQIndex(nextIdx);
-                document.getElementById(`reading-q-${questions[nextIdx].id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }}
+              onClick={handleNextQuestion}
+              style={{ borderRadius: 0 }}
             >
-              Next <ChevronRight size={15} />
+              Next Question <ChevronRight size={15} />
             </button>
           </div>
         </section>
       </div>
 
+      {/* Confirmation Dialog on Submit */}
       <ConfirmationDialog
         open={confirmSubmit}
         onClose={() => setConfirmSubmit(false)}
         onConfirm={handleSubmit}
-        title="Submit Reading Test?"
-        message={`You have answered ${answeredCount} of ${questions.length} questions. Submit now to see your band score and question explanations?`}
-        confirmLabel="Submit Answers"
+        title="Submit IELTS Academic Reading Test?"
+        message={
+          unansweredQuestions.length > 0
+            ? `You have answered ${answeredCount} of ${questions.length} questions. You currently have ${unansweredQuestions.length} unanswered questions (${unansweredQuestions.slice(0, 8).join(', ')}${unansweredQuestions.length > 8 ? '...' : ''}). Submit now?`
+            : `You have completed all ${questions.length} questions! Submit now to view your official band score and question explanations?`
+        }
+        confirmLabel="Submit Test Now"
       />
 
       <style jsx>{`
@@ -559,4 +655,3 @@ export function ReadingExamInterface({ passageId }) {
     </div>
   );
 }
-

@@ -46,7 +46,7 @@ export function ListeningPracticeView() {
   // Mock Test Library State
   const [selectedTab, setSelectedTab] = useState('all'); // 'all' | 1 | 2 | 3 | 4
   const [searchQuery, setSearchQuery] = useState('');
-  const [visibleCount, setVisibleCount] = useState(52);
+  const [visibleCount, setVisibleCount] = useState(10);
 
   // Question Types Expandable
   const [expandedQType, setExpandedQType] = useState('multiple-choice');
@@ -91,7 +91,7 @@ export function ListeningPracticeView() {
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -90;
+      const yOffset = -120;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveToc(id);
@@ -193,135 +193,137 @@ export function ListeningPracticeView() {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
-        {/* Mobile / Tablet Collapsible Table of Contents Bar */}
-        <button
-          type="button"
-          className={styles.mobileTocToggle}
-          onClick={() => setMobileTocOpen((prev) => !prev)}
-          aria-expanded={mobileTocOpen}
-        >
-          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <List size={16} color="var(--accent-purple, #8867B8)" />
-            <span>Table of Contents ({listeningData.toc.find((t) => t.id === activeToc)?.label || 'Menu'})</span>
-          </span>
-          {mobileTocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-        </button>
+        {/* Mobile / Tablet Sticky Collapsible Table of Contents Bar */}
+        <div className={styles.mobileTocStickyWrapper}>
+          <button
+            type="button"
+            className={styles.mobileTocToggle}
+            onClick={() => setMobileTocOpen((prev) => !prev)}
+            aria-expanded={mobileTocOpen}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <List size={16} color="var(--accent-purple, #8867B8)" />
+              <span>Table of Contents ({listeningData.toc.find((t) => t.id === activeToc)?.label || 'Menu'})</span>
+            </span>
+            {mobileTocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
 
-        {mobileTocOpen && (
-          <div className={styles.mobileTocDrawer}>
-            {listeningData.toc.map((item) => (
+          {mobileTocOpen && (
+            <div className={styles.mobileTocDrawer}>
+              {listeningData.toc.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`${styles.tocNavLink} ${activeToc === item.id ? styles.tocNavLinkActive : ''}`}
+                  onClick={() => handleScrollTo(item.id)}
+                >
+                  <span>{item.label}</span>
+                  {activeToc === item.id && <span style={{ fontSize: '0.7rem' }}>●</span>}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* SECTION A: HERO BANNER (Overview) - Placed Full Width across Top */}
+        <section id="overview" className={`${styles.contentSection} ${styles.heroBanner}`}>
+          <div className={styles.heroLeft}>
+            <div className={styles.badgeRow}>
+              <span className="badge badge-yellow" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <Headphones size={13} />
+                {listeningData.hero.categoryBadge}
+              </span>
+              <span className="badge badge-neutral">Calibrated to Cambridge Rubrics</span>
+            </div>
+
+            <h1 className={styles.heroHeading}>{listeningData.hero.headline}</h1>
+
+            <p className={styles.heroSubtext}>{listeningData.hero.subheadline}</p>
+
+            {/* 4 Stats Grid */}
+            <div className={styles.statsBar}>
+              {listeningData.hero.stats.map((s, idx) => (
+                <div key={idx} className={styles.statItem}>
+                  <span className={styles.statValue}>{s.value}</span>
+                  <span className={styles.statLabel}>{s.label}</span>
+                  <span className={styles.statDesc}>{s.desc}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Primary & Secondary CTAs */}
+            <div className={styles.heroCtaRow}>
               <button
-                key={item.id}
                 type="button"
-                className={`${styles.tocNavLink} ${activeToc === item.id ? styles.tocNavLinkActive : ''}`}
-                onClick={() => handleScrollTo(item.id)}
+                onClick={() => handleProtectedPractice(listeningData.hero.primaryCta.target)}
+                className="btn btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
               >
-                <span>{item.label}</span>
-                {activeToc === item.id && <span style={{ fontSize: '0.7rem' }}>●</span>}
+                <span>{listeningData.hero.primaryCta.label}</span>
+                <ArrowRight size={16} />
               </button>
-            ))}
-          </div>
-        )}
 
-        {/* 2-Column Desktop Layout */}
-        <div className={styles.layoutGrid}>
+              <button
+                type="button"
+                onClick={() => handleScrollTo('mock-tests')}
+                className="btn btn-secondary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+              >
+                <span>{listeningData.hero.secondaryCta.label}</span>
+                <ChevronDown size={15} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Hero Visual Card with AI-Generated Asset */}
+          <div className={styles.heroRight}>
+            <div className={styles.heroImageCard}>
+              <div className={styles.heroImageTopBar}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Volume2 size={14} color="#F6BD28" />
+                  <span>IELTS WIST Exam Simulation Mode</span>
+                </span>
+                <span style={{ color: '#F6BD28', fontSize: '0.74rem' }}>30:00 Audio Track</span>
+              </div>
+
+              <Image
+                src="/images/listening/listening-hero.jpg"
+                alt="IELTS Listening Test Simulation Interface"
+                width={520}
+                height={300}
+                className={styles.heroImagePreview}
+                priority
+              />
+
+              <div className={styles.heroImageFooter}>
+                <span style={{ color: 'var(--text-secondary, #5F5E5B)' }}>4 Sections • 40 Questions</span>
+                <button
+                  type="button"
+                  onClick={() => handleProtectedPractice('/listening')}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--accent-purple, #8867B8)',
+                    fontWeight: 600,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                  }}
+                >
+                  <span>Launch Interface</span>
+                  <ArrowUpRight size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2-Column Desktop Layout starting at Section B (Mock Tests) */}
+        <div className={styles.layoutGrid} style={{ marginTop: 24 }}>
           {/* Main Content Column */}
           <main className={styles.mainColumn}>
-            {/* SECTION A: HERO BANNER (Overview) */}
-            <section id="overview" className={`${styles.contentSection} ${styles.heroBanner}`}>
-              <div className={styles.heroLeft}>
-                <div className={styles.badgeRow}>
-                  <span className="badge badge-yellow" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                    <Headphones size={13} />
-                    {listeningData.hero.categoryBadge}
-                  </span>
-                  <span className="badge badge-neutral">Calibrated to Cambridge Rubrics</span>
-                </div>
-
-                <h1 className={styles.heroHeading}>{listeningData.hero.headline}</h1>
-
-                <p className={styles.heroSubtext}>{listeningData.hero.subheadline}</p>
-
-                {/* 4 Stats Grid */}
-                <div className={styles.statsBar}>
-                  {listeningData.hero.stats.map((s, idx) => (
-                    <div key={idx} className={styles.statItem}>
-                      <span className={styles.statValue}>{s.value}</span>
-                      <span className={styles.statLabel}>{s.label}</span>
-                      <span className={styles.statDesc}>{s.desc}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Primary & Secondary CTAs */}
-                <div className={styles.heroCtaRow}>
-                  <button
-                    type="button"
-                    onClick={() => handleProtectedPractice(listeningData.hero.primaryCta.target)}
-                    className="btn btn-primary"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
-                  >
-                    <span>{listeningData.hero.primaryCta.label}</span>
-                    <ArrowRight size={16} />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => handleScrollTo('test-format')}
-                    className="btn btn-secondary"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
-                  >
-                    <span>{listeningData.hero.secondaryCta.label}</span>
-                    <ChevronDown size={15} />
-                  </button>
-                </div>
-              </div>
-
-              {/* Right Hero Visual Card */}
-              <div className={styles.heroRight}>
-                <div className={styles.heroImageCard}>
-                  <div className={styles.heroImageTopBar}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <Volume2 size={14} color="#F6BD28" />
-                      <span>IELTS WIST Exam Simulation Mode</span>
-                    </span>
-                    <span style={{ color: '#F6BD28', fontSize: '0.74rem' }}>30:00 Audio Track</span>
-                  </div>
-
-                  <Image
-                    src="/images/platform/listening-simulation.png"
-                    alt="IELTS Listening Test Simulation Interface"
-                    width={480}
-                    height={260}
-                    className={styles.heroImagePreview}
-                    priority
-                  />
-
-                  <div className={styles.heroImageFooter}>
-                    <span style={{ color: 'var(--text-secondary, #5F5E5B)' }}>4 Sections • 40 Questions</span>
-                    <button
-                      type="button"
-                      onClick={() => handleProtectedPractice('/listening')}
-                      style={{
-                        background: 'transparent',
-                        border: 'none',
-                        color: 'var(--accent-purple, #8867B8)',
-                        fontWeight: 600,
-                        fontSize: '0.8rem',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 4,
-                      }}
-                    >
-                      <span>Launch Interface</span>
-                      <ArrowUpRight size={14} />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* SECTION B: MOCK TEST LIBRARY (52 TESTS) */}
             <section id="mock-tests" className={styles.contentSection}>
               <div className={styles.testLibraryHeader}>
@@ -350,35 +352,35 @@ export function ListeningPracticeView() {
                   <button
                     type="button"
                     className={`${styles.tabBtn} ${selectedTab === 'all' ? styles.tabBtnActive : ''}`}
-                    onClick={() => { setSelectedTab('all'); setVisibleCount(12); }}
+                    onClick={() => { setSelectedTab('all'); setVisibleCount(10); }}
                   >
                     All 52 Mock Tests
                   </button>
                   <button
                     type="button"
                     className={`${styles.tabBtn} ${selectedTab === 1 ? styles.tabBtnActive : ''}`}
-                    onClick={() => { setSelectedTab(1); setVisibleCount(12); }}
+                    onClick={() => { setSelectedTab(1); setVisibleCount(10); }}
                   >
                     Section 1: Everyday Dialogue (13)
                   </button>
                   <button
                     type="button"
                     className={`${styles.tabBtn} ${selectedTab === 2 ? styles.tabBtnActive : ''}`}
-                    onClick={() => { setSelectedTab(2); setVisibleCount(12); }}
+                    onClick={() => { setSelectedTab(2); setVisibleCount(10); }}
                   >
                     Section 2: Social Monologue (13)
                   </button>
                   <button
                     type="button"
                     className={`${styles.tabBtn} ${selectedTab === 3 ? styles.tabBtnActive : ''}`}
-                    onClick={() => { setSelectedTab(3); setVisibleCount(12); }}
+                    onClick={() => { setSelectedTab(3); setVisibleCount(10); }}
                   >
                     Section 3: Academic Discussion (13)
                   </button>
                   <button
                     type="button"
                     className={`${styles.tabBtn} ${selectedTab === 4 ? styles.tabBtnActive : ''}`}
-                    onClick={() => { setSelectedTab(4); setVisibleCount(12); }}
+                    onClick={() => { setSelectedTab(4); setVisibleCount(10); }}
                   >
                     Section 4: Academic Lecture (13)
                   </button>
@@ -412,7 +414,7 @@ export function ListeningPracticeView() {
                 </div>
               </div>
 
-              {/* Test Cards Grid */}
+              {/* Compact Test Cards Grid */}
               <div className={styles.testCardsGrid}>
                 {filteredTests.slice(0, visibleCount).map((test) => (
                   <div key={test.id} className={styles.testCard}>
@@ -421,43 +423,47 @@ export function ListeningPracticeView() {
                         <span className={styles.testNumberBadge}>Mock Test {test.padNumber}</span>
                         <span
                           style={{
+                            fontSize: '0.68rem',
+                            fontWeight: 600,
+                            color: 'var(--text-muted, #707070)',
+                            background: 'var(--bg-warm, #F1EFE6)',
+                            padding: '2px 6px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.04em',
+                          }}
+                        >
+                          {test.accent}
+                        </span>
+                      </div>
+
+                      <h3 className={styles.testCardTitle} style={{ marginTop: 8 }}>
+                        {test.title}
+                      </h3>
+                    </div>
+
+                    <div>
+                      <div className={styles.testMetaRow} style={{ marginBottom: 10 }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          <Clock size={12} color="var(--accent-purple, #8867B8)" />
+                          <span>30 Mins</span>
+                        </span>
+                        <span
+                          style={{
                             fontSize: '0.72rem',
                             fontWeight: 600,
                             color: test.section === 1 ? '#047857' : test.section === 2 ? '#B45309' : test.section === 3 ? '#4338CA' : '#7C2D12',
-                            background: test.section === 1 ? '#ECFDF5' : test.section === 2 ? '#FEF3C7' : test.section === 3 ? '#EEF2FF' : '#FFEDD5',
-                            padding: '2px 8px',
                           }}
                         >
                           Section {test.section}
                         </span>
                       </div>
 
-                      <h3 className={styles.testCardTitle} style={{ marginTop: 10 }}>
-                        {test.title}
-                      </h3>
-
-                      <p className={styles.testCardContext} style={{ marginTop: 6 }}>
-                        {test.context}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div className={styles.testMetaRow}>
-                        <span>🎙 {test.speakers}</span>
-                        <span>🌐 {test.accent}</span>
-                        <span>⚡ {test.difficulty}</span>
-                      </div>
-
                       <div className={styles.testCardFooter}>
-                        <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted, #707070)' }}>
-                          {test.status}
-                        </span>
-
                         <button
                           type="button"
                           onClick={() => handleProtectedPractice(test.dashboardPath)}
                           className="btn btn-sm btn-primary"
-                          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', padding: '6px 12px' }}
+                          style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: '0.8rem', padding: '7px 12px' }}
                         >
                           <span>Practice Test</span>
                           <ArrowRight size={13} />
@@ -468,23 +474,16 @@ export function ListeningPracticeView() {
                 ))}
               </div>
 
-              {/* Pagination / Show More */}
+              {/* Progressive Loading: 10 at a time */}
               {visibleCount < filteredTests.length && (
                 <div className={styles.paginationRow}>
                   <button
                     type="button"
-                    onClick={() => setVisibleCount((prev) => Math.min(prev + 12, filteredTests.length))}
-                    className="btn btn-secondary"
+                    onClick={() => setVisibleCount((prev) => Math.min(prev + 10, filteredTests.length))}
+                    className="btn btn-primary"
+                    style={{ minWidth: 240 }}
                   >
                     Load More Mock Tests ({filteredTests.length - visibleCount} remaining)
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setVisibleCount(filteredTests.length)}
-                    className="btn btn-outline"
-                  >
-                    View All {filteredTests.length} Tests
                   </button>
                 </div>
               )}

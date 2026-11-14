@@ -17,7 +17,7 @@ const manrope = Manrope({
 export const metadata = {
   title: 'IELTS Ultimate — Complete IELTS Learning Platform',
   description:
-    'Interactive IELTS Academic and General Training preparation platform with full mock exams, split-screen reading, listening audio drills, writing workspace, speaking recorder, and study planning.',
+    'Interactive IELTS Academic preparation platform with full mock exams, split-screen reading, listening audio drills, writing workspace, speaking recorder, and study planning.',
 };
 
 export default function RootLayout({ children }) {

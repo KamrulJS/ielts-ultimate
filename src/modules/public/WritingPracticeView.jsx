@@ -39,9 +39,6 @@ export function WritingPracticeView() {
   // Sticky TOC Active Section Tracker
   const [activeTocId, setActiveTocId] = useState('overview');
 
-  // Task 1 Track selector: 'academic' | 'general'
-  const [task1Tab, setTask1Tab] = useState('academic');
-
   // Interactive Quiz Answers
   const [selectedDrills, setSelectedDrills] = useState({});
   const [checkedDrills, setCheckedDrills] = useState({});
@@ -361,37 +358,6 @@ export function WritingPracticeView() {
                   <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{v.type}</div>
                   <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                     <strong>Analysis Focus:</strong> {v.focus}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section: Task 1 General */}
-          <section id="task1-general" className={styles.sectionBlock}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.sectionBadge}>
-                <Mail size={14} />
-                <span>Correspondence Formats</span>
-              </div>
-              <h2 className={styles.sectionTitle}>{guideData.task1General.title}</h2>
-            </div>
-
-            <div className={styles.cardGrid}>
-              {guideData.task1General.letterTypes.map((lt, idx) => (
-                <div key={idx} className={styles.infoCard}>
-                  <div style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--primary)' }}>{lt.tone}</div>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                    <strong>Recipient:</strong> {lt.recipient}
-                  </div>
-                  <div style={{ fontSize: '0.84rem' }}>
-                    <strong>Salutation:</strong> <code>{lt.salutation}</code>
-                  </div>
-                  <div style={{ fontSize: '0.84rem' }}>
-                    <strong>Sign-Off:</strong> <code>{lt.signOff}</code>
-                  </div>
-                  <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
-                    <strong>Conventions:</strong> {lt.conventions}
                   </div>
                 </div>
               ))}

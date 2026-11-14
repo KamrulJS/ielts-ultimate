@@ -1,46 +1,45 @@
 {
   "meta": {
-    "title": "Complete IELTS Writing Guide & Practice Module",
-    "description": "Master IELTS Academic & General Writing with comprehensive task guides, the 4 official assessment criteria, 20/40 minute time management strategies, and Band 9 model answers."
+    "title": "Complete IELTS Academic Writing Guide & Practice Module",
+    "description": "Master IELTS Academic Writing with comprehensive task guides, the 4 official assessment criteria, 20/40 minute time management strategies, and Band 9 model answers."
   },
   "hero": {
-    "badge": "IELTS Writing Module",
-    "title": "Master IELTS Writing Task 1 & Task 2",
-    "subtitle": "From visual data reporting and formal correspondence to discursive Band 9 essays — learn the exact criteria IELTS examiners score against and practice with instant AI feedback.",
+    "badge": "IELTS Academic Writing",
+    "title": "Master IELTS Academic Writing Task 1 & Task 2",
+    "subtitle": "From visual data reporting (graphs, charts, maps, and processes) to discursive Band 9 academic essays — learn the exact criteria IELTS examiners score against and practice with instant AI feedback.",
     "stats": [
       { "label": "Exam Duration", "value": "60 Mins" },
       { "label": "Assessment Criteria", "value": "4 Official Rubrics" },
       { "label": "Word Target", "value": "150 + 250 Words" },
-      { "label": "Practice Tasks", "value": "12 Tasks Available" }
+      { "label": "Practice Tasks", "value": "12 Academic Tasks" }
     ]
   },
   "tableOfContents": [
-    { "id": "overview", "title": "1. IELTS Writing Overview & Format" },
+    { "id": "overview", "title": "1. Academic Writing Overview & Format" },
     { "id": "criteria", "title": "2. The 4 Official Assessment Criteria" },
     { "id": "task1-academic", "title": "3. Task 1 Academic: Visual Reporting" },
-    { "id": "task1-general", "title": "4. Task 1 General: Letter Writing" },
-    { "id": "task2-essays", "title": "5. Task 2: Discursive Essay Masterclass" },
-    { "id": "time-strategy", "title": "6. Time Management & The 20/40 Rule" },
-    { "id": "band-descriptors", "title": "7. Band Descriptors & Scoring Breakdown" },
-    { "id": "model-samples", "title": "8. Band 9 Model Answers & Analysis" },
-    { "id": "interactive-drills", "title": "9. Interactive Writing Drills" },
-    { "id": "practice-library", "title": "10. Authentic Tasks Practice Library" },
-    { "id": "faqs", "title": "11. Frequently Asked Questions" }
+    { "id": "task2-essays", "title": "4. Task 2: Discursive Essay Masterclass" },
+    { "id": "time-strategy", "title": "5. Time Management & The 20/40 Rule" },
+    { "id": "band-descriptors", "title": "6. Band Descriptors & Scoring Breakdown" },
+    { "id": "model-samples", "title": "7. Band 9 Model Answers & Analysis" },
+    { "id": "interactive-drills", "title": "8. Interactive Writing Drills" },
+    { "id": "practice-library", "title": "9. Authentic Tasks Practice Library" },
+    { "id": "faqs", "title": "10. Frequently Asked Questions" }
   ],
   "overview": {
-    "summary": "The IELTS Writing test evaluates how effectively and accurately you can present ideas, summarize factual information, construct an argument, and employ academic or formal English under timed exam conditions.",
+    "summary": "The IELTS Academic Writing test evaluates how effectively and accurately you can present visual data, organize factual information, construct a reasoned argument, and deploy formal academic English under timed exam conditions.",
     "tracks": [
       {
-        "name": "Academic Writing",
-        "audience": "University applicants, professional registrations (GMC, NMC), and academic visas.",
-        "task1": "Describe visual information (graph, chart, table, map, or process) in at least 150 words.",
-        "task2": "Write a formal discursive academic essay of at least 250 words responding to a point of view, argument, or problem."
+        "name": "Academic Task 1",
+        "audience": "University admissions, scholarship committees, and professional registration boards.",
+        "task1": "Describe visual information (graph, chart, table, map, or process diagram) in at least 150 words.",
+        "task2": "Focus on main trends, significant differences, stages of a cycle, or spatial changes with zero personal speculation."
       },
       {
-        "name": "General Training Writing",
-        "audience": "Work permits, permanent residency (Express Entry, Australian PR), and secondary education.",
-        "task1": "Write a letter (formal, semi-formal, or personal) in at least 150 words addressing a real-life situation.",
-        "task2": "Write a semi-formal or formal discursive essay of at least 250 words on a topic of general interest."
+        "name": "Academic Task 2",
+        "audience": "Higher education coursework and formal scholarly communication.",
+        "task1": "Write a formal discursive academic essay of at least 250 words responding to a point of view, argument, or problem.",
+        "task2": "Provide well-developed arguments with concrete evidence, clear paragraph progression, and academic register."
       }
     ],
     "weightingRule": "Task 2 carries twice as much weight towards your final Writing Band score as Task 1. Therefore, spending 40 minutes on Task 2 and 20 minutes on Task 1 is strongly recommended."
@@ -93,34 +92,6 @@
       { "type": "Tables", "focus": "High-density data extraction, identifying extremes, anomalies, and correlations." },
       { "type": "Process Diagrams", "focus": "Sequential stages (natural cycles or human manufacturing), passive voice usage." },
       { "type": "Maps / Layouts", "focus": "Geographical development, before/after urban transformations, directional prepositions." }
-    ]
-  },
-  "task1General": {
-    "title": "General Training Task 1: Real-World Letter",
-    "wordRequirement": "Minimum 150 words",
-    "suggestedTime": "20 minutes",
-    "letterTypes": [
-      {
-        "tone": "Formal Letter",
-        "recipient": "A manager, company director, university dean, or someone you do not know.",
-        "salutation": "Dear Sir or Madam, / Dear Mr. Henderson,",
-        "signOff": "Yours faithfully, (if name unknown) / Yours sincerely, (if name known)",
-        "conventions": "No contractions (use 'do not', not 'don't'), formal polite vocabulary, direct purpose statement."
-      },
-      {
-        "tone": "Semi-Formal Letter",
-        "recipient": "A landlord, colleague, neighbour, or local club coordinator.",
-        "salutation": "Dear Mr. Davis, / Dear Mrs. Jenkins,",
-        "signOff": "Warm regards, / Best regards,",
-        "conventions": "Polite, respectful tone; clear factual points; moderate formality."
-      },
-      {
-        "tone": "Informal / Personal Letter",
-        "recipient": "A close friend or family member.",
-        "salutation": "Dear Alex, / Hi Marcus,",
-        "signOff": "Best wishes, / Warmly, / Talk soon,",
-        "conventions": "Conversational idioms, natural contractions allowed, warm personal openings."
-      }
     ]
   },
   "task2Essays": {
@@ -251,7 +222,7 @@
       "answer": "Writing under the minimum word limit will directly penalize your Task Achievement (Task 1) or Task Response (Task 2) score. While examiners no longer deduct rigid points per missing word, an underlength essay cannot adequately develop ideas or satisfy prompt requirements."
     },
     {
-      "question": "Is British or American spelling preferred in IELTS Writing?",
+      "question": "Is British or American spelling preferred in IELTS Academic Writing?",
       "answer": "Both British and American spelling systems are 100% accepted by IELTS examiners. However, you must remain consistent within your essay. Avoid switching between 'colour' and 'color' or 'analyse' and 'analyze' in the same text."
     },
     {
@@ -268,4 +239,3 @@
     }
   ]
 }
-
