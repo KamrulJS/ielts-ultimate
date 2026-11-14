@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { Badge } from '@/components/common/UiPrimitives';
 import { SafeAvatar } from '@/components/common/SafeAvatar';
 import { PublicSectionHeader } from '@/components/public/PublicPrimitives';
 import styles from '@/modules/public/PublicHome.module.css';
@@ -172,7 +171,11 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
         <div className={styles.carouselHeadingWrap}>
           <PublicSectionHeader
             eyebrow="Learner Stories"
-            title="Consistent daily preparation beats last-minute cramming."
+            title={
+              <span>
+                Consistent daily preparation beats <span style={{ color: '#8867B8' }}>last-minute cramming.</span>
+              </span>
+            }
             subtitle="Verified candidate journeys from learners who built their target score with IELTS Ultimate."
           />
         </div>
@@ -279,8 +282,36 @@ export function HomeTestimonialsCarousel({ testimonials = [] }) {
                     borderTop: '1px solid var(--border)',
                   }}
                 >
-                  <Badge variant="yellow" style={{ borderRadius: 0 }}>{item.score}</Badge>
-                  <Badge variant="purple" style={{ borderRadius: 0 }}>{item.gain}</Badge>
+                  <span
+                    style={{
+                      borderRadius: 0,
+                      backgroundColor: '#FEF6DD',
+                      color: '#8A6100',
+                      border: '1px solid rgba(246, 189, 40, 0.4)',
+                      padding: '4px 10px',
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {item.score}
+                  </span>
+                  <span
+                    style={{
+                      borderRadius: 0,
+                      backgroundColor: '#F1E8FF',
+                      color: '#8867B8',
+                      border: '1px solid rgba(136, 103, 184, 0.25)',
+                      padding: '4px 10px',
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {item.gain}
+                  </span>
                 </div>
               </article>
             </div>

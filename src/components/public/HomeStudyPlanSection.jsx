@@ -71,17 +71,35 @@ export function HomeStudyPlanSection() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
 
   return (
-    <section className={styles.sectionWarmBand} style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+    <section
+      className={styles.sectionWarmBand}
+      style={{
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        backgroundColor: '#FAF9F5',
+      }}
+    >
       <div className={styles.container}>
         <div style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto 24px' }}>
           <span
-            className="badge badge-purple"
-            style={{ borderRadius: 0, padding: '4px 10px', fontSize: '0.8rem', fontWeight: 700, marginBottom: 10, display: 'inline-flex' }}
+            style={{
+              display: 'inline-block',
+              backgroundColor: '#F1E8FF',
+              color: '#8867B8',
+              borderRadius: 0,
+              padding: '6px 16px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              marginBottom: 12,
+              border: '1px solid rgba(136, 103, 184, 0.25)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+            }}
           >
             Personalized Learning
           </span>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 800, margin: '8px 0 14px', lineHeight: 1.2 }}>
-            A Smarter Way to Plan Your <span style={{ color: 'var(--accent-purple)' }}>IELTS Preparation</span>
+            A Smarter Way to Plan Your <span style={{ color: '#8867B8' }}>IELTS Preparation</span>
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.6 }}>
             Stay organized, manage your study time, and follow a structured preparation routine designed to help you reach your target band.

@@ -144,27 +144,29 @@ export function HomeOnePlatformSection() {
 
         :global(.one-platform-card:hover) {
           background-color: #FEF6DD !important;
-          border-color: #8867B8 !important;
+          border-color: #F6BD28 !important;
           transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(136, 103, 184, 0.12) !important;
+          box-shadow: 0 6px 16px rgba(246, 189, 40, 0.15) !important;
         }
 
         .one-platform-icon-wrap {
           width: 52px;
           height: 52px;
           border-radius: 0px !important;
-          background-color: #F1E8FF;
-          border: 1px solid rgba(136, 103, 184, 0.25);
-          color: #8867B8;
+          background-color: #FEF6DD;
+          border: 1px solid rgba(246, 189, 40, 0.4);
+          color: #202020;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: background-color 0.2s ease;
+          transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
         :global(.one-platform-card:hover) .one-platform-icon-wrap {
-          background-color: #FFFFFF;
+          background-color: #F6BD28 !important;
+          border-color: #F6BD28 !important;
+          color: #202020 !important;
         }
 
         .one-platform-title {

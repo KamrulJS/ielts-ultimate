@@ -13,25 +13,37 @@ import styles from './PublicLayout.module.css';
 
 export function HomeAiFeedbackSection() {
   return (
-    <section className={styles.sectionWarmBand} style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '64px 0' }}>
+    <section
+      className={styles.sectionWarmBand}
+      style={{
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        padding: '64px 0',
+        backgroundColor: '#FAF9F5',
+      }}
+    >
       <div className={styles.container}>
         {/* Section Header */}
         <div className={homeStyles.aiFeedbackHeader}>
           <span
-            className="badge badge-purple"
             style={{
+              display: 'inline-block',
+              backgroundColor: '#F1E8FF',
+              color: '#8867B8',
               borderRadius: 0,
-              padding: '5px 14px',
+              padding: '6px 16px',
               fontSize: '0.8rem',
               fontWeight: 700,
               marginBottom: 14,
-              display: 'inline-flex',
+              border: '1px solid rgba(136, 103, 184, 0.25)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
             }}
           >
             AI-Powered Feedback
           </span>
           <h2 className={homeStyles.aiFeedbackTitle}>
-            Your Personal AI Examiner, Available 24/7
+            Your Personal AI Examiner, Available <span style={{ color: '#8867B8' }}>24/7</span>
           </h2>
           <p className={homeStyles.aiFeedbackSubtitle}>
             Don&apos;t wait weeks for human feedback. Get detailed, rubric-based band scores on your Writing and Speaking instantly.
@@ -127,7 +139,7 @@ export function HomeAiFeedbackSection() {
 
         {/* Model Calibration Verification Notice Box */}
         <div className={homeStyles.aiVerifyCallout}>
-          <ShieldCheck size={22} color="#8867B8" style={{ flexShrink: 0 }} />
+          <ShieldCheck size={22} color="#F6BD28" style={{ flexShrink: 0 }} />
           <span>
             Both examiners run on fine-tuned LLM architectures calibrated against official public IELTS band descriptors and validated by an internal evaluation harness (<code style={{ color: '#8867B8', background: 'rgba(136, 103, 184, 0.14)', padding: '2px 6px', borderRadius: 0, fontWeight: 700 }}>ai:eval-writing</code>, <code style={{ color: '#8867B8', background: 'rgba(136, 103, 184, 0.14)', padding: '2px 6px', borderRadius: 0, fontWeight: 700 }}>ai:eval-speaking</code>) keeping the mean absolute score deviation below 0.25 band.
           </span>
@@ -137,7 +149,7 @@ export function HomeAiFeedbackSection() {
         <div className={homeStyles.aiFeedbackCtaRow}>
           <Link
             href="/resources/ai-examiner"
-            className="btn btn-primary btn-lg"
+            className="btn btn-accent btn-lg"
             style={{
               borderRadius: 0,
               padding: '14px 34px',
@@ -145,6 +157,9 @@ export function HomeAiFeedbackSection() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
+              backgroundColor: '#F6BD28',
+              color: '#202020',
+              border: '1px solid #E5AC1A',
             }}
           >
             <span>Try AI Examiner Free</span>

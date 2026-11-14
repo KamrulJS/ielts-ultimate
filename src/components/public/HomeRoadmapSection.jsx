@@ -253,20 +253,21 @@ export function HomeRoadmapSection() {
                     transform: isSelected ? 'scale(1.03)' : 'scale(1)',
                   }}
                 >
-                  {/* Purple Square Icon Box */}
+                  {/* Square Icon Box: Level 2 Soft Highlight default, Level 3 Primary Brand on active */}
                   <div
                     style={{
                       width: 44,
                       height: 44,
                       borderRadius: 0,
-                      backgroundColor: '#F1E8FF',
-                      border: '1px solid rgba(136, 103, 184, 0.3)',
-                      color: '#8867B8',
+                      backgroundColor: isSelected ? '#F6BD28' : '#FEF6DD',
+                      border: isSelected ? '1px solid #E5AC1A' : '1px solid rgba(246, 189, 40, 0.4)',
+                      color: '#202020',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 2px 8px rgba(136, 103, 184, 0.15)',
+                      boxShadow: isSelected ? '0 4px 12px rgba(246, 189, 40, 0.25)' : '0 2px 8px rgba(0, 0, 0, 0.04)',
                       marginBottom: 10,
+                      transition: 'all 0.2s ease',
                     }}
                   >
                     <Icon size={22} />
@@ -338,12 +339,13 @@ export function HomeRoadmapSection() {
                   onClick={() => setActiveStep(s.step)}
                   style={{
                     position: 'relative',
-                    background: '#FFFFFF',
-                    border: `1px solid ${isSelected ? '#8867B8' : 'var(--border, #E2DDD1)'}`,
+                    background: isSelected ? '#FEF6DD' : '#FFFFFF',
+                    border: `1px solid ${isSelected ? '#F6BD28' : 'var(--border, #E2DDD1)'}`,
                     borderRadius: 0,
                     padding: '16px 18px',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
                     cursor: 'pointer',
+                    transition: 'all 0.2s ease',
                   }}
                 >
                   <div
@@ -354,14 +356,14 @@ export function HomeRoadmapSection() {
                       width: 22,
                       height: 22,
                       borderRadius: 0,
-                      backgroundColor: s.isGoal ? '#FEF6DD' : '#F1E8FF',
-                      color: s.isGoal ? '#202020' : '#8867B8',
+                      backgroundColor: isSelected ? '#F6BD28' : '#FEF6DD',
+                      color: '#202020',
                       fontSize: '0.68rem',
                       fontWeight: 800,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      border: '1px solid #8867B8',
+                      border: isSelected ? '1px solid #E5AC1A' : '1px solid rgba(246, 189, 40, 0.4)',
                     }}
                   >
                     {s.step}

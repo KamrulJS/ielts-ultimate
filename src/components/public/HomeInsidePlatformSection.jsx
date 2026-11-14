@@ -161,10 +161,10 @@ export function HomeInsidePlatformSection() {
                   fontSize: '0.86rem',
                   fontWeight: 700,
                   cursor: 'pointer',
-                  border: isActive ? '1px solid #8867B8' : '1px solid var(--border, #E2DDD1)',
-                  backgroundColor: isActive ? '#FEF6DD' : '#FFFFFF',
-                  color: isActive ? '#202020' : '#4A4A4A',
-                  boxShadow: isActive ? '0 2px 8px rgba(136, 103, 184, 0.15)' : 'none',
+                  border: isActive ? '1px solid #E5AC1A' : '1px solid var(--border, #E2DDD1)',
+                  backgroundColor: isActive ? '#F6BD28' : '#FFFFFF',
+                  color: '#202020',
+                  boxShadow: isActive ? '0 2px 10px rgba(246, 189, 40, 0.28)' : 'none',
                   transition: 'all 0.2s ease',
                 }}
               >
@@ -249,13 +249,15 @@ export function HomeInsidePlatformSection() {
 
               <Link
                 href={activeTab.link}
-                className="btn btn-primary btn-sm"
+                className="btn btn-accent btn-sm"
                 style={{
                   borderRadius: 0,
-                  padding: '5px 14px',
+                  padding: '6px 14px',
                   fontSize: '0.78rem',
-                  backgroundColor: '#8867B8',
-                  color: '#FFFFFF',
+                  backgroundColor: '#F6BD28',
+                  border: '1px solid #E5AC1A',
+                  color: '#202020',
+                  fontWeight: 700,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 5,
@@ -312,14 +314,14 @@ export function HomeInsidePlatformSection() {
                   style={{
                     width: 24,
                     height: 24,
-                    border: '1px solid var(--border, #E2DDD1)',
+                    border: num === 1 ? '1px solid #E5AC1A' : '1px solid var(--border, #E2DDD1)',
                     borderRadius: 0,
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '0.72rem',
                     fontWeight: num === 1 ? 700 : 500,
-                    backgroundColor: num === 1 ? '#FEF6DD' : '#FFFFFF',
+                    backgroundColor: num === 1 ? '#F6BD28' : '#FFFFFF',
                     color: num === 1 ? '#202020' : 'var(--text-secondary, #5F5E5B)',
                   }}
                 >

@@ -59,7 +59,24 @@ export function PublicSectionHeader({ eyebrow, title, subtitle, align = 'left' }
         alignItems: align === 'center' ? 'center' : 'flex-start',
       }}
     >
-      {eyebrow && <Badge variant="purple">{eyebrow}</Badge>}
+      {eyebrow && (
+        <span
+          style={{
+            display: 'inline-block',
+            backgroundColor: '#F1E8FF',
+            color: '#8867B8',
+            borderRadius: 0,
+            padding: '5px 14px',
+            fontSize: '0.78rem',
+            fontWeight: 700,
+            border: '1px solid rgba(136, 103, 184, 0.25)',
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+          }}
+        >
+          {eyebrow}
+        </span>
+      )}
       <h2 className="section-heading">
         {title}
       </h2>
@@ -148,7 +165,20 @@ export function PublicCtaBanner({
       }}
     >
       <div style={{ maxWidth: 660, minWidth: 0 }}>
-        <Badge variant="yellow" style={{ borderRadius: 0 }}>{badge}</Badge>
+        <span
+          style={{
+            display: 'inline-block',
+            backgroundColor: '#FEF6DD',
+            color: '#8A6100',
+            borderRadius: 0,
+            padding: '4px 10px',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            border: '1px solid rgba(246, 189, 40, 0.4)',
+          }}
+        >
+          {badge}
+        </span>
         <h2 className="subheading" style={{ color: '#FFFFFF', marginTop: 12, marginBottom: 8 }}>
           {title}
         </h2>
@@ -157,7 +187,17 @@ export function PublicCtaBanner({
         </p>
       </div>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-        <Link href={primaryHref} className="btn btn-accent" style={{ borderRadius: 0 }}>
+        <Link
+          href={primaryHref}
+          className="btn btn-accent"
+          style={{
+            borderRadius: 0,
+            backgroundColor: '#F6BD28',
+            color: '#202020',
+            border: '1px solid #E5AC1A',
+            fontWeight: 700,
+          }}
+        >
           {primaryLabel} <ArrowUpRight size={16} />
         </Link>
         {secondaryLabel && (
