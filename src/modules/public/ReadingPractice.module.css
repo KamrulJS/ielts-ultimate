@@ -1,5 +1,6 @@
 /* IELTS Reading Public Learning Page Stylesheet */
 /* Strict Square-Corner Identity (border-radius: 0px) */
+/* Official brand colors: #FAF9F5 (bg), #FEF6DD (highlight), #F6BD28 (primary), #8867B8 (secondary), #F1E8FF (secondary light) */
 
 .readingContainer {
   max-width: 1440px;
@@ -8,8 +9,7 @@
 }
 
 .heroSection {
-  padding: 40px 0 32px;
-  border-bottom: 1px solid var(--border);
+  padding: 32px 0 28px;
   background: transparent;
 }
 
@@ -20,50 +20,26 @@
   align-items: center;
 }
 
-.heroVisualBox {
-  position: relative;
-  border: 1px solid var(--border);
-  background: var(--bg-surface);
-  padding: 24px;
+.heroRight {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
-}
-
-.heroVisualHeader {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 12px;
+  position: relative;
 }
 
-.readingExamPreview {
-  border: 1px solid var(--border);
-  background: #ffffff;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-family: inherit;
-}
-
-.readingPassageSnippet {
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  border-left: 3px solid var(--primary);
-  padding-left: 12px;
-  background: rgba(136, 103, 184, 0.04);
-  padding-top: 8px;
-  padding-bottom: 8px;
+.heroTransparentImg {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .heroPillList {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   margin-top: 4px;
 }
 
@@ -71,12 +47,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  background: var(--bg-surface);
-  color: var(--text-primary);
+  padding: 8px 12px;
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  background: #FEF6DD;
+  color: #202020;
+  border-radius: 0px !important;
 }
 
 /* Two-column layout with right sticky TOC */
@@ -84,7 +61,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 48px;
-  padding: 40px 0 64px;
+  padding: 32px 0 64px;
   align-items: start;
 }
 
@@ -92,95 +69,78 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 48px;
 }
 
 .tocColumn {
   position: sticky;
   top: 92px;
-  align-self: start;
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
 }
 
-.tocCard {
-  border: 1px solid var(--border);
-  background: var(--bg-surface);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.stickyTocBox {
+  border: 1px solid var(--border-color, #E2DDD1);
+  background: var(--bg-surface, #FFFFFF);
+  padding: 20px 18px;
   border-radius: 0px !important;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
 .tocHeader {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border);
+  align-items: center;
+  border-bottom: 1px solid var(--border-color, #E2DDD1);
   padding-bottom: 12px;
-}
-
-.tocTitle {
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-primary);
+  margin-bottom: 12px;
 }
 
 .tocList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.tocItem {
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.tocLink {
-  display: block;
-  font-size: 0.84rem;
-  padding: 7px 10px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-left: 2px solid transparent;
-  transition: all 0.14s ease;
-  line-height: 1.35;
-}
-
-.tocLink:hover {
-  color: var(--primary);
-  background: rgba(136, 103, 184, 0.05);
-}
-
-.tocLinkActive {
-  color: var(--primary) !important;
-  font-weight: 700;
-  border-left-color: var(--primary) !important;
-  background: rgba(136, 103, 184, 0.08);
-}
-
-.tocCta {
-  margin-top: 8px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
+.tocItemLink {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #333333;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  border-radius: 0px !important;
+  cursor: pointer;
 }
 
-/* Section Common Styling */
+.tocItemLink:hover {
+  background-color: var(--bg-hover, #F5F2EB);
+  color: #202020;
+}
+
+.tocItemLinkActive {
+  background-color: #F1E8FF !important;
+  color: #8867B8 !important;
+  border-left: 3px solid #8867B8 !important;
+  font-weight: 700;
+  border-radius: 0px !important;
+}
+
+/* Sections */
 .guideSection {
   scroll-margin-top: 100px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
 .sectionHeader {
@@ -190,21 +150,35 @@
 }
 
 .sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F1E8FF;
+  color: #8867B8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 0px !important;
+  border: 1px solid rgba(136, 103, 184, 0.25);
+  margin-bottom: 4px;
   align-self: flex-start;
 }
 
 .sectionTitle {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-family: var(--font-display, serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #202020;
   letter-spacing: -0.02em;
   margin: 0;
   line-height: 1.25;
 }
 
 .sectionSubtitle {
-  font-size: 1.02rem;
-  color: var(--text-secondary);
+  font-size: 0.96rem;
+  color: #333333;
   line-height: 1.55;
   margin: 0;
 }
@@ -214,6 +188,7 @@
   overflow-x: auto;
   border: 1px solid var(--border);
   background: var(--bg-surface);
+  border-radius: 0px !important;
 }
 
 .comparisonTable {
@@ -224,12 +199,12 @@
 }
 
 .comparisonTable th {
-  background: #f2efe9;
+  background: #FEF6DD;
   padding: 14px 18px;
   font-weight: 700;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--border);
-  font-size: 0.88rem;
+  color: #202020;
+  border-bottom: 2px solid rgba(246, 189, 40, 0.45);
+  font-size: 0.84rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -237,9 +212,9 @@
 .comparisonTable td {
   padding: 14px 18px;
   border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
+  color: #202020;
   vertical-align: top;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .comparisonTable tr:last-child td {
@@ -248,7 +223,7 @@
 
 .comparisonTable td:first-child {
   font-weight: 700;
-  color: var(--text-primary);
+  color: #202020;
   background: rgba(0, 0, 0, 0.015);
   width: 22%;
 }
@@ -266,7 +241,7 @@
 }
 
 .questionTypeCard:hover {
-  border-color: var(--primary);
+  border-color: #8867B8;
   box-shadow: 0 4px 18px rgba(136, 103, 184, 0.08);
 }
 
@@ -283,7 +258,7 @@
 .qtNumber {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--primary);
+  color: #8867B8;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -291,7 +266,7 @@
 .qtTitle {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #202020;
   margin: 4px 0 0;
 }
 
@@ -318,13 +293,13 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: #4A4A4A;
 }
 
 .qtText {
   font-size: 0.92rem;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: #202020;
 }
 
 .qtStepList {
@@ -335,13 +310,39 @@
   gap: 6px;
   font-size: 0.88rem;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: #202020;
+}
+
+/* Accordion Card Box for Pro Tips & Pitfalls */
+.accordionCardBox {
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  background: #FEF6DD;
+  border-radius: 0px !important;
+  overflow: hidden;
+}
+
+.accordionCardToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0px !important;
+}
+
+.accordionCardContent {
+  padding: 0 14px 12px;
+  border-top: 1px dashed rgba(246, 189, 40, 0.5);
+  padding-top: 10px;
 }
 
 .qtSampleBox {
   border: 1px solid var(--border);
   background: #ffffff;
-  padding: 16px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -349,33 +350,52 @@
 }
 
 .qtSampleTitle {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--primary);
+  color: #8867B8;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .qtPassageText {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #202020;
   font-style: italic;
-  background: rgba(0, 0, 0, 0.02);
+  background: #FAF9F5;
   padding: 10px 14px;
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid #8867B8;
+}
+
+.accordionAnswerToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #F1E8FF;
+  border: 1px solid rgba(136, 103, 184, 0.3);
+  cursor: pointer;
+  border-radius: 0px !important;
+  transition: background-color 0.15s ease;
+}
+
+.accordionAnswerToggle:hover {
+  background: #E8DDFF;
 }
 
 .qtAnswerExpl {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   line-height: 1.55;
-  color: #1e6338;
-  background: rgba(46, 125, 50, 0.08);
-  border: 1px solid rgba(46, 125, 50, 0.2);
-  padding: 10px 14px;
+  color: #202020;
+  background: #FAF9F5;
+  border: 1px solid rgba(136, 103, 184, 0.25);
+  border-top: none;
+  padding: 12px 14px;
+  border-radius: 0px !important;
 }
 
 /* Strategy Cards */
@@ -400,8 +420,27 @@
 .strategyTitle {
   font-size: 1.18rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #202020;
   margin: 0;
+}
+
+.strategyDetailToggleBtn {
+  background: #FEF6DD;
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  color: #202020;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 0px !important;
+  transition: background-color 0.15s ease;
+}
+
+.strategyDetailToggleBtn:hover {
+  background: #FEEFB5;
 }
 
 .prosConsGrid {
@@ -415,12 +454,14 @@
   border: 1px solid rgba(46, 125, 50, 0.25);
   background: rgba(46, 125, 50, 0.04);
   padding: 14px;
+  border-radius: 0px !important;
 }
 
 .conBox {
   border: 1px solid rgba(198, 40, 40, 0.25);
   background: rgba(198, 40, 40, 0.04);
   padding: 14px;
+  border-radius: 0px !important;
 }
 
 .boxTitle {
@@ -439,9 +480,9 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   line-height: 1.45;
-  color: var(--text-secondary);
+  color: #202020;
 }
 
 /* Time Matrix */
@@ -452,8 +493,8 @@
 }
 
 .timeCard {
-  border: 1px solid var(--border);
-  background: var(--bg-surface);
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  background: #FEF6DD;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -464,14 +505,14 @@
 .timeMinutes {
   font-size: 2.2rem;
   font-weight: 900;
-  color: var(--primary);
+  color: #8867B8;
   line-height: 1;
 }
 
 .timeLabel {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #202020;
 }
 
 /* Interactive Drills */
@@ -491,7 +532,8 @@
   padding: 18px;
   font-size: 0.94rem;
   line-height: 1.65;
-  color: var(--text-primary);
+  color: #202020;
+  border-radius: 0px !important;
 }
 
 .drillQuestionRow {
@@ -501,6 +543,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  border-radius: 0px !important;
 }
 
 .drillOptionBtn {
@@ -509,21 +552,22 @@
   padding: 8px 14px;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #202020;
   cursor: pointer;
   transition: all 0.12s ease;
   border-radius: 0px !important;
 }
 
 .drillOptionBtn:hover {
-  background: rgba(136, 103, 184, 0.08);
-  border-color: var(--primary);
+  background: #FEF6DD;
+  border-color: #F6BD28;
 }
 
 .drillOptionBtnSelected {
-  background: var(--primary) !important;
-  color: #ffffff !important;
-  border-color: var(--primary) !important;
+  background: #F6BD28 !important;
+  color: #202020 !important;
+  border-color: #E5AC1A !important;
+  font-weight: 700 !important;
 }
 
 /* Cambridge Book Grid */
@@ -534,8 +578,8 @@
 }
 
 .bookCard {
-  border: 1px solid var(--border);
-  background: var(--bg-surface);
+  border: 1px solid rgba(246, 189, 40, 0.45);
+  background: #FEF6DD;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -545,13 +589,14 @@
 }
 
 .bookCard:hover {
-  border-color: var(--primary);
+  border-color: #F6BD28;
+  transform: translateY(-2px);
 }
 
 .bookTitle {
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #202020;
   margin: 0;
 }
 
@@ -559,7 +604,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: #333333;
 }
 
 /* Mobile Responsive Adjustments */
@@ -570,7 +615,7 @@
   }
 
   .tocColumn {
-    display: none; /* Collapsible top pill on tablet/mobile */
+    display: none;
   }
 
   .heroGrid {
@@ -601,6 +646,6 @@
     border: 1px solid var(--border);
     background: var(--bg-surface);
     padding: 14px 18px;
+    border-radius: 0px !important;
   }
 }
-

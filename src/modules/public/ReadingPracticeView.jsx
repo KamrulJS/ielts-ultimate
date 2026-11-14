@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   BookOpen,
@@ -14,6 +15,7 @@ import {
   Layers,
   Sparkles,
   ChevronDown,
+  ChevronUp,
   ChevronRight,
   Check,
   X,
@@ -42,6 +44,19 @@ export function ReadingPracticeView() {
   // Question Types Filter & Search
   const [qtSearch, setQtSearch] = useState('');
   const [selectedQtType, setSelectedQtType] = useState('All');
+
+  // Accordion states
+  const [openTips, setOpenTips] = useState({});
+  const toggleTip = (id) => setOpenTips((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const [openAnswers, setOpenAnswers] = useState({});
+  const toggleAnswer = (id) => setOpenAnswers((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const [openStrategyDetails, setOpenStrategyDetails] = useState({});
+  const toggleStrategyDetail = (id) => setOpenStrategyDetails((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const [openRoadblock, setOpenRoadblock] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
 
   // Interactive Exercises State
   const [drillAnswers, setDrillAnswers] = useState({
@@ -150,7 +165,7 @@ export function ReadingPracticeView() {
                   type="button"
                   onClick={handlePracticeCta}
                   className="btn btn-primary btn-lg"
-                  style={{ borderRadius: 0 }}
+                  style={{ borderRadius: 0, backgroundColor: "#F6BD28", color: "#202020", border: "1px solid #E5AC1A", fontWeight: 700 }}
                 >
                   {guideData.hero.primaryCta.label} <ArrowRight size={16} />
                 </button>
@@ -165,44 +180,17 @@ export function ReadingPracticeView() {
             </div>
 
             {/* Hero Visual Preview */}
-            <div className={styles.heroVisualBox}>
-              <div className={styles.heroVisualHeader}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <BookOpen size={16} style={{ color: 'var(--primary)' }} />
-                  <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>IELTS Reading Computer Interface</span>
-                </div>
-                <Badge variant="neutral">60:00 Countdown</Badge>
-              </div>
-
-              <div className={styles.readingExamPreview}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                  <span>Passage 1 of 3</span>
-                  <span>Questions 1–13 of 40</span>
-                </div>
-                <strong style={{ fontSize: '0.98rem', color: 'var(--text-primary)' }}>
-                  Hydrothermal Vents &amp; Abyssal Chemosynthesis
-                </strong>
-                <div className={styles.readingPassageSnippet}>
-                  &ldquo;Unlike photosynthetic ecosystems, deep-sea hydrothermal colonies derive primary biological energy from hydrogen sulfide oxidation conducted by symbiotic bacteria within benthic chimney plumes...&rdquo;
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 }}>
-                  <span className="text-xs text-muted">Passage navigation &bull; Live Question Palette</span>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--primary)', fontWeight: 600 }}>Zero Extra Transfer Time</span>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span className="text-xs text-muted">Direct dashboard test integration</span>
-                <button
-                  type="button"
-                  onClick={handlePracticeCta}
-                  className="btn btn-ghost btn-xs"
-                  style={{ borderRadius: 0, color: 'var(--primary)', fontWeight: 700 }}
-                >
-                  Open Exam Simulator &rarr;
-                </button>
-              </div>
+            <div className={styles.heroRight}>
+              <Image
+                src="/images/hero/ielts-reading-hero.png"
+                alt="IELTS Academic Reading Preparation Illustration"
+                width={540}
+                height={420}
+                className={styles.heroTransparentImg}
+                priority
+              />
             </div>
+
           </div>
         </div>
       </section>
@@ -266,7 +254,7 @@ export function ReadingPracticeView() {
               </div>
 
               {guideData.overview.paragraphs.map((p, idx) => (
-                <p key={idx} className="lead" style={{ fontSize: '0.96rem', lineHeight: 1.7, color: 'var(--text-secondary)' }}>
+                <p key={idx} className="lead" style={{ fontSize: '0.96rem', lineHeight: 1.7, color: '#202020' }}>
                   {p}
                 </p>
               ))}
@@ -356,8 +344,17 @@ export function ReadingPracticeView() {
                       key={cat}
                       type="button"
                       onClick={() => setSelectedQtType(cat)}
-                      className={`btn btn-sm ${selectedQtType === cat ? 'btn-primary' : 'btn-secondary'}`}
-                      style={{ borderRadius: 0 }}
+                      style={{
+                        borderRadius: 0,
+                        backgroundColor: selectedQtType === cat ? '#F6BD28' : '#FFFFFF',
+                        color: selectedQtType === cat ? '#202020' : '#4A4A4A',
+                        border: selectedQtType === cat ? '1px solid #E5AC1A' : '1px solid var(--border)',
+                        fontWeight: selectedQtType === cat ? 700 : 500,
+                        padding: '7px 14px',
+                        fontSize: '0.84rem',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease',
+                      }}
                     >
                       {cat}
                     </button>
@@ -425,13 +422,27 @@ export function ReadingPracticeView() {
                           {qt.pitfalls}
                         </div>
                       </div>
-                      <div className="card-warm card-compact" style={{ borderRadius: 0, padding: 12 }}>
-                        <div style={{ fontWeight: 700, fontSize: '0.8rem', color: '#15803d', marginBottom: 4 }}>
-                          &check; Expert Pro Tip
-                        </div>
-                        <div className="text-xs text-muted" style={{ lineHeight: 1.5 }}>
-                          {qt.tips}
-                        </div>
+                      <div className={styles.accordionCardBox}>
+                        <button
+                          type="button"
+                          onClick={() => toggleTip(qt.id)}
+                          className={styles.accordionCardToggle}
+                          aria-expanded={!!openTips[qt.id]}
+                        >
+                          <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#15803d', fontSize: '0.82rem' }}>
+                            <Sparkles size={14} color="#15803d" />
+                            <span>Expert Pro Tip</span>
+                          </span>
+                          {openTips[qt.id] ? <ChevronUp size={14} color="#15803d" /> : <ChevronDown size={14} color="#707070" />}
+                        </button>
+
+                        {openTips[qt.id] && (
+                          <div className={styles.accordionCardContent}>
+                            <div style={{ fontSize: '0.82rem', color: '#202020', lineHeight: 1.55 }}>
+                              {qt.tips}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -449,17 +460,34 @@ export function ReadingPracticeView() {
                       {qt.sampleOptions && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, margin: '4px 0' }}>
                           {qt.sampleOptions.map((opt, oIdx) => (
-                            <div key={oIdx} style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                            <div key={oIdx} style={{ fontSize: '0.85rem', color: '#202020' }}>
                               &bull; {opt}
                             </div>
                           ))}
                         </div>
                       )}
-                      <div className={styles.qtAnswerExpl}>
-                        <strong>Correct Answer:</strong> {qt.sampleAnswer}
-                        <div style={{ marginTop: 4, color: 'var(--text-secondary)' }}>
-                          <strong>Explanation:</strong> {qt.sampleExplanation}
-                        </div>
+                      <div style={{ marginTop: 6 }}>
+                        <button
+                          type="button"
+                          onClick={() => toggleAnswer(qt.id)}
+                          className={styles.accordionAnswerToggle}
+                          aria-expanded={!!openAnswers[qt.id]}
+                        >
+                          <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#8867B8', fontSize: '0.84rem' }}>
+                            <CheckCircle2 size={14} color="#8867B8" />
+                            <span>View Correct Answer &amp; Detailed Explanation</span>
+                          </span>
+                          {openAnswers[qt.id] ? <ChevronUp size={15} color="#8867B8" /> : <ChevronDown size={15} color="#707070" />}
+                        </button>
+
+                        {openAnswers[qt.id] && (
+                          <div className={styles.qtAnswerExpl}>
+                            <strong style={{ color: '#202020' }}>Correct Answer:</strong> {qt.sampleAnswer}
+                            <div style={{ marginTop: 6, color: '#202020', lineHeight: 1.55 }}>
+                              <strong>Explanation:</strong> {qt.sampleExplanation}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </article>
@@ -479,14 +507,27 @@ export function ReadingPracticeView() {
                 {guideData.strategies.list.map((strat) => (
                   <div key={strat.id} className={styles.strategyCard}>
                     <div className={styles.strategyHeader}>
-                      <h3 className={styles.strategyTitle}>{strat.name}</h3>
-                      <Badge variant="yellow">{strat.tag}</Badge>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <h3 className={styles.strategyTitle}>{strat.name}</h3>
+                        <Badge variant="yellow">{strat.tag}</Badge>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => toggleStrategyDetail(strat.id)}
+                        className={styles.strategyDetailToggleBtn}
+                        aria-expanded={!!openStrategyDetails[strat.id]}
+                      >
+                        <span>{openStrategyDetails[strat.id] ? 'Hide Strategy Details' : 'Expand Strategy Protocol'}</span>
+                        {openStrategyDetails[strat.id] ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                      </button>
                     </div>
-                    <p style={{ fontSize: '0.94rem', lineHeight: 1.6, color: 'var(--text-secondary)', margin: 0 }}>
+                    <p style={{ fontSize: '0.94rem', lineHeight: 1.6, color: '#202020', margin: 0 }}>
                       {strat.summary}
                     </p>
 
-                    <div className={styles.prosConsGrid}>
+                    {openStrategyDetails[strat.id] && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 6 }}>
+                        <div className={styles.prosConsGrid}>
                       <div className={styles.proBox}>
                         <div className={styles.boxTitle} style={{ color: '#15803d' }}>
                           <Check size={14} /> Key Advantages
@@ -510,10 +551,12 @@ export function ReadingPracticeView() {
                       </div>
                     </div>
 
-                    <div className="card-warm card-compact" style={{ borderRadius: 0, padding: 12, marginTop: 4 }}>
-                      <strong style={{ fontSize: '0.82rem', color: 'var(--primary)' }}>When to apply: </strong>
-                      <span className="text-xs text-muted">{strat.whenToUse}</span>
-                    </div>
+                    <div className="card-warm card-compact" style={{ borderRadius: 0, padding: 12, marginTop: 4, backgroundColor: '#FEF6DD', border: '1px solid rgba(246, 189, 40, 0.45)' }}>
+                          <strong style={{ fontSize: '0.84rem', color: '#202020' }}>When to apply: </strong>
+                          <span style={{ fontSize: '0.82rem', color: '#333333' }}>{strat.whenToUse}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -590,16 +633,42 @@ export function ReadingPracticeView() {
                 ))}
               </div>
 
-              <div className="card-warm" style={{ borderRadius: 0, padding: 20, borderLeft: '4px solid var(--accent-yellow)' }}>
-                <strong style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>
-                  {guideData.timeManagement.roadblockProtocol.title}
-                </strong>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '6px 0 0', lineHeight: 1.6 }}>
-                  <strong>Rule:</strong> {guideData.timeManagement.roadblockProtocol.rule}
-                </p>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', margin: '6px 0 0', lineHeight: 1.6 }}>
-                  <strong>Action:</strong> {guideData.timeManagement.roadblockProtocol.action}
-                </p>
+              <div className="card-warm" style={{ borderRadius: 0, padding: 20, backgroundColor: '#FEF6DD', border: '1px solid rgba(246, 189, 40, 0.45)', borderLeft: '4px solid #F6BD28' }}>
+                <button
+                  type="button"
+                  onClick={() => setOpenRoadblock(!openRoadblock)}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: 0,
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                  aria-expanded={openRoadblock}
+                >
+                  <strong style={{ fontSize: '1.02rem', color: '#202020' }}>
+                    {guideData.timeManagement.roadblockProtocol.title}
+                  </strong>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: '#8867B8' }}>
+                    <span>{openRoadblock ? 'Collapse' : 'Expand Protocol'}</span>
+                    {openRoadblock ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  </span>
+                </button>
+
+                {openRoadblock && (
+                  <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px dashed rgba(246, 189, 40, 0.5)' }}>
+                    <p style={{ fontSize: '0.9rem', color: '#202020', margin: '0 0 8px', lineHeight: 1.6 }}>
+                      <strong>Rule:</strong> {guideData.timeManagement.roadblockProtocol.rule}
+                    </p>
+                    <p style={{ fontSize: '0.88rem', color: '#202020', margin: 0, lineHeight: 1.6 }}>
+                      <strong>Action:</strong> {guideData.timeManagement.roadblockProtocol.action}
+                    </p>
+                  </div>
+                )}
               </div>
             </section>
 
@@ -741,7 +810,7 @@ export function ReadingPracticeView() {
                             <strong style={{ color: isCorrect ? '#15803d' : '#b91c1c' }}>
                               {isCorrect ? 'Correct!' : `Incorrect (Correct answer: ${q.correct})`}
                             </strong>
-                            <div style={{ marginTop: 2, color: 'var(--text-secondary)' }}>{q.explanation}</div>
+                            <div style={{ marginTop: 2, color: '#202020' }}>{q.explanation}</div>
                           </div>
                         )}
                       </div>
@@ -814,7 +883,7 @@ export function ReadingPracticeView() {
                           ? 'Correct!'
                           : `Incorrect. Correct heading: ${guideData.interactiveDrills[1].questions[0].correct}`}
                       </strong>
-                      <div style={{ marginTop: 2, color: 'var(--text-secondary)' }}>
+                      <div style={{ marginTop: 2, color: '#202020' }}>
                         {guideData.interactiveDrills[1].questions[0].explanation}
                       </div>
                     </div>
@@ -885,7 +954,7 @@ export function ReadingPracticeView() {
                           ? 'Correct!'
                           : `Incorrect. Correct answer: ${guideData.interactiveDrills[2].questions[0].correct}`}
                       </strong>
-                      <div style={{ marginTop: 2, color: 'var(--text-secondary)' }}>
+                      <div style={{ marginTop: 2, color: '#202020' }}>
                         {guideData.interactiveDrills[2].questions[0].explanation}
                       </div>
                     </div>
@@ -937,8 +1006,8 @@ export function ReadingPracticeView() {
                     <button
                       type="button"
                       onClick={handlePracticeCta}
-                      className={`btn btn-sm ${book.isForthcoming ? 'btn-secondary' : 'btn-primary'}`}
-                      style={{ marginTop: 'auto', borderRadius: 0, justifyContent: 'center' }}
+                      className="btn btn-sm"
+                      style={{ marginTop: 'auto', borderRadius: 0, justifyContent: 'center', backgroundColor: "#F6BD28", color: "#202020", border: "1px solid #E5AC1A", fontWeight: 700 }}
                     >
                       {book.isForthcoming ? 'View Syllabus' : 'Practice in Dashboard'} &rarr;
                     </button>
@@ -963,7 +1032,7 @@ export function ReadingPracticeView() {
                     <strong style={{ fontSize: '1rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 8 }}>
                       <HelpCircle size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} /> {faq.q}
                     </strong>
-                    <p style={{ margin: '8px 0 0', fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                    <p style={{ margin: '8px 0 0', fontSize: '0.92rem', color: '#202020', lineHeight: 1.6 }}>
                       {faq.a}
                     </p>
                   </div>

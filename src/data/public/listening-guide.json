@@ -887,8 +887,8 @@
   ],
   "hero": {
     "categoryBadge": "IELTS Academic",
-    "headline": "IELTS Listening Practice & Complete Preparation Guide",
-    "subheadline": "Master all 4 listening sections, authentic British/Australian accents, and every question format. Practice with 52 graded mock tests calibrated directly against official Cambridge band criteria.",
+    "headline": "Master IELTS Academic Listening",
+    "subheadline": "Practice with 52 authentic Cambridge-calibrated mock tests, master audio distractors across British, Australian, and North American accents, and train under real examination conditions.",
     "stats": [
       {
         "label": "Full Audio Sections",
@@ -931,7 +931,7 @@
     },
     {
       "id": "test-format",
-      "label": "Test Format & Rules"
+      "label": "Official Exam Regulations"
     },
     {
       "id": "four-sections",
@@ -942,16 +942,8 @@
       "label": "9 Question Formats"
     },
     {
-      "id": "sample-visuals",
-      "label": "Sample Visual Layouts"
-    },
-    {
       "id": "scoring-band",
-      "label": "Scoring & Band Conversion"
-    },
-    {
-      "id": "tips-strategies",
-      "label": "Listening Tips & Traps"
+      "label": "Score & Band Conversion"
     },
     {
       "id": "free-resources",

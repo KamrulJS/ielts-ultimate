@@ -28,7 +28,6 @@ import {
   Sparkles,
   Lock,
   ArrowUpRight,
-  Sliders,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import listeningData from '@/data/public/listening-guide.json';
@@ -48,8 +47,11 @@ export function ListeningPracticeView() {
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(10);
 
-  // Question Types Expandable
-  const [expandedQType, setExpandedQType] = useState('multiple-choice');
+  // Core Strategy Accordion State (independent per question type, collapsed by default)
+  const [openStrategies, setOpenStrategies] = useState({});
+  const toggleStrategy = (id) => {
+    setOpenStrategies((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   // FAQs Accordion State
   const [openFaq, setOpenFaq] = useState(0);
@@ -101,59 +103,37 @@ export function ListeningPracticeView() {
 
   // Auth routing logic: Redirect to login or go straight to protected module
   const handleProtectedPractice = (targetPath = '/listening') => {
-    if (auth?.isAuthenticated) {
+    if (auth.isAuthenticated) {
       router.push(targetPath);
     } else {
       router.push(`/login?next=${encodeURIComponent(targetPath)}`);
     }
   };
 
-  // Filtered mock tests
+  // Filtered Mock Tests
   const filteredTests = useMemo(() => {
     return listeningData.mockTests.filter((test) => {
-      const matchesSection = selectedTab === 'all' || test.section === Number(selectedTab);
-      const matchesSearch =
-        searchQuery.trim() === '' ||
-        test.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        test.context.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        test.accent.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesSection && matchesSearch;
+      const matchTab = selectedTab === 'all' || test.section === selectedTab;
+      const q = searchQuery.trim().toLowerCase();
+      const matchSearch =
+        !q ||
+        test.title.toLowerCase().includes(q) ||
+        test.accent.toLowerCase().includes(q) ||
+        test.context.toLowerCase().includes(q);
+      return matchTab && matchSearch;
     });
   }, [selectedTab, searchQuery]);
 
-  // Audio simulation synthesizer tone
-  const playSynthesizedVoiceCue = (isDrill1 = true) => {
-    if (typeof window === 'undefined') return;
-    try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) return;
-      const ctx = new AudioContext();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = isDrill1 ? 'sine' : 'triangle';
-      osc.frequency.setValueAtTime(isDrill1 ? 440 : 523.25, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(isDrill1 ? 880 : 659.25, ctx.currentTime + 0.35);
-      gain.gain.setValueAtTime(0.12, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.45);
-    } catch {
-      // AudioContext not allowed before user interaction
-    }
-  };
-
+  // Audio simulation handlers for client-side drills
   const toggleDrill1Audio = () => {
     if (drill1Playing) {
       setDrill1Playing(false);
       if (drill1AudioTimerRef.current) clearTimeout(drill1AudioTimerRef.current);
     } else {
       setDrill1Playing(true);
-      playSynthesizedVoiceCue(true);
       drill1AudioTimerRef.current = setTimeout(() => {
         setDrill1Playing(false);
-      }, 15000);
+      }, 14000);
     }
   };
 
@@ -163,14 +143,19 @@ export function ListeningPracticeView() {
       if (drill2AudioTimerRef.current) clearTimeout(drill2AudioTimerRef.current);
     } else {
       setDrill2Playing(true);
-      playSynthesizedVoiceCue(false);
       drill2AudioTimerRef.current = setTimeout(() => {
         setDrill2Playing(false);
-      }, 12000);
+      }, 16000);
     }
   };
 
-  // Evaluation for Drill 1
+  useEffect(() => {
+    return () => {
+      if (drill1AudioTimerRef.current) clearTimeout(drill1AudioTimerRef.current);
+      if (drill2AudioTimerRef.current) clearTimeout(drill2AudioTimerRef.current);
+    };
+  }, []);
+
   const checkDrill1 = () => {
     setDrill1Submitted(true);
   };
@@ -180,7 +165,6 @@ export function ListeningPracticeView() {
     setDrill1Submitted(false);
   };
 
-  // Evaluation for Drill 2
   const checkDrill2 = () => {
     setDrill2Submitted(true);
   };
@@ -191,7 +175,7 @@ export function ListeningPracticeView() {
   };
 
   return (
-    <div className={styles.pageWrapper}>
+    <div style={{ background: '#FAF9F5', minHeight: '100vh', paddingTop: 20 }}>
       <div className={styles.container}>
         {/* Mobile / Tablet Sticky Collapsible Table of Contents Bar */}
         <div className={styles.mobileTocStickyWrapper}>
@@ -202,8 +186,8 @@ export function ListeningPracticeView() {
             aria-expanded={mobileTocOpen}
           >
             <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <List size={16} color="var(--accent-purple, #8867B8)" />
-              <span>Table of Contents ({listeningData.toc.find((t) => t.id === activeToc)?.label || 'Menu'})</span>
+              <List size={16} color="#8867B8" />
+              <span>Table of Contents ({listeningData.toc.length} Sections)</span>
             </span>
             {mobileTocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
@@ -225,22 +209,37 @@ export function ListeningPracticeView() {
           )}
         </div>
 
-        {/* SECTION A: HERO BANNER (Overview) - Placed Full Width across Top */}
+        {/* 1. HERO SECTION (Overview & Metrics) - Completely Transparent over #FAF9F5 */}
         <section id="overview" className={`${styles.contentSection} ${styles.heroBanner}`}>
           <div className={styles.heroLeft}>
             <div className={styles.badgeRow}>
-              <span className="badge badge-yellow" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0 }}>
                 <Headphones size={13} />
-                {listeningData.hero.categoryBadge}
+                IELTS Academic
               </span>
-              <span className="badge badge-neutral">Calibrated to Cambridge Rubrics</span>
+              <span
+                style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  color: '#4A4A4A',
+                  background: '#FFFFFF',
+                  padding: '4px 10px',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                }}
+              >
+                Cambridge Calibrated
+              </span>
             </div>
 
-            <h1 className={styles.heroHeading}>{listeningData.hero.headline}</h1>
+            <h1 className={styles.heroHeading}>
+              Master IELTS Academic <span style={{ color: '#8867B8' }}>Listening</span>
+            </h1>
 
-            <p className={styles.heroSubtext}>{listeningData.hero.subheadline}</p>
+            <p className={styles.heroSubtext}>
+              Practice with 52 authentic Cambridge-calibrated mock tests, master audio distractors across British, Australian, and North American accents, and train under real examination conditions.
+            </p>
 
-            {/* 4 Stats Grid */}
+            {/* 4 Stats Grid - Soft Highlight Tiles */}
             <div className={styles.statsBar}>
               {listeningData.hero.stats.map((s, idx) => (
                 <div key={idx} className={styles.statItem}>
@@ -256,8 +255,7 @@ export function ListeningPracticeView() {
               <button
                 type="button"
                 onClick={() => handleProtectedPractice(listeningData.hero.primaryCta.target)}
-                className="btn btn-primary"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                className={styles.heroPrimaryBtn}
               >
                 <span>{listeningData.hero.primaryCta.label}</span>
                 <ArrowRight size={16} />
@@ -266,72 +264,41 @@ export function ListeningPracticeView() {
               <button
                 type="button"
                 onClick={() => handleScrollTo('mock-tests')}
-                className="btn btn-secondary"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                className={styles.heroSecondaryBtn}
               >
-                <span>{listeningData.hero.secondaryCta.label}</span>
+                <span>Explore Mock Tests</span>
                 <ChevronDown size={15} />
               </button>
             </div>
           </div>
 
-          {/* Right Hero Visual Card with AI-Generated Asset */}
+          {/* Right Hero Visual - Large Transparent AI-Generated Illustration */}
           <div className={styles.heroRight}>
-            <div className={styles.heroImageCard}>
-              <div className={styles.heroImageTopBar}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <Volume2 size={14} color="#F6BD28" />
-                  <span>IELTS WIST Exam Simulation Mode</span>
-                </span>
-                <span style={{ color: '#F6BD28', fontSize: '0.74rem' }}>30:00 Audio Track</span>
-              </div>
-
-              <Image
-                src="/images/listening/listening-hero.jpg"
-                alt="IELTS Listening Test Simulation Interface"
-                width={520}
-                height={300}
-                className={styles.heroImagePreview}
-                priority
-              />
-
-              <div className={styles.heroImageFooter}>
-                <span style={{ color: 'var(--text-secondary, #5F5E5B)' }}>4 Sections • 40 Questions</span>
-                <button
-                  type="button"
-                  onClick={() => handleProtectedPractice('/listening')}
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    color: 'var(--accent-purple, #8867B8)',
-                    fontWeight: 600,
-                    fontSize: '0.8rem',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span>Launch Interface</span>
-                  <ArrowUpRight size={14} />
-                </button>
-              </div>
-            </div>
+            <Image
+              src="/images/hero/ielts-listening-hero.png"
+              alt="IELTS Academic Listening Preparation Illustration"
+              width={540}
+              height={420}
+              className={styles.heroTransparentImg}
+              priority
+            />
           </div>
         </section>
 
-        {/* 2-Column Desktop Layout starting at Section B (Mock Tests) */}
-        <div className={styles.layoutGrid} style={{ marginTop: 24 }}>
+        {/* 2-Column Desktop Layout */}
+        <div className={styles.layoutGrid} style={{ marginTop: 28 }}>
           {/* Main Content Column */}
           <main className={styles.mainColumn}>
-            {/* SECTION B: MOCK TEST LIBRARY (52 TESTS) */}
+            {/* 2. MOCK TEST LIBRARY (52 TESTS) */}
             <section id="mock-tests" className={styles.contentSection}>
               <div className={styles.testLibraryHeader}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
                   <div>
-                    <span className="badge badge-purple" style={{ textTransform: 'uppercase' }}>52 Numbered Mock Tests</span>
-                    <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>IELTS Listening Mock Test Library</h2>
-                    <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                    <span className={styles.sectionIndicatorBadge}>52 NUMBERED MOCK TESTS</span>
+                    <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                      IELTS Listening Mock Test Library
+                    </h2>
+                    <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                       Choose from 52 authentic mock test sets partitioned across Section 1, 2, 3, and 4. All cards connect directly to your protected student practice environment.
                     </p>
                   </div>
@@ -340,7 +307,7 @@ export function ListeningPracticeView() {
                     type="button"
                     onClick={() => handleProtectedPractice('/listening')}
                     className="btn btn-outline btn-sm"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, borderRadius: 0, fontWeight: 700 }}
                   >
                     <Lock size={13} />
                     <span>Open Dashboard Hub</span>
@@ -389,7 +356,7 @@ export function ListeningPracticeView() {
                 {/* Search & Filter Bar */}
                 <div className={styles.searchFilterRow}>
                   <div className={styles.searchBox}>
-                    <Search size={16} color="var(--text-muted, #707070)" />
+                    <Search size={16} color="#707070" />
                     <input
                       type="text"
                       placeholder="Search mock tests by topic, accent, or context..."
@@ -414,43 +381,34 @@ export function ListeningPracticeView() {
                 </div>
               </div>
 
-              {/* Compact Test Cards Grid */}
+              {/* Mock Test Cards Grid - #FEF6DD Branded Cards */}
               <div className={styles.testCardsGrid}>
                 {filteredTests.slice(0, visibleCount).map((test) => (
                   <div key={test.id} className={styles.testCard}>
                     <div>
                       <div className={styles.testCardHeader}>
                         <span className={styles.testNumberBadge}>Mock Test {test.padNumber}</span>
-                        <span
-                          style={{
-                            fontSize: '0.68rem',
-                            fontWeight: 600,
-                            color: 'var(--text-muted, #707070)',
-                            background: 'var(--bg-warm, #F1EFE6)',
-                            padding: '2px 6px',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.04em',
-                          }}
-                        >
+                        {/* Accent label in #8867B8 text only with transparent background */}
+                        <span className={styles.testAccentTag}>
                           {test.accent}
                         </span>
                       </div>
 
-                      <h3 className={styles.testCardTitle} style={{ marginTop: 8 }}>
+                      <h3 className={styles.testCardTitle} style={{ marginTop: 10 }}>
                         {test.title}
                       </h3>
                     </div>
 
                     <div>
-                      <div className={styles.testMetaRow} style={{ marginBottom: 10 }}>
+                      <div className={styles.testMetaRow} style={{ marginBottom: 12 }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                          <Clock size={12} color="var(--accent-purple, #8867B8)" />
-                          <span>30 Mins</span>
+                          <Clock size={13} color="#8867B8" />
+                          <span style={{ fontWeight: 600 }}>30 Mins</span>
                         </span>
                         <span
                           style={{
-                            fontSize: '0.72rem',
-                            fontWeight: 600,
+                            fontSize: '0.74rem',
+                            fontWeight: 700,
                             color: test.section === 1 ? '#047857' : test.section === 2 ? '#B45309' : test.section === 3 ? '#4338CA' : '#7C2D12',
                           }}
                         >
@@ -462,11 +420,10 @@ export function ListeningPracticeView() {
                         <button
                           type="button"
                           onClick={() => handleProtectedPractice(test.dashboardPath)}
-                          className="btn btn-sm btn-primary"
-                          style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: '0.8rem', padding: '7px 12px' }}
+                          className={styles.testPracticeBtn}
                         >
                           <span>Practice Test</span>
-                          <ArrowRight size={13} />
+                          <ArrowRight size={14} />
                         </button>
                       </div>
                     </div>
@@ -481,7 +438,7 @@ export function ListeningPracticeView() {
                     type="button"
                     onClick={() => setVisibleCount((prev) => Math.min(prev + 10, filteredTests.length))}
                     className="btn btn-primary"
-                    style={{ minWidth: 240 }}
+                    style={{ minWidth: 240, borderRadius: 0, backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700 }}
                   >
                     Load More Mock Tests ({filteredTests.length - visibleCount} remaining)
                   </button>
@@ -489,12 +446,14 @@ export function ListeningPracticeView() {
               )}
             </section>
 
-            {/* SECTION C: TEST FORMAT & EXAMINATION RULES */}
+            {/* 3. OFFICIAL EXAMINATION REGULATIONS */}
             <section id="test-format" className={styles.contentSection}>
               <div>
-                <span className="badge badge-yellow">Official Examination Regulations</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>IELTS Listening Examination Format & Rules</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>OFFICIAL EXAMINATION REGULATIONS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Listening Examination Format & Rules
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   {listeningData.formatRules.summary}
                 </p>
               </div>
@@ -503,14 +462,18 @@ export function ListeningPracticeView() {
                 {listeningData.formatRules.cards.map((card, idx) => (
                   <div key={idx} className={styles.formatCard}>
                     <div className={styles.formatCardTop}>
-                      <h3 className={styles.formatCardTitle}>
-                        {idx === 0 && <Layers size={18} color="var(--accent-purple, #8867B8)" />}
-                        {idx === 1 && <Clock size={18} color="#B45309" />}
-                        {idx === 2 && <Globe size={18} color="#047857" />}
-                        {idx === 3 && <AlertTriangle size={18} color="#DC2626" />}
-                        <span>{card.title}</span>
-                      </h3>
-                      <span className="badge badge-neutral" style={{ fontSize: '0.74rem' }}>{card.badge}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div className={styles.formatIconBox}>
+                          {idx === 0 && <Layers size={24} color="#8867B8" />}
+                          {idx === 1 && <Clock size={24} color="#B45309" />}
+                          {idx === 2 && <Globe size={24} color="#047857" />}
+                          {idx === 3 && <AlertTriangle size={24} color="#DC2626" />}
+                        </div>
+                        <h3 className={styles.formatCardTitle}>{card.title}</h3>
+                      </div>
+                      <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.7rem' }}>
+                        {card.badge}
+                      </span>
                     </div>
 
                     <ul className={styles.formatPointsList}>
@@ -523,12 +486,14 @@ export function ListeningPracticeView() {
               </div>
             </section>
 
-            {/* SECTION D: FOUR SECTIONS EXPLAINED */}
+            {/* 4. FOUR LISTENING SECTIONS EXPLAINED */}
             <section id="four-sections" className={styles.contentSection}>
               <div>
-                <span className="badge badge-purple">In-Depth Structural Breakdown</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>The Four Listening Sections Explained</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>FOUR LISTENING SECTIONS EXPLAINED</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  The Four Listening Sections Explained
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Each of the four listening parts presents distinct conversational dynamics, vocabulary demands, and testing purposes.
                 </p>
               </div>
@@ -538,19 +503,19 @@ export function ListeningPracticeView() {
                   <div key={sec.section} className={styles.sectionExplainCard}>
                     <div className={styles.sectionMetaBox}>
                       <span className={styles.sectionNumberBadge}>0{sec.section}</span>
-                      <strong style={{ fontSize: '0.96rem', color: 'var(--text-primary, #202020)' }}>
+                      <strong style={{ fontSize: '0.98rem', color: '#202020' }}>
                         {sec.speakers}
                       </strong>
-                      <span className="text-xs text-muted">10 Questions</span>
+                      <span style={{ fontSize: '0.8rem', color: '#4A4A4A', fontWeight: 600 }}>10 Questions</span>
                     </div>
 
                     <div className={styles.sectionDetailBody}>
                       <h3 className={styles.sectionDetailTitle}>{sec.title}</h3>
-                      <p className="text-sm" style={{ color: 'var(--text-secondary, #4A4A4A)', margin: 0 }}>
+                      <p style={{ color: '#202020', margin: 0, fontSize: '0.92rem', lineHeight: 1.55 }}>
                         {sec.description}
                       </p>
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.84rem' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.86rem', color: '#202020' }}>
                         <div><strong>Typical Context:</strong> {sec.context}</div>
                         <div><strong>Common Question Formats:</strong> {sec.typicalQuestions.join(', ')}</div>
                         <div><strong>Key Test Focus:</strong> {sec.keyFocus}</div>
@@ -565,12 +530,14 @@ export function ListeningPracticeView() {
               </div>
             </section>
 
-            {/* SECTION E: 9 QUESTION TYPES */}
+            {/* 5. COMPLETE QUESTION TYPE SYLLABUS - Accordion for Core Strategy */}
             <section id="question-types" className={styles.contentSection}>
               <div>
-                <span className="badge badge-yellow">Complete Question Type Syllabus</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>9 IELTS Listening Question Formats</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>COMPLETE QUESTION TYPE SYLLABUS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  9 IELTS Listening Question Formats
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Master the specific answering strategy and distractor avoidance technique required for each of the 9 official question types.
                 </p>
               </div>
@@ -585,129 +552,55 @@ export function ListeningPracticeView() {
 
                     <p className={styles.qTypeDesc}>{q.description}</p>
 
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary, #5F5E5B)', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <div style={{ fontSize: '0.84rem', color: '#202020', display: 'flex', flexDirection: 'column', gap: 4 }}>
                       <div><strong>Format:</strong> {q.format}</div>
                       <div><strong>Mechanism:</strong> {q.howItWorks}</div>
                     </div>
 
-                    <div className={styles.qTypeStrategyBox}>
-                      <div style={{ fontWeight: 700, color: 'var(--accent-purple, #8867B8)', marginBottom: 2 }}>
-                        ✓ Core Strategy:
-                      </div>
-                      <div>{q.strategy}</div>
-                      <div style={{ marginTop: 6, color: '#DC2626', fontWeight: 600 }}>
-                        ⚠ Common Trap: {q.commonPitfall}
-                      </div>
+                    {/* Core Strategy Accordion Toggle */}
+                    <div>
+                      <button
+                        type="button"
+                        onClick={() => toggleStrategy(q.id)}
+                        className={styles.strategyAccordionToggle}
+                        aria-expanded={!!openStrategies[q.id]}
+                      >
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#8867B8' }}>
+                          <Sparkles size={14} color="#8867B8" />
+                          <span>Core Strategy &amp; Pitfalls</span>
+                        </span>
+                        {openStrategies[q.id] ? (
+                          <ChevronUp size={15} color="#8867B8" />
+                        ) : (
+                          <ChevronDown size={15} color="#707070" />
+                        )}
+                      </button>
+
+                      {openStrategies[q.id] && (
+                        <div className={styles.strategyAccordionContent}>
+                          <div style={{ fontWeight: 700, color: '#8867B8', marginBottom: 4 }}>
+                            ✓ Strategy:
+                          </div>
+                          <div>{q.strategy}</div>
+                          <div style={{ marginTop: 8, color: '#DC2626', fontWeight: 600 }}>
+                            ⚠ Common Trap: {q.commonPitfall}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* SECTION F: SAMPLE VISUAL LAYOUTS */}
-            <section id="sample-visuals" className={styles.contentSection}>
-              <div>
-                <span className="badge badge-purple">Real Exam Visual Layouts</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>Sample Question Schematics & Diagrams</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
-                  Familiarize yourself with authentic form completion cards, botanical map plans, and process flow-charts before test day.
-                </p>
-              </div>
-
-              <div className={styles.sampleVisualsGrid}>
-                {/* Visual Sample 1: Form Completion */}
-                <div className={styles.sampleMockupCard}>
-                  <div className={styles.mockupHeader}>
-                    <span className="badge badge-neutral" style={{ fontSize: '0.72rem' }}>Section 1 Schematic</span>
-                    <h3 className={styles.mockupTitle} style={{ marginTop: 6 }}>Form Completion</h3>
-                    <div className={styles.mockupInstruction}>Write NO MORE THAN TWO WORDS AND/OR A NUMBER.</div>
-                  </div>
-
-                  <div className={styles.mockupBody}>
-                    <div className={styles.mockupFieldRow}>
-                      <span className={styles.mockupFieldLabel}>Applicant Name:</span>
-                      <span>Emily HARPER</span>
-                    </div>
-                    <div className={styles.mockupFieldRow}>
-                      <span className={styles.mockupFieldLabel}>Contact Phone:</span>
-                      <span className={styles.mockupFieldValue}>07849 [ Q1 ]</span>
-                    </div>
-                    <div className={styles.mockupFieldRow}>
-                      <span className={styles.mockupFieldLabel}>Preferred Activity:</span>
-                      <span className={styles.mockupFieldValue}>Evening [ Q2 ]</span>
-                    </div>
-                    <div className={styles.mockupFieldRow}>
-                      <span className={styles.mockupFieldLabel}>Payment Method:</span>
-                      <span className={styles.mockupFieldValue}>[ Q3 ] debit</span>
-                    </div>
-                    <div className={styles.mockupFieldRow}>
-                      <span className={styles.mockupFieldLabel}>Locker Code:</span>
-                      <span className={styles.mockupFieldValue}>[ Q4 ]</span>
-                    </div>
-                  </div>
-
-                  <p className={styles.mockupInsight}>
-                    <strong>Insight:</strong> Focus on spelling digit sequences without transposing numbers (e.g. 14 vs 40).
-                  </p>
-                </div>
-
-                {/* Visual Sample 2: Map Labelling */}
-                <div className={styles.sampleMockupCard}>
-                  <div className={styles.mockupHeader}>
-                    <span className="badge badge-neutral" style={{ fontSize: '0.72rem' }}>Section 2 Schematic</span>
-                    <h3 className={styles.mockupTitle} style={{ marginTop: 6 }}>Plan & Map Labelling</h3>
-                    <div className={styles.mockupInstruction}>Write the correct letter, A–F, next to questions 11–14.</div>
-                  </div>
-
-                  <div className={styles.mockupBody}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, textAlign: 'center' }}>
-                      <div style={{ background: '#E2DDD1', padding: '10px 4px', fontWeight: 700 }}>[ A ] Rose Arbour</div>
-                      <div style={{ background: '#FAF9F5', border: '1px dashed #CCC', padding: '10px 4px' }}>Main Path</div>
-                      <div style={{ background: '#E2DDD1', padding: '10px 4px', fontWeight: 700 }}>[ B ] Herb Garden</div>
-                      <div style={{ background: '#E2DDD1', padding: '10px 4px', fontWeight: 700 }}>[ C ] Fern Glasshouse</div>
-                      <div style={{ background: '#F6BD28', color: '#1A1A1A', padding: '10px 4px', fontWeight: 700 }}>[ F ] START HERE</div>
-                      <div style={{ background: '#E2DDD1', padding: '10px 4px', fontWeight: 700 }}>[ D ] Bird Tower</div>
-                    </div>
-                  </div>
-
-                  <p className={styles.mockupInsight}>
-                    <strong>Insight:</strong> Locate the entrance point [F] immediately and mentally face in the direction the speaker walks.
-                  </p>
-                </div>
-
-                {/* Visual Sample 3: Flow-Chart Completion */}
-                <div className={styles.sampleMockupCard}>
-                  <div className={styles.mockupHeader}>
-                    <span className="badge badge-neutral" style={{ fontSize: '0.72rem' }}>Section 3 Schematic</span>
-                    <h3 className={styles.mockupTitle} style={{ marginTop: 6 }}>Flow-Chart Process</h3>
-                    <div className={styles.mockupInstruction}>Write NO MORE THAN ONE WORD for each answer.</div>
-                  </div>
-
-                  <div className={styles.mockupBody}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6, textAlign: 'center' }}>
-                      <div style={{ background: '#FFFFFF', border: '1px solid #E2DDD1', padding: '6px' }}>Step 1: Optical [ Q21 ]</div>
-                      <div style={{ fontSize: '0.8rem', color: '#888' }}>↓</div>
-                      <div style={{ background: '#FFFFFF', border: '1px solid #E2DDD1', padding: '6px' }}>Step 2: Wash residual [ Q22 ]</div>
-                      <div style={{ fontSize: '0.8rem', color: '#888' }}>↓</div>
-                      <div style={{ background: '#FFFFFF', border: '1px solid #E2DDD1', padding: '6px' }}>Step 3: 5mm plastic [ Q23 ]</div>
-                      <div style={{ fontSize: '0.8rem', color: '#888' }}>↓</div>
-                      <div style={{ background: '#FFFFFF', border: '1px solid #E2DDD1', padding: '6px' }}>Step 4: Synthetic [ Q24 ]</div>
-                    </div>
-                  </div>
-
-                  <p className={styles.mockupInsight}>
-                    <strong>Insight:</strong> Flow-charts test chronological order. Transition words like &apos;subsequently&apos; signal the next step.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION G: SCORING & BAND CONVERSION TABLE */}
+            {/* 6. SCORE AND BAND SCORE CONVERSION - Clean 3-Column Layout */}
             <section id="scoring-band" className={styles.contentSection}>
               <div>
-                <span className="badge badge-yellow">Official Scoring Metrics</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>IELTS Listening Raw Score to Band Conversion</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>SCORE &amp; BAND SCORE CONVERSION</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Listening Raw Score to Band Conversion
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Each of the 40 questions carries exactly 1 mark. There is no negative marking for incorrect answers.
                 </p>
               </div>
@@ -716,19 +609,17 @@ export function ListeningPracticeView() {
                 <table className={styles.scoringTable}>
                   <thead>
                     <tr>
-                      <th>Raw Score (out of 40)</th>
-                      <th>IELTS Band Score</th>
-                      <th>Candidate Skill Level</th>
-                      <th>Performance Descriptor</th>
+                      <th style={{ width: '30%' }}>Raw Score (out of 40)</th>
+                      <th style={{ width: '30%' }}>IELTS Band Score</th>
+                      <th style={{ width: '40%' }}>Candidate Skill Level</th>
                     </tr>
                   </thead>
                   <tbody>
                     {listeningData.scoringTable.map((row, idx) => (
                       <tr key={idx}>
-                        <td style={{ fontWeight: 600 }}>{row.raw}</td>
+                        <td style={{ fontWeight: 700, fontSize: '1.05rem', color: '#202020' }}>{row.raw}</td>
                         <td className={styles.bandCell}>Band {row.band}</td>
-                        <td style={{ fontWeight: 600, color: 'var(--text-primary, #202020)' }}>{row.level}</td>
-                        <td>{row.desc}</td>
+                        <td style={{ fontWeight: 600, color: '#202020', fontSize: '0.92rem' }}>{row.level}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -740,43 +631,14 @@ export function ListeningPracticeView() {
               </div>
             </section>
 
-            {/* SECTION H: TIPS & STRATEGIES */}
-            <section id="tips-strategies" className={styles.contentSection}>
-              <div>
-                <span className="badge badge-purple">High-Band Tactics</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>Listening Tips, Strategies & Distractor Traps</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
-                  Execute a disciplined 3-phase listening protocol before, during, and after audio playback to prevent losing easy marks.
-                </p>
-              </div>
-
-              <div className={styles.tipsCategoryStack}>
-                {listeningData.tipsAndStrategies.map((cat, idx) => (
-                  <div key={idx} className={styles.tipsCategoryCard}>
-                    <h3 className={styles.tipsCategoryTitle}>
-                      <span className="badge badge-neutral" style={{ fontSize: '0.74rem' }}>Phase 0{idx + 1}</span>
-                      <span>{cat.category}</span>
-                    </h3>
-
-                    <div className={styles.tipsGrid}>
-                      {cat.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className={styles.tipItem}>
-                          <h4 className={styles.tipItemTitle}>{item.title}</h4>
-                          <p className={styles.tipItemDesc}>{item.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* SECTION I: OFFICIAL FREE RESOURCES */}
+            {/* 7. OFFICIAL FREE RESOURCES (No Promotional "Verified Practice Portal" label) */}
             <section id="free-resources" className={styles.contentSection}>
               <div>
-                <span className="badge badge-yellow">Verified Practice Portals</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>Official Free Practice Resources</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>OFFICIAL EDUCATIONAL RESOURCES</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  Official Free Practice Resources
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Access authentic listening papers, audio samples, and accent training podcasts directly from official testing bodies and premier language archives.
                 </p>
               </div>
@@ -786,7 +648,9 @@ export function ListeningPracticeView() {
                   <div key={idx} className={styles.resourceCard}>
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                        <span className="badge badge-neutral" style={{ fontSize: '0.7rem' }}>{res.type}</span>
+                        <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.68rem' }}>
+                          {res.type}
+                        </span>
                         <span className={styles.resourceProvider}>{res.provider}</span>
                       </div>
 
@@ -799,7 +663,7 @@ export function ListeningPracticeView() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-outline btn-sm"
-                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 10 }}
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 10, borderRadius: 0, fontWeight: 700 }}
                     >
                       <span>Access Resource</span>
                       <ExternalLink size={13} />
@@ -809,12 +673,14 @@ export function ListeningPracticeView() {
               </div>
             </section>
 
-            {/* SECTION J: INTERACTIVE PRACTICE DRILL */}
+            {/* 8. INTERACTIVE PRACTICE MINI-DRILLS */}
             <section id="interactive-drill" className={styles.contentSection}>
               <div>
-                <span className="badge badge-purple">No Login Required • Try Right Now</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>Interactive Listening Practice Mini-Drills</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>INTERACTIVE LISTENING PRACTICE</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  Interactive Listening Practice Mini-Drills
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Test your active listening and distractor detection skills with two instant client-side practice exercises.
                 </p>
               </div>
@@ -824,17 +690,17 @@ export function ListeningPracticeView() {
                 <div className={styles.interactiveCard}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 10 }}>
                     <div>
-                      <span className="badge badge-yellow">Drill 1 • Section 1</span>
-                      <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 2px 0' }}>
+                      <span className={styles.sectionIndicatorBadge}>Drill 1 • Section 1</span>
+                      <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 2px 0', color: '#202020' }}>
                         {listeningData.interactiveDrills[0].title}
                       </h3>
-                      <p className="text-xs text-muted" style={{ margin: 0 }}>
+                      <p style={{ margin: 0, fontSize: '0.84rem', color: '#4A4A4A' }}>
                         {listeningData.interactiveDrills[0].instruction}
                       </p>
                     </div>
 
                     {drill1Submitted && (
-                      <button type="button" onClick={resetDrill1} className="btn btn-outline btn-sm">
+                      <button type="button" onClick={resetDrill1} className="btn btn-outline btn-sm" style={{ borderRadius: 0 }}>
                         Reset Exercise
                       </button>
                     )}
@@ -874,8 +740,8 @@ export function ListeningPracticeView() {
 
                   {drill1Transcript && (
                     <div className={styles.transcriptBox}>
-                      <strong>Audio Recording Script:</strong>
-                      <p style={{ margin: '8px 0 0 0' }}>{listeningData.interactiveDrills[0].audioTranscript}</p>
+                      <strong style={{ color: '#202020' }}>Audio Recording Script:</strong>
+                      <p style={{ margin: '8px 0 0 0', color: '#202020' }}>{listeningData.interactiveDrills[0].audioTranscript}</p>
                     </div>
                   )}
 
@@ -887,7 +753,7 @@ export function ListeningPracticeView() {
 
                       return (
                         <div key={q.id} className={styles.drillFieldBox}>
-                          <label style={{ fontSize: '0.85rem', fontWeight: 600 }}>{q.label}</label>
+                          <label style={{ fontSize: '0.88rem', fontWeight: 700, color: '#202020' }}>{q.label}</label>
                           <input
                             type="text"
                             placeholder="Type your answer here..."
@@ -896,22 +762,21 @@ export function ListeningPracticeView() {
                               setDrill1Answers((prev) => ({ ...prev, [q.id]: e.target.value }))
                             }
                             disabled={drill1Submitted}
-                            className={`${styles.drillInput} ${
-                              drill1Submitted
+                            className={`${styles.drillInput} ${drill1Submitted
                                 ? isCorrect
                                   ? styles.drillInputCorrect
                                   : styles.drillInputIncorrect
                                 : ''
-                            }`}
+                              }`}
                           />
                           {drill1Submitted && (
-                            <div style={{ fontSize: '0.78rem', marginTop: 2, display: 'flex', alignItems: 'center', gap: 4 }}>
+                            <div style={{ fontSize: '0.8rem', marginTop: 2, display: 'flex', alignItems: 'center', gap: 4 }}>
                               {isCorrect ? (
-                                <span style={{ color: '#059669', display: 'flex', alignItems: 'center', gap: 4 }}>
+                                <span style={{ color: '#059669', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}>
                                   <CheckCircle2 size={13} /> Correct! ({q.explanation})
                                 </span>
                               ) : (
-                                <span style={{ color: '#DC2626', display: 'flex', alignItems: 'center', gap: 4 }}>
+                                <span style={{ color: '#DC2626', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}>
                                   <XCircle size={13} /> Accepted: &quot;{q.correctAnswers[0]}&quot; — {q.explanation}
                                 </span>
                               )}
@@ -925,19 +790,24 @@ export function ListeningPracticeView() {
                   {/* Actions */}
                   <div className={styles.drillFeedbackRow}>
                     {!drill1Submitted ? (
-                      <button type="button" onClick={checkDrill1} className="btn btn-primary btn-sm">
+                      <button
+                        type="button"
+                        onClick={checkDrill1}
+                        className="btn btn-primary btn-sm"
+                        style={{ backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700, borderRadius: 0 }}
+                      >
                         Check My Answers
                       </button>
                     ) : (
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <span className="badge badge-purple" style={{ fontSize: '0.82rem' }}>
+                        <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.82rem' }}>
                           Score: {
                             listeningData.interactiveDrills[0].questions.filter((q) =>
                               q.correctAnswers.some((ans) => (drill1Answers[q.id] || '').trim().toLowerCase() === ans.toLowerCase())
                             ).length
                           } / 4
                         </span>
-                        <span className="text-sm text-muted">
+                        <span style={{ fontSize: '0.88rem', color: '#202020', fontWeight: 600 }}>
                           {listeningData.interactiveDrills[0].questions.every((q) =>
                             q.correctAnswers.some((ans) => (drill1Answers[q.id] || '').trim().toLowerCase() === ans.toLowerCase())
                           )
@@ -953,17 +823,17 @@ export function ListeningPracticeView() {
                 <div className={styles.interactiveCard}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 10 }}>
                     <div>
-                      <span className="badge badge-purple">Drill 2 • Section 3 Multiple Choice</span>
-                      <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 2px 0' }}>
+                      <span className={styles.sectionIndicatorBadge}>Drill 2 • Section 3 Multiple Choice</span>
+                      <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 2px 0', color: '#202020' }}>
                         {listeningData.interactiveDrills[1].title}
                       </h3>
-                      <p className="text-xs text-muted" style={{ margin: 0 }}>
+                      <p style={{ margin: 0, fontSize: '0.84rem', color: '#4A4A4A' }}>
                         {listeningData.interactiveDrills[1].instruction}
                       </p>
                     </div>
 
                     {drill2Submitted && (
-                      <button type="button" onClick={resetDrill2} className="btn btn-outline btn-sm">
+                      <button type="button" onClick={resetDrill2} className="btn btn-outline btn-sm" style={{ borderRadius: 0 }}>
                         Reset Exercise
                       </button>
                     )}
@@ -987,6 +857,7 @@ export function ListeningPracticeView() {
                           <div className={styles.audioWaveBar} style={{ animationDelay: '0.3s' }} />
                           <div className={styles.audioWaveBar} style={{ animationDelay: '0.2s' }} />
                           <div className={styles.audioWaveBar} style={{ animationDelay: '0.4s' }} />
+                          <div className={styles.audioWaveBar} style={{ animationDelay: '0.15s' }} />
                         </div>
                       )}
                     </div>
@@ -1002,14 +873,14 @@ export function ListeningPracticeView() {
 
                   {drill2Transcript && (
                     <div className={styles.transcriptBox}>
-                      <strong>Audio Recording Script:</strong>
-                      <p style={{ margin: '8px 0 0 0' }}>{listeningData.interactiveDrills[1].audioTranscript}</p>
+                      <strong style={{ color: '#202020' }}>Audio Recording Script:</strong>
+                      <p style={{ margin: '8px 0 0 0', color: '#202020' }}>{listeningData.interactiveDrills[1].audioTranscript}</p>
                     </div>
                   )}
 
                   {/* Question Radio Options */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                    <p style={{ fontSize: '0.94rem', fontWeight: 600, margin: 0 }}>
+                    <p style={{ fontSize: '0.96rem', fontWeight: 700, margin: 0, color: '#202020' }}>
                       {listeningData.interactiveDrills[1].question.text}
                     </p>
 
@@ -1022,10 +893,11 @@ export function ListeningPracticeView() {
                             alignItems: 'center',
                             gap: 12,
                             padding: '10px 14px',
-                            background: drill2Selected === opt.letter ? '#F4F0FA' : '#FAF9F5',
-                            border: `1px solid ${drill2Selected === opt.letter ? 'var(--accent-purple, #8867B8)' : 'var(--border-color, #E2DDD1)'}`,
+                            background: drill2Selected === opt.letter ? '#F1E8FF' : '#FFFFFF',
+                            border: `1px solid ${drill2Selected === opt.letter ? '#8867B8' : '#E2DDD1'}`,
                             cursor: drill2Submitted ? 'default' : 'pointer',
-                            fontSize: '0.88rem',
+                            fontSize: '0.9rem',
+                            color: '#202020',
                           }}
                         >
                           <input
@@ -1036,10 +908,10 @@ export function ListeningPracticeView() {
                             onChange={() => !drill2Submitted && setDrill2Selected(opt.letter)}
                             disabled={drill2Submitted}
                           />
-                          <span style={{ fontWeight: 700, color: 'var(--accent-purple, #8867B8)' }}>
+                          <span style={{ fontWeight: 800, color: '#8867B8' }}>
                             {opt.letter}.
                           </span>
-                          <span>{opt.text}</span>
+                          <span style={{ fontWeight: drill2Selected === opt.letter ? 600 : 400 }}>{opt.text}</span>
                         </label>
                       ))}
                     </div>
@@ -1053,6 +925,7 @@ export function ListeningPracticeView() {
                         onClick={checkDrill2}
                         disabled={!drill2Selected}
                         className="btn btn-primary btn-sm"
+                        style={{ backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700, borderRadius: 0 }}
                       >
                         Check Multiple Choice Answer
                       </button>
@@ -1069,7 +942,7 @@ export function ListeningPracticeView() {
                             </span>
                           )}
                         </div>
-                        <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary, #5F5E5B)', margin: 0 }}>
+                        <p style={{ fontSize: '0.86rem', color: '#202020', margin: 0, lineHeight: 1.55 }}>
                           <strong>Distractor Breakdown:</strong> {listeningData.interactiveDrills[1].question.explanation}
                         </p>
                       </div>
@@ -1079,12 +952,14 @@ export function ListeningPracticeView() {
               </div>
             </section>
 
-            {/* SECTION K: FAQS */}
+            {/* 9. FAQS */}
             <section id="faqs" className={styles.contentSection}>
               <div>
-                <span className="badge badge-yellow">Frequently Answered Queries</span>
-                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6 }}>IELTS Listening FAQs</h2>
-                <p className="text-sm text-muted" style={{ margin: 0, maxWidth: 740 }}>
+                <span className={styles.sectionIndicatorBadge}>FREQUENTLY ASKED QUESTIONS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Listening FAQs
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Essential answers to the most common candidate questions regarding accents, scoring penalties, and test-day mechanics.
                 </p>
               </div>
@@ -1100,15 +975,15 @@ export function ListeningPracticeView() {
                     >
                       <span>{faq.q}</span>
                       {openFaq === idx ? (
-                        <ChevronUp size={16} color="var(--accent-purple, #8867B8)" />
+                        <ChevronUp size={16} color="#8867B8" />
                       ) : (
-                        <ChevronDown size={16} color="var(--text-muted, #707070)" />
+                        <ChevronDown size={16} color="#707070" />
                       )}
                     </button>
 
                     {openFaq === idx && (
                       <div className={styles.faqAnswerBox}>
-                        <p style={{ margin: 0 }}>{faq.a}</p>
+                        <p style={{ margin: 0, color: '#202020' }}>{faq.a}</p>
                       </div>
                     )}
                   </div>
@@ -1119,7 +994,9 @@ export function ListeningPracticeView() {
             {/* BOTTOM CALL TO ACTION BANNER */}
             <div className={styles.bottomCtaBanner}>
               <div className={styles.bottomCtaText}>
-                <span className="badge badge-yellow" style={{ alignSelf: 'flex-start' }}>Start Your Practice Today</span>
+                <span className={styles.sectionIndicatorBadge} style={{ alignSelf: 'flex-start', marginBottom: 0 }}>
+                  Start Your Practice Today
+                </span>
                 <h2 className={styles.bottomCtaHeading}>Ready to Achieve Band 8.0+ in IELTS Listening?</h2>
                 <p className={styles.bottomCtaDesc}>
                   Access our full suite of 52 timed exam simulations with instant automated marking, synchronized audio transcripts, and customized mistake review logs.
@@ -1132,14 +1009,15 @@ export function ListeningPracticeView() {
                 className="btn btn-primary"
                 style={{
                   background: '#F6BD28',
-                  color: '#1A1A1A',
-                  borderColor: '#F6BD28',
+                  color: '#202020',
+                  borderColor: '#E5AC1A',
                   padding: '14px 28px',
                   fontSize: '1rem',
                   fontWeight: 700,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 8,
+                  borderRadius: 0,
                 }}
               >
                 <span>Launch Listening Practice Hub</span>
@@ -1152,10 +1030,12 @@ export function ListeningPracticeView() {
           <aside className={styles.tocSidebar} aria-label="Table of Contents">
             <div className={styles.tocHeader}>
               <span className={styles.tocTitle}>
-                <List size={14} color="var(--accent-purple, #8867B8)" />
+                <List size={14} color="#8867B8" />
                 <span>On This Page</span>
               </span>
-              <span className="badge badge-neutral" style={{ fontSize: '0.68rem', padding: '2px 6px' }}>11 Parts</span>
+              <span className={styles.tocCountBadge}>
+                {listeningData.toc.length} Sections
+              </span>
             </div>
 
             <nav>
@@ -1171,7 +1051,7 @@ export function ListeningPracticeView() {
                         {item.label}
                       </span>
                       {activeToc === item.id && (
-                        <span style={{ fontSize: '0.7rem', color: 'var(--accent-purple, #8867B8)' }}>●</span>
+                        <span style={{ fontSize: '0.7rem', color: '#8867B8' }}>●</span>
                       )}
                     </button>
                   </li>
@@ -1184,7 +1064,7 @@ export function ListeningPracticeView() {
                 type="button"
                 onClick={() => handleProtectedPractice('/listening')}
                 className="btn btn-primary btn-sm"
-                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, borderRadius: 0, backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700 }}
               >
                 <Headphones size={14} />
                 <span>Practice Now</span>
