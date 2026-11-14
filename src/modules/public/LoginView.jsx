@@ -42,7 +42,7 @@ export function LoginView() {
   );
   const loginWithCredentials = app.loginWithCredentials || (() => ({ success: false }));
   const registerStudent = app.registerStudent || (() => ({ success: false }));
-  const logout = app.logout || (() => {});
+  const logout = app.logout || (() => { });
 
   const initialModeParam = searchParams?.get('mode');
   const initialRoleParam = searchParams?.get('role');
@@ -52,8 +52,8 @@ export function LoginView() {
     initialRoleParam === 'admin'
       ? 'admin'
       : initialModeParam === 'signup'
-      ? 'signup'
-      : 'student'
+        ? 'signup'
+        : 'student'
   );
 
   // Sign-in form (Supports Username OR Email in the same field)
@@ -61,7 +61,7 @@ export function LoginView() {
     if (typeof window !== 'undefined') {
       try {
         return window.localStorage.getItem(REMEMBERED_IDENTIFIER_KEY) || '';
-      } catch {}
+      } catch { }
     }
     return '';
   });
@@ -248,7 +248,7 @@ export function LoginView() {
           >
             <Sparkles size={16} strokeWidth={2.4} />
           </span>
-          <span>IELTS WIST</span>
+          <span>IELTS Ultimate</span>
         </Link>
 
         <Link href="/" className="btn btn-secondary btn-sm" style={{ borderRadius: 0 }}>
@@ -281,8 +281,8 @@ export function LoginView() {
               {tab === 'admin'
                 ? 'Admin Console Sign In'
                 : tab === 'signup'
-                ? 'Create Your IELTS Account'
-                : 'Sign In to Your Workspace'}
+                  ? 'Create Your IELTS Account'
+                  : 'Sign In to Your Workspace'}
             </h1>
             <p className="text-xs text-muted" style={{ marginTop: 6, lineHeight: 1.5 }}>
               {tab === 'admin'
@@ -617,8 +617,8 @@ export function LoginView() {
                   {loading
                     ? 'Authenticating...'
                     : tab === 'admin'
-                    ? 'Enter Admin Console'
-                    : 'Sign In to Workspace'}
+                      ? 'Enter Admin Console'
+                      : 'Sign In to Workspace'}
                 </span>
                 <ArrowRight size={15} />
               </button>
@@ -724,7 +724,7 @@ export function LoginView() {
       </Modal>
 
       <div className="text-xs text-muted" style={{ textAlign: 'center' }}>
-        IELTS WIST • Secure Authentication, PBKDF2 Password Hashing &amp; Role-Based Access Control
+        IELTS Ultimate • Secure Authentication, PBKDF2 Password Hashing &amp; Role-Based Access Control
       </div>
     </div>
   );

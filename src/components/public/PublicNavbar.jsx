@@ -23,7 +23,7 @@ export function PublicNavbar() {
   const router = useRouter();
   const app = useApp?.() || {};
   const auth = app.auth || { isAuthenticated: false };
-  const logout = app.logout || (() => {});
+  const logout = app.logout || (() => { });
   const mounted = useIsMounted();
 
   const [openMenu, setOpenMenu] = useState(null); // 'products' | 'practice' | null
@@ -118,7 +118,7 @@ export function PublicNavbar() {
             <span className={styles.brandMark} aria-hidden="true">
               <Sparkles size={16} strokeWidth={2.4} />
             </span>
-            <span>IELTS WIST</span>
+            <span>IELTS Ultimate</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -322,7 +322,7 @@ export function PublicNavbar() {
                 <span className={styles.brandMark}>
                   <Sparkles size={16} />
                 </span>
-                <span>IELTS WIST</span>
+                <span>IELTS Ultimate</span>
               </div>
               <button
                 type="button"

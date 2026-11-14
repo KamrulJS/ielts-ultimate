@@ -4,7 +4,7 @@
 **Authoritative Source Assessment:** Cambridge University Press & Assessment (formerly Cambridge English Language Assessment / UCLES)  
 **Verification Date:** November 2026  
 **License Compliance:** Fair Educational Use & Structured Metadata Indexing  
-**Platform Integration:** IELTS WIST Protected Academic Practice Module
+**Platform Integration:** IELTS Ultimate Protected Academic Practice Module
 
 ---
 

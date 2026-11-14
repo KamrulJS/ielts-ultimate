@@ -1,4 +1,4 @@
-/* Scoped styles strictly for Homepage UX Enhancements (IELTS WIST) */
+/* Scoped styles strictly for Homepage UX Enhancements (IELTS Ultimate) */
 
 /* Strict stationary hover border rule (border-color only, zero shadow or movement) */
 .hoverBorderCard {
@@ -39,7 +39,7 @@
   padding: 8px 0 24px;
 }
 
-.mainHeroTransparent > * {
+.mainHeroTransparent>* {
   min-width: 0;
 }
 
@@ -236,13 +236,11 @@
   top: 14px;
   bottom: 14px;
   width: 2px;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--accent-purple),
-    var(--accent-purple) 6px,
-    transparent 6px,
-    transparent 12px
-  );
+  background: repeating-linear-gradient(to bottom,
+      var(--accent-purple),
+      var(--accent-purple) 6px,
+      transparent 6px,
+      transparent 12px);
 }
 
 .roadmapMobileStep {
@@ -744,7 +742,7 @@
   min-width: 0;
 }
 
-.carouselHeadingWrap > div {
+.carouselHeadingWrap>div {
   margin-bottom: 0 !important;
 }
 

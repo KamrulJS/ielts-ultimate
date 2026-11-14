@@ -10,23 +10,24 @@ import {
   Clock,
   CheckCircle2,
   AlertCircle,
+  AlertTriangle,
   HelpCircle,
   Filter,
   Layers,
+  Globe,
   Sparkles,
   ChevronDown,
   ChevronUp,
-  ChevronRight,
   Check,
   X,
   RotateCcw,
   BookMarked,
   FileText,
   Search,
+  List,
+  Lock,
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
-import { useGsapEntrance } from '@/hooks/useGsapEntrance';
-import { Badge } from '@/components/common/UiPrimitives';
 import guideData from '@/data/public/reading-guide.json';
 import cambridgeBooks from '@/data/reading/cambridge-reading-books.json';
 import styles from './ReadingPractice.module.css';
@@ -35,19 +36,26 @@ export function ReadingPracticeView() {
   const router = useRouter();
   const app = useApp?.() || {};
   const auth = app.auth || { isAuthenticated: false };
-  const rootRef = useGsapEntrance('reading-practice');
 
-  // Sticky TOC Active Section Tracker
-  const [activeTocId, setActiveTocId] = useState('overview');
+  // Table of Contents & Scrollspy
+  const [activeToc, setActiveToc] = useState('overview');
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
+
+  // Cambridge Practice Test Library State
+  const [selectedBookTab, setSelectedBookTab] = useState('all'); // 'all' | 'recent' | 'standard' | 'classic' | 'forthcoming'
+  const [bookSearchQuery, setBookSearchQuery] = useState('');
+  const [visibleBookCount, setVisibleBookCount] = useState(9);
 
   // Question Types Filter & Search
   const [qtSearch, setQtSearch] = useState('');
   const [selectedQtType, setSelectedQtType] = useState('All');
 
-  // Accordion states
+  // Accordion States for Question Types & Strategies
   const [openTips, setOpenTips] = useState({});
   const toggleTip = (id) => setOpenTips((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const [openExamples, setOpenExamples] = useState({});
+  const toggleExample = (id) => setOpenExamples((prev) => ({ ...prev, [id]: !prev[id] }));
 
   const [openAnswers, setOpenAnswers] = useState({});
   const toggleAnswer = (id) => setOpenAnswers((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -58,30 +66,24 @@ export function ReadingPracticeView() {
   const [openRoadblock, setOpenRoadblock] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
 
-  // Interactive Exercises State
+  // Interactive Drill State (TFNG)
   const [drillAnswers, setDrillAnswers] = useState({
     q1: null,
     q2: null,
     q3: null,
-    h1: null,
-    s1: null,
   });
-  const [drillChecked, setDrillChecked] = useState({
-    tfng: false,
-    headings: false,
-    summary: false,
-  });
+  const [drillChecked, setDrillChecked] = useState(false);
 
-  // Track scroll position for TOC spy
+  // IntersectionObserver for TOC highlight
   useEffect(() => {
     const handleScroll = () => {
-      const sections = guideData.tableOfContents.map((item) => document.getElementById(item.id));
-      const scrollPos = window.scrollY + 140;
+      const sectionIds = guideData.tableOfContents.map((item) => item.id);
+      const scrollPosition = window.scrollY + 120;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sec = sections[i];
-        if (sec && sec.offsetTop <= scrollPos) {
-          setActiveTocId(guideData.tableOfContents[i].id);
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveToc(sectionIds[i]);
           break;
         }
       }
@@ -91,15 +93,48 @@ export function ReadingPracticeView() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handlePracticeCta = (e) => {
-    e.preventDefault();
-    if (auth.isAuthenticated) {
-      router.push('/reading');
-    } else {
-      router.push('/login?next=/reading');
+  // Smooth scroll handler
+  const handleScrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -120;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setActiveToc(id);
+      setMobileTocOpen(false);
     }
   };
 
+  // Auth routing logic: Redirect to login or go straight to protected module
+  const handleProtectedPractice = (targetPath = '/reading') => {
+    if (auth.isAuthenticated) {
+      router.push(targetPath);
+    } else {
+      router.push(`/login?next=${encodeURIComponent(targetPath)}`);
+    }
+  };
+
+  // Filtered Cambridge Books
+  const filteredBooks = useMemo(() => {
+    return cambridgeBooks.filter((book) => {
+      let matchTab = true;
+      if (selectedBookTab === 'recent') matchTab = book.bookNumber >= 17 && !book.isForthcoming;
+      else if (selectedBookTab === 'standard') matchTab = book.bookNumber >= 13 && book.bookNumber <= 16;
+      else if (selectedBookTab === 'classic') matchTab = book.bookNumber >= 9 && book.bookNumber <= 12;
+      else if (selectedBookTab === 'forthcoming') matchTab = book.isForthcoming;
+
+      const q = bookSearchQuery.trim().toLowerCase();
+      const matchSearch =
+        !q ||
+        book.title.toLowerCase().includes(q) ||
+        book.overview.toLowerCase().includes(q) ||
+        String(book.bookNumber).includes(q);
+
+      return matchTab && matchSearch;
+    });
+  }, [selectedBookTab, bookSearchQuery]);
+
+  // Filtered Question Types
   const filteredQuestionTypes = useMemo(() => {
     const q = qtSearch.trim().toLowerCase();
     return guideData.questionTypes.filter((item) => {
@@ -122,221 +157,409 @@ export function ReadingPracticeView() {
     setDrillAnswers((prev) => ({ ...prev, [qId]: option }));
   };
 
-  const handleResetDrill = (drillKey, qIds) => {
-    setDrillChecked((prev) => ({ ...prev, [drillKey]: false }));
-    setDrillAnswers((prev) => {
-      const updated = { ...prev };
-      qIds.forEach((id) => (updated[id] = null));
-      return updated;
-    });
+  const handleResetDrill = () => {
+    setDrillChecked(false);
+    setDrillAnswers({ q1: null, q2: null, q3: null });
   };
 
   return (
-    <div ref={rootRef} style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className={styles.readingContainer}>
-          <div className={styles.heroGrid}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-                <Badge variant="purple">{guideData.hero.badge}</Badge>
-                <Badge variant="yellow">IELTS Academic Dedicated</Badge>
-              </div>
-              <h1 className="hero-heading" style={{ fontSize: '2.5rem', lineHeight: 1.15 }}>
-                {guideData.hero.headline}
-              </h1>
-              <p className="hero-desc" style={{ fontSize: '1.05rem', lineHeight: 1.6 }}>
-                {guideData.hero.description}
-              </p>
-
-              <div className={styles.heroPillList}>
-                {guideData.hero.stats.map((st) => (
-                  <div key={st.label} className={styles.heroPill}>
-                    <Clock size={13} style={{ color: 'var(--primary)' }} />
-                    <span>
-                      <strong>{st.value}</strong> ({st.label})
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 8 }}>
-                <button
-                  type="button"
-                  onClick={handlePracticeCta}
-                  className="btn btn-primary btn-lg"
-                  style={{ borderRadius: 0, backgroundColor: "#F6BD28", color: "#202020", border: "1px solid #E5AC1A", fontWeight: 700 }}
-                >
-                  {guideData.hero.primaryCta.label} <ArrowRight size={16} />
-                </button>
-                <a
-                  href={guideData.hero.secondaryCta.href}
-                  className="btn btn-secondary btn-lg"
-                  style={{ borderRadius: 0 }}
-                >
-                  {guideData.hero.secondaryCta.label}
-                </a>
-              </div>
-            </div>
-
-            {/* Hero Visual Preview */}
-            <div className={styles.heroRight}>
-              <Image
-                src="/images/hero/ielts-reading-hero.png"
-                alt="IELTS Academic Reading Preparation Illustration"
-                width={540}
-                height={420}
-                className={styles.heroTransparentImg}
-                priority
-              />
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content Layout with Right Sticky TOC */}
-      <div className={styles.readingContainer}>
-        {/* Mobile TOC Accordion */}
-        <div className={styles.mobileTocWrap}>
+    <div style={{ background: '#FAF9F5', minHeight: '100vh', paddingTop: 20 }}>
+      <div className={styles.container}>
+        {/* Mobile / Tablet Sticky Collapsible Table of Contents Bar */}
+        <div className={styles.mobileTocStickyWrapper}>
           <button
             type="button"
-            onClick={() => setMobileTocOpen(!mobileTocOpen)}
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: '100%',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              color: 'var(--text-primary)',
-            }}
+            className={styles.mobileTocToggle}
+            onClick={() => setMobileTocOpen((prev) => !prev)}
+            aria-expanded={mobileTocOpen}
           >
             <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Layers size={16} style={{ color: 'var(--primary)' }} /> Table of Contents ({guideData.tableOfContents.length} Sections)
+              <List size={16} color="#8867B8" />
+              <span>Table of Contents ({guideData.tableOfContents.length} Sections)</span>
             </span>
-            <ChevronDown size={16} style={{ transform: mobileTocOpen ? 'rotate(180deg)' : 'none' }} />
+            {mobileTocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
+
           {mobileTocOpen && (
-            <ul style={{ listStyle: 'none', margin: '14px 0 0', padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div className={styles.mobileTocDrawer}>
               {guideData.tableOfContents.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={() => setMobileTocOpen(false)}
-                    style={{
-                      fontSize: '0.86rem',
-                      color: activeTocId === item.id ? 'var(--primary)' : 'var(--text-secondary)',
-                      fontWeight: activeTocId === item.id ? 700 : 400,
-                      textDecoration: 'none',
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`${styles.tocNavLink} ${activeToc === item.id ? styles.tocNavLinkActive : ''}`}
+                  onClick={() => handleScrollTo(item.id)}
+                >
+                  <span>{item.label}</span>
+                  {activeToc === item.id && <span style={{ fontSize: '0.7rem' }}>●</span>}
+                </button>
               ))}
-            </ul>
+            </div>
           )}
         </div>
 
-        <div className={styles.contentLayout}>
-          {/* Main Educational Column */}
+        {/* 1. HERO SECTION (Overview & Metrics) - Completely Transparent over #FAF9F5 */}
+        <section id="overview" className={`${styles.contentSection} ${styles.heroBanner}`}>
+          <div className={styles.heroLeft}>
+            <div className={styles.badgeRow}>
+              <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0 }}>
+                <BookOpen size={13} />
+                IELTS Academic
+              </span>
+              <span
+                style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  color: '#4A4A4A',
+                  background: '#FFFFFF',
+                  padding: '4px 10px',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                }}
+              >
+                Cambridge Past Papers
+              </span>
+            </div>
+
+            <h1 className={styles.heroHeading}>
+              Master IELTS Academic <span style={{ color: '#8867B8' }}>Reading</span>
+            </h1>
+
+            <p className={styles.heroSubtext}>
+              {guideData.hero.description}
+            </p>
+
+            {/* 4 Stats Grid - Soft Highlight Tiles */}
+            <div className={styles.statsBar}>
+              {guideData.hero.stats.map((s, idx) => (
+                <div key={idx} className={styles.statItem}>
+                  <span className={styles.statValue}>{s.value}</span>
+                  <span className={styles.statLabel}>{s.label}</span>
+                  <span className={styles.statDesc}>{s.desc}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Primary & Secondary CTAs */}
+            <div className={styles.heroCtaRow}>
+              <button
+                type="button"
+                onClick={() => handleProtectedPractice('/reading')}
+                className={styles.heroPrimaryBtn}
+              >
+                <span>{guideData.hero.primaryCta.label}</span>
+                <ArrowRight size={16} />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleScrollTo('cambridge-library')}
+                className={styles.heroSecondaryBtn}
+              >
+                <span>Explore Cambridge Library</span>
+                <ChevronDown size={15} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Hero Visual - Large Transparent AI-Generated Illustration */}
+          <div className={styles.heroRight}>
+            <Image
+              src="/images/hero/ielts-reading-hero.png"
+              alt="IELTS Academic Reading Preparation Illustration"
+              width={540}
+              height={420}
+              className={styles.heroTransparentImg}
+              priority
+            />
+          </div>
+        </section>
+
+        {/* 2-Column Desktop Layout */}
+        <div className={styles.layoutGrid} style={{ marginTop: 28 }}>
+          {/* Main Content Column */}
           <main className={styles.mainColumn}>
-            {/* 1. Overview */}
-            <section id="overview" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 01</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.overview.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.overview.subtitle}</p>
+            {/* 2. CAMBRIDGE TEST LIBRARY (Books 9–25) */}
+            <section id="cambridge-library" className={styles.contentSection}>
+              <div className={styles.testLibraryHeader}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+                  <div>
+                    <span className={styles.sectionIndicatorBadge}>CAMBRIDGE PRACTICE TEST LIBRARY</span>
+                    <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                      Cambridge IELTS Academic Reading Test Library (Books 9–25)
+                    </h2>
+                    <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                      52 authentic Academic Reading tests across 13 published Cambridge volumes (Books 9–21) plus syllabus previews for forthcoming editions (Books 22–25).
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => handleProtectedPractice('/reading')}
+                    className="btn btn-outline btn-sm"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, borderRadius: 0, fontWeight: 700 }}
+                  >
+                    <Lock size={13} />
+                    <span>Open Dashboard Hub</span>
+                  </button>
+                </div>
+
+                {/* Volume Category Tabs */}
+                <div className={styles.tabControls}>
+                  <button
+                    type="button"
+                    className={`${styles.tabBtn} ${selectedBookTab === 'all' ? styles.tabBtnActive : ''}`}
+                    onClick={() => { setSelectedBookTab('all'); setVisibleBookCount(9); }}
+                  >
+                    All Cambridge Books (17)
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.tabBtn} ${selectedBookTab === 'recent' ? styles.tabBtnActive : ''}`}
+                    onClick={() => { setSelectedBookTab('recent'); setVisibleBookCount(9); }}
+                  >
+                    Recent Editions (Books 17–21)
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.tabBtn} ${selectedBookTab === 'standard' ? styles.tabBtnActive : ''}`}
+                    onClick={() => { setSelectedBookTab('standard'); setVisibleBookCount(9); }}
+                  >
+                    Standard Editions (Books 13–16)
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.tabBtn} ${selectedBookTab === 'classic' ? styles.tabBtnActive : ''}`}
+                    onClick={() => { setSelectedBookTab('classic'); setVisibleBookCount(9); }}
+                  >
+                    Classic Editions (Books 9–12)
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.tabBtn} ${selectedBookTab === 'forthcoming' ? styles.tabBtnActive : ''}`}
+                    onClick={() => { setSelectedBookTab('forthcoming'); setVisibleBookCount(9); }}
+                  >
+                    Forthcoming Previews (Books 22–25)
+                  </button>
+                </div>
+
+                {/* Search & Filter Bar */}
+                <div className={styles.searchFilterRow}>
+                  <div className={styles.searchBox}>
+                    <Search size={16} color="#707070" />
+                    <input
+                      type="text"
+                      placeholder="Search Cambridge books by edition, passage, or keyword..."
+                      value={bookSearchQuery}
+                      onChange={(e) => setBookSearchQuery(e.target.value)}
+                      className={styles.searchInput}
+                    />
+                    {bookSearchQuery && (
+                      <button
+                        type="button"
+                        onClick={() => setBookSearchQuery('')}
+                        style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '0.8rem', color: '#888' }}
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+
+                  <span className={styles.testCountLabel}>
+                    Showing {Math.min(visibleBookCount, filteredBooks.length)} of {filteredBooks.length} books (52 full academic tests)
+                  </span>
+                </div>
               </div>
 
-              {guideData.overview.paragraphs.map((p, idx) => (
-                <p key={idx} className="lead" style={{ fontSize: '0.96rem', lineHeight: 1.7, color: '#202020' }}>
-                  {p}
-                </p>
-              ))}
+              {/* Cambridge Book Cards Grid - #FEF6DD Branded Cards */}
+              <div className={styles.testCardsGrid}>
+                {filteredBooks.slice(0, visibleBookCount).map((book) => (
+                  <div key={book.bookNumber} className={styles.testCard}>
+                    <div>
+                      <div className={styles.testCardHeader}>
+                        <span className={styles.testNumberBadge}>Cambridge Book {book.bookNumber}</span>
+                        <span className={styles.testAccentTag}>
+                          {book.isForthcoming ? 'Forthcoming' : `Year ${book.year}`}
+                        </span>
+                      </div>
 
-              <div className="grid-3" style={{ gap: 14 }}>
-                {guideData.overview.keyFacts.map((kf) => (
-                  <div key={kf.label} className="card" style={{ borderRadius: 0, padding: 16 }}>
-                    <div className="text-xs text-muted" style={{ fontWeight: 700, textTransform: 'uppercase' }}>
-                      {kf.label}
+                      <h3 className={styles.testCardTitle} style={{ marginTop: 10 }}>
+                        {book.title}
+                      </h3>
                     </div>
-                    <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--text-primary)', marginTop: 4 }}>
-                      {kf.detail}
+
+                    <div>
+                      <div className={styles.testMetaRow} style={{ marginBottom: 12 }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          <Clock size={13} color="#8867B8" />
+                          <span style={{ fontWeight: 600 }}>{book.testCount} Full Academic Tests</span>
+                        </span>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          <FileText size={13} color="#8867B8" />
+                          <span>{book.passagesCount} Passages</span>
+                        </span>
+                      </div>
+
+                      <div className={styles.testCardFooter}>
+                        <button
+                          type="button"
+                          onClick={() => handleProtectedPractice('/reading')}
+                          className={styles.testPracticeBtn}
+                        >
+                          <span>{book.isForthcoming ? 'View Syllabus' : 'Practice in Dashboard'}</span>
+                          <ArrowRight size={14} />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Progressive Loading */}
+              {visibleBookCount < filteredBooks.length && (
+                <div className={styles.paginationRow}>
+                  <button
+                    type="button"
+                    onClick={() => setVisibleBookCount((prev) => Math.min(prev + 8, filteredBooks.length))}
+                    className="btn btn-primary"
+                    style={{ minWidth: 240, borderRadius: 0, backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700 }}
+                  >
+                    Load More Cambridge Books ({filteredBooks.length - visibleBookCount} remaining)
+                  </button>
+                </div>
+              )}
             </section>
 
-            {/* 2. Academic Test Standards */}
-            <section id="academic-standards" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 02</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.academicStandards.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.academicStandards.subtitle}</p>
+            {/* 3. OFFICIAL EXAMINATION REGULATIONS */}
+            <section id="test-format" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>OFFICIAL EXAMINATION REGULATIONS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Academic Reading Examination Format & Regulations
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  {guideData.formatRules.subtitle}
+                </p>
               </div>
 
-              <div className={styles.tableWrapper}>
-                <table className={styles.comparisonTable}>
-                  <thead>
-                    <tr>
-                      {guideData.academicStandards.columns.map((col, idx) => (
-                        <th key={idx}>{col}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {guideData.academicStandards.rows.map((row, idx) => (
-                      <tr key={idx}>
-                        <td style={{ fontWeight: 700, color: 'var(--primary)', whiteSpace: 'nowrap' }}>{row.component}</td>
-                        <td>{row.specification}</td>
-                        <td>{row.competencies}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            {/* 3. Test Format & Rules */}
-            <section id="test-format" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 03</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.formatRules.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.formatRules.subtitle}</p>
-              </div>
-
-              <div className="grid-2" style={{ gap: 16 }}>
+              {/* Format Cards with 24px Icons */}
+              <div className={styles.formatGrid}>
                 {guideData.formatRules.rules.map((rule, idx) => (
-                  <div key={idx} className="card" style={{ borderRadius: 0, padding: 20 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                      <AlertCircle size={16} style={{ color: 'var(--primary)' }} />
-                      <strong style={{ fontSize: '0.98rem', color: 'var(--text-primary)' }}>{rule.title}</strong>
+                  <div key={idx} className={styles.formatCard}>
+                    <div className={styles.formatCardTop}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div className={styles.formatIconBox}>
+                          {idx === 0 && <Layers size={24} color="#8867B8" />}
+                          {idx === 1 && <Clock size={24} color="#B45309" />}
+                          {idx === 2 && <Globe size={24} color="#047857" />}
+                          {idx === 3 && <AlertTriangle size={24} color="#DC2626" />}
+                        </div>
+                        <h3 className={styles.formatCardTitle}>{rule.title}</h3>
+                      </div>
+                      <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.7rem' }}>
+                        Rule 0{idx + 1}
+                      </span>
                     </div>
-                    <p className="text-sm text-muted" style={{ margin: 0, lineHeight: 1.6 }}>
+
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#202020', lineHeight: 1.55 }}>
                       {rule.desc}
                     </p>
                   </div>
                 ))}
               </div>
+
+              {/* Academic Reading 3-Passage Architecture Table */}
+              <div style={{ marginTop: 12 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#202020', marginBottom: 12 }}>
+                  {guideData.academicStandards.title}
+                </h3>
+                <div className={styles.scoringContainer}>
+                  <table className={styles.comparisonTable}>
+                    <thead>
+                      <tr>
+                        {guideData.academicStandards.columns.map((col, idx) => (
+                          <th key={idx}>{col}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {guideData.academicStandards.rows.map((row, idx) => (
+                        <tr key={idx}>
+                          <td style={{ fontWeight: 700, color: '#202020' }}>{row.component}</td>
+                          <td style={{ color: '#202020' }}>{row.specification}</td>
+                          <td style={{ color: '#202020', lineHeight: 1.5 }}>{row.competencies}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </section>
 
-            {/* 4. All 14 Question Types */}
-            <section id="question-types" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 04</Badge>
-                <h2 className={styles.sectionTitle}>Mastering All 14 IELTS Reading Question Types</h2>
-                <p className={styles.sectionSubtitle}>
-                  Step-by-step solving strategies, identification keys, common distractors, and authentic sample questions for every format.
+            {/* 4. THREE ACADEMIC PASSAGES EXPLAINED */}
+            <section id="difficulty-guide" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>THREE ACADEMIC PASSAGES EXPLAINED</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  The Three Academic Reading Passages Explained
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  Understand the progressive cognitive complexity, vocabulary load, and argument structures across Passages 1, 2, and 3.
                 </p>
               </div>
 
-              {/* Filter & Search Bar */}
+              <div className={styles.sectionsStack}>
+                {guideData.academicStandards.rows.map((row, idx) => {
+                  const passNum = idx + 1;
+                  const tips = [
+                    "Allocate no more than 16–17 minutes to Passage 1. Because questions here are predominantly sequential, locate keywords first to build early scoring momentum.",
+                    "Tackle question sets before reading the entire passage. For paragraph matching, mark keywords in questions first, then scan paragraph by paragraph.",
+                    "Reserve at least 22 minutes for Passage 3. Watch out for subtle counter-arguments introduced by concessions such as 'Albeit', 'Notwithstanding', or 'Conversely'."
+                  ];
+
+                  return (
+                    <div key={idx} className={styles.sectionExplainCard}>
+                      <div className={styles.sectionMetaBox}>
+                        <span className={styles.sectionNumberBadge}>0{passNum}</span>
+                        <strong style={{ fontSize: '0.98rem', color: '#202020' }}>
+                          Passage {passNum}
+                        </strong>
+                        <span style={{ fontSize: '0.8rem', color: '#4A4A4A', fontWeight: 600 }}>
+                          {idx === 0 ? '13 Questions' : idx === 1 ? '13 Questions' : '14 Questions'}
+                        </span>
+                      </div>
+
+                      <div className={styles.sectionDetailBody}>
+                        <h3 className={styles.sectionDetailTitle}>{row.component}</h3>
+                        <p style={{ color: '#202020', margin: 0, fontSize: '0.92rem', lineHeight: 1.55 }}>
+                          {row.specification}
+                        </p>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.86rem', color: '#202020' }}>
+                          <div><strong>Core Competencies Tested:</strong> {row.competencies}</div>
+                        </div>
+
+                        <div className={styles.tipCallout}>
+                          <strong>Candidate Strategy Tip:</strong> {tips[idx]}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* 5. COMPLETE QUESTION TYPE SYLLABUS — With Cambridge Example Question Accordions */}
+            <section id="question-types" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>COMPLETE QUESTION TYPE SYLLABUS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  14 IELTS Academic Reading Question Formats
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  Master the specific answering strategy, identification keys, and distractor avoidance technique required for each of the 14 official question types.
+                </p>
+              </div>
+
+              {/* Filter Tabs & Search Bar */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                   {['All', 'Verification', 'Matching', 'Completion', 'Selection'].map((cat) => (
@@ -361,156 +584,211 @@ export function ReadingPracticeView() {
                   ))}
                 </div>
 
-                <div style={{ position: 'relative', width: 240 }}>
-                  <Search size={14} style={{ position: 'absolute', left: 10, top: 11, color: 'var(--text-muted)' }} />
+                <div style={{ position: 'relative', width: 260 }}>
+                  <Search size={14} style={{ position: 'absolute', left: 10, top: 11, color: '#707070' }} />
                   <input
                     type="text"
                     value={qtSearch}
                     onChange={(e) => setQtSearch(e.target.value)}
-                    placeholder="Search question type..."
-                    className="input-field"
-                    style={{ paddingLeft: 32, fontSize: '0.84rem', height: 36, borderRadius: 0 }}
+                    placeholder="Search question types..."
+                    className={styles.searchInput}
+                    style={{ paddingLeft: 32, fontSize: '0.84rem', height: 36, border: '1px solid var(--border-color, #E2DDD1)' }}
                   />
                 </div>
               </div>
 
-              {/* Question Type Cards */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {/* Question Types Grid */}
+              <div className={styles.qTypesGrid}>
                 {filteredQuestionTypes.map((qt) => (
-                  <article key={qt.id} className={styles.questionTypeCard}>
-                    <div className={styles.qtHeader}>
+                  <div key={qt.id} className={styles.qTypeCard}>
+                    <div className={styles.qTypeHeader}>
                       <div>
-                        <span className={styles.qtNumber}>Type {qt.id < 10 ? `0${qt.id}` : qt.id} &bull; {qt.badge}</span>
-                        <h3 className={styles.qtTitle}>{qt.name}</h3>
+                        <h3 className={styles.qTypeName}>{qt.name}</h3>
+                        <span style={{ fontSize: '0.78rem', color: '#8867B8', fontWeight: 700, marginTop: 2, display: 'inline-block' }}>
+                          Type {qt.id < 10 ? `0${qt.id}` : qt.id} &bull; {qt.badge}
+                        </span>
                       </div>
-                      <div className={styles.qtBadges}>
-                        <Badge variant="neutral">Freq: {qt.frequency}</Badge>
-                        <Badge variant={qt.difficulty.includes('High') ? 'purple' : 'yellow'}>
-                          Difficulty: {qt.difficulty}
-                        </Badge>
-                      </div>
+                      <span className={styles.qTypeFormatTag}>
+                        Freq: {qt.frequency}
+                      </span>
                     </div>
 
-                    <div className={styles.qtGrid}>
-                      <div className={styles.qtCol}>
-                        <div>
-                          <div className={styles.qtLabel}>What It Means &amp; Tests</div>
-                          <p className={styles.qtText}>{qt.meaning}</p>
-                        </div>
-                        <div>
-                          <div className={styles.qtLabel}>Identification &amp; Sequence</div>
-                          <p className={styles.qtText}>{qt.identification}</p>
-                        </div>
-                      </div>
+                    <p className={styles.qTypeDesc}>{qt.meaning}</p>
 
-                      <div className={styles.qtCol}>
-                        <div className={styles.qtLabel}>Step-by-Step Solving Protocol</div>
-                        <ol className={styles.qtStepList}>
-                          {qt.strategy.map((step, sIdx) => (
-                            <li key={sIdx}>{step}</li>
-                          ))}
-                        </ol>
-                      </div>
+                    <div style={{ fontSize: '0.84rem', color: '#202020', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      <div><strong>Identification:</strong> {qt.identification}</div>
                     </div>
 
-                    <div className="grid-2" style={{ gap: 14 }}>
-                      <div className="card-warm card-compact" style={{ borderRadius: 0, padding: 12 }}>
-                        <div style={{ fontWeight: 700, fontSize: '0.8rem', color: '#b91c1c', marginBottom: 4 }}>
-                          &times; Common Pitfalls
-                        </div>
-                        <div className="text-xs text-muted" style={{ lineHeight: 1.5 }}>
-                          {qt.pitfalls}
-                        </div>
+                    {/* Step-by-Step Solving Protocol */}
+                    <div style={{ background: '#FAF9F5', border: '1px solid var(--border-color, #E2DDD1)', padding: '10px 12px' }}>
+                      <div style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', color: '#4A4A4A', marginBottom: 6 }}>
+                        Step-by-Step Solving Protocol:
                       </div>
-                      <div className={styles.accordionCardBox}>
-                        <button
-                          type="button"
-                          onClick={() => toggleTip(qt.id)}
-                          className={styles.accordionCardToggle}
-                          aria-expanded={!!openTips[qt.id]}
-                        >
-                          <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#15803d', fontSize: '0.82rem' }}>
-                            <Sparkles size={14} color="#15803d" />
-                            <span>Expert Pro Tip</span>
-                          </span>
-                          {openTips[qt.id] ? <ChevronUp size={14} color="#15803d" /> : <ChevronDown size={14} color="#707070" />}
-                        </button>
+                      <ol style={{ margin: 0, paddingLeft: 18, fontSize: '0.84rem', color: '#202020', lineHeight: 1.5, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {qt.strategy.map((step, sIdx) => (
+                          <li key={sIdx}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
 
-                        {openTips[qt.id] && (
-                          <div className={styles.accordionCardContent}>
-                            <div style={{ fontSize: '0.82rem', color: '#202020', lineHeight: 1.55 }}>
-                              {qt.tips}
-                            </div>
+                    {/* Pro Tip Accordion (Collapsed by Default) */}
+                    <div className={styles.accordionCardBox}>
+                      <button
+                        type="button"
+                        onClick={() => toggleTip(qt.id)}
+                        className={styles.accordionCardToggle}
+                        aria-expanded={!!openTips[qt.id]}
+                      >
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#15803d', fontSize: '0.82rem' }}>
+                          <Sparkles size={14} color="#15803d" />
+                          <span>Expert Pro Tip &amp; Common Pitfalls</span>
+                        </span>
+                        {openTips[qt.id] ? <ChevronUp size={14} color="#15803d" /> : <ChevronDown size={14} color="#707070" />}
+                      </button>
+
+                      {openTips[qt.id] && (
+                        <div className={styles.accordionCardContent}>
+                          <div style={{ fontSize: '0.84rem', color: '#202020', lineHeight: 1.55 }}>
+                            <strong>Pro Tip:</strong> {qt.tips}
                           </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Interactive / Static Sample Container */}
-                    <div className={styles.qtSampleBox}>
-                      <div className={styles.qtSampleTitle}>
-                        <BookMarked size={14} /> Authentic Cambridge-Style Sample Question &amp; Verification
-                      </div>
-                      <div className={styles.qtPassageText}>
-                        &ldquo;{qt.samplePassage}&rdquo;
-                      </div>
-                      <div style={{ fontWeight: 700, fontSize: '0.92rem', color: 'var(--text-primary)' }}>
-                        {qt.sampleQuestion}
-                      </div>
-                      {qt.sampleOptions && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, margin: '4px 0' }}>
-                          {qt.sampleOptions.map((opt, oIdx) => (
-                            <div key={oIdx} style={{ fontSize: '0.85rem', color: '#202020' }}>
-                              &bull; {opt}
-                            </div>
-                          ))}
+                          <div style={{ marginTop: 8, fontSize: '0.82rem', color: '#DC2626', fontWeight: 600 }}>
+                            ⚠ Common Trap: {qt.pitfalls}
+                          </div>
                         </div>
                       )}
-                      <div style={{ marginTop: 6 }}>
-                        <button
-                          type="button"
-                          onClick={() => toggleAnswer(qt.id)}
-                          className={styles.accordionAnswerToggle}
-                          aria-expanded={!!openAnswers[qt.id]}
-                        >
-                          <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#8867B8', fontSize: '0.84rem' }}>
-                            <CheckCircle2 size={14} color="#8867B8" />
-                            <span>View Correct Answer &amp; Detailed Explanation</span>
-                          </span>
-                          {openAnswers[qt.id] ? <ChevronUp size={15} color="#8867B8" /> : <ChevronDown size={15} color="#707070" />}
-                        </button>
-
-                        {openAnswers[qt.id] && (
-                          <div className={styles.qtAnswerExpl}>
-                            <strong style={{ color: '#202020' }}>Correct Answer:</strong> {qt.sampleAnswer}
-                            <div style={{ marginTop: 6, color: '#202020', lineHeight: 1.55 }}>
-                              <strong>Explanation:</strong> {qt.sampleExplanation}
-                            </div>
-                          </div>
-                        )}
-                      </div>
                     </div>
-                  </article>
+
+                    {/* Cambridge Example Question Accordion (Collapsed by Default) */}
+                    <div style={{ marginTop: 'auto' }}>
+                      <button
+                        type="button"
+                        onClick={() => toggleExample(qt.id)}
+                        className={styles.exampleAccordionToggle}
+                        aria-expanded={!!openExamples[qt.id]}
+                      >
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#8867B8', fontSize: '0.84rem' }}>
+                          <BookMarked size={14} color="#8867B8" />
+                          <span>View Cambridge Example Question</span>
+                        </span>
+                        {openExamples[qt.id] ? (
+                          <ChevronUp size={15} color="#8867B8" />
+                        ) : (
+                          <ChevronDown size={15} color="#707070" />
+                        )}
+                      </button>
+
+                      {openExamples[qt.id] && (
+                        <div className={styles.exampleAccordionContent}>
+                          <div className={styles.qtPassageText}>
+                            &ldquo;{qt.samplePassage}&rdquo;
+                          </div>
+                          <div style={{ fontWeight: 700, fontSize: '0.94rem', color: '#202020', margin: '6px 0' }}>
+                            {qt.sampleQuestion}
+                          </div>
+                          {qt.sampleOptions && (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, margin: '4px 0 8px' }}>
+                              {qt.sampleOptions.map((opt, oIdx) => (
+                                <div key={oIdx} style={{ fontSize: '0.88rem', color: '#202020' }}>
+                                  &bull; {opt}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Correct Answer & Explanation Toggle inside Example */}
+                          <div style={{ marginTop: 6 }}>
+                            <button
+                              type="button"
+                              onClick={() => toggleAnswer(qt.id)}
+                              className={styles.accordionAnswerToggle}
+                              aria-expanded={!!openAnswers[qt.id]}
+                            >
+                              <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, color: '#8867B8', fontSize: '0.82rem' }}>
+                                <CheckCircle2 size={13} color="#8867B8" />
+                                <span>{openAnswers[qt.id] ? 'Hide Answer Explanation' : 'View Correct Answer & Detailed Explanation'}</span>
+                              </span>
+                              {openAnswers[qt.id] ? <ChevronUp size={14} color="#8867B8" /> : <ChevronDown size={14} color="#707070" />}
+                            </button>
+
+                            {openAnswers[qt.id] && (
+                              <div className={styles.qtAnswerExpl}>
+                                <strong style={{ color: '#202020' }}>Correct Answer:</strong> {qt.sampleAnswer}
+                                <div style={{ marginTop: 6, color: '#202020', lineHeight: 1.55 }}>
+                                  <strong>Explanation:</strong> {qt.sampleExplanation}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
             </section>
 
-            {/* 5. Core Reading Strategies */}
-            <section id="strategies" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 05</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.strategies.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.strategies.subtitle}</p>
+            {/* 6. SCORE AND BAND SCORE CONVERSION — Clean 3-Column Layout */}
+            <section id="scoring" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>SCORE &amp; BAND SCORE CONVERSION</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Academic Reading Raw Score to Band Conversion
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  Each of the 40 questions carries exactly 1 mark. There is no negative marking for incorrect answers.
+                </p>
               </div>
 
+              <div className={styles.scoringContainer}>
+                <table className={styles.scoringTable}>
+                  <thead>
+                    <tr>
+                      <th style={{ width: '30%' }}>Raw Score (out of 40)</th>
+                      <th style={{ width: '30%' }}>IELTS Band Score</th>
+                      <th style={{ width: '40%' }}>Candidate Skill Level</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guideData.scoringTables.academic.map((row, idx) => (
+                      <tr key={idx}>
+                        <td style={{ fontWeight: 700, fontSize: '1.05rem', color: '#202020' }}>{row.rawScore}</td>
+                        <td className={styles.bandCell}>Band {row.band}</td>
+                        <td style={{ fontWeight: 600, color: '#202020', fontSize: '0.92rem' }}>{row.level}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                <div className={styles.scoringNotice}>
+                  <strong>Note on Test Scaling:</strong> Official Cambridge conversion curves for Academic Reading require 30 correct answers for Band 7.0, and 35 correct answers for Band 8.0. Maintain a targeted minimum of 32 correct answers during practice sessions.
+                </div>
+              </div>
+            </section>
+
+            {/* 7. SYSTEMATIC READING STRATEGIES & TIME MANAGEMENT */}
+            <section id="strategies" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>SYSTEMATIC READING STRATEGIES</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  Core Reading Strategies &amp; 60-Minute Time Management
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  Execute a disciplined reading methodology to conquer time pressure across Passages 1, 2, and 3.
+                </p>
+              </div>
+
+              {/* Strategy Cards with Protocol Accordions */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 {guideData.strategies.list.map((strat) => (
                   <div key={strat.id} className={styles.strategyCard}>
                     <div className={styles.strategyHeader}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                         <h3 className={styles.strategyTitle}>{strat.name}</h3>
-                        <Badge variant="yellow">{strat.tag}</Badge>
+                        <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.7rem' }}>
+                          {strat.tag}
+                        </span>
                       </div>
+
                       <button
                         type="button"
                         onClick={() => toggleStrategyDetail(strat.id)}
@@ -521,6 +799,7 @@ export function ReadingPracticeView() {
                         {openStrategyDetails[strat.id] ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                       </button>
                     </div>
+
                     <p style={{ fontSize: '0.94rem', lineHeight: 1.6, color: '#202020', margin: 0 }}>
                       {strat.summary}
                     </p>
@@ -528,32 +807,31 @@ export function ReadingPracticeView() {
                     {openStrategyDetails[strat.id] && (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 6 }}>
                         <div className={styles.prosConsGrid}>
-                      <div className={styles.proBox}>
-                        <div className={styles.boxTitle} style={{ color: '#15803d' }}>
-                          <Check size={14} /> Key Advantages
-                        </div>
-                        <ul className={styles.bulletList}>
-                          {strat.pros.map((p, idx) => (
-                            <li key={idx}>{p}</li>
-                          ))}
-                        </ul>
-                      </div>
+                          <div className={styles.proBox}>
+                            <div className={styles.boxTitle} style={{ color: '#15803d' }}>
+                              <Check size={14} /> Key Advantages
+                            </div>
+                            <ul className={styles.bulletList}>
+                              {strat.pros.map((p, idx) => (
+                                <li key={idx}>{p}</li>
+                              ))}
+                            </ul>
+                          </div>
 
-                      <div className={styles.conBox}>
-                        <div className={styles.boxTitle} style={{ color: '#b91c1c' }}>
-                          <X size={14} /> Limitations &amp; Risks
+                          <div className={styles.conBox}>
+                            <div className={styles.boxTitle} style={{ color: '#b91c1c' }}>
+                              <X size={14} /> Limitations &amp; Risks
+                            </div>
+                            <ul className={styles.bulletList}>
+                              {strat.cons.map((c, idx) => (
+                                <li key={idx}>{c}</li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
-                        <ul className={styles.bulletList}>
-                          {strat.cons.map((c, idx) => (
-                            <li key={idx}>{c}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
 
-                    <div className="card-warm card-compact" style={{ borderRadius: 0, padding: 12, marginTop: 4, backgroundColor: '#FEF6DD', border: '1px solid rgba(246, 189, 40, 0.45)' }}>
-                          <strong style={{ fontSize: '0.84rem', color: '#202020' }}>When to apply: </strong>
-                          <span style={{ fontSize: '0.82rem', color: '#333333' }}>{strat.whenToUse}</span>
+                        <div className={styles.tipCallout}>
+                          <strong>When to apply: </strong> {strat.whenToUse}
                         </div>
                       </div>
                     )}
@@ -561,78 +839,27 @@ export function ReadingPracticeView() {
                 ))}
               </div>
 
-              {/* Micro-skills */}
-              <div className="card" style={{ borderRadius: 0, padding: 22 }}>
-                <h4 style={{ fontWeight: 800, fontSize: '1.05rem', marginBottom: 14 }}>
-                  Four Foundational Micro-Skills for High-Speed Reading
-                </h4>
-                <div className="grid-2" style={{ gap: 14 }}>
-                  {guideData.strategies.microSkills.map((ms) => (
-                    <div key={ms.skill} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      <strong style={{ fontSize: '0.92rem', color: 'var(--primary)' }}>{ms.skill}</strong>
-                      <p className="text-xs text-muted" style={{ margin: 0, lineHeight: 1.55 }}>
-                        {ms.desc}
+              {/* Time Management Grid */}
+              <div style={{ marginTop: 12 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#202020', marginBottom: 12 }}>
+                  60-Minute Pacing Matrix
+                </h3>
+                <div className={styles.timeGrid}>
+                  {guideData.timeManagement.breakdown.map((item, idx) => (
+                    <div key={idx} className={styles.timeCard}>
+                      <div className={styles.timeMinutes}>{item.allocatedMinutes}m</div>
+                      <div className={styles.timeLabel}>{item.passage}</div>
+                      <div style={{ fontSize: '0.8rem', color: '#4A4A4A', fontWeight: 600 }}>{item.questions}</div>
+                      <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#8867B8' }}>{item.pacing}</div>
+                      <p style={{ margin: 0, lineHeight: 1.5, fontSize: '0.84rem', color: '#202020' }}>
+                        {item.focus}
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
-            </section>
 
-            {/* 6. Question Difficulty & Priority */}
-            <section id="difficulty-guide" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 06</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.difficultyGuide.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.difficultyGuide.subtitle}</p>
-              </div>
-
-              <div className="grid-3" style={{ gap: 16 }}>
-                {guideData.difficultyGuide.rankings.map((tier) => (
-                  <div key={tier.tier} className="card" style={{ borderRadius: 0, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                    <Badge variant={tier.tier.includes('Easy') ? 'neutral' : tier.tier.includes('Medium') ? 'yellow' : 'purple'}>
-                      {tier.tier}
-                    </Badge>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                      {tier.types.map((t) => (
-                        <span key={t} style={{ fontSize: '0.78rem', background: 'rgba(0,0,0,0.04)', padding: '2px 8px', fontWeight: 600 }}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="text-xs text-muted" style={{ lineHeight: 1.55 }}>
-                      <strong>Why:</strong> {tier.why}
-                    </div>
-                    <div className="text-xs text-muted" style={{ lineHeight: 1.55, marginTop: 'auto', borderTop: '1px solid var(--border)', paddingTop: 10 }}>
-                      <strong>Beginner roadmap:</strong> {tier.beginnerGuidance}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 7. 60-Minute Time Management */}
-            <section id="time-management" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 07</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.timeManagement.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.timeManagement.subtitle}</p>
-              </div>
-
-              <div className={styles.timeGrid}>
-                {guideData.timeManagement.breakdown.map((item, idx) => (
-                  <div key={idx} className={styles.timeCard}>
-                    <div className={styles.timeMinutes}>{item.allocatedMinutes}m</div>
-                    <div className={styles.timeLabel}>{item.passage}</div>
-                    <div className="text-xs text-muted">{item.questions}</div>
-                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--primary)' }}>{item.pacing}</div>
-                    <p className="text-xs text-muted" style={{ margin: 0, lineHeight: 1.5 }}>
-                      {item.focus}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
+              {/* 90-Second Roadblock Protocol Accordion */}
               <div className="card-warm" style={{ borderRadius: 0, padding: 20, backgroundColor: '#FEF6DD', border: '1px solid rgba(246, 189, 40, 0.45)', borderLeft: '4px solid #F6BD28' }}>
                 <button
                   type="button"
@@ -654,7 +881,7 @@ export function ReadingPracticeView() {
                     {guideData.timeManagement.roadblockProtocol.title}
                   </strong>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: '#8867B8' }}>
-                    <span>{openRoadblock ? 'Collapse' : 'Expand Protocol'}</span>
+                    <span>{openRoadblock ? 'Collapse Protocol' : 'Expand Protocol'}</span>
                     {openRoadblock ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </span>
                 </button>
@@ -672,437 +899,201 @@ export function ReadingPracticeView() {
               </div>
             </section>
 
-            {/* 8. Scoring Conversion */}
-            <section id="scoring" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 08</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.scoringTables.title}</h2>
-                <p className={styles.sectionSubtitle}>{guideData.scoringTables.subtitle}</p>
-              </div>
-
-              <div className={styles.tableWrapper}>
-                <table className={styles.comparisonTable}>
-                  <thead>
-                    <tr>
-                      <th>Raw Score (out of 40)</th>
-                      <th>IELTS Academic Band Score</th>
-                      <th>Proficiency Classification</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {guideData.scoringTables.academic.map((row, idx) => (
-                      <tr key={idx}>
-                        <td style={{ fontWeight: 800, color: 'var(--primary)', width: '30%' }}>{row.rawScore}</td>
-                        <td style={{ fontWeight: 800, color: 'var(--text-primary)', width: '30%' }}>Band {row.band}</td>
-                        <td>{row.level}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            {/* 9. Tips & Mistakes */}
-            <section id="tips-and-mistakes" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 09</Badge>
-                <h2 className={styles.sectionTitle}>{guideData.tipsAndMistakes.title}</h2>
-              </div>
-
-              <div className="grid-2" style={{ gap: 16 }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  <h4 style={{ fontWeight: 800, fontSize: '1rem', color: '#15803d', display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Check size={16} /> 4 Golden Examination Rules
-                  </h4>
-                  {guideData.tipsAndMistakes.tips.map((t, idx) => (
-                    <div key={idx} className="card" style={{ borderRadius: 0, padding: 16 }}>
-                      <strong style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{t.title}</strong>
-                      <p className="text-xs text-muted" style={{ margin: '4px 0 0', lineHeight: 1.55 }}>
-                        {t.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  <h4 style={{ fontWeight: 800, fontSize: '1rem', color: '#b91c1c', display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <X size={16} /> 4 Most Frequent Score Killers
-                  </h4>
-                  {guideData.tipsAndMistakes.mistakes.map((m, idx) => (
-                    <div key={idx} className="card" style={{ borderRadius: 0, padding: 16 }}>
-                      <strong style={{ fontSize: '0.92rem', color: '#b91c1c' }}>Mistake: {m.mistake}</strong>
-                      <p className="text-xs text-muted" style={{ margin: '4px 0 0', lineHeight: 1.55 }}>
-                        <strong>Correct approach:</strong> {m.fix}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* 10. Sample Interactive Exercises */}
-            <section id="interactive-drills" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 10</Badge>
-                <h2 className={styles.sectionTitle}>Sample Interactive Practice Exercises</h2>
-                <p className={styles.sectionSubtitle}>
-                  Test your skills directly on the page with three introductory interactive drills. No login required.
+            {/* 8. INTERACTIVE READING PRACTICE MINI-DRILLS */}
+            <section id="interactive-drills" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>INTERACTIVE READING PRACTICE</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  Interactive Reading Practice Mini-Drills
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
+                  Test your active scanning and verification precision on authentic academic excerpts.
                 </p>
               </div>
 
-              {/* Drill 1: TFNG */}
-              <div className={styles.drillCard}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                  <div>
-                    <Badge variant="purple">Exercise 1</Badge>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '6px 0 0' }}>
+              <div className={styles.interactiveStack}>
+                <div className={styles.interactiveCard}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+                    <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: 0, color: '#202020' }}>
                       {guideData.interactiveDrills[0].title}
                     </h3>
+                    <span className={styles.sectionIndicatorBadge} style={{ marginBottom: 0, fontSize: '0.7rem' }}>
+                      True / False / Not Given
+                    </span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => handleResetDrill('tfng', ['q1', 'q2', 'q3'])}
-                    className="btn btn-ghost btn-xs"
-                    style={{ borderRadius: 0 }}
-                  >
-                    <RotateCcw size={13} /> Reset
-                  </button>
-                </div>
 
-                <div className={styles.drillPassage}>
-                  {guideData.interactiveDrills[0].passage}
-                </div>
+                  <div className={styles.drillPassage}>
+                    &ldquo;{guideData.interactiveDrills[0].passage}&rdquo;
+                  </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                  {guideData.interactiveDrills[0].questions.map((q, idx) => {
-                    const selected = drillAnswers[q.qId];
-                    const isChecked = drillChecked.tfng;
-                    const isCorrect = selected === q.correct;
-
-                    return (
-                      <div key={q.qId} className={styles.drillQuestionRow}>
-                        <div style={{ fontWeight: 700, fontSize: '0.92rem' }}>
-                          Statement {idx + 1}: {q.statement}
-                        </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {guideData.interactiveDrills[0].questions.map((q) => (
+                      <div key={q.id} className={styles.drillQuestionRow}>
+                        <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#202020' }}>{q.statement}</div>
                         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                          {q.options.map((opt) => (
+                          {['TRUE', 'FALSE', 'NOT GIVEN'].map((opt) => (
                             <button
                               key={opt}
                               type="button"
-                              onClick={() => handleSelectDrillOption(q.qId, opt)}
-                              className={`${styles.drillOptionBtn} ${selected === opt ? styles.drillOptionBtnSelected : ''}`}
+                              onClick={() => handleSelectDrillOption(q.id, opt)}
+                              className={`${styles.drillOptionBtn} ${drillAnswers[q.id] === opt ? styles.drillOptionBtnSelected : ''}`}
                             >
                               {opt}
                             </button>
                           ))}
                         </div>
 
-                        {isChecked && (
-                          <div
-                            style={{
-                              padding: '8px 12px',
-                              background: isCorrect ? 'rgba(46, 125, 50, 0.08)' : 'rgba(198, 40, 40, 0.08)',
-                              border: `1px solid ${isCorrect ? 'rgba(46, 125, 50, 0.3)' : 'rgba(198, 40, 40, 0.3)'}`,
-                              fontSize: '0.84rem',
-                              lineHeight: 1.5,
-                            }}
-                          >
-                            <strong style={{ color: isCorrect ? '#15803d' : '#b91c1c' }}>
-                              {isCorrect ? 'Correct!' : `Incorrect (Correct answer: ${q.correct})`}
+                        {drillChecked && (
+                          <div style={{ marginTop: 6, fontSize: '0.84rem' }}>
+                            <strong style={{ color: drillAnswers[q.id] === q.correct ? '#15803d' : '#b91c1c' }}>
+                              {drillAnswers[q.id] === q.correct ? '✓ Correct!' : `✗ Incorrect (Correct: ${q.correct})`}
                             </strong>
-                            <div style={{ marginTop: 2, color: '#202020' }}>{q.explanation}</div>
+                            <div style={{ marginTop: 4, color: '#202020', lineHeight: 1.55 }}>{q.explanation}</div>
                           </div>
                         )}
                       </div>
-                    );
-                  })}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setDrillChecked((prev) => ({ ...prev, tfng: true }))}
-                  className="btn btn-primary"
-                  style={{ alignSelf: 'flex-start', borderRadius: 0 }}
-                >
-                  Check TFNG Answers
-                </button>
-              </div>
-
-              {/* Drill 2: Matching Headings */}
-              <div className={styles.drillCard}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                  <div>
-                    <Badge variant="yellow">Exercise 2</Badge>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '6px 0 0' }}>
-                      {guideData.interactiveDrills[1].title}
-                    </h3>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleResetDrill('headings', ['h1'])}
-                    className="btn btn-ghost btn-xs"
-                    style={{ borderRadius: 0 }}
-                  >
-                    <RotateCcw size={13} /> Reset
-                  </button>
-                </div>
-
-                <div className={styles.drillPassage}>
-                  {guideData.interactiveDrills[1].passage}
-                </div>
-
-                <div className={styles.drillQuestionRow}>
-                  <div style={{ fontWeight: 700, fontSize: '0.92rem' }}>
-                    {guideData.interactiveDrills[1].questions[0].statement}
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    {guideData.interactiveDrills[1].questions[0].options.map((opt) => (
-                      <button
-                        key={opt}
-                        type="button"
-                        onClick={() => handleSelectDrillOption('h1', opt)}
-                        className={`${styles.drillOptionBtn} ${drillAnswers.h1 === opt ? styles.drillOptionBtnSelected : ''}`}
-                        style={{ textAlign: 'left' }}
-                      >
-                        {opt}
-                      </button>
                     ))}
                   </div>
 
-                  {drillChecked.headings && (
-                    <div
-                      style={{
-                        padding: '8px 12px',
-                        background: drillAnswers.h1 === guideData.interactiveDrills[1].questions[0].correct ? 'rgba(46, 125, 50, 0.08)' : 'rgba(198, 40, 40, 0.08)',
-                        border: '1px solid rgba(0,0,0,0.1)',
-                        fontSize: '0.84rem',
-                      }}
-                    >
-                      <strong>
-                        {drillAnswers.h1 === guideData.interactiveDrills[1].questions[0].correct
-                          ? 'Correct!'
-                          : `Incorrect. Correct heading: ${guideData.interactiveDrills[1].questions[0].correct}`}
-                      </strong>
-                      <div style={{ marginTop: 2, color: '#202020' }}>
-                        {guideData.interactiveDrills[1].questions[0].explanation}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setDrillChecked((prev) => ({ ...prev, headings: true }))}
-                  className="btn btn-primary"
-                  style={{ alignSelf: 'flex-start', borderRadius: 0 }}
-                >
-                  Check Headings Answer
-                </button>
-              </div>
-
-              {/* Drill 3: Summary Completion */}
-              <div className={styles.drillCard}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                  <div>
-                    <Badge variant="purple">Exercise 3</Badge>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '6px 0 0' }}>
-                      {guideData.interactiveDrills[2].title}
-                    </h3>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleResetDrill('summary', ['s1'])}
-                    className="btn btn-ghost btn-xs"
-                    style={{ borderRadius: 0 }}
-                  >
-                    <RotateCcw size={13} /> Reset
-                  </button>
-                </div>
-
-                <div className={styles.drillPassage}>
-                  {guideData.interactiveDrills[2].passage}
-                </div>
-
-                <div className={styles.drillQuestionRow}>
-                  <div style={{ fontWeight: 700, fontSize: '0.92rem' }}>
-                    {guideData.interactiveDrills[2].questions[0].statement}
-                  </div>
-                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    {guideData.interactiveDrills[2].questions[0].options.map((opt) => (
-                      <button
-                        key={opt}
-                        type="button"
-                        onClick={() => handleSelectDrillOption('s1', opt)}
-                        className={`${styles.drillOptionBtn} ${drillAnswers.s1 === opt ? styles.drillOptionBtnSelected : ''}`}
-                      >
-                        {opt}
-                      </button>
-                    ))}
-                  </div>
-
-                  {drillChecked.summary && (
-                    <div
-                      style={{
-                        padding: '8px 12px',
-                        background: drillAnswers.s1 === guideData.interactiveDrills[2].questions[0].correct ? 'rgba(46, 125, 50, 0.08)' : 'rgba(198, 40, 40, 0.08)',
-                        border: '1px solid rgba(0,0,0,0.1)',
-                        fontSize: '0.84rem',
-                      }}
-                    >
-                      <strong>
-                        {drillAnswers.s1 === guideData.interactiveDrills[2].questions[0].correct
-                          ? 'Correct!'
-                          : `Incorrect. Correct answer: ${guideData.interactiveDrills[2].questions[0].correct}`}
-                      </strong>
-                      <div style={{ marginTop: 2, color: '#202020' }}>
-                        {guideData.interactiveDrills[2].questions[0].explanation}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setDrillChecked((prev) => ({ ...prev, summary: true }))}
-                  className="btn btn-primary"
-                  style={{ alignSelf: 'flex-start', borderRadius: 0 }}
-                >
-                  Check Summary Answer
-                </button>
-              </div>
-            </section>
-
-            {/* 11. Cambridge Books 9–25 Library Preview */}
-            <section id="cambridge-library" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="purple" className={styles.sectionBadge}>Section 11</Badge>
-                <h2 className={styles.sectionTitle}>Cambridge IELTS Academic Reading Test Library (Books 9–25)</h2>
-                <p className={styles.sectionSubtitle}>
-                  52 authentic Academic Reading tests across 13 published Cambridge volumes (Books 9–21) plus syllabus previews for forthcoming editions (Books 22–25).
-                </p>
-              </div>
-
-              <div className={styles.bookGrid}>
-                {cambridgeBooks.map((book) => (
-                  <div key={book.bookNumber} className={styles.bookCard}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Badge variant={book.isForthcoming ? 'yellow' : 'purple'}>
-                        {book.status}
-                      </Badge>
-                      <span className="text-xs text-muted">{book.year}</span>
-                    </div>
-
-                    <h4 className={styles.bookTitle}>Book {book.bookNumber}: {book.title}</h4>
-
-                    <div className={styles.bookMetaRow}>
-                      <span>{book.testCount} Tests ({book.passagesCount} Passages)</span>
-                      <span>{book.questionCount} Questions</span>
-                    </div>
-
-                    <p className="text-xs text-muted" style={{ margin: 0, lineHeight: 1.5 }}>
-                      {book.overview.slice(0, 110)}...
-                    </p>
-
+                  <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
                     <button
                       type="button"
-                      onClick={handlePracticeCta}
+                      onClick={() => setDrillChecked(true)}
                       className="btn btn-sm"
-                      style={{ marginTop: 'auto', borderRadius: 0, justifyContent: 'center', backgroundColor: "#F6BD28", color: "#202020", border: "1px solid #E5AC1A", fontWeight: 700 }}
+                      style={{ borderRadius: 0, backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700, padding: '8px 18px' }}
                     >
-                      {book.isForthcoming ? 'View Syllabus' : 'Practice in Dashboard'} &rarr;
+                      Check TFNG Answers
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleResetDrill}
+                      className="btn btn-secondary btn-sm"
+                      style={{ borderRadius: 0 }}
+                    >
+                      <RotateCcw size={12} /> Reset
                     </button>
                   </div>
-                ))}
+                </div>
               </div>
             </section>
 
-            {/* 12. FAQs */}
-            <section id="faqs" className={styles.guideSection}>
-              <div className={styles.sectionHeader}>
-                <Badge variant="yellow" className={styles.sectionBadge}>Section 12</Badge>
-                <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
-                <p className={styles.sectionSubtitle}>
+            {/* 9. FAQS */}
+            <section id="faqs" className={styles.contentSection}>
+              <div>
+                <span className={styles.sectionIndicatorBadge}>FREQUENTLY ASKED QUESTIONS</span>
+                <h2 className="h2" style={{ marginTop: 8, marginBottom: 6, color: '#202020' }}>
+                  IELTS Academic Reading FAQs
+                </h2>
+                <p style={{ margin: 0, maxWidth: 740, color: '#333333', fontSize: '0.92rem', lineHeight: 1.55 }}>
                   Essential answers to critical questions about exam pacing, capitalization, spelling, and scoring rubrics.
                 </p>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {guideData.faqs.map((faq, idx) => (
-                  <div key={idx} className="card" style={{ borderRadius: 0, padding: 20 }}>
-                    <strong style={{ fontSize: '1rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <HelpCircle size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} /> {faq.q}
-                    </strong>
-                    <p style={{ margin: '8px 0 0', fontSize: '0.92rem', color: '#202020', lineHeight: 1.6 }}>
-                      {faq.a}
-                    </p>
+              <div className={styles.faqStack}>
+                {(Array.isArray(guideData.faqs) ? guideData.faqs : guideData.faqs?.items || []).map((faq, idx) => (
+                  <div key={idx} className={styles.faqItem}>
+                    <button
+                      type="button"
+                      className={styles.faqQuestionBtn}
+                      onClick={() => setOpenFaq((prev) => (prev === idx ? -1 : idx))}
+                      aria-expanded={openFaq === idx}
+                    >
+                      <span>{faq.q}</span>
+                      {openFaq === idx ? (
+                        <ChevronUp size={16} color="#8867B8" />
+                      ) : (
+                        <ChevronDown size={16} color="#707070" />
+                      )}
+                    </button>
+
+                    {openFaq === idx && (
+                      <div className={styles.faqAnswerBox}>
+                        <p style={{ margin: 0, color: '#202020' }}>{faq.a}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
+            </section>
 
-              {/* Bottom CTA Banner */}
-              <div
-                className="card-dark"
+            {/* BOTTOM CALL TO ACTION BANNER */}
+            <div className={styles.bottomCtaBanner}>
+              <div className={styles.bottomCtaText}>
+                <span className={styles.sectionIndicatorBadge} style={{ alignSelf: 'flex-start', marginBottom: 0 }}>
+                  Start Your Practice Today
+                </span>
+                <h2 className={styles.bottomCtaHeading}>Ready to Achieve Band 8.0+ in IELTS Academic Reading?</h2>
+                <p className={styles.bottomCtaDesc}>
+                  Access our full suite of 52 timed exam simulations with instant automated marking, synchronized passage highlighting, and comprehensive mistake review logs.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => handleProtectedPractice('/reading')}
+                className="btn btn-primary"
                 style={{
-                  borderRadius: 0,
-                  padding: 36,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 16,
+                  background: '#F6BD28',
+                  color: '#202020',
+                  borderColor: '#E5AC1A',
+                  padding: '14px 28px',
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  display: 'inline-flex',
                   alignItems: 'center',
-                  textAlign: 'center',
-                  marginTop: 24,
+                  gap: 8,
+                  borderRadius: 0,
                 }}
               >
-                <Badge variant="yellow">Ready to Start?</Badge>
-                <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#faf9f5', margin: 0 }}>
-                  Take Your First Timed Cambridge Reading Test
-                </h3>
-                <p style={{ maxWidth: 640, color: 'rgba(250, 249, 245, 0.8)', fontSize: '0.96rem', margin: 0 }}>
-                  Practice with the full Cambridge Books 9–25 library, instant band conversion, split-screen passage navigation, and official IELTS rubrics.
-                </p>
-                <button
-                  type="button"
-                  onClick={handlePracticeCta}
-                  className="btn btn-primary btn-lg"
-                  style={{ borderRadius: 0, marginTop: 8 }}
-                >
-                  Launch Dashboard Reading Library <ArrowRight size={16} />
-                </button>
-              </div>
-            </section>
+                <span>Launch Reading Practice Hub</span>
+                <ArrowRight size={18} />
+              </button>
+            </div>
           </main>
 
-          {/* Right Sticky Table of Contents Column */}
-          <aside className={styles.tocColumn}>
-            <div className={styles.tocCard}>
-              <div className={styles.tocHeader}>
-                <span className={styles.tocTitle}>Table of Contents</span>
-                <span className="text-xs text-muted">12 Sections</span>
-              </div>
+          {/* Sticky Right-Side Table of Contents (Desktop) */}
+          <aside className={styles.tocSidebar} aria-label="Table of Contents">
+            <div className={styles.tocHeader}>
+              <span className={styles.tocTitle}>
+                <List size={14} color="#8867B8" />
+                <span>On This Page</span>
+              </span>
+              <span className={styles.tocCountBadge}>
+                {guideData.tableOfContents.length} Sections
+              </span>
+            </div>
 
-              <ul className={styles.tocList}>
+            <nav>
+              <ul className={styles.tocNavList}>
                 {guideData.tableOfContents.map((item) => (
-                  <li key={item.id} className={styles.tocItem}>
-                    <a
-                      href={`#${item.id}`}
-                      className={`${styles.tocLink} ${activeTocId === item.id ? styles.tocLinkActive : ''}`}
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      className={`${styles.tocNavLink} ${activeToc === item.id ? styles.tocNavLinkActive : ''}`}
+                      onClick={() => handleScrollTo(item.id)}
                     >
-                      {item.label}
-                    </a>
+                      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {item.label}
+                      </span>
+                      {activeToc === item.id && (
+                        <span style={{ fontSize: '0.7rem', color: '#8867B8' }}>●</span>
+                      )}
+                    </button>
                   </li>
                 ))}
               </ul>
+            </nav>
 
-              <div className={styles.tocCta}>
-                <button
-                  type="button"
-                  onClick={handlePracticeCta}
-                  className="btn btn-primary btn-sm"
-                  style={{ borderRadius: 0, width: '100%', justifyContent: 'center' }}
-                >
-                  Start Practice Test &rarr;
-                </button>
-              </div>
+            <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border-color, #E2DDD1)' }}>
+              <button
+                type="button"
+                onClick={() => handleProtectedPractice('/reading')}
+                className="btn btn-primary btn-sm"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, borderRadius: 0, backgroundColor: '#F6BD28', color: '#202020', border: '1px solid #E5AC1A', fontWeight: 700 }}
+              >
+                <BookOpen size={14} />
+                <span>Practice Now</span>
+              </button>
             </div>
           </aside>
         </div>
@@ -1110,4 +1101,3 @@ export function ReadingPracticeView() {
     </div>
   );
 }
-

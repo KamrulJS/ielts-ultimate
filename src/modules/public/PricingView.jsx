@@ -81,8 +81,8 @@ const FAQS = [
     a: 'Our AI Examiner runs on GPT-4o calibrated specifically against the public IELTS band descriptors. Internal evaluations maintain an average error margin of under 0.25 band.',
   },
   {
-    q: 'Is IELTS WIST dedicated exclusively to IELTS Academic?',
-    a: 'Yes. IELTS WIST is 100% dedicated to IELTS Academic preparation, featuring authentic Cambridge Academic reading suites, Academic Task 1 visual reports, and higher education essay simulations.',
+    q: 'Is IELTS Ultimate dedicated exclusively to IELTS Academic?',
+    a: 'Yes. IELTS Ultimate is 100% dedicated to IELTS Academic preparation, featuring authentic Cambridge Academic reading suites, Academic Task 1 visual reports, and higher education essay simulations.',
   },
 ];
 

@@ -14,19 +14,23 @@
     "stats": [
       {
         "label": "Test Duration",
-        "value": "60 Mins"
+        "value": "60 Mins",
+        "desc": "Strict Exam Timing"
       },
       {
         "label": "Total Questions",
-        "value": "40 Questions"
+        "value": "40 Qs",
+        "desc": "1 Mark Per Correct Item"
       },
       {
-        "label": "Academic Passages",
-        "value": "3 Passages"
+        "label": "Academic Texts",
+        "value": "3 Passages",
+        "desc": "750–1,000 Words Each"
       },
       {
         "label": "Question Formats",
-        "value": "14 Types"
+        "value": "14 Types",
+        "desc": "Comprehensive Syllabus"
       }
     ],
     "primaryCta": {
@@ -41,51 +45,39 @@
   "tableOfContents": [
     {
       "id": "overview",
-      "label": "1. Reading Overview"
-    },
-    {
-      "id": "academic-standards",
-      "label": "2. Academic Test Standards"
-    },
-    {
-      "id": "test-format",
-      "label": "3. Test Format & Rules"
-    },
-    {
-      "id": "question-types",
-      "label": "4. All 14 Question Types"
-    },
-    {
-      "id": "strategies",
-      "label": "5. Core Reading Strategies"
-    },
-    {
-      "id": "difficulty-guide",
-      "label": "6. Question Difficulty & Priority"
-    },
-    {
-      "id": "time-management",
-      "label": "7. 60-Minute Time Management"
-    },
-    {
-      "id": "scoring",
-      "label": "8. Band Scoring Conversion"
-    },
-    {
-      "id": "tips-and-mistakes",
-      "label": "9. Tips & Common Pitfalls"
-    },
-    {
-      "id": "interactive-drills",
-      "label": "10. Sample Interactive Exercises"
+      "label": "Overview & Metrics"
     },
     {
       "id": "cambridge-library",
-      "label": "11. Cambridge Books 9–25"
+      "label": "Cambridge Test Library"
+    },
+    {
+      "id": "test-format",
+      "label": "Official Exam Regulations"
+    },
+    {
+      "id": "difficulty-guide",
+      "label": "Three Passages Explained"
+    },
+    {
+      "id": "question-types",
+      "label": "14 Question Formats"
+    },
+    {
+      "id": "scoring",
+      "label": "Score & Band Conversion"
+    },
+    {
+      "id": "strategies",
+      "label": "Reading Strategies & Timing"
+    },
+    {
+      "id": "interactive-drills",
+      "label": "Interactive Practice Drill"
     },
     {
       "id": "faqs",
-      "label": "12. Frequently Asked Questions"
+      "label": "Frequently Asked Questions"
     }
   ],
   "overview": {
