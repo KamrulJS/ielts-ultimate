@@ -21,7 +21,15 @@ import {
   UNAUTHENTICATED_STATE,
   authenticateUser,
   registerNewUser,
+  isLiveAuthAvailable,
+  signInWithEmailPassword,
+  signInWithGoogleOAuth,
+  sendEmailRegistrationLink,
+  signOutSupabase,
+  fetchUserProfile,
+  normalizeUserSession,
 } from '@/lib/auth';
+import { getSupabaseClient } from '@/lib/supabase/client';
 
 const STORAGE_KEY = 'ielts_ultimate_platform_v1';
 
@@ -36,6 +44,8 @@ const DEFAULT_APP_STATE = {
   hydrated: false,
   auth: UNAUTHENTICATED_STATE,
   loginWithCredentials: () => ({ success: false }),
+  loginWithGoogle: () => ({ success: false }),
+  sendRegistrationEmail: () => ({ success: false }),
   registerStudent: () => ({ success: false }),
   logout: () => {},
   profile: defaultProfile,
@@ -116,9 +126,11 @@ export function AppProvider({ children }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [toasts, setToasts] = useState([]);
 
-  // Hydrate persisted LocalStorage state on mount
+  // Hydrate persisted state and Supabase Auth session on mount
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
+    let unsubscribeAuth = null;
+
+    const initAuthAndStorage = async () => {
       try {
         const raw = window.localStorage.getItem(STORAGE_KEY);
         if (raw) {
@@ -141,20 +153,75 @@ export function AppProvider({ children }) {
           if (parsed.adminStudents) setAdminStudents(parsed.adminStudents);
           if (typeof parsed.sidebarCollapsed === 'boolean') setSidebarCollapsed(parsed.sidebarCollapsed);
         }
-        const rawAuth = window.localStorage.getItem(AUTH_STORAGE_KEY);
-        if (rawAuth) {
-          const parsedAuth = JSON.parse(rawAuth);
-          if (parsedAuth?.isAuthenticated && (parsedAuth.role === 'student' || parsedAuth.role === 'admin')) {
-            setAuth(parsedAuth);
+
+        // Live Supabase Authentication Session Check
+        if (isLiveAuthAvailable()) {
+          const supabase = getSupabaseClient();
+          if (supabase) {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user) {
+              const profileData = await fetchUserProfile(session.user.id);
+              const normalized = normalizeUserSession(session.user, profileData);
+              if (normalized) {
+                setAuth(normalized);
+                setProfile((prev) => ({
+                  ...prev,
+                  name: normalized.name || prev.name,
+                  email: normalized.email || prev.email,
+                  avatar: normalized.avatar ?? null,
+                  track: normalized.track || prev.track,
+                  targetBand: normalized.targetBand || prev.targetBand,
+                }));
+              }
+            } else {
+              setAuth(UNAUTHENTICATED_STATE);
+            }
+
+            // Real-time listener for OAuth logins, token refreshes, and logouts
+            const { data: listener } = supabase.auth.onAuthStateChange(async (event, currentSession) => {
+              if (currentSession?.user) {
+                const pData = await fetchUserProfile(currentSession.user.id);
+                const norm = normalizeUserSession(currentSession.user, pData);
+                if (norm) {
+                  setAuth(norm);
+                  setProfile((prev) => ({
+                    ...prev,
+                    name: norm.name || prev.name,
+                    email: norm.email || prev.email,
+                    avatar: norm.avatar ?? null,
+                    track: norm.track || prev.track,
+                    targetBand: norm.targetBand || prev.targetBand,
+                  }));
+                }
+              } else if (event === 'SIGNED_OUT') {
+                setAuth(UNAUTHENTICATED_STATE);
+                setProfile(defaultProfile);
+              }
+            });
+            unsubscribeAuth = listener?.subscription?.unsubscribe;
+          }
+        } else {
+          // Fallback to local storage auth in local development before Supabase keys are configured
+          const rawAuth = window.localStorage.getItem(AUTH_STORAGE_KEY);
+          if (rawAuth) {
+            const parsedAuth = JSON.parse(rawAuth);
+            if (parsedAuth?.isAuthenticated && (parsedAuth.role === 'student' || parsedAuth.role === 'admin')) {
+              setAuth(parsedAuth);
+            }
           }
         }
-      } catch {
-        // Ignore malformed storage
+      } catch (err) {
+        console.warn('Session hydration error:', err);
       } finally {
         setHydrated(true);
       }
-    });
-    return () => cancelAnimationFrame(frame);
+    };
+
+    initAuthAndStorage();
+
+    return () => {
+      if (unsubscribeAuth) unsubscribeAuth();
+    };
   }, []);
 
   // Persist key user state changes
@@ -447,7 +514,66 @@ export function AppProvider({ children }) {
 
   const loginWithCredentials = useCallback(
     async ({ identifier = '', email = '', password = '', expectedRole = 'student' }) => {
-      const targetIdentifier = identifier || email;
+      const targetIdentifier = (identifier || email).trim();
+
+      // If live Supabase auth is available and identifier is an email
+      if (isLiveAuthAvailable()) {
+        const res = await signInWithEmailPassword({ email: targetIdentifier, password });
+        if (res.ok && res.user) {
+          setAuth(res.user);
+          if (res.user.role === 'student') {
+            setProfile((prev) => ({
+              ...prev,
+              name: res.user.name,
+              email: res.user.email,
+              avatar: res.user.avatar || prev.avatar,
+              track: res.user.track || prev.track,
+              targetBand: res.user.targetBand || prev.targetBand,
+            }));
+            showToast(`Welcome back, ${res.user.name.split(' ')[0]}!`, 'success');
+          } else {
+            showToast('Signed in to Admin Console', 'success');
+          }
+          return { ok: true, success: true, role: res.user.role };
+        }
+
+        // Demo account fallback in development if Supabase rejected or during dev testing
+        if (
+          (targetIdentifier === DEMO_STUDENT_CREDENTIALS.email || targetIdentifier === DEMO_STUDENT_CREDENTIALS.username) &&
+          password === DEMO_STUDENT_CREDENTIALS.password
+        ) {
+          const session = {
+            isAuthenticated: true,
+            role: 'student',
+            email: DEMO_STUDENT_CREDENTIALS.email,
+            username: DEMO_STUDENT_CREDENTIALS.username,
+            name: DEMO_STUDENT_CREDENTIALS.name,
+          };
+          setAuth(session);
+          showToast(`Welcome back, ${session.name.split(' ')[0]}! (Demo Mode)`, 'success');
+          return { ok: true, success: true, role: 'student' };
+        }
+
+        if (
+          (targetIdentifier === DEMO_ADMIN_CREDENTIALS.email || targetIdentifier === DEMO_ADMIN_CREDENTIALS.username) &&
+          password === DEMO_ADMIN_CREDENTIALS.password
+        ) {
+          const session = {
+            isAuthenticated: true,
+            role: 'admin',
+            email: DEMO_ADMIN_CREDENTIALS.email,
+            username: DEMO_ADMIN_CREDENTIALS.username,
+            name: DEMO_ADMIN_CREDENTIALS.name,
+          };
+          setAuth(session);
+          showToast('Signed in to Admin Console (Demo Mode)', 'success');
+          return { ok: true, success: true, role: 'admin' };
+        }
+
+        return { ok: false, success: false, error: res.error || 'Authentication failed' };
+      }
+
+      // Legacy fallback when Supabase is not configured yet
       const res = await authenticateUser({
         identifier: targetIdentifier,
         password,
@@ -489,6 +615,27 @@ export function AppProvider({ children }) {
     [showToast]
   );
 
+  const loginWithGoogle = useCallback(
+    async (redirectTo = '/dashboard') => {
+      if (!isLiveAuthAvailable()) {
+        showToast('Supabase is not configured yet. Please configure your .env.local file.', 'error');
+        return { ok: false, error: 'Supabase credentials missing.' };
+      }
+      return await signInWithGoogleOAuth(redirectTo);
+    },
+    [showToast]
+  );
+
+  const sendRegistrationEmail = useCallback(
+    async ({ email, name, targetBand, track }) => {
+      if (!isLiveAuthAvailable()) {
+        return { ok: false, error: 'Supabase credentials missing in .env.local' };
+      }
+      return await sendEmailRegistrationLink({ email, name, targetBand, track });
+    },
+    []
+  );
+
   const registerStudent = useCallback(
     async ({
       name = '',
@@ -499,6 +646,21 @@ export function AppProvider({ children }) {
       targetBand = 7.5,
       track = 'Academic',
     }) => {
+      // Check if user is using the email-only link flow
+      if (isLiveAuthAvailable()) {
+        const res = await sendEmailRegistrationLink({
+          email,
+          name,
+          targetBand,
+          track,
+        });
+        if (res.ok) {
+          showToast('Verification email dispatched! Please check your inbox.', 'success');
+          return { ok: true, success: true, emailSent: true };
+        }
+        return { ok: false, success: false, error: res.error || 'Registration failed' };
+      }
+
       const res = await registerNewUser({
         name,
         username,
@@ -540,7 +702,10 @@ export function AppProvider({ children }) {
     [showToast]
   );
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    if (isLiveAuthAvailable()) {
+      await signOutSupabase();
+    }
     setAuth({ ...UNAUTHENTICATED_STATE, explicitLogout: true });
     try {
       window.localStorage.removeItem(AUTH_STORAGE_KEY);
@@ -556,6 +721,8 @@ export function AppProvider({ children }) {
         hydrated,
         auth,
         loginWithCredentials,
+        loginWithGoogle,
+        sendRegistrationEmail,
         registerStudent,
         logout,
         profile,

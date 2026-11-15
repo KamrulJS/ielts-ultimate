@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import styles from './PublicLayout.module.css';
+import secStyles from './HomeInsidePlatformSection.module.css';
 
 const TABS = [
   {
@@ -91,32 +92,23 @@ export function HomeInsidePlatformSection() {
   const [activeTab, setActiveTab] = useState(TABS[0]);
 
   return (
-    <section
-      className={`${styles.sectionSpace} ${styles.home_section_1}`}
-      
-    >
+    <section className={secStyles.sectionWrapper}>
       <div className={styles.container}>
         {/* Section Header */}
-        <div className={styles.home_div_2}>
-          <span
-            className={styles.home_span_3}
-          >
+        <div className={secStyles.headerContainer}>
+          <span className={secStyles.eyebrowBadge}>
             Inside the Platform
           </span>
-          <h2
-            className={styles.home_h2_4}
-          >
-            Built to feel like <span className={styles.home_span_5}>the real exam</span>
+          <h2 className={secStyles.sectionHeading}>
+            Built to feel like <span className={secStyles.headingHighlight}>the real exam</span>
           </h2>
-          <p className={styles.home_p_6}>
+          <p className={secStyles.sectionDesc}>
             Every screen is designed to mirror the real IELTS computer-delivered interface so test day feels familiar, not frightening.
           </p>
         </div>
 
         {/* Square Filter Tabs */}
-        <div
-          className={styles.home_div_7}
-        >
+        <div className={secStyles.filterTabs}>
           {TABS.map((tab) => {
             const isActive = activeTab.id === tab.id;
             return (
@@ -124,18 +116,7 @@ export function HomeInsidePlatformSection() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab)}
-                style={{
-                  borderRadius: 0,
-                  padding: '9px 18px',
-                  fontSize: '0.86rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  border: isActive ? '1px solid #E5AC1A' : '1px solid var(--border, #E2DDD1)',
-                  backgroundColor: isActive ? '#F6BD28' : '#FFFFFF',
-                  color: '#202020',
-                  boxShadow: isActive ? '0 2px 10px rgba(246, 189, 40, 0.28)' : 'none',
-                  transition: 'all 0.2s ease',
-                }}
+                className={`${secStyles.tabButton} ${isActive ? secStyles.tabButtonActive : ''}`}
               >
                 {tab.label}
               </button>
@@ -144,51 +125,42 @@ export function HomeInsidePlatformSection() {
         </div>
 
         {/* Large Platform Preview Container (~90% container width, no excess padding) */}
-        <div
-          className={styles.home_div_8}
-        >
+        <div className={secStyles.previewContainer}>
           {/* Header Bar */}
-          <div
-            className={styles.home_div_9}
-          >
-            <div className={styles.home_div_10}>
-              <span className={styles.home_span_11}>
+          <div className={secStyles.topBar}>
+            <div className={secStyles.breadcrumbWrap}>
+              <span className={secStyles.crumbSimulation}>
                 <ChevronLeft size={16} /> Simulation
               </span>
-              <span className={styles.home_span_12}>/</span>
-              <span className={styles.home_span_13}>IELTS COMPLETE ACADEMIC TEST</span>
-              <span className={styles.home_span_12}>/</span>
-              <span className={styles.home_span_14}>{activeTab.module}</span>
+              <span className={secStyles.crumbDivider}>/</span>
+              <span className={secStyles.crumbTestName}>IELTS COMPLETE ACADEMIC TEST</span>
+              <span className={secStyles.crumbDivider}>/</span>
+              <span className={secStyles.crumbModuleName}>{activeTab.module}</span>
             </div>
 
-            <div className={styles.home_div_15}>
-              <span
-                className={styles.home_span_16}
-              >
+            <div className={secStyles.actionsWrap}>
+              <span className={secStyles.timerBox}>
                 <Clock size={13} color="#8867B8" />
                 <span>{activeTab.timer}</span>
               </span>
 
               <button
                 type="button"
-                className={`btn btn-secondary btn-sm ${styles.home_button_17}`}
-                
+                className={`btn btn-secondary btn-sm ${secStyles.headerButton}`}
               >
                 <HelpCircle size={13} /> Help
               </button>
 
               <button
                 type="button"
-                className={`btn btn-secondary btn-sm ${styles.home_button_17}`}
-                
+                className={`btn btn-secondary btn-sm ${secStyles.headerButton}`}
               >
                 <Flag size={13} /> Report
               </button>
 
               <Link
                 href={activeTab.link}
-                className={`btn btn-accent btn-sm ${styles.home_link_18}`}
-                
+                className={`btn btn-accent btn-sm ${secStyles.launchLink}`}
               >
                 <span>Launch Tool</span>
                 <ArrowRight size={13} />
@@ -197,7 +169,7 @@ export function HomeInsidePlatformSection() {
           </div>
 
           {/* Genuine 1440x900 Screenshot (Full Width with Native Aspect Ratio) */}
-          <div className={styles.home_div_19}>
+          <div className={secStyles.screenshotWrap}>
             <Image
               src={activeTab.image}
               alt={activeTab.title}
@@ -205,36 +177,22 @@ export function HomeInsidePlatformSection() {
               height={900}
               quality={95}
               priority
-              className={styles.home_image_20}
+              className={secStyles.screenshotImage}
             />
           </div>
 
           {/* Footer Bar with Status and Item Numbers */}
-          <div
-            className={styles.home_div_21}
-          >
-            <div className={styles.home_div_22}>
-              <span className={styles.home_span_23} />
-              <span className={styles.home_span_24}>All changes saved &amp; synchronized</span>
+          <div className={secStyles.footerBar}>
+            <div className={secStyles.syncStatus}>
+              <span className={secStyles.syncIndicator} />
+              <span className={secStyles.syncText}>All changes saved &amp; synchronized</span>
             </div>
 
-            <div className={styles.home_div_25}>
+            <div className={secStyles.questionTabs}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((num) => (
                 <span
                   key={num}
-                  style={{
-                    width: 24,
-                    height: 24,
-                    border: num === 1 ? '1px solid #E5AC1A' : '1px solid var(--border, #E2DDD1)',
-                    borderRadius: 0,
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.72rem',
-                    fontWeight: num === 1 ? 700 : 500,
-                    backgroundColor: num === 1 ? '#F6BD28' : '#FFFFFF',
-                    color: num === 1 ? '#202020' : 'var(--text-secondary, #5F5E5B)',
-                  }}
+                  className={`${secStyles.questionTile} ${num === 1 ? secStyles.questionTileActive : secStyles.questionTileInactive}`}
                 >
                   {num}
                 </span>

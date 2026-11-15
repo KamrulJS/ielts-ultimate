@@ -123,7 +123,9 @@ export function SidebarNavContent({ collapsed = false, onNavigate }) {
 }
 
 export function AppSidebar() {
-  const { profile, sidebarCollapsed, setSidebarCollapsed } = useApp();
+  const { auth, profile, sidebarCollapsed, setSidebarCollapsed } = useApp();
+  const displayName = auth?.isAuthenticated && auth?.name ? auth.name : profile.name;
+  const displayAvatar = auth?.isAuthenticated ? (auth.avatar || null) : profile.avatar;
 
   return (
     <aside
@@ -179,15 +181,15 @@ export function AppSidebar() {
           href="/profile"
           className={styles.profileChip}
           style={sidebarCollapsed ? { justifyContent: 'center', padding: 6 } : undefined}
-          title={profile.name}
+          title={displayName}
         >
-          <SafeAvatar src={profile.avatar} name={profile.name} size={34} />
+          <SafeAvatar src={displayAvatar} name={displayName} size={34} />
           {!sidebarCollapsed && (
             <div className={styles.apps_div_3}>
               <div
                 className={styles.apps_div_4}
               >
-                {profile.name}
+                {displayName}
               </div>
               <div className="text-xs text-muted">
                 Target {profile.targetBand} • {profile.plan}

@@ -13,8 +13,11 @@ import styles from './Sidebar.module.css';
 
 export function MobileNavigation() {
   const router = useRouter();
-  const { mobileNavOpen, setMobileNavOpen, profile, logout } = useApp();
+  const { auth, mobileNavOpen, setMobileNavOpen, profile, logout } = useApp();
   const drawerRef = useRef(null);
+
+  const displayName = auth?.isAuthenticated && auth?.name ? auth.name : profile.name;
+  const displayAvatar = auth?.isAuthenticated ? (auth.avatar || null) : profile.avatar;
 
   useEffect(() => {
     if (!mobileNavOpen) return;
@@ -91,9 +94,9 @@ export function MobileNavigation() {
             onClick={() => setMobileNavOpen(false)}
             className={styles.profileChip}
           >
-            <SafeAvatar src={profile.avatar} name={profile.name} size={34} />
+            <SafeAvatar src={displayAvatar} name={displayName} size={34} />
             <div>
-              <div className={styles.mobi_div_4}>{profile.name}</div>
+              <div className={styles.mobi_div_4}>{displayName}</div>
               <div className="text-xs text-muted">Target Band {profile.targetBand}</div>
             </div>
           </Link>

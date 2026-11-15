@@ -19,6 +19,7 @@ import {
 } from '@/components/frontend/PublicPrimitives';
 import { ContactHeroVisual } from '@/components/frontend/HeroVisuals';
 import aboutContactData from '@/data/public/about-contact.json';
+import { submitContactInquiry } from '@/lib/contact-service';
 import styles from '@/components/frontend/PublicLayout.module.css';
 
 const INQUIRY_KEY = 'ielts_ultimate_contact_tickets_v1';
@@ -39,33 +40,50 @@ export function ContactView() {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [message, setMessage] = useState('');
   const [submittedTicket, setSubmittedTicket] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const subject = selectedSubject || matchedSubject;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || message.trim().length < 10) {
       showToast('Please complete all fields with a short message (10+ characters).', 'error');
       return;
     }
 
-    const ticket = {
-      id: `TKT-${Date.now().toString().slice(-5)}`,
-      name: name.trim(),
-      email: email.trim(),
-      subject,
-      message: message.trim(),
-      createdAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    };
-
+    setSubmitting(true);
     try {
-      const prev = JSON.parse(window.localStorage.getItem(INQUIRY_KEY) || '[]');
-      window.localStorage.setItem(INQUIRY_KEY, JSON.stringify([ticket, ...prev]));
-    } catch {}
+      const result = await submitContactInquiry({
+        name: name.trim(),
+        email: email.trim(),
+        subject,
+        message: message.trim(),
+        sourcePage: '/contact',
+      });
 
-    setSubmittedTicket(ticket);
-    setMessage('');
-    showToast('Inquiry received! Reference ' + ticket.id, 'success');
+      if (!result.ok) {
+        showToast(result.error || 'Failed to submit inquiry. Please try again.', 'error');
+        setSubmitting(false);
+        return;
+      }
+
+      const ticket = {
+        id: result.id,
+        name: name.trim(),
+        email: email.trim(),
+        subject,
+        message: message.trim(),
+        createdAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      };
+
+      setSubmittedTicket(ticket);
+      setMessage('');
+      showToast('Inquiry received! Reference ' + ticket.id, 'success');
+    } catch {
+      showToast('An unexpected error occurred while sending your message.', 'error');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -177,8 +195,8 @@ export function ContactView() {
                     />
                   </div>
 
-                  <button type="submit" className={`btn btn-primary ${styles.cont_badge_5}`} >
-                    <Send size={15} /> Submit Message
+                  <button type="submit" disabled={submitting} className={`btn btn-primary ${styles.cont_badge_5}`} >
+                    <Send size={15} /> {submitting ? 'Submitting...' : 'Submit Message'}
                   </button>
                 </form>
               )}

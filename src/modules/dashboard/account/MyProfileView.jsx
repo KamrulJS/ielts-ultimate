@@ -10,7 +10,11 @@ import { SafeAvatar } from '@/components/common/SafeAvatar';
 import { EditProfileModal, TargetBandModal, ScheduleExamModal } from '@/components/modals/DashboardModals';
 
 export function MyProfileView() {
-  const { profile, updateProfile } = useApp();
+  const { auth, profile, updateProfile } = useApp();
+  const displayName = auth?.isAuthenticated && auth?.name ? auth.name : profile.name;
+  const displayEmail = auth?.isAuthenticated && auth?.email ? auth.email : profile.email;
+  const displayAvatar = auth?.isAuthenticated ? (auth.avatar || null) : profile.avatar;
+
   const [editOpen, setEditOpen] = useState(false);
   const [targetOpen, setTargetOpen] = useState(false);
   const [examOpen, setExamOpen] = useState(false);
@@ -46,20 +50,20 @@ export function MyProfileView() {
         <div style={{ padding: '0 24px 24px', marginTop: -36, display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16 }}>
           <div className={styles.mypr_div_4}>
             <SafeAvatar
-              src={profile.avatar}
-              name={profile.name}
+              src={displayAvatar}
+              name={displayName}
               size={84}
               radius="18px"
               className={styles.mypr_safeavatar_5}
             />
             <div className={styles.mypr_div_6}>
               <div className={styles.mypr_div_7}>
-                <h2 className="h2">{profile.name}</h2>
+                <h2 className="h2">{displayName}</h2>
                 <Badge variant="purple">{profile.track}</Badge>
                 <Badge variant="yellow">{profile.plan}</Badge>
               </div>
               <div className="text-sm text-muted">
-                {profile.city}, {profile.country} • {profile.email}
+                {profile.city}, {profile.country} • {displayEmail}
               </div>
             </div>
           </div>

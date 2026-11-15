@@ -1,0 +1,423 @@
+/* =========================================================================
+   Home Smart Study Plan Section Scoped Styles
+   ========================================================================= */
+
+.sectionWrapper {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: #FAF9F5;
+  padding: 64px 0 76px;
+}
+
+.headerContainer {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 24px;
+}
+
+.eyebrowBadge {
+  display: inline-block;
+  background-color: #F1E8FF;
+  color: #8867B8;
+  border-radius: 0 !important;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border: 1px solid rgba(136, 103, 184, 0.25);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  margin: 8px 0 14px;
+  line-height: 1.2;
+  color: #202020;
+}
+
+.headingHighlight {
+  color: #8867B8;
+}
+
+.sectionDesc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Left Column Benefit text wrapper */
+.benefitContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* Button wrapper: Clean margin without extra height or background */
+.buttonWrapper {
+  margin-top: 28px;
+}
+
+.ctaButton {
+  border-radius: 0 !important;
+  padding: 12px 24px;
+}
+
+/* Slider Header */
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sliderHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendarIconBox {
+  width: 32px;
+  height: 32px;
+  border-radius: 0 !important;
+  background-color: var(--accent-purple);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderHeaderTitle {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.pacingBadge {
+  border-radius: 0 !important;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+}
+
+/* Slide Body */
+.slideBody {
+  flex: 1;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Slide 0 & 4: General slide container */
+.slideStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.slideTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slideTitle {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.dayTile {
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+  padding: 8px 4px;
+  background-color: var(--surface);
+}
+
+.dayTileActive {
+  background-color: var(--accent-purple-soft);
+  border-color: var(--accent-purple);
+}
+
+.dayLabel {
+  font-size: 0.68rem;
+}
+
+.dayNumber {
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.dayStatus {
+  font-size: 0.62rem;
+  margin-top: 4px;
+}
+
+.todayTaskCard {
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+  padding: 12px 14px;
+  background-color: var(--bg-primary);
+}
+
+.todayTaskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.taskDurationBadge {
+  border-radius: 0 !important;
+  font-size: 0.7rem;
+}
+
+.todayTaskDesc {
+  margin: 4px 0 0;
+}
+
+/* Slide 1: Checklist */
+.checklistStack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.xpBadge {
+  border-radius: 0 !important;
+  font-size: 0.72rem;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+  gap: 10px;
+}
+
+.checklistItemDone {
+  background-color: var(--bg-primary);
+}
+
+.checklistItemPending {
+  background-color: var(--surface);
+}
+
+.checklistLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkIconBox {
+  width: 18px;
+  height: 18px;
+  border-radius: 0 !important;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.checkIconBoxDone {
+  background-color: var(--success);
+  border: 1.5px solid var(--success);
+}
+
+.checkIconBoxPending {
+  background-color: transparent;
+  border: 1.5px solid var(--border-strong);
+}
+
+.checkItemText {
+  font-size: 0.84rem;
+}
+
+.checkItemTextDone {
+  font-weight: 500;
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.checkItemTextPending {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.checkItemTime {
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+/* Slide 2: Streak */
+.streakCard {
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.flameBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 0 !important;
+  background-color: var(--accent-yellow-soft);
+  color: var(--accent-yellow-hover);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent-yellow);
+  margin-bottom: 12px;
+}
+
+.streakTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.streakDesc {
+  margin: 6px 0 16px;
+}
+
+.streakDaysRow {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.streakDayTile {
+  width: 28px;
+  height: 28px;
+  border-radius: 0 !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.streakDayActive {
+  background-color: var(--accent-yellow);
+  color: #202020;
+}
+
+.streakDayInactive {
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+}
+
+/* Slide 3: Timer */
+.timerCard {
+  text-align: center;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.timerBadge {
+  border-radius: 0 !important;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.timerDigits {
+  font-family: var(--font-mono);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--accent-purple);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin: 12px 0;
+}
+
+.timerDesc {
+  margin: 0 0 18px;
+}
+
+.timerButtons {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.timerButton {
+  border-radius: 0 !important;
+  padding: 8px 16px;
+}
+
+/* Slide 4: Target Band Forecast (Critical Bug Fix - full width, 4 equal columns) */
+.forecastBadge {
+  border-radius: 0 !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.forecastScoresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.forecastScoreBox {
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+  padding: 10px 4px;
+  background-color: var(--bg-primary);
+}
+
+.forecastScoreLabel {
+  font-size: 0.72rem;
+}
+
+.forecastScoreValue {
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-top: 4px;
+}
+
+.milestoneBox {
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+  padding: 10px 14px;
+  background-color: var(--surface);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  width: 100%;
+}
+
+/* Slider Nav Row */
+.sliderNavControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sliderArrowBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 0 !important;
+  padding: 0;
+}
+

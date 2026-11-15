@@ -273,3 +273,98 @@
 .logi_div_40 {
   text-align: center;
 }
+
+/* Google OAuth & Auth Flow Extensions */
+.googleAuthBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #FFFFFF !important;
+  color: #202020 !important;
+  border: 1px solid #D6D0C4 !important;
+  border-radius: 0px !important;
+  padding: 12px 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 6px;
+}
+
+.googleAuthBtn:hover {
+  background-color: #FEF6DD !important;
+  border-color: #F6BD28 !important;
+}
+
+.googleAuthBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.authDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  color: #7A756B;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.authDivider::before,
+.authDivider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #E2DDD1;
+}
+
+.authDivider span {
+  padding: 0 12px;
+}
+
+.verificationNoticeCard {
+  background-color: #FEF6DD;
+  border: 1px solid rgba(246, 189, 40, 0.6);
+  padding: 24px 20px;
+  text-align: center;
+  border-radius: 0px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.verificationNoticeIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #FAF9F5;
+  border: 1px solid #F6BD28;
+  color: #8867B8;
+  border-radius: 0px !important;
+}
+
+.resendBtn {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid #8867B8;
+  color: #8867B8;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0px !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.resendBtn:hover {
+  background-color: #F1E8FF;
+}
+

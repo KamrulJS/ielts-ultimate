@@ -28,6 +28,9 @@ import {
   isRoleAuthorized,
   sanitizeNextPath,
   requestPasswordReset,
+  isLiveAuthAvailable,
+  sendPasswordResetLink,
+  resendVerificationEmail,
 } from '@/lib/auth';
 import { Badge } from '@/components/common/UiPrimitives';
 import { Modal } from '@/components/common/Modal';
@@ -42,6 +45,8 @@ export function LoginView() {
     [app.auth]
   );
   const loginWithCredentials = app.loginWithCredentials || (() => ({ success: false }));
+  const loginWithGoogle = app.loginWithGoogle || (() => ({ success: false }));
+  const sendRegistrationEmail = app.sendRegistrationEmail || (() => ({ success: false }));
   const registerStudent = app.registerStudent || (() => ({ success: false }));
   const logout = app.logout || (() => { });
 
@@ -81,9 +86,16 @@ export function LoginView() {
   const [regTarget, setRegTarget] = useState('7.5');
   const [regTrack, setRegTrack] = useState('Academic');
 
+  // Supabase Auth States
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const [regEmailSent, setRegEmailSent] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendFeedback, setResendFeedback] = useState('');
+
   // Loading & Error States
+  const initialErrorParam = searchParams?.get('error');
   const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState(initialErrorParam || '');
 
   // Forgot Password Modal State
   const [forgotModalOpen, setForgotModalOpen] = useState(false);
@@ -144,12 +156,49 @@ export function LoginView() {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    setErrorMsg('');
+    setGoogleLoading(true);
+    try {
+      const safeNext = sanitizeNextPath(rawNext, '/dashboard');
+      const result = await loginWithGoogle(safeNext);
+      if (!result.ok) {
+        setErrorMsg(result.error || 'Failed to initialize Google authentication.');
+        setGoogleLoading(false);
+      }
+    } catch (err) {
+      setErrorMsg(err.message || 'An unexpected error occurred during Google sign in.');
+      setGoogleLoading(false);
+    }
+  };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     setErrorMsg('');
     setLoading(true);
 
     try {
+      // If live Supabase authentication is configured, use the Section 3.A email verification link flow
+      if (isLiveAuthAvailable()) {
+        const result = await sendRegistrationEmail({
+          email: regEmail.trim(),
+          name: regName.trim(),
+          targetBand: regTarget,
+          track: regTrack,
+        });
+
+        if (!result.ok) {
+          setErrorMsg(result.error || 'Failed to send account verification email. Please check the address.');
+          setLoading(false);
+          return;
+        }
+
+        setRegEmailSent(true);
+        setLoading(false);
+        return;
+      }
+
+      // Local / demo development fallback when Supabase keys are not yet configured
       const result = await registerStudent({
         name: regName.trim(),
         username: regUsername.trim(),
@@ -175,6 +224,24 @@ export function LoginView() {
     }
   };
 
+  const handleResendVerification = async () => {
+    if (!regEmail.trim()) return;
+    setResendLoading(true);
+    setResendFeedback('');
+    try {
+      const res = await resendVerificationEmail(regEmail.trim());
+      if (res.ok) {
+        setResendFeedback('A new verification email has been sent. Please check your inbox.');
+      } else {
+        setResendFeedback(res.error || 'Could not resend email at this time.');
+      }
+    } catch {
+      setResendFeedback('Failed to resend verification email.');
+    } finally {
+      setResendLoading(false);
+    }
+  };
+
   const fillDemo = (role, useUsername = false) => {
     setErrorMsg('');
     if (role === 'admin') {
@@ -191,8 +258,19 @@ export function LoginView() {
     setForgotLoading(true);
     setForgotFeedback(null);
     try {
-      const res = await requestPasswordReset({ identifier: forgotIdentifier });
-      setForgotFeedback(res);
+      if (isLiveAuthAvailable()) {
+        const res = await sendPasswordResetLink(forgotIdentifier.trim());
+        setForgotFeedback({
+          ok: res.ok,
+          message: res.ok
+            ? 'Password recovery instructions have been sent to your email.'
+            : res.error,
+          error: res.ok ? null : res.error,
+        });
+      } else {
+        const res = await requestPasswordReset({ identifier: forgotIdentifier });
+        setForgotFeedback(res);
+      }
     } finally {
       setForgotLoading(false);
     }
@@ -270,14 +348,16 @@ export function LoginView() {
             >
               Create Account
             </button>
-            <button
-              type="button"
-              onClick={() => { setTab('admin'); setErrorMsg(''); }}
-              className={`tab-trigger ${tab === 'admin' ? 'active' : ''} ${styles.logi_button_12}`}
-              
-            >
-              Admin
-            </button>
+            {(tab === 'admin' || initialRoleParam === 'admin') && (
+              <button
+                type="button"
+                onClick={() => { setTab('admin'); setErrorMsg(''); }}
+                className={`tab-trigger ${tab === 'admin' ? 'active' : ''} ${styles.logi_button_12}`}
+                
+              >
+                Admin
+              </button>
+            )}
           </div>
 
           {hydrated && auth?.isAuthenticated && (
@@ -302,149 +382,231 @@ export function LoginView() {
             </div>
           )}
 
-          {/* SIGN UP FORM */}
-          {tab === 'signup' ? (
-            <form onSubmit={handleSignUp} className={styles.logi_form_16}>
-              <div className="field-group">
-                <label className="field-label" htmlFor="reg-name">Full Name *</label>
-                <div className={styles.logi_div_17}>
-                  <input
-                    id="reg-name"
-                    required
-                    className={`input ${styles.logi_link_5}`}
-                    value={regName}
-                    onChange={(e) => setRegName(e.target.value)}
-                    placeholder="e.g. Emily Watson"
-                    
-                  />
-                </div>
+          {/* SIGN UP FLOW */}
+          {tab === 'signup' && regEmailSent ? (
+            <div className={styles.verificationNoticeCard}>
+              <div className={styles.verificationNoticeIcon}>
+                <Mail size={24} />
+              </div>
+              <h2 className="h2" style={{ margin: 0, color: '#202020', fontSize: '1.25rem' }}>
+                Verification Link Sent
+              </h2>
+              <p className="text-xs text-muted" style={{ margin: 0, maxWidth: 380, lineHeight: 1.5 }}>
+                We dispatched an account setup link to <strong>{regEmail}</strong>.
+                Please open the link to verify your email address, configure your password, and activate your dashboard.
+              </p>
+              <div style={{ fontSize: '0.74rem', color: '#7A756B', marginTop: 4 }}>
+                Don&apos;t see it? Please check your spam or junk folder.
               </div>
 
-              <div className="field-group">
-                <label className="field-label" htmlFor="reg-username">
-                  Username * <span className={`text-muted ${styles.logi_span_18}`} >(3–20 letters, numbers, or _)</span>
-                </label>
-                <div className={styles.logi_div_17}>
-                  <input
-                    id="reg-username"
-                    required
-                    className={`input ${styles.logi_link_5}`}
-                    value={regUsername}
-                    onChange={(e) => setRegUsername(e.target.value)}
-                    placeholder="e.g. emily_watson"
-                    
-                  />
+              {resendFeedback && (
+                <div
+                  className={`text-xs ${resendFeedback.includes('sent') ? styles.loginFeedbackSuccess : styles.loginFeedbackError}`}
+                  style={{ padding: '6px 12px', marginTop: 6 }}
+                >
+                  {resendFeedback}
                 </div>
+              )}
+
+              <div style={{ display: 'flex', gap: 10, marginTop: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  disabled={resendLoading}
+                  className={styles.resendBtn}
+                >
+                  {resendLoading ? 'Resending...' : 'Resend Verification Email'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setRegEmailSent(false); setTab('student'); }}
+                  className="btn btn-secondary btn-sm"
+                  style={{ borderRadius: 0, padding: '6px 14px', fontSize: '0.8rem' }}
+                >
+                  Return to Sign In
+                </button>
               </div>
-
-              <div className="field-group">
-                <label className="field-label" htmlFor="reg-email">Email Address *</label>
-                <input
-                  id="reg-email"
-                  type="email"
-                  required
-                  className={`input ${styles.logi_link_5}`}
-                  value={regEmail}
-                  onChange={(e) => setRegEmail(e.target.value)}
-                  placeholder="e.g. emily@domain.com"
-                  
-                />
-              </div>
-
-              <div className={`grid-2 ${styles.logi_div_19}`} >
-                <div className="field-group">
-                  <label className="field-label" htmlFor="reg-pass">Password *</label>
-                  <div className={styles.logi_div_17}>
-                    <input
-                      id="reg-pass"
-                      type={showRegPass ? 'text' : 'password'}
-                      required
-                      minLength={6}
-                      className={`input ${styles.logi_input_20}`}
-                      
-                      value={regPassword}
-                      onChange={(e) => setRegPassword(e.target.value)}
-                      placeholder="Min 6 chars (letters + numbers)"
-                    />
-                    <button
-                      type="button"
-                      aria-label={showRegPass ? 'Hide password' : 'Show password'}
-                      onClick={() => setShowRegPass((v) => !v)}
-                      className={styles.logi_button_21}
-                    >
-                      {showRegPass ? <EyeOff size={15} /> : <Eye size={15} />}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="field-group">
-                  <label className="field-label" htmlFor="reg-confirm">Confirm Password *</label>
-                  <div className={styles.logi_div_17}>
-                    <input
-                      id="reg-confirm"
-                      type={showRegConfirm ? 'text' : 'password'}
-                      required
-                      minLength={6}
-                      className={`input ${styles.logi_input_20}`}
-                      
-                      value={regConfirmPassword}
-                      onChange={(e) => setRegConfirmPassword(e.target.value)}
-                      placeholder="Re-type password"
-                    />
-                    <button
-                      type="button"
-                      aria-label={showRegConfirm ? 'Hide password' : 'Show password'}
-                      onClick={() => setShowRegConfirm((v) => !v)}
-                      className={styles.logi_button_21}
-                    >
-                      {showRegConfirm ? <EyeOff size={15} /> : <Eye size={15} />}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`grid-2 ${styles.logi_div_19}`} >
-                <div className="field-group">
-                  <label className="field-label" htmlFor="reg-track">Examination Stream</label>
-                  <select
-                    id="reg-track"
-                    className={`select ${styles.logi_select_22}`}
-                    value="Academic"
-                    disabled
-                    
-                  >
-                    <option value="Academic">IELTS Academic (Dedicated)</option>
-                  </select>
-                </div>
-                <div className="field-group">
-                  <label className="field-label" htmlFor="reg-target">Target Band Score</label>
-                  <select
-                    id="reg-target"
-                    className={`select ${styles.logi_link_5}`}
-                    value={regTarget}
-                    onChange={(e) => setRegTarget(e.target.value)}
-                    
-                  >
-                    {['6.5', '7.0', '7.5', '8.0', '8.5', '9.0'].map((b) => (
-                      <option key={b} value={b}>Band {b}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
+            </div>
+          ) : tab === 'signup' ? (
+            <div>
+              {/* Google OAuth Option */}
               <button
-                type="submit"
-                disabled={loading}
-                className={`btn btn-primary ${styles.logi_button_23}`}
-                
+                type="button"
+                onClick={handleGoogleSignIn}
+                disabled={googleLoading || loading}
+                className={styles.googleAuthBtn}
               >
-                <UserCheck size={16} />
-                <span>{loading ? 'Creating Secure Account...' : 'Create Free Account & Start Learning'}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+                <span>{googleLoading ? 'Connecting with Google...' : 'Sign Up with Google'}</span>
               </button>
-            </form>
+
+              <div className={styles.authDivider}>
+                <span>or register with email</span>
+              </div>
+
+              <form onSubmit={handleSignUp} className={styles.logi_form_16}>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="reg-name">Full Name *</label>
+                  <div className={styles.logi_div_17}>
+                    <input
+                      id="reg-name"
+                      required
+                      className={`input ${styles.logi_link_5}`}
+                      value={regName}
+                      onChange={(e) => setRegName(e.target.value)}
+                      placeholder="e.g. Emily Watson"
+                    />
+                  </div>
+                </div>
+
+                <div className="field-group">
+                  <label className="field-label" htmlFor="reg-username">
+                    Username * <span className={`text-muted ${styles.logi_span_18}`} >(3–20 letters, numbers, or _)</span>
+                  </label>
+                  <div className={styles.logi_div_17}>
+                    <input
+                      id="reg-username"
+                      required
+                      className={`input ${styles.logi_link_5}`}
+                      value={regUsername}
+                      onChange={(e) => setRegUsername(e.target.value)}
+                      placeholder="e.g. emily_watson"
+                    />
+                  </div>
+                </div>
+
+                <div className="field-group">
+                  <label className="field-label" htmlFor="reg-email">Email Address *</label>
+                  <input
+                    id="reg-email"
+                    type="email"
+                    required
+                    className={`input ${styles.logi_link_5}`}
+                    value={regEmail}
+                    onChange={(e) => setRegEmail(e.target.value)}
+                    placeholder="e.g. emily@domain.com"
+                  />
+                </div>
+
+                <div className={`grid-2 ${styles.logi_div_19}`} >
+                  <div className="field-group">
+                    <label className="field-label" htmlFor="reg-pass">Password *</label>
+                    <div className={styles.logi_div_17}>
+                      <input
+                        id="reg-pass"
+                        type={showRegPass ? 'text' : 'password'}
+                        required
+                        minLength={6}
+                        className={`input ${styles.logi_input_20}`}
+                        value={regPassword}
+                        onChange={(e) => setRegPassword(e.target.value)}
+                        placeholder="Min 6 chars (letters + numbers)"
+                      />
+                      <button
+                        type="button"
+                        aria-label={showRegPass ? 'Hide password' : 'Show password'}
+                        onClick={() => setShowRegPass((v) => !v)}
+                        className={styles.logi_button_21}
+                      >
+                        {showRegPass ? <EyeOff size={15} /> : <Eye size={15} />}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="field-group">
+                    <label className="field-label" htmlFor="reg-confirm">Confirm Password *</label>
+                    <div className={styles.logi_div_17}>
+                      <input
+                        id="reg-confirm"
+                        type={showRegConfirm ? 'text' : 'password'}
+                        required
+                        minLength={6}
+                        className={`input ${styles.logi_input_20}`}
+                        value={regConfirmPassword}
+                        onChange={(e) => setRegConfirmPassword(e.target.value)}
+                        placeholder="Re-type password"
+                      />
+                      <button
+                        type="button"
+                        aria-label={showRegConfirm ? 'Hide password' : 'Show password'}
+                        onClick={() => setShowRegConfirm((v) => !v)}
+                        className={styles.logi_button_21}
+                      >
+                        {showRegConfirm ? <EyeOff size={15} /> : <Eye size={15} />}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`grid-2 ${styles.logi_div_19}`} >
+                  <div className="field-group">
+                    <label className="field-label" htmlFor="reg-track">Examination Stream</label>
+                    <select
+                      id="reg-track"
+                      className={`select ${styles.logi_select_22}`}
+                      value="Academic"
+                      disabled
+                    >
+                      <option value="Academic">IELTS Academic (Dedicated)</option>
+                    </select>
+                  </div>
+                  <div className="field-group">
+                    <label className="field-label" htmlFor="reg-target">Target Band Score</label>
+                    <select
+                      id="reg-target"
+                      className={`select ${styles.logi_link_5}`}
+                      value={regTarget}
+                      onChange={(e) => setRegTarget(e.target.value)}
+                    >
+                      {['6.5', '7.0', '7.5', '8.0', '8.5', '9.0'].map((b) => (
+                        <option key={b} value={b}>Band {b}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`btn btn-primary ${styles.logi_button_23}`}
+                >
+                  <UserCheck size={16} />
+                  <span>{loading ? 'Processing Registration...' : 'Create Account & Receive Setup Link'}</span>
+                </button>
+              </form>
+            </div>
           ) : (
-            /* SIGN IN FORM (Username OR Email in single field) */
-            <form onSubmit={handleSignIn} className={styles.logi_form_16}>
+            /* SIGN IN FORM (Google + Username OR Email in single field) */
+            <div>
+              {tab !== 'admin' && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    disabled={googleLoading || loading}
+                    className={styles.googleAuthBtn}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                    <span>{googleLoading ? 'Connecting with Google...' : 'Continue with Google'}</span>
+                  </button>
+
+                  <div className={styles.authDivider}>
+                    <span>or sign in with email</span>
+                  </div>
+                </>
+              )}
+
+              <form onSubmit={handleSignIn} className={styles.logi_form_16}>
               <div className="field-group">
                 <label className="field-label" htmlFor="login-identifier">
                   {tab === 'admin' ? 'Admin Username or Email' : 'Username or Email Address'}
@@ -574,7 +736,8 @@ export function LoginView() {
                 </div>
               </div>
             </form>
-          )}
+          </div>
+        )}
         </div>
       </div>
 

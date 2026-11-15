@@ -20,6 +20,7 @@ import {
   Target,
 } from 'lucide-react';
 import styles from './PublicLayout.module.css';
+import secStyles from './HomeOnePlatformSection.module.css';
 
 const PLATFORM_FEATURES = [
   // Row 1 (5 items)
@@ -69,21 +70,21 @@ export function HomeOnePlatformSection() {
         </div>
 
         {/* 5-Column Desktop Grid with Square Borders & Larger Icons */}
-        <div className="five-column-platform-grid">
+        <div className={secStyles.platformGrid}>
           {PLATFORM_FEATURES.map((feat) => {
             const Icon = feat.icon;
             return (
               <Link
                 key={feat.id}
                 href={feat.href}
-                className="one-platform-card"
+                className={secStyles.platformCard}
               >
                 {/* Square-bordered Larger Icon Container */}
-                <div className="one-platform-icon-wrap">
+                <div className={secStyles.iconWrap}>
                   <Icon size={26} strokeWidth={1.8} />
                 </div>
                 {/* Slightly larger, bold readable text */}
-                <span className="one-platform-title">
+                <span className={secStyles.cardTitle}>
                   {feat.title}
                 </span>
               </Link>
@@ -91,80 +92,6 @@ export function HomeOnePlatformSection() {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        .five-column-platform-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 16px;
-          max-width: 1240px;
-          margin: 0 auto;
-        }
-
-        :global(.one-platform-card) {
-          background-color: #FFFFFF;
-          border: 1px solid var(--border, #E2DDD1);
-          border-radius: 0px !important;
-          padding: 24px 14px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 14px;
-          text-decoration: none;
-          text-align: center;
-          min-height: 120px;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-          transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        :global(.one-platform-card:hover) {
-          background-color: #FEF6DD !important;
-          border-color: #F6BD28 !important;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(246, 189, 40, 0.15) !important;
-        }
-
-        .one-platform-icon-wrap {
-          width: 52px;
-          height: 52px;
-          border-radius: 0px !important;
-          background-color: #FEF6DD;
-          border: 1px solid rgba(246, 189, 40, 0.4);
-          color: #202020;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-        }
-
-        :global(.one-platform-card:hover) .one-platform-icon-wrap {
-          background-color: #F6BD28 !important;
-          border-color: #F6BD28 !important;
-          color: #202020 !important;
-        }
-
-        .one-platform-title {
-          font-size: 0.94rem;
-          font-weight: 700;
-          color: #202020;
-          line-height: 1.35;
-        }
-
-        @media (max-width: 1100px) {
-          .five-column-platform-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-
-        @media (max-width: 680px) {
-          .five-column-platform-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-          }
-        }
-      `}</style>
     </section>
   );
 }

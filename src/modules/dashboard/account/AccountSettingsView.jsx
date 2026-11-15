@@ -8,8 +8,10 @@ import { PageHeader, Badge } from '@/components/common/UiPrimitives';
 import { ConfirmationDialog } from '@/components/common/ConfirmationDialog';
 
 export function AccountSettingsView() {
-  const { profile, updateProfile, resetDemoProgress, showToast } = useApp();
-  const [email, setEmail] = useState(profile.email);
+  const { auth, profile, updateProfile, resetDemoProgress, showToast } = useApp();
+  const currentEmail = auth?.isAuthenticated && auth?.email ? auth.email : profile.email;
+  const [customEmail, setCustomEmail] = useState(null);
+  const email = customEmail !== null ? customEmail : currentEmail;
   const [currentPwd, setCurrentPwd] = useState('');
   const [newPwd, setNewPwd] = useState('');
   const [resetOpen, setResetOpen] = useState(false);
@@ -18,6 +20,7 @@ export function AccountSettingsView() {
     e.preventDefault();
     if (!email.trim()) return;
     updateProfile({ email: email.trim() });
+    setCustomEmail(null);
   };
 
   const handlePasswordSubmit = (e) => {
@@ -51,7 +54,7 @@ export function AccountSettingsView() {
           </div>
           <div className="field-group">
             <label className="field-label" htmlFor="set-email">Account Email</label>
-            <input id="set-email" type="email" className="input" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input id="set-email" type="email" className="input" value={email} onChange={(e) => setCustomEmail(e.target.value)} required />
           </div>
           <div className="field-group">
             <label className="field-label" htmlFor="set-track">Examination Stream</label>

@@ -166,14 +166,9 @@ export function PublicNavbar() {
                       <span className={styles.dropdownIconBox}>
                         <PublicIcon name={item.icon} size={15} />
                       </span>
-                      <div className={styles.publ_div_1}>
-                        <div className={styles.publ_div_2}>
-                          {item.title}
-                        </div>
-                        <div className={`text-xs text-muted ${styles.publ_div_3}`} >
-                          {item.shortDesc}
-                        </div>
-                      </div>
+                      <span className={styles.publ_div_2}>
+                        {item.title}
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -215,14 +210,9 @@ export function PublicNavbar() {
                       <span className={styles.dropdownIconBox}>
                         <PublicIcon name={item.icon} size={15} />
                       </span>
-                      <div className={styles.publ_div_1}>
-                        <div className={styles.publ_div_2}>
-                          {item.title}
-                        </div>
-                        <div className={`text-xs text-muted ${styles.publ_div_3}`} >
-                          {item.shortDesc}
-                        </div>
-                      </div>
+                      <span className={styles.publ_div_2}>
+                        {item.title}
+                      </span>
                     </Link>
                   ))}
                 </div>

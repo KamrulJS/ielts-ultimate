@@ -14,6 +14,20 @@ export {
   saveRegisteredAccounts,
 } from './auth-service';
 
+export {
+  isLiveAuthAvailable,
+  getAppOrigin,
+  sendEmailRegistrationLink,
+  signInWithEmailPassword,
+  signInWithGoogleOAuth,
+  sendPasswordResetLink,
+  saveUserPassword,
+  resendVerificationEmail,
+  fetchUserProfile,
+  normalizeUserSession,
+  signOutSupabase,
+} from './auth-supabase';
+
 export function sanitizeNextPath(rawPath, fallback = '/dashboard') {
   if (typeof rawPath !== 'string') return fallback;
   const trimmed = rawPath.trim();

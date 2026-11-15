@@ -79,9 +79,12 @@ function HeroArtwork({ theme }) {
 }
 
 export function DashboardClient() {
-  const { profile, testResults, showToast } = useApp();
+  const { auth, profile, testResults, showToast } = useApp();
   const rootRef = useGsapEntrance('dashboard');
   const mounted = useIsMounted();
+
+  const studentDisplayName = (auth?.isAuthenticated && auth?.name) ? auth.name : profile.name;
+  const studentFirstName = studentDisplayName.split(' ')[0] || studentDisplayName;
 
   const [chartMetric, setChartMetric] = useState('overall');
   const [skillTab, setSkillTab] = useState('Writing');
@@ -164,7 +167,7 @@ export function DashboardClient() {
       >
         <div className={styles.dash_div_3}>
           <h1 className="h1">
-            {greetingText}, {profile.name.split(' ')[0]}
+            {greetingText}, {studentFirstName}
           </h1>
           <p className={`text-sm text-muted ${styles.dash_p_4}`} >
             {todayFormatted} • Estimated Overall Band:{' '}
@@ -190,7 +193,7 @@ export function DashboardClient() {
       >
         <div className={styles.dash_div_8}>
           <span className={`text-sm ${styles.dash_span_9}`} >
-            Welcome back, {profile.name.split(' ')[0]}!
+            Welcome back, {studentFirstName}!
           </span>
           <h2
             className={styles.dash_h2_10}

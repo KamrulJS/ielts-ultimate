@@ -65,6 +65,10 @@ export function DashboardHeader() {
   const notifRef = useRef(null);
   const userRef = useRef(null);
 
+  const displayName = auth?.isAuthenticated && auth?.name ? auth.name : profile.name;
+  const displayEmail = auth?.isAuthenticated && auth?.email ? auth.email : profile.email;
+  const displayAvatar = auth?.isAuthenticated ? (auth.avatar || null) : profile.avatar;
+
   useEffect(() => {
     const closeOnClickOutside = (e) => {
       if (notifRef.current && !notifRef.current.contains(e.target)) {
@@ -337,6 +341,30 @@ export function DashboardHeader() {
           )}
         </div>
 
+        {/* Administrator Exclusive Portal Button */}
+        {isAdminAuthorized && (
+          <Link
+            href="/admin"
+            className="btn btn-secondary btn-sm"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '6px 12px',
+              fontWeight: 700,
+              fontSize: '0.8rem',
+              backgroundColor: '#FEF6DD',
+              borderColor: '#E5AC1A',
+              color: '#202020',
+              borderRadius: 0,
+            }}
+            title="Open Administrator Console"
+          >
+            <ShieldCheck size={14} color="#B45309" />
+            <span>Admin Portal</span>
+          </Link>
+        )}
+
         {/* User Avatar Dropdown */}
         <div ref={userRef} className={styles.popoverAnchor}>
           <button
@@ -358,7 +386,7 @@ export function DashboardHeader() {
             aria-expanded={userMenuOpen}
             aria-haspopup="menu"
           >
-            <SafeAvatar src={profile.avatar} name={profile.name} size={36} radius="10px" />
+            <SafeAvatar src={displayAvatar} name={displayName} size={36} radius="10px" />
           </button>
 
           {userMenuOpen && (
@@ -367,18 +395,18 @@ export function DashboardHeader() {
               <div
                 className={styles.dash_div_24}
               >
-                <SafeAvatar src={profile.avatar} name={profile.name} size={38} radius="10px" />
+                <SafeAvatar src={displayAvatar} name={displayName} size={38} radius="10px" />
                 <div className={styles.dash_div_25}>
                   <div
                     className={styles.dash_div_26}
                   >
-                    {profile.name}
+                    {displayName}
                   </div>
                   <div
                     className={`text-xs text-muted ${styles.dash_div_27}`}
                     
                   >
-                    {profile.email}
+                    {displayEmail}
                   </div>
                 </div>
               </div>

@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import homeStyles from '@/modules/frontend/PublicHome.module.css';
 import styles from './PublicLayout.module.css';
+import secStyles from './HomeStudyPlanSection.module.css';
 
 const BENEFITS = [
   {
@@ -71,21 +72,16 @@ export function HomeStudyPlanSection() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
 
   return (
-    <section
-      className={`${styles.sectionWarmBand} ${styles.home_section_1}`}
-      
-    >
+    <section className={secStyles.sectionWrapper}>
       <div className={styles.container}>
-        <div className={styles.home_div_2}>
-          <span
-            className={styles.home_span_3}
-          >
+        <div className={secStyles.headerContainer}>
+          <span className={secStyles.eyebrowBadge}>
             Personalized Learning
           </span>
-          <h2 className={styles.home_h2_4}>
-            A Smarter Way to Plan Your <span className={styles.home_span_5}>IELTS Preparation</span>
+          <h2 className={secStyles.sectionHeading}>
+            A Smarter Way to Plan Your <span className={secStyles.headingHighlight}>IELTS Preparation</span>
           </h2>
-          <p className={styles.home_p_6}>
+          <p className={secStyles.sectionDesc}>
             Stay organized, manage your study time, and follow a structured preparation routine designed to help you reach your target band.
           </p>
         </div>
@@ -101,7 +97,7 @@ export function HomeStudyPlanSection() {
                     <div className={homeStyles.studyBenefitIcon}>
                       <Icon size={20} />
                     </div>
-                    <div className={styles.home_div_7}>
+                    <div className={secStyles.benefitContent}>
                       <h3 className={homeStyles.studyBenefitTitle}>{item.title}</h3>
                       <p className={homeStyles.studyBenefitDesc}>{item.desc}</p>
                     </div>
@@ -110,11 +106,10 @@ export function HomeStudyPlanSection() {
               })}
             </div>
 
-            <div className={styles.home_div_8}>
+            <div className={secStyles.buttonWrapper}>
               <Link
                 href="/resources/study-planner"
-                className={`btn btn-primary ${styles.home_link_9}`}
-                
+                className={`btn btn-primary ${secStyles.ctaButton}`}
               >
                 <span>Generate Your Free Study Plan</span>
                 <ArrowRight size={15} />
@@ -129,58 +124,50 @@ export function HomeStudyPlanSection() {
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Header */}
-            <div className={styles.home_div_10}>
-              <div className={styles.home_div_11}>
-                <span
-                  className={styles.home_span_12}
-                >
+            <div className={secStyles.sliderHeader}>
+              <div className={secStyles.sliderHeaderLeft}>
+                <span className={secStyles.calendarIconBox}>
                   <Calendar size={16} />
                 </span>
                 <div>
-                  <div className={styles.home_div_13}>Smart Study Planner</div>
+                  <div className={secStyles.sliderHeaderTitle}>Smart Study Planner</div>
                   <div className="text-xs text-muted">Daily Target: Band 7.5 Academic</div>
                 </div>
               </div>
-              <span className={`badge badge-yellow ${styles.home_span_14}`} >
+              <span className={`badge badge-yellow ${secStyles.pacingBadge}`}>
                 Auto-Pacing 5s
               </span>
             </div>
 
             {/* Slide Body */}
-            <div className={styles.home_div_15}>
+            <div className={secStyles.slideBody}>
               {/* Slide 0: Weekly Study Calendar */}
               {currentSlide === 0 && (
-                <div className={styles.home_div_16}>
-                  <div className={styles.home_div_17}>
-                    <span className={styles.home_span_18}>This Week’s Schedule</span>
+                <div className={secStyles.slideStack}>
+                  <div className={secStyles.slideTopRow}>
+                    <span className={secStyles.slideTitle}>This Week’s Schedule</span>
                     <span className="text-xs text-muted">Nov 11 - Nov 17</span>
                   </div>
-                  <div className={styles.home_div_19}>
+                  <div className={secStyles.daysGrid}>
                     {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
                       <div
                         key={day}
-                        style={{
-                          border: '1px solid var(--border)',
-                          borderRadius: 0,
-                          padding: '8px 4px',
-                          backgroundColor: i === 3 ? 'var(--accent-purple-soft)' : 'var(--surface)',
-                          borderColor: i === 3 ? 'var(--accent-purple)' : 'var(--border)',
-                        }}
+                        className={`${secStyles.dayTile} ${i === 3 ? secStyles.dayTileActive : ''}`}
                       >
-                        <div className={`text-xs text-muted ${styles.home_div_20}`} >{day}</div>
-                        <div className={styles.home_div_21}>{10 + i}</div>
-                        <div style={{ fontSize: '0.62rem', color: i < 4 ? 'var(--success)' : 'var(--text-muted)', marginTop: 4 }}>
+                        <div className={`text-xs text-muted ${secStyles.dayLabel}`}>{day}</div>
+                        <div className={secStyles.dayNumber}>{10 + i}</div>
+                        <div className={secStyles.dayStatus} style={{ color: i < 4 ? 'var(--success)' : 'var(--text-muted)' }}>
                           {i < 4 ? '✓ Done' : '50m'}
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className={styles.home_div_22}>
-                    <div className={styles.home_div_23}>
+                  <div className={secStyles.todayTaskCard}>
+                    <div className={secStyles.todayTaskHeader}>
                       <span>Today: Academic Reading Section 3</span>
-                      <span className={`badge badge-purple ${styles.home_span_24}`} >45 min</span>
+                      <span className={`badge badge-purple ${secStyles.taskDurationBadge}`}>45 min</span>
                     </div>
-                    <p className={`text-xs text-muted ${styles.home_p_25}`} >
+                    <p className={`text-xs text-muted ${secStyles.todayTaskDesc}`}>
                       Topic: Marine Biodiversity & Climate Shift • Matching Headings & True/False/Not Given
                     </p>
                   </div>
@@ -189,10 +176,10 @@ export function HomeStudyPlanSection() {
 
               {/* Slide 1: Daily Task Checklist */}
               {currentSlide === 1 && (
-                <div className={styles.home_div_26}>
-                  <div className={styles.home_div_17}>
-                    <span className={styles.home_span_18}>Today&apos;s Task Checklist</span>
-                    <span className={`badge badge-yellow ${styles.home_span_27}`} >+120 XP Earned</span>
+                <div className={secStyles.checklistStack}>
+                  <div className={secStyles.slideTopRow}>
+                    <span className={secStyles.slideTitle}>Today&apos;s Task Checklist</span>
+                    <span className={`badge badge-yellow ${secStyles.xpBadge}`}>+120 XP Earned</span>
                   </div>
                   {[
                     { text: 'Complete Academic Reading Passage 2 (Albedo Effect)', done: true, time: '20 min' },
@@ -202,47 +189,17 @@ export function HomeStudyPlanSection() {
                   ].map((task) => (
                     <div
                       key={task.text}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '10px 12px',
-                        border: '1px solid var(--border)',
-                        borderRadius: 0,
-                        backgroundColor: task.done ? 'var(--bg-primary)' : 'var(--surface)',
-                        gap: 10,
-                      }}
+                      className={`${secStyles.checklistItem} ${task.done ? secStyles.checklistItemDone : secStyles.checklistItemPending}`}
                     >
-                      <div className={styles.home_div_11}>
-                        <span
-                          style={{
-                            width: 18,
-                            height: 18,
-                            borderRadius: 0,
-                            backgroundColor: task.done ? 'var(--success)' : 'transparent',
-                            border: `1.5px solid ${task.done ? 'var(--success)' : 'var(--border-strong)'}`,
-                            color: '#fff',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '0.7rem',
-                            flexShrink: 0,
-                          }}
-                        >
+                      <div className={secStyles.checklistLeft}>
+                        <span className={`${secStyles.checkIconBox} ${task.done ? secStyles.checkIconBoxDone : secStyles.checkIconBoxPending}`}>
                           {task.done && <Check size={12} strokeWidth={3} />}
                         </span>
-                        <span
-                          style={{
-                            fontSize: '0.84rem',
-                            fontWeight: task.done ? 500 : 700,
-                            textDecoration: task.done ? 'line-through' : 'none',
-                            color: task.done ? 'var(--text-muted)' : 'var(--text-primary)',
-                          }}
-                        >
+                        <span className={`${secStyles.checkItemText} ${task.done ? secStyles.checkItemTextDone : secStyles.checkItemTextPending}`}>
                           {task.text}
                         </span>
                       </div>
-                      <span className={`text-xs text-muted ${styles.home_span_28}`} >
+                      <span className={`text-xs text-muted ${secStyles.checkItemTime}`}>
                         {task.time}
                       </span>
                     </div>
@@ -252,35 +209,21 @@ export function HomeStudyPlanSection() {
 
               {/* Slide 2: Momentum Streak Tracker */}
               {currentSlide === 2 && (
-                <div className={styles.home_div_29}>
-                  <div
-                    className={styles.home_div_30}
-                  >
+                <div className={secStyles.streakCard}>
+                  <div className={secStyles.flameBox}>
                     <Flame size={28} />
                   </div>
-                  <div className={styles.home_div_31}>
+                  <div className={secStyles.streakTitle}>
                     12-Day Study Streak!
                   </div>
-                  <p className={`text-xs text-muted ${styles.home_p_32}`} >
+                  <p className={`text-xs text-muted ${secStyles.streakDesc}`}>
                     Keep the momentum going! Practice 25 minutes today to protect your streak.
                   </p>
-                  <div className={styles.home_div_33}>
+                  <div className={secStyles.streakDaysRow}>
                     {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, idx) => (
                       <span
                         key={idx}
-                        style={{
-                          width: 28,
-                          height: 28,
-                          borderRadius: 0,
-                          backgroundColor: idx < 6 ? 'var(--accent-yellow)' : 'var(--bg-secondary)',
-                          color: idx < 6 ? '#202020' : 'var(--text-muted)',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          border: '1px solid var(--border)',
-                        }}
+                        className={`${secStyles.streakDayTile} ${idx < 6 ? secStyles.streakDayActive : secStyles.streakDayInactive}`}
                       >
                         {d}
                       </span>
@@ -291,30 +234,26 @@ export function HomeStudyPlanSection() {
 
               {/* Slide 3: Real-Time Section Timer */}
               {currentSlide === 3 && (
-                <div className={styles.home_div_34}>
-                  <span className={`badge badge-purple ${styles.home_span_35}`} >
+                <div className={secStyles.timerCard}>
+                  <span className={`badge badge-purple ${secStyles.timerBadge}`}>
                     Writing Task 2 Timer
                   </span>
-                  <div
-                    className={styles.home_div_36}
-                  >
+                  <div className={secStyles.timerDigits}>
                     24:58
                   </div>
-                  <p className={`text-xs text-muted ${styles.home_p_37}`} >
+                  <p className={`text-xs text-muted ${secStyles.timerDesc}`}>
                     Recommended pacing: 5m plan • 30m write • 5m proofread
                   </p>
-                  <div className={styles.home_div_38}>
+                  <div className={secStyles.timerButtons}>
                     <button
                       type="button"
-                      className={`btn btn-primary btn-sm ${styles.home_button_39}`}
-                      
+                      className={`btn btn-primary btn-sm ${secStyles.timerButton}`}
                     >
                       <Play size={14} /> Resume Drill
                     </button>
                     <button
                       type="button"
-                      className={`btn btn-secondary btn-sm ${styles.home_button_39}`}
-                      
+                      className={`btn btn-secondary btn-sm ${secStyles.timerButton}`}
                     >
                       <RotateCcw size={14} /> Reset
                     </button>
@@ -324,27 +263,27 @@ export function HomeStudyPlanSection() {
 
               {/* Slide 4: Target Band Forecast */}
               {currentSlide === 4 && (
-                <div className={styles.home_div_16}>
-                  <div className={styles.home_div_17}>
-                    <span className={styles.home_span_18}>Target Band Forecast</span>
-                    <span className={`badge badge-purple ${styles.home_span_40}`} >
+                <div className={secStyles.slideStack}>
+                  <div className={secStyles.slideTopRow}>
+                    <span className={secStyles.slideTitle}>Target Band Forecast</span>
+                    <span className={`badge badge-purple ${secStyles.forecastBadge}`}>
                       Predicted Band 7.5
                     </span>
                   </div>
-                  <div className={styles.home_div_41}>
+                  <div className={secStyles.forecastScoresGrid}>
                     {[
                       { mod: 'Reading', score: '8.0', color: 'var(--accent-purple)' },
                       { mod: 'Listening', score: '8.5', color: 'var(--accent-purple)' },
                       { mod: 'Writing', score: '7.0', color: 'var(--accent-yellow-hover)' },
                       { mod: 'Speaking', score: '7.0', color: 'var(--accent-yellow-hover)' },
                     ].map((m) => (
-                      <div key={m.mod} className={styles.home_div_42}>
-                        <div className={`text-xs text-muted ${styles.home_div_43}`} >{m.mod}</div>
-                        <div style={{ fontWeight: 800, fontSize: '1.25rem', marginTop: 4, color: m.color }}>{m.score}</div>
+                      <div key={m.mod} className={secStyles.forecastScoreBox}>
+                        <div className={`text-xs text-muted ${secStyles.forecastScoreLabel}`}>{m.mod}</div>
+                        <div className={secStyles.forecastScoreValue} style={{ color: m.color }}>{m.score}</div>
                       </div>
                     ))}
                   </div>
-                  <div className={styles.home_div_44}>
+                  <div className={secStyles.milestoneBox}>
                     🎯 <strong>Next milestone:</strong> Push Writing Task 2 Lexical Resource from 6.5 to 7.0 by mastering academic collocations.
                   </div>
                 </div>
@@ -365,12 +304,11 @@ export function HomeStudyPlanSection() {
                 ))}
               </div>
 
-              <div className={styles.home_div_45}>
+              <div className={secStyles.sliderNavControls}>
                 <button
                   type="button"
                   onClick={prevSlide}
-                  className={`btn btn-secondary btn-icon ${styles.home_button_46}`}
-                  
+                  className={`btn btn-secondary btn-icon ${secStyles.sliderArrowBtn}`}
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={15} />
@@ -378,8 +316,7 @@ export function HomeStudyPlanSection() {
                 <button
                   type="button"
                   onClick={nextSlide}
-                  className={`btn btn-secondary btn-icon ${styles.home_button_46}`}
-                  
+                  className={`btn btn-secondary btn-icon ${secStyles.sliderArrowBtn}`}
                   aria-label="Next slide"
                 >
                   <ChevronRight size={15} />

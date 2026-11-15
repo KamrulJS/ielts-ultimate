@@ -29,6 +29,7 @@ import {
 
 export function RightUtilityPanel() {
   const {
+    auth,
     profile,
     studyTasks,
     toggleStudyTask,
@@ -36,6 +37,9 @@ export function RightUtilityPanel() {
     referrals,
     showToast,
   } = useApp();
+
+  const displayName = auth?.isAuthenticated && auth?.name ? auth.name : profile.name;
+  const displayAvatar = auth?.isAuthenticated ? (auth.avatar || null) : profile.avatar;
 
   const [calMode, setCalMode] = useState('week');
   const [selectedDay, setSelectedDay] = useState('2026-11-11');
@@ -79,8 +83,8 @@ export function RightUtilityPanel() {
         <div style={{ padding: '0 16px 16px', marginTop: -24, position: 'relative', zIndex: 2 }}>
           <div className={styles.righ_div_4}>
             <SafeAvatar
-              src={profile.avatar}
-              name={profile.name}
+              src={displayAvatar}
+              name={displayName}
               size={52}
               radius="14px"
               className={styles.righ_safeavatar_5}
@@ -89,7 +93,7 @@ export function RightUtilityPanel() {
               View profile →
             </Link>
           </div>
-          <div className={styles.righ_div_7}>{profile.name}</div>
+          <div className={styles.righ_div_7}>{displayName}</div>
           <div className={`text-xs text-muted ${styles.righ_div_8}`} >
             {profile.track} • {profile.plan}
           </div>

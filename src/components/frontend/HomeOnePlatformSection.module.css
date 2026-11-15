@@ -1,0 +1,82 @@
+/* =========================================================================
+   Home One Platform Section — Scoped CSS Module
+   Replaces the broken <style jsx> approach (not supported in App Router)
+   ========================================================================= */
+
+/* 5-column grid on desktop */
+.platformGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Individual card link */
+.platformCard {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border, #E2DDD1);
+  border-radius: 0px !important;
+  padding: 24px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-decoration: none;
+  text-align: center;
+  min-height: 120px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.platformCard:hover {
+  background-color: #FEF6DD !important;
+  border-color: #F6BD28 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(246, 189, 40, 0.15) !important;
+}
+
+/* Square icon wrap */
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 0px !important;
+  background-color: #FEF6DD;
+  border: 1px solid rgba(246, 189, 40, 0.4);
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.platformCard:hover .iconWrap {
+  background-color: #F6BD28 !important;
+  border-color: #F6BD28 !important;
+  color: #202020 !important;
+}
+
+/* Card title */
+.cardTitle {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #202020;
+  line-height: 1.35;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1100px) {
+  .platformGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .platformGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
