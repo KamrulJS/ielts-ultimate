@@ -61,11 +61,78 @@ export async function submitContactInquiry({
   const trimmedCompany = company ? company.trim() : null;
   const source = sourcePage || '/contact';
 
+  const payload = {
+    name: trimmedName,
+    email: trimmedEmail,
+    phone: trimmedPhone,
+    subject: trimmedSubject,
+    message: trimmedMessage,
+    service: trimmedService,
+    company: trimmedCompany,
+    sourcePage: source,
+  };
+
+  // 1. Primary secure route: Submit through application server API (/api/contact)
+  // Ensures server-side validation, secure credentials, and immunity to missing browser-bundle env variables.
+  if (typeof window !== 'undefined') {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json().catch(() => null);
+
+      if (res.ok && result?.ok) {
+        const referenceId = result.id || `TKT-${result.uuid ? result.uuid.slice(0, 5).toUpperCase() : Date.now().toString().slice(-5)}`;
+
+        try {
+          const prev = JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+          window.localStorage.setItem(
+            LOCAL_STORAGE_KEY,
+            JSON.stringify([
+              {
+                id: referenceId,
+                uuid: result.uuid,
+                name: trimmedName,
+                email: trimmedEmail,
+                phone: trimmedPhone,
+                subject: trimmedSubject,
+                message: trimmedMessage,
+                service: trimmedService,
+                company: trimmedCompany,
+                source_page: source,
+                createdAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              },
+              ...prev,
+            ])
+          );
+        } catch {}
+
+        return {
+          ok: true,
+          id: referenceId,
+          uuid: result.uuid,
+        };
+      }
+
+      if (result && !result.ok && result.error) {
+        return {
+          ok: false,
+          error: result.error,
+        };
+      }
+    } catch (fetchErr) {
+      console.warn('POST /api/contact network error, trying direct Supabase client:', fetchErr);
+    }
+  }
+
+  // 2. Direct client fallback (when client has active Supabase credentials)
   const supabase = getSupabaseClient();
 
   if (supabase) {
     try {
-      // Generate client UUID for unambiguous reference tracking without requiring SELECT RLS privileges
       const clientUuid =
         typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
           ? crypto.randomUUID()
@@ -75,7 +142,7 @@ export async function submitContactInquiry({
               return v.toString(16);
             });
 
-      const payload = {
+      const directPayload = {
         id: clientUuid,
         name: trimmedName,
         email: trimmedEmail,
@@ -88,10 +155,9 @@ export async function submitContactInquiry({
         source_page: source,
       };
 
-      // Perform direct insert WITHOUT .select() to preserve public anon visitor RLS integrity
       const { error } = await supabase
         .from('contact_submissions')
-        .insert([payload]);
+        .insert([directPayload]);
 
       if (error) {
         console.error('Supabase contact submission failed:', error.message);
@@ -103,7 +169,6 @@ export async function submitContactInquiry({
 
       const referenceId = `TKT-${clientUuid.slice(0, 5).toUpperCase()}`;
 
-      // Cache ticket locally for user session display
       if (typeof window !== 'undefined') {
         try {
           const prev = JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
@@ -143,10 +208,10 @@ export async function submitContactInquiry({
     }
   }
 
-  // If Supabase client is not available
+  // If neither server nor client database connection is reachable
   return {
     ok: false,
-    error: 'Database connection is not configured. Please contact the administrator.',
+    error: 'Database connection is not configured. Please verify your Supabase environment settings.',
   };
 }
 
