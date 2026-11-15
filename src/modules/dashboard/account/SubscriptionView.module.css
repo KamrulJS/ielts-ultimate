@@ -1,0 +1,70 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.subs_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.subs_div_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.subs_div_3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subs_span_4 {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.subs_div_5 {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.subs_span_6 {
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.subs_p_7 {
+  opacity: 0.8;
+}
+
+.subs_ul_8 {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.subs_li_9 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subs_button_10 {
+  margin-top: auto;
+}
+
+.subs_div_11 {
+  min-width: 0;
+  width: 100%;
+}
+
+.subs_h2_12 {
+  margin-bottom: 12px;
+}

@@ -1,4 +1,5 @@
 'use client';
+import styles from './DashboardClient.module.css';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -156,28 +157,22 @@ export function DashboardClient() {
   const activeSkills = statsData.skillBreakdown[skillTab] || [];
 
   return (
-    <div ref={rootRef} style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+    <div ref={rootRef} className={styles.dash_div_1}>
       {/* Welcome Header */}
       <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 12,
-        }}
+        className={styles.dash_div_2}
       >
-        <div style={{ minWidth: 0 }}>
+        <div className={styles.dash_div_3}>
           <h1 className="h1">
             {greetingText}, {profile.name.split(' ')[0]}
           </h1>
-          <p className="text-sm text-muted" style={{ marginTop: 2 }}>
+          <p className={`text-sm text-muted ${styles.dash_p_4}`} >
             {todayFormatted} • Estimated Overall Band:{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>{profile.currentBand.toFixed(1)}</strong>{' '}
+            <strong className={styles.dash_strong_5}>{profile.currentBand.toFixed(1)}</strong>{' '}
             (Goal: {profile.targetBand.toFixed(1)})
           </p>
         </div>
-        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className={styles.dash_div_6}>
           <Link href="/test-results" className="btn btn-secondary btn-sm">
             <TrendingUp size={15} /> Score History
           </Link>
@@ -190,31 +185,22 @@ export function DashboardClient() {
       {/* Filko-Inspired Hero Banner Card */}
       <section
         data-animate="card"
-        className="card-warm hero-banner-grid"
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-        }}
+        className={`card-warm hero-banner-grid ${styles.dash_section_7}`}
+        
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, zIndex: 1 }}>
-          <span className="text-sm" style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>
+        <div className={styles.dash_div_8}>
+          <span className={`text-sm ${styles.dash_span_9}`} >
             Welcome back, {profile.name.split(' ')[0]}!
           </span>
           <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.45rem, 2.2vw, 1.95rem)',
-              fontWeight: 700,
-              lineHeight: 1.15,
-              letterSpacing: '-0.025em',
-            }}
+            className={styles.dash_h2_10}
           >
             You&apos;ve completed {overviewData.weeklyCompletedModules} modules this week
           </h2>
           <p className="text-sm text-muted">
             {profile.completedTests} total practice tests completed • {profile.studyHoursTotal}h logged toward Band {profile.targetBand}.
           </p>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 4 }}>
+          <div className={styles.dash_div_11}>
             <Link href="/test-results" className="btn btn-primary">
               View Progress <ArrowUpRight size={16} />
             </Link>
@@ -226,10 +212,8 @@ export function DashboardClient() {
 
         {/* 3 Filko-Inspired Vertical Milestone Cards */}
         <div
-          className="hero-cards-grid"
-          style={{
-            zIndex: 1,
-          }}
+          className={`hero-cards-grid ${styles.dash_div_12}`}
+          
         >
           {overviewData.heroCards.map((hc) => {
             const bg =
@@ -257,17 +241,17 @@ export function DashboardClient() {
                 }}
               >
                 <div>
-                  <div className="text-xs" style={{ fontWeight: 700, opacity: 0.75, marginBottom: 6 }}>
+                  <div className={`text-xs ${styles.dash_div_13}`} >
                     {hc.num}
                   </div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.95rem', lineHeight: 1.25 }}>
+                  <div className={styles.dash_div_14}>
                     {hc.title}
                   </div>
-                  <div className="text-xs" style={{ opacity: 0.8, marginTop: 4 }}>
+                  <div className={`text-xs ${styles.dash_div_15}`} >
                     {hc.subtitle}
                   </div>
                 </div>
-                <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
+                <div className={styles.dash_div_16}>
                   <HeroArtwork theme={hc.theme} />
                 </div>
               </Link>
@@ -281,14 +265,9 @@ export function DashboardClient() {
         data-animate="card"
         className="card-dark dashboard-mock-banner"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', minWidth: 0 }}>
+        <div className={styles.dash_div_17}>
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 34px)',
-              gap: 6,
-              flexShrink: 0,
-            }}
+            className={styles.dash_div_18}
           >
             {[BookOpen, Headphones, PenTool, Mic].map((Icon, i) => (
               <span
@@ -309,20 +288,20 @@ export function DashboardClient() {
               </span>
             ))}
           </div>
-          <div style={{ minWidth: 0, flex: '1 1 200px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-              <h2 className="h2" style={{ color: '#FFFFFF' }}>Full IELTS Mock Test</h2>
+          <div className={styles.dash_div_19}>
+            <div className={styles.dash_div_20}>
+              <h2 className={`h2 ${styles.dash_h2_21}`} >Full IELTS Mock Test</h2>
               <Badge variant="yellow">2h 40m</Badge>
             </div>
-            <p className="text-sm" style={{ color: '#B7B5AD' }}>
+            <p className={`text-sm ${styles.dash_p_22}`} >
               Reading, Listening, Writing, and Speaking back-to-back with automatic progress saving.
             </p>
           </div>
         </div>
         <Link
           href="/mock-test"
-          className="btn btn-accent"
-          style={{ fontWeight: 700 }}
+          className={`btn btn-accent ${styles.dash_link_23}`}
+          
         >
           <Award size={16} /> Start Full Mock →
         </Link>
@@ -335,7 +314,7 @@ export function DashboardClient() {
             <h2 className="h2">Individual Module Practice</h2>
             <p className="text-xs text-muted">Pick a module to sharpen your weakest criteria</p>
           </div>
-          <Link href="/question-types" className="text-xs" style={{ fontWeight: 600, color: 'var(--accent-purple)' }}>
+          <Link href="/question-types" className={`text-xs ${styles.dash_link_24}`} >
             Explore Question Types →
           </Link>
         </div>
@@ -345,7 +324,7 @@ export function DashboardClient() {
             const Icon = mod.icon;
             return (
               <div key={mod.id} data-animate="card" className="card card-interactive">
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                <div className={styles.dash_div_25}>
                   <span
                     style={{
                       width: 38,
@@ -360,30 +339,25 @@ export function DashboardClient() {
                   >
                     <Icon size={18} />
                   </span>
-                  <span className="text-xs text-muted" style={{ fontWeight: 600 }}>
+                  <span className={`text-xs text-muted ${styles.dash_span_26}`} >
                     {mod.testsCount} tests completed
                   </span>
                 </div>
 
-                <h3 className="h3" style={{ fontSize: '1.1rem', marginBottom: 10 }}>
+                <h3 className={`h3 ${styles.dash_h3_27}`} >
                   {mod.title}
                 </h3>
 
                 <ProgressBar value={mod.progress} variant={mod.id === 'Writing' ? 'yellow' : 'purple'} small />
 
                 <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    justifyContent: 'space-between',
-                    marginTop: 14,
-                  }}
+                  className={styles.dash_div_28}
                 >
                   <div>
                     <div className="text-xs text-muted">Estimated band</div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, lineHeight: 1.1 }}>
+                    <div className={styles.dash_div_29}>
                       {mod.band.toFixed(1)}
-                      <span className="text-sm text-muted" style={{ fontWeight: 500 }}> / 9</span>
+                      <span className={`text-sm text-muted ${styles.dash_span_30}`} > / 9</span>
                     </div>
                   </div>
                   <Link href={mod.href} className="btn btn-primary btn-sm">
@@ -400,15 +374,15 @@ export function DashboardClient() {
       <section id="roadmap" data-animate="card" className="card">
         <div className="section-header">
           <div>
-            <span className="text-xs text-muted" style={{ fontWeight: 600 }}>Stage 4 of 5</span>
+            <span className={`text-xs text-muted ${styles.dash_span_26}`} >Stage 4 of 5</span>
             <h2 className="h2">Band 7.5 Preparation Path</h2>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 160 }}>
+          <div className={styles.dash_div_31}>
             <ProgressBar value={75} variant="purple" showLabel />
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative' }}>
+        <div className={styles.dash_div_32}>
           {studyRoadmapSteps.map((step) => (
             <div
               key={step.title}
@@ -429,8 +403,8 @@ export function DashboardClient() {
               >
                 {step.done ? <CheckCircle2 size={16} /> : <Clock size={15} />}
               </div>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{step.title}</div>
+              <div className={styles.dash_div_3}>
+                <div className={styles.dash_div_33}>{step.title}</div>
                 <div className="text-xs text-muted">{step.desc}</div>
               </div>
               <span className={`badge dashboard-roadmap-badge ${step.done ? 'badge-success' : step.active ? 'badge-yellow' : 'badge-neutral'}`}>
@@ -443,33 +417,24 @@ export function DashboardClient() {
 
       {/* Teacher Speaking Feedback Poll Card */}
       {!pollDismissed && (
-        <section data-animate="card" className="card" style={{ backgroundColor: 'var(--surface)' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
-            <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+        <section data-animate="card" className={`card ${styles.dash_section_34}`} >
+          <div className={styles.dash_div_35}>
+            <div className={styles.dash_div_36}>
               <span
-                style={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: 10,
-                  backgroundColor: 'var(--bg-secondary)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
+                className={styles.dash_span_37}
               >
                 <Video size={18} />
               </span>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                <div className={styles.dash_div_38}>
                   <Badge variant="purple">Live Coaching</Badge>
                   <span className="text-xs text-muted">Student Feedback</span>
                 </div>
                 <h3 className="h3">Speaking mock with a certified IELTS tutor</h3>
-                <p className="text-sm text-muted" style={{ marginTop: 3 }}>
+                <p className={`text-sm text-muted ${styles.dash_p_39}`} >
                   15-minute live Parts 1-3 interview with written rubric scorecard. Would you book one?
                 </p>
-                <div style={{ display: 'flex', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+                <div className={styles.dash_div_40}>
                   {['Yes, I would', 'Maybe later', 'Not for me'].map((opt) => (
                     <button
                       key={opt}
@@ -504,20 +469,13 @@ export function DashboardClient() {
       {/* Performance Analytics (Recharts) */}
       <section data-animate="card" className="card">
         <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 12,
-            marginBottom: 14,
-          }}
+          className={styles.dash_div_41}
         >
           <div>
             <h2 className="h2">Performance Analytics</h2>
             <p className="text-xs text-muted">Your estimated IELTS band trajectory across recent tests</p>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <div className={styles.dash_div_42}>
             <div className="filter-pills">
               {[
                 { id: 'overall', label: 'Overall' },
@@ -530,8 +488,8 @@ export function DashboardClient() {
                   key={m.id}
                   type="button"
                   onClick={() => setChartMetric(m.id)}
-                  className={`filter-pill ${chartMetric === m.id ? 'active' : ''}`}
-                  style={{ padding: '5px 11px', fontSize: '0.76rem' }}
+                  className={`filter-pill ${chartMetric === m.id ? 'active' : ''} ${styles.dash_button_43}`}
+                  
                 >
                   {m.label}
                 </button>
@@ -553,14 +511,7 @@ export function DashboardClient() {
       {/* Skill Breakdown */}
       <section data-animate="card" className="card">
         <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 12,
-            marginBottom: 16,
-          }}
+          className={styles.dash_div_44}
         >
           <div>
             <h2 className="h2">Skill Breakdown</h2>
@@ -580,7 +531,7 @@ export function DashboardClient() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div className={styles.dash_div_45}>
           {activeSkills.map((item) => {
             const pct = Math.round((item.score / 9) * 100);
             const variant =
@@ -588,32 +539,21 @@ export function DashboardClient() {
             return (
               <div
                 key={item.criterion}
-                style={{
-                  padding: '12px 14px',
-                  borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'var(--bg-primary)',
-                  border: '1px solid var(--border)',
-                }}
+                className={styles.dash_div_46}
               >
                 <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: 12,
-                    marginBottom: 6,
-                  }}
+                  className={styles.dash_div_47}
                 >
-                  <span style={{ fontWeight: 600, fontSize: '0.88rem' }}>{item.criterion}</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>{item.score.toFixed(1)}</span>
+                  <span className={styles.dash_span_48}>{item.criterion}</span>
+                  <div className={styles.dash_div_49}>
+                    <span className={styles.dash_span_50}>{item.score.toFixed(1)}</span>
                     <Badge variant={variant === 'error' ? 'error' : variant === 'success' ? 'success' : 'yellow'}>
                       {item.status}
                     </Badge>
                   </div>
                 </div>
                 <ProgressBar value={pct} variant={variant} small />
-                <p className="text-xs text-muted" style={{ marginTop: 6 }}>{item.note}</p>
+                <p className={`text-xs text-muted ${styles.dash_p_51}`} >{item.note}</p>
               </div>
             );
           })}
@@ -627,7 +567,7 @@ export function DashboardClient() {
             <h2 className="h2">Tools & Features</h2>
             <p className="text-xs text-muted">Sharpen every aspect of your preparation</p>
           </div>
-          <Link href="/tools" className="text-xs" style={{ fontWeight: 600, color: 'var(--accent-purple)' }}>
+          <Link href="/tools" className={`text-xs ${styles.dash_link_24}`} >
             All 10 Tools →
           </Link>
         </div>
@@ -640,31 +580,21 @@ export function DashboardClient() {
                 key={tool.id}
                 href={tool.href}
                 data-animate="card"
-                className="card card-compact card-interactive"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}
+                className={`card card-compact card-interactive ${styles.dash_link_52}`}
+                
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+                <div className={styles.dash_div_53}>
                   <span
-                    style={{
-                      width: 38,
-                      height: 38,
-                      borderRadius: 10,
-                      backgroundColor: 'var(--bg-secondary)',
-                      color: 'var(--text-primary)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
+                    className={styles.dash_span_54}
                   >
                     <Icon size={17} />
                   </span>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>{tool.title}</span>
+                  <div className={styles.dash_div_3}>
+                    <div className={styles.dash_div_55}>
+                      <span className={styles.dash_div_33}>{tool.title}</span>
                       {tool.badge && <Badge variant="purple">{tool.badge}</Badge>}
                     </div>
-                    <p className="text-xs text-muted" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <p className={`text-xs text-muted ${styles.dash_p_56}`} >
                       {tool.description}
                     </p>
                   </div>
@@ -683,7 +613,7 @@ export function DashboardClient() {
             <h2 className="h2">IELTS Tips & Guides</h2>
             <p className="text-xs text-muted">High-impact strategies curated by examiners</p>
           </div>
-          <Link href="/question-types" className="text-xs" style={{ fontWeight: 600, color: 'var(--accent-purple)' }}>
+          <Link href="/question-types" className={`text-xs ${styles.dash_link_24}`} >
             View all guides →
           </Link>
         </div>
@@ -694,8 +624,8 @@ export function DashboardClient() {
               key={res.id}
               href={res.href}
               data-animate="card"
-              className="card card-interactive"
-              style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+              className={`card card-interactive ${styles.dash_link_57}`}
+              
             >
               <div
                 style={{
@@ -707,11 +637,11 @@ export function DashboardClient() {
                   borderBottom: '1px solid var(--border)',
                 }}
               />
-              <div style={{ padding: 14, display: 'flex', flexDirection: 'column', gap: 6, flex: 1 }}>
-                <span className="text-xs" style={{ fontWeight: 700, color: 'var(--accent-purple)' }}>
+              <div className={styles.dash_div_58}>
+                <span className={`text-xs ${styles.dash_span_59}`} >
                   {res.category}
                 </span>
-                <div style={{ fontWeight: 600, fontSize: '0.86rem', lineHeight: 1.35, flex: 1 }}>
+                <div className={styles.dash_div_60}>
                   {res.title}
                 </div>
                 <div className="text-xs text-muted">{res.readTime}</div>
@@ -729,18 +659,18 @@ export function DashboardClient() {
         subtitle="Weekly study time and band score progression across all modules."
         large
       >
-        <div className="grid-3" style={{ marginBottom: 16 }}>
+        <div className={`grid-3 ${styles.dash_div_61}`} >
           <div className="card-warm card-compact">
             <div className="text-xs text-muted">Current Overall</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>{profile.currentBand.toFixed(1)}</div>
+            <div className={styles.dash_div_62}>{profile.currentBand.toFixed(1)}</div>
           </div>
           <div className="card-warm card-compact">
             <div className="text-xs text-muted">30-Day Improvement</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--success)' }}>+1.0 Band</div>
+            <div className={styles.dash_div_63}>+1.0 Band</div>
           </div>
           <div className="card-warm card-compact">
             <div className="text-xs text-muted">Weekly Hours</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>10.6 hrs</div>
+            <div className={styles.dash_div_62}>10.6 hrs</div>
           </div>
         </div>
         <BandProgressionChart data={statsData.bandProgression} activeMetric={chartMetric} height={260} />

@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { PublicNavbar } from '@/components/public/PublicNavbar';
-import { PublicFooter } from '@/components/public/PublicFooter';
-import styles from '@/components/public/PublicLayout.module.css';
+import { PublicNavbar } from '@/components/frontend/PublicNavbar';
+import { PublicFooter } from '@/components/frontend/PublicFooter';
+import styles from '@/components/frontend/PublicLayout.module.css';
 
 export function PublicShell({ children }) {
   return (

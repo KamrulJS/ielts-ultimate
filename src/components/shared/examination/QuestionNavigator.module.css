@@ -1,0 +1,18 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.ques_div_1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 14px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.ques_bookmark_2 {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}

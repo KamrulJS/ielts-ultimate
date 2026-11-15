@@ -1,0 +1,125 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.peop_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.peop_div_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.peop_searchbar_3 {
+  width: 240px;
+}
+
+.peop_div_4 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.peop_div_5 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.peop_div_6 {
+  flex: 1;
+  min-width: 0;
+}
+
+.peop_div_7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.peop_div_8 {
+  margin-top: 2px;
+}
+
+.peop_p_9 {
+  line-height: 1.55;
+}
+
+.peop_div_10 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.peop_div_11 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.peop_span_12 {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.peop_div_13 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.peop_div_14 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.peop_div_15 {
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.peop_div_16 {
+  display: flex;
+  gap: 6px;
+}
+
+.peop_div_17 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.peop_button_18 {
+  margin-top: auto;
+}
+
+.peop_div_19 {
+  font-weight: 700;
+  font-size: 0.96rem;
+}
+
+.peop_form_20 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.peop_div_21 {
+  margin-bottom: 8px;
+}
+
+.peop_div_22 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

@@ -1,0 +1,99 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.audi_div_1 {
+  padding: 20px;
+}
+
+.audi_div_2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.audi_div_3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audi_span_4 {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(246, 189, 40, 0.16);
+  color: var(--accent-yellow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audi_div_5 {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: #FFFFFF;
+}
+
+.audi_div_6 {
+  color: #B7B5AD;
+}
+
+.audi_div_7 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.audi_button_8 {
+  min-width: 96px;
+}
+
+.audi_button_9 {
+  background-color: rgba(255,255,255,0.1);
+  color: #FFFFFF;
+}
+
+.audi_div_10 {
+  flex: 1;
+  min-width: 160px;
+}
+
+.audi_input_11 {
+  width: 100%;
+  accent-color: #F6BD28;
+  cursor: pointer;
+}
+
+.audi_div_12 {
+  display: flex;
+  justify-content: space-between;
+  color: #B7B5AD;
+  margin-top: 2px;
+}
+
+.audi_div_13 {
+  display: flex;
+  gap: 4px;
+}
+
+.audi_button_14 {
+  background-color: rgba(255,255,255,0.08);
+  color: #FFFFFF;
+}
+
+.audi_div_15 {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid var(--dark-border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.83rem;
+  color: #ECE9DF;
+}

@@ -609,18 +609,7 @@ export function AppProvider({ children }) {
           {toasts.map((t) => (
             <div key={t.id} className="toast-item">
               <span
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '999px',
-                  backgroundColor:
-                    t.type === 'success'
-                      ? '#39966B'
-                      : t.type === 'error'
-                      ? '#D95B55'
-                      : '#F6BD28',
-                  flexShrink: 0,
-                }}
+                className={`toast-dot toast-dot-${t.type || 'info'}`}
               />
               <span>{t.message}</span>
             </div>

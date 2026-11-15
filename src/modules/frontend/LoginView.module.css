@@ -1,0 +1,275 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.logi_div_1 {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px clamp(14px, 3vw, 28px);
+}
+
+.logi_div_2 {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logi_link_3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logi_span_4 {
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background-color: var(--dark-section);
+  color: var(--accent-yellow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logi_link_5 {
+  border-radius: 0;
+}
+
+.logi_div_6 {
+  max-width: 500px;
+  width: 100%;
+  margin: 32px auto;
+}
+
+.logi_div_7 {
+  padding: clamp(20px, 3.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-radius: 0;
+}
+
+.logi_div_8 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.logi_h1_9 {
+  font-size: 1.45rem;
+  margin: 0;
+}
+
+.logi_p_10 {
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.logi_div_11 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.logi_button_12 {
+  justify-content: center;
+  padding: 8px 8px;
+  font-size: 0.8rem;
+  border-radius: 0;
+}
+
+.logi_div_13 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-radius: 0;
+}
+
+.logi_div_14 {
+  padding: 12px 14px;
+  border-radius: 0;
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #DC2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logi_alertcircle_15 {
+  flex-shrink: 0;
+}
+
+.logi_form_16 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logi_div_17 {
+  position: relative;
+}
+
+.logi_span_18 {
+  font-weight: 400;
+}
+
+.logi_div_19 {
+  gap: 10px;
+}
+
+.logi_input_20 {
+  padding-right: 38px;
+  border-radius: 0;
+}
+
+.logi_button_21 {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.logi_select_22 {
+  border-radius: 0;
+  background-color: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+.logi_button_23 {
+  margin-top: 6px;
+  border-radius: 0;
+  justify-content: center;
+}
+
+.logi_div_24 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.logi_label_25 {
+  margin: 0;
+}
+
+.logi_button_26 {
+  background: none;
+  border: none;
+  color: var(--accent-purple);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logi_input_27 {
+  padding-right: 40px;
+  border-radius: 0;
+}
+
+.logi_button_28 {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.logi_div_29 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logi_input_30 {
+  accent-color: var(--accent-purple);
+  cursor: pointer;
+}
+
+.logi_label_31 {
+  cursor: pointer;
+  margin: 0;
+}
+
+.logi_button_32 {
+  border-radius: 0;
+  justify-content: center;
+}
+
+.logi_div_33 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 0;
+}
+
+.logi_div_34 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.logi_span_35 {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logi_div_36 {
+  display: flex;
+  gap: 6px;
+}
+
+.logi_button_37 {
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  border-radius: 0;
+}
+
+.logi_div_38 {
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.logi_div_39 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.logi_div_40 {
+  text-align: center;
+}

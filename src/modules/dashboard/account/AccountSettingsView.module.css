@@ -1,0 +1,62 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.acco_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.acco_form_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.acco_div_3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.acco_shield_4 {
+  color: var(--accent-purple);
+}
+
+.acco_select_5 {
+  background-color: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+.acco_button_6 {
+  align-self: flex-start;
+}
+
+.acco_div_7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acco_label_8 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.acco_div_9 {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.acco_div_10 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 6px;
+}

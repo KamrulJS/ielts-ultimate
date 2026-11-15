@@ -1,0 +1,16 @@
+import { StudentShell } from '@/layouts/StudentShell';
+import { BandBattleView } from '@/modules/dashboard/band-battle/BandBattleView';
+
+export const metadata = {
+  title: 'Band Battle — IELTS Ultimate',
+  description: 'Compete on global IELTS leaderboards and challenge students in live 1-on-1 quiz duels.',
+};
+
+export default function BandBattlePage() {
+  return (
+    <StudentShell>
+      <BandBattleView />
+    </StudentShell>
+  );
+}
+

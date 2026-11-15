@@ -48,7 +48,28 @@ svg {
   max-width: 100%;
 }
 
-/* Custom thin warm scrollbar */
+/* Page loading skeletons & App utilities */
+.page-loading-skeleton {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.page-loading-skeleton-compact {
+  min-height: 60vh;
+  background-color: var(--bg-primary);
+}
+
+.toast-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.toast-dot-success { background-color: #39966B; }
+.toast-dot-error { background-color: #D95B55; }
+.toast-dot-warning { background-color: #F6BD28; }
+.toast-dot-info { background-color: var(--accent-purple); }
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;

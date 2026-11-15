@@ -1,0 +1,67 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.exam_header_1 {
+  min-height: 64px;
+  height: auto;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 8px clamp(12px, 2vw, 20px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+.exam_div_2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 200px;
+}
+
+.exam_div_3 {
+  min-width: 0;
+}
+
+.exam_div_4 {
+  font-weight: 700;
+  font-size: 0.94rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exam_div_5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exam_div_6 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.exam_span_7 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exam_save_8 {
+  color: var(--success);
+}
+
+.exam_div_9 {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  padding: 6px 12px;
+}

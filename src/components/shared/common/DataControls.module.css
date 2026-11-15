@@ -1,0 +1,38 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.data_search_1 {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.data_button_2 {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  padding: 4px;
+}
+
+.data_span_3 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.data_select_4 {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.data_div_5 {
+  text-align: center;
+  padding: 32px;
+}

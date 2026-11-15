@@ -1,0 +1,142 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.writ_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.writ_div_2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 20px;
+}
+
+.writ_div_3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.writ_span_4 {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writ_sparkles_5 {
+  color: var(--accent-purple);
+}
+
+.writ_div_6 {
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.writ_div_7 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.writ_div_8 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.writ_searchbar_9 {
+  width: 200px;
+}
+
+.writ_div_10 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.writ_div_11 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.writ_div_12 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.writ_p_13 {
+  margin-top: 4px;
+  max-width: 680px;
+}
+
+.writ_div_14 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.writ_div_15 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.writ_div_16 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.writ_p_17 {
+  margin-top: 6px;
+  line-height: 1.55;
+}
+
+.writ_div_18 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.writ_span_19 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.writ_span_20 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.writ_form_21 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.writ_div_22 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

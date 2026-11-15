@@ -1,0 +1,168 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.voca_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.voca_div_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.voca_searchbar_3 {
+  width: 240px;
+}
+
+.voca_div_4 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.voca_div_5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.voca_div_6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voca_h3_7 {
+  font-size: 1.1rem;
+}
+
+.voca_button_8 {
+  padding: 4px;
+}
+
+.voca_p_9 {
+  line-height: 1.5;
+}
+
+.voca_p_10 {
+  font-style: italic;
+}
+
+.voca_div_11 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.voca_div_12 {
+  display: flex;
+  gap: 6px;
+}
+
+.voca_div_13 {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.voca_div_14 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voca_h2_15 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 14px;
+}
+
+.voca_div_16 {
+  margin-top: 4px;
+}
+
+.voca_div_17 {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.voca_p_18 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 14px;
+  max-width: 480px;
+}
+
+.voca_p_19 {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.voca_div_20 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.voca_div_21 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.voca_p_22 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.voca_div_23 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.voca_div_24 {
+  display: flex;
+  gap: 10px;
+}
+
+.voca_h3_25 {
+  margin-bottom: 10px;
+}
+
+.voca_div_26 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voca_div_27 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.voca_div_28 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.voca_div_29 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}

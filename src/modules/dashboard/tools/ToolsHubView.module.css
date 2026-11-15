@@ -1,0 +1,128 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.tool_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.tool_div_2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 10px;
+}
+
+.tool_div_3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tool_div_4 {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.tool_div_5 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tool_div_6 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tool_div_7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tool_div_8 {
+  font-weight: 700;
+}
+
+.tool_ul_9 {
+  padding-left: 18px;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tool_div_10 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tool_p_11 {
+  white-space: pre-line;
+}
+
+.tool_button_12 {
+  margin-top: 10px;
+}
+
+.tool_button_13 {
+  align-self: flex-start;
+}
+
+.tool_div_14 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool_div_15 {
+  justify-content: flex-start;
+  padding: 8px 12px;
+}
+
+.tool_div_16 {
+  line-height: 1.65;
+}
+
+.tool_p_17 {
+  margin-top: 4px;
+}
+
+.tool_p_18 {
+  line-height: 1.7;
+}
+
+.tool_div_19 {
+  display: flex;
+  gap: 10px;
+}
+
+.tool_div_20 {
+  font-weight: 600;
+  font-size: 0.86rem;
+  margin-bottom: 8px;
+}
+
+.tool_div_21 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tool_input_22 {
+  max-width: 280px;
+}
+
+.tool_div_23 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tool_span_24 {
+  font-weight: 600;
+  font-size: 0.86rem;
+}

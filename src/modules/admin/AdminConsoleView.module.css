@@ -1,0 +1,189 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.admi_div_1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.admi_div_2 {
+  height: 68px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.admi_div_3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admi_span_4 {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background-color: var(--dark-section);
+  color: var(--accent-yellow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.admi_div_5 {
+  font-weight: 800;
+  font-size: 0.96rem;
+}
+
+.admi_nav_6 {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admi_div_7 {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.admi_link_8 {
+  width: 100%;
+}
+
+.admi_div_9 {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.admi_aside_10 {
+  width: 252px;
+  border-right: 1px solid var(--border);
+  background-color: var(--bg-primary);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.admi_div_11 {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+}
+
+.admi_div_12 {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.admi_div_13 {
+  position: relative;
+  width: 260px;
+  background: var(--bg-primary);
+  z-index: 1;
+}
+
+.admi_div_14 {
+  flex: 1;
+  margin-left: 252px;
+  min-width: 0;
+}
+
+.admi_header_15 {
+  min-height: 68px;
+  height: auto;
+  padding: 10px clamp(12px, 2.5vw, 24px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.admi_div_16 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.admi_div_17 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admi_main_18 {
+  padding: clamp(14px, 2.5vw, 24px) clamp(12px, 2.5vw, 20px);
+  max-width: 1450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admi_div_19 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.admi_searchbar_20 {
+  width: 200px;
+}
+
+.admi_h2_21 {
+  margin-bottom: 12px;
+}
+
+.admi_div_22 {
+  height: 240px;
+}
+
+.admi_div_23 {
+  display: flex;
+  gap: 6px;
+}
+
+.admi_div_24 {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admi_button_25 {
+  align-self: flex-start;
+}
+
+.admi_form_26 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admi_div_27 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

@@ -1,4 +1,5 @@
 'use client';
+import styles from './AdminConsoleView.module.css';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -214,36 +215,18 @@ export function AdminConsoleView() {
   };
 
   const renderSidebarContent = () => (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div className={styles.admi_div_1}>
       <div
-        style={{
-          height: 68,
-          padding: '0 18px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid var(--border)',
-        }}
+        className={styles.admi_div_2}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div className={styles.admi_div_3}>
           <span
-            style={{
-              width: 30,
-              height: 30,
-              borderRadius: 9,
-              backgroundColor: 'var(--dark-section)',
-              color: 'var(--accent-yellow)',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 800,
-              fontSize: '0.85rem',
-            }}
+            className={styles.admi_span_4}
           >
             IU
           </span>
           <div>
-            <div style={{ fontWeight: 800, fontSize: '0.96rem' }}>IELTS Ultimate</div>
+            <div className={styles.admi_div_5}>IELTS Ultimate</div>
             <div className="text-xs text-muted">Admin Console</div>
           </div>
         </div>
@@ -257,7 +240,7 @@ export function AdminConsoleView() {
         </button>
       </div>
 
-      <nav style={{ flex: 1, overflowY: 'auto', padding: '12px', display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <nav className={styles.admi_nav_6}>
         {ADMIN_NAV_ITEMS.map((item) => {
           const Icon = ADMIN_ICONS[item.icon] || LayoutDashboard;
           const active = section === item.id;
@@ -291,8 +274,8 @@ export function AdminConsoleView() {
         })}
       </nav>
 
-      <div style={{ padding: 12, borderTop: '1px solid var(--border)' }}>
-        <Link href="/dashboard" className="btn btn-secondary btn-sm" style={{ width: '100%' }}>
+      <div className={styles.admi_div_7}>
+        <Link href="/dashboard" className={`btn btn-secondary btn-sm ${styles.admi_link_8}`} >
           <ArrowLeft size={14} /> Student Dashboard
         </Link>
       </div>
@@ -311,53 +294,30 @@ export function AdminConsoleView() {
   ].includes(section);
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
+    <div className={styles.admi_div_9}>
       {/* Desktop Admin Sidebar */}
       <aside
-        className="admin-sidebar"
-        style={{
-          width: 252,
-          borderRight: '1px solid var(--border)',
-          backgroundColor: 'var(--bg-primary)',
-          position: 'fixed',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          zIndex: 50,
-        }}
+        className={`admin-sidebar ${styles.admi_aside_10}`}
+        
       >
         {renderSidebarContent()}
       </aside>
 
       {/* Mobile Drawer */}
       {mobileMenu && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 90, display: 'flex' }}>
-          <div onClick={() => setMobileMenu(false)} style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)' }} />
-          <div style={{ position: 'relative', width: 260, background: 'var(--bg-primary)', zIndex: 1 }}>
+        <div className={styles.admi_div_11}>
+          <div onClick={() => setMobileMenu(false)} className={styles.admi_div_12} />
+          <div className={styles.admi_div_13}>
             {renderSidebarContent()}
           </div>
         </div>
       )}
 
-      <div className="admin-main" style={{ flex: 1, marginLeft: 252, minWidth: 0 }}>
+      <div className={`admin-main ${styles.admi_div_14}`} >
         <header
-          style={{
-            minHeight: 68,
-            height: 'auto',
-            padding: '10px clamp(12px, 2.5vw, 24px)',
-            borderBottom: '1px solid var(--border)',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 10,
-            backgroundColor: 'var(--bg-primary)',
-            position: 'sticky',
-            top: 0,
-            zIndex: 40,
-          }}
+          className={styles.admi_header_15}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', minWidth: 0 }}>
+          <div className={styles.admi_div_16}>
             <button
               type="button"
               className="btn btn-secondary btn-icon admin-mobile-open"
@@ -369,7 +329,7 @@ export function AdminConsoleView() {
             <Badge variant="dark">Admin Demo Console</Badge>
             <span className="text-xs text-muted admin-subtitle">Frontend CRUD demonstration (Local JSON + State)</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <div className={styles.admi_div_17}>
             <Link href="/" className="btn btn-ghost btn-sm">
               Public Site
             </Link>
@@ -389,15 +349,15 @@ export function AdminConsoleView() {
           </div>
         </header>
 
-        <main className="admin-main-inner" style={{ padding: 'clamp(14px, 2.5vw, 24px) clamp(12px, 2.5vw, 20px)', maxWidth: 1450, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <main className={`admin-main-inner ${styles.admi_main_18}`} >
           <PageHeader
             title={ADMIN_NAV_ITEMS.find((n) => n.id === section)?.label || 'Admin Overview'}
             description="Manage platform students, educators, exam modules, community moderation, and analytics."
             actions={
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', maxWidth: '100%' }}>
+              <div className={styles.admi_div_19}>
                 {canCreate && (
                   <>
-                    <SearchBar value={search} onChange={setSearch} placeholder="Filter records..." style={{ width: 200 }} />
+                    <SearchBar value={search} onChange={setSearch} placeholder="Filter records..." className={styles.admi_searchbar_20} />
                     <button type="button" className="btn btn-primary btn-sm" onClick={() => setAddModalOpen(true)}>
                       <Plus size={14} /> Add New
                     </button>
@@ -419,9 +379,9 @@ export function AdminConsoleView() {
 
               <div className="grid-2">
                 <div className="card">
-                  <h2 className="h3" style={{ marginBottom: 12 }}>Monthly Student & Test Growth</h2>
+                  <h2 className={`h3 ${styles.admi_h2_21}`} >Monthly Student & Test Growth</h2>
                   {chartsMounted ? (
-                    <div style={{ height: 240 }}>
+                    <div className={styles.admi_div_22}>
                       <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={adminAnalytics.monthlyGrowth}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#E9E6DC" vertical={false} />
@@ -434,14 +394,14 @@ export function AdminConsoleView() {
                       </ResponsiveContainer>
                     </div>
                   ) : (
-                    <div className="skeleton" style={{ height: 240 }} />
+                    <div className={`skeleton ${styles.admi_div_22}`}  />
                   )}
                 </div>
 
                 <div className="card">
-                  <h2 className="h3" style={{ marginBottom: 12 }}>Module Practice Popularity</h2>
+                  <h2 className={`h3 ${styles.admi_h2_21}`} >Module Practice Popularity</h2>
                   {chartsMounted ? (
-                    <div style={{ height: 240 }}>
+                    <div className={styles.admi_div_22}>
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={adminAnalytics.modulePopularity}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#E9E6DC" vertical={false} />
@@ -453,7 +413,7 @@ export function AdminConsoleView() {
                       </ResponsiveContainer>
                     </div>
                   ) : (
-                    <div className="skeleton" style={{ height: 240 }} />
+                    <div className={`skeleton ${styles.admi_div_22}`}  />
                   )}
                 </div>
               </div>
@@ -689,7 +649,7 @@ export function AdminConsoleView() {
                   key: 'actions',
                   label: 'Moderate',
                   render: (r) => (
-                    <div style={{ display: 'flex', gap: 6 }}>
+                    <div className={styles.admi_div_23}>
                       <button
                         type="button"
                         className="btn btn-secondary btn-sm"
@@ -749,7 +709,7 @@ export function AdminConsoleView() {
 
           {/* 12. Platform Settings */}
           {section === 'settings' && (
-            <div className="card" style={{ maxWidth: 620, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div className={`card ${styles.admi_div_24}`} >
               <div className="field-group">
                 <label className="field-label" htmlFor="adm-site">Platform Name</label>
                 <input
@@ -771,8 +731,8 @@ export function AdminConsoleView() {
               </div>
               <button
                 type="button"
-                className="btn btn-primary"
-                style={{ alignSelf: 'flex-start' }}
+                className={`btn btn-primary ${styles.admi_button_25}`}
+                
                 onClick={() => showToast('Admin settings saved locally', 'success')}
               >
                 Save Platform Config
@@ -789,7 +749,7 @@ export function AdminConsoleView() {
         title={`Add New Entry (${section})`}
         subtitle="Creates a temporary demo entry in local state."
       >
-        <form onSubmit={handleAddRecord} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <form onSubmit={handleAddRecord} className={styles.admi_form_26}>
           <div className="field-group">
             <label className="field-label" htmlFor="adm-title">Name / Title / Word</label>
             <input
@@ -811,7 +771,7 @@ export function AdminConsoleView() {
               placeholder="Optional secondary metadata..."
             />
           </div>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+          <div className={styles.admi_div_27}>
             <button type="button" className="btn btn-secondary" onClick={() => setAddModalOpen(false)}>Cancel</button>
             <button type="submit" className="btn btn-primary">Create Entry</button>
           </div>

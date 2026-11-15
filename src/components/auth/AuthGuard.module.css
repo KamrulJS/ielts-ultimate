@@ -1,0 +1,39 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.auth_div_1 {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth_div_2 {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px;
+}
+
+.auth_span_3 {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--dark-section);
+  color: var(--accent-yellow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth_div_4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}

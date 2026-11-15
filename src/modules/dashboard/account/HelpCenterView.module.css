@@ -1,0 +1,66 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.help_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.help_link_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.help_span_3 {
+  font-weight: 600;
+  color: var(--accent-purple);
+  margin-top: auto;
+}
+
+.help_arrowright_4 {
+  display: inline;
+}
+
+.help_div_5 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.help_searchbar_6 {
+  width: 220px;
+}
+
+.help_div_7 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.help_div_8 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.help_helpcircle_9 {
+  color: var(--accent-purple);
+}
+
+.help_span_10 {
+  font-weight: 700;
+}
+
+.help_form_11 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.help_button_12 {
+  align-self: flex-start;
+}

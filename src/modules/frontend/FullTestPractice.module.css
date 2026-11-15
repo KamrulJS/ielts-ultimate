@@ -1,0 +1,638 @@
+/* IELTS Full Test Public Learning Page Stylesheet */
+/* Strict Square-Corner Identity (border-radius: 0px) */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heroSection {
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.heroVisualBox {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+}
+
+.heroVisualHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.heroPillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* Two-column layout with right sticky TOC */
+.contentLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 48px;
+  padding: 40px 0 64px;
+  align-items: start;
+}
+
+.mainColumn {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.tocColumn {
+  position: sticky;
+  top: 92px;
+}
+
+.tocCard {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tocTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tocItem {
+  display: block;
+  font-size: 0.83rem;
+  padding: 6px 10px;
+  color: var(--text-secondary);
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.tocItem:hover {
+  color: var(--primary);
+  background: rgba(136, 103, 184, 0.05);
+}
+
+.tocItemActive {
+  color: var(--primary);
+  border-left-color: var(--primary);
+  background: rgba(136, 103, 184, 0.08);
+  font-weight: 600;
+}
+
+.sectionBlock {
+  scroll-margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.sectionTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.infoCard {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tableWrap {
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  background: var(--bg-surface);
+}
+
+.customTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.customTable th {
+  background: rgba(136, 103, 184, 0.08);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.customTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.customTable tr:last-child td {
+  border-bottom: none;
+}
+
+.customTable tr:hover td {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+/* Calculator Box */
+.calcCard {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calcInputsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.calcInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calcInputGroup label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.calcSelect {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-radius: 0;
+  outline: none;
+}
+
+.calcSelect:focus {
+  border-color: var(--primary);
+}
+
+.calcResultBox {
+  border: 1px solid var(--primary);
+  background: rgba(136, 103, 184, 0.08);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* FAQ Accordion */
+.faqItem {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.faqButton {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.faqContent {
+  padding: 0 20px 16px;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Practice CTA Box */
+.ctaBox {
+  border: 1px solid var(--primary);
+  background: rgba(136, 103, 184, 0.06);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+@media (max-width: 991px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+  .contentLayout {
+    grid-template-columns: 1fr;
+  }
+  .tocColumn {
+    display: none;
+  }
+}
+
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.full_h1_1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 12px 0 16px;
+  color: var(--text-primary);
+}
+
+.full_p_2 {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.full_div_3 {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.full_button_4 {
+  border-radius: 0;
+  padding: 12px 24px;
+  font-weight: 700;
+}
+
+.full_button_5 {
+  border-radius: 0;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+
+.full_div_6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.full_span_7 {
+  border-radius: 0;
+}
+
+.full_div_8 {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  padding: 14px;
+}
+
+.full_div_9 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.full_span_10 {
+  color: #ef4444;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.full_div_11 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.full_div_12 {
+  padding: 6px 8px;
+  background: rgba(136, 103, 184, 0.1);
+  border: 1px solid var(--primary);
+  text-align: center;
+}
+
+.full_div_13 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.full_div_14 {
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.full_div_15 {
+  padding: 6px 8px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.full_div_16 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.full_div_17 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.full_div_18 {
+  border: 1px solid var(--border);
+  padding: 10px;
+  background: #fafafa;
+}
+
+.full_div_19 {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.full_div_20 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.full_div_21 {
+  font-size: 0.72rem;
+  color: #10b981;
+}
+
+.full_div_22 {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.full_p_23 {
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.full_div_24 {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--primary);
+}
+
+.full_div_25 {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.full_div_26 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full_div_27 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.full_h3_28 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.full_div_29 {
+  display: flex;
+  gap: 8px;
+}
+
+.full_div_30 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.full_h3_31 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.full_div_32 {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.full_div_33 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.full_div_34 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.full_div_35 {
+  text-align: right;
+}
+
+.full_div_36 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.full_div_37 {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.full_div_38 {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 8px 18px;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.full_h3_39 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.full_div_40 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full_div_41 {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 12px 16px;
+}
+
+.full_div_42 {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+.full_div_43 {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.full_span_44 {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.full_h4_45 {
+  font-size: 0.96rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.full_div_46 {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.full_button_47 {
+  border-radius: 0;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.full_h3_48 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.full_p_49 {
+  max-width: 600px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.full_button_50 {
+  border-radius: 0;
+  padding: 14px 28px;
+  font-weight: 700;
+}
+
+.full_div_51 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.full_button_52 {
+  border-radius: 0;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+
+.faqChevronIcon { transition: transform 0.16s ease; transform: rotate(0deg); }
+.faqChevronIconOpen { transform: rotate(180deg); }

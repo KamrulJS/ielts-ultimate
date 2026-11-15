@@ -1,0 +1,91 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.list_div_1 {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.list_main_2 {
+  flex: 1;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.list_div_3 {
+  padding: 16px;
+}
+
+.list_div_4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.list_mappin_5 {
+  color: var(--accent-purple);
+}
+
+.list_span_6 {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.list_div_7 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: var(--bg-primary);
+  border: 1px dashed var(--border-strong);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.list_div_8 {
+  background-color: var(--accent-yellow-soft);
+}
+
+.list_div_9 {
+  padding: 12px;
+}
+
+.list_div_10 {
+  gap: 14px;
+}
+
+.list_div_11 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.list_div_12 {
+  gap: 10px;
+}
+
+.list_div_13 {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.list_span_14 {
+  font-weight: 600;
+}

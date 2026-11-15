@@ -1,0 +1,53 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.noti_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.noti_div_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noti_div_3 {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.noti_span_4 {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background-color: var(--bg-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.noti_div_5 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.noti_span_6 {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.noti_p_7 {
+  margin-top: 4px;
+}
+
+.noti_div_8 {
+  display: flex;
+  gap: 8px;
+}

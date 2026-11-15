@@ -1,0 +1,83 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.glob_div_1 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.glob_search_2 {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.glob_input_3 {
+  padding-left: 40px;
+}
+
+.glob_div_4 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.glob_div_5 {
+  gap: 8px;
+}
+
+.glob_link_6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-primary);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.glob_div_7 {
+  padding: 28px;
+}
+
+.glob_div_8 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.glob_link_9 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+}
+
+.glob_span_10 {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.glob_div_11 {
+  flex: 1;
+  min-width: 0;
+}
+
+.glob_div_12 {
+  font-weight: 600;
+  font-size: 0.875rem;
+}

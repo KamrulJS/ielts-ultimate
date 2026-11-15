@@ -1,0 +1,118 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.spea_div_1 {
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.spea_div_2 {
+  max-width: 420px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.spea_sparkles_3 {
+  color: var(--accent-purple);
+}
+
+.spea_div_4 {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 10px clamp(12px, 2vw, 20px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.spea_main_5 {
+  flex: 1;
+  max-width: 820px;
+  width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(12px, 3vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.spea_div_6 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spea_div_7 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.spea_div_8 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.spea_ul_9 {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spea_li_10 {
+  font-weight: 500;
+}
+
+.spea_div_11 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spea_ul_12 {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spea_div_13 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.spea_div_14 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spea_div_15 {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spea_span_16 {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.spea_div_17 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 6px;
+}

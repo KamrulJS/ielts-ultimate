@@ -1,0 +1,60 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.ques_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ques_div_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.ques_searchbar_3 {
+  width: 220px;
+}
+
+.ques_div_4 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ques_div_5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ques_div_6 {
+  display: flex;
+  gap: 6px;
+}
+
+.ques_h2_7 {
+  font-size: 1.05rem;
+}
+
+.ques_p_8 {
+  margin-top: 6px;
+  line-height: 1.55;
+}
+
+.ques_div_9 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.ques_span_10 {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}

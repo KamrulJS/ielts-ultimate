@@ -1,0 +1,23 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.moda_div_1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.moda_p_2 {
+  margin-top: 4px;
+}
+
+.moda_div_3 {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

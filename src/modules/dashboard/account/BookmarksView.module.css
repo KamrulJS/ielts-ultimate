@@ -1,0 +1,64 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.book_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book_div_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.book_div_3 {
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.book_div_4 {
+  display: flex;
+  gap: 6px;
+}
+
+.book_div_5 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book_div_6 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.book_p_7 {
+  margin-top: 6px;
+}
+
+.book_div_8 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book_div_9 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book_div_10 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book_div_11 {
+  font-weight: 700;
+  margin-top: 4px;
+}

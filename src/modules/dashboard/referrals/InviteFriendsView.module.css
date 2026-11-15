@@ -1,0 +1,51 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.invi_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.invi_div_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.invi_div_3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.invi_input_4 {
+  flex: 1 1 200px;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.invi_div_5 {
+  min-width: 0;
+  width: 100%;
+}
+
+.invi_h2_6 {
+  margin-bottom: 12px;
+}
+
+.invi_form_7 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.invi_div_8 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

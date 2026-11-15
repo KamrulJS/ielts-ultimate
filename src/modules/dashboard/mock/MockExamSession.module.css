@@ -1,0 +1,135 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.mock_div_1 {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mock_div_2 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mock_div_3 {
+  min-width: 160px;
+}
+
+.mock_main_4 {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mock_div_5 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mock_div_6 {
+  align-items: start;
+  gap: 20px;
+}
+
+.mock_div_7 {
+  max-height: 72vh;
+  overflow-y: auto;
+}
+
+.mock_h2_8 {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.mock_div_9 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 1.7;
+}
+
+.mock_p_10 {
+  font-size: 0.94rem;
+}
+
+.mock_div_11 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 72vh;
+  overflow-y: auto;
+}
+
+.mock_h2_12 {
+  margin-top: 10px;
+}
+
+.mock_p_13 {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+
+.mock_div_14 {
+  margin-top: 16px;
+}
+
+.mock_div_15 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.mock_ul_16 {
+  padding-left: 18px;
+  font-size: 0.82rem;
+}
+
+.mock_div_17 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mock_div_18 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mock_span_19 {
+  font-weight: 700;
+}
+
+.mock_div_20 {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mock_ul_21 {
+  padding-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock_div_22 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}

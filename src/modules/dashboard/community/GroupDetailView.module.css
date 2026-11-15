@@ -1,0 +1,48 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.grou_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grou_div_2 {
+  display: flex;
+  gap: 10px;
+}
+
+.grou_div_3 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.grou_div_4 {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grou_div_5 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.grou_div_6 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grou_div_7 {
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+
+.grou_p_8 {
+  margin-top: 4px;
+}

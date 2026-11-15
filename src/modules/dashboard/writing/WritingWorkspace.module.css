@@ -1,0 +1,106 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.writ_div_1 {
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.writ_div_2 {
+  max-width: 440px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.writ_div_3 {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background-color: var(--accent-purple-soft);
+  color: var(--accent-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writ_main_4 {
+  flex: 1;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+  align-items: start;
+}
+
+.writ_section_5 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.writ_div_6 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.writ_p_7 {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.writ_div_8 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.writ_ul_9 {
+  padding-left: 18px;
+  font-size: 0.83rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.writ_section_10 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.writ_div_11 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.writ_div_12 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.writ_textarea_13 {
+  min-height: 420px;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  padding: 16px;
+}
+
+.writ_div_14 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}

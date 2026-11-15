@@ -1,0 +1,55 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.writ_div_1 {
+  margin-top: 12px;
+}
+
+.writ_div_2 {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.writ_div_3 {
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.writ_div_4 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.writ_ul_5 {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.writ_div_6 {
+  background-color: var(--success-soft);
+  border-color: rgba(57,150,107,0.25);
+}
+
+.writ_div_7 {
+  height: 220px;
+  margin-top: 12px;
+}
+
+.writ_div_8 {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  height: 250px;
+}

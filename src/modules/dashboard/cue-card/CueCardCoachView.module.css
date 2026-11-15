@@ -1,0 +1,143 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.cuec_div_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.cuec_div_2 {
+  align-items: start;
+  gap: 18px;
+}
+
+.cuec_div_3 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cuec_div_4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cuec_div_5 {
+  display: flex;
+  gap: 6px;
+}
+
+.cuec_div_6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cuec_div_7 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cuec_ul_8 {
+  padding-left: 18px;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cuec_div_9 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cuec_div_10 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.cuec_div_11 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cuec_p_12 {
+  line-height: 1.7;
+}
+
+.cuec_div_13 {
+  min-width: 0;
+}
+
+.cuec_h3_14 {
+  font-size: 0.94rem;
+  margin-bottom: 8px;
+}
+
+.cuec_div_15 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.cuec_div_16 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  font-size: 0.81rem;
+  min-width: 0;
+}
+
+.cuec_span_17 {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cuec_span_18 {
+  flex-shrink: 0;
+}
+
+.cuec_div_19 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cuec_searchbar_20 {
+  width: 220px;
+}
+
+.cuec_div_21 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.cuec_div_22 {
+  font-weight: 700;
+  font-size: 0.92rem;
+}

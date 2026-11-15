@@ -1,0 +1,100 @@
+
+
+/* Refactored Zero-Inline-CSS Classes */
+.uipr_div_1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.uipr_span_2 {
+  font-weight: 600;
+  min-width: 34px;
+  text-align: right;
+}
+
+.uipr_div_3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.uipr_div_4 {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.uipr_span_5 {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.uipr_div_6 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.uipr_p_7 {
+  margin-top: 4px;
+  max-width: 680px;
+}
+
+.uipr_div_8 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.uipr_div_9 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.uipr_div_10 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.uipr_div_11 {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.uipr_div_12 {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.uipr_p_13 {
+  max-width: 420px;
+}
+
+.uipr_div_14 {
+  margin-top: 6px;
+}
+
+.uipr_div_15 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
